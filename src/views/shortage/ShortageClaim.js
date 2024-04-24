@@ -11,6 +11,7 @@ import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
+import Stepper from '../components/pages/Stepper';
 
 
 const ShortageClaim = () => {
@@ -174,7 +175,9 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' >Shortage Claim Reconciliation </Typography>}></DashboardCard>
+							<DashboardCard title={<Typography variant='h4' ></Typography>}>
+								<Stepper />
+							</DashboardCard>
 						</Grid>
 					</Grid>
 				</Grid>
