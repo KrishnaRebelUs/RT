@@ -59,7 +59,7 @@ const typography = {
     fontWeight: 400,
   },
   BigTitle: {
-    fontSize: '42px',
+    fontSize: '2.8rem',
     fontWeight: 600,
     lineHeight: '1.2em'
   },
