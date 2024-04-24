@@ -9,8 +9,6 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 
-
-
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     borderRadius:'7px',
@@ -20,12 +18,9 @@ const TableTypography = styled(TableHead)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
     fontSize: '16px'
 }));
-const TableRowStyled = styled(TableRow)(({ theme }) => ({
-     borderBottom: '1px solid #eee',
-}));
-const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
-    color: index % 2 === 0 ? theme.palette.secondary.main : theme.palette.accent.main,
-
+const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
+    borderBottom: '1px solid #eee',
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
 }));
 
 const shortagetble = [
@@ -85,7 +80,7 @@ const ShortageTable = () => {
     return (
         <DashboardCard  title={  <Typography variant='h4' > Shortage Claim Reconciliation </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
+                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap"}}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableCell>
@@ -108,8 +103,8 @@ const ShortageTable = () => {
                     </TableHeadStyled>
                     <TableBody>
                         {shortagetble.map((shortagetble, index) => (
-                            <TableRowStyled theme={theme} key={index}>
-                                   <TableCellStyled index={index}>
+                            <TableRowStyled theme={theme} key={index} index={index}>
+                                <TableCell>
                                     <Typography
                                         sx={{
                                             fontSize: "15px",
@@ -118,7 +113,7 @@ const ShortageTable = () => {
                                     >
                                         {shortagetble.Settlement}
                                     </Typography>
-                                </TableCellStyled>
+                                </TableCell>
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={600}>
                                         {shortagetble.Active}

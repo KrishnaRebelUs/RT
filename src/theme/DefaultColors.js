@@ -18,7 +18,7 @@ const baselightTheme = createTheme({
     },
     success: {
       main: '#09D880',
-      light: '#E6FFFA',
+      light: '#c8fff4',
       dark: '#02b3a9',
       contrastText: '#ffffff',
     },
@@ -53,7 +53,7 @@ const baselightTheme = createTheme({
     },
     accent: {
       main:'#f48124',
-      light: '#fef5e5',
+      light: '#FDEDE8',
       dark: '#dd222b'
     },
     text: {
