@@ -1,11 +1,15 @@
 import { useTheme } from '@emotion/react';
-import { useMediaQuery, Box, Drawer } from '@mui/material';
+import { useMediaQuery, Box, Drawer, styled} from '@mui/material';
 import Logo from '../shared/logo/Logo';
 import SidebarItems from './SidebarItems';
 
 const Sidebar = (props) => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const sidebarWidth = '270px';
+  const sidebarWidth = '300px';
+
+  const SidebarStyle = styled(Box)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main
+  }));
   const theme = useTheme();
 
   if (lgUp) {
@@ -22,14 +26,24 @@ const Sidebar = (props) => {
             },
           }}
         >
-          <Box sx={{ height: '100%' }}>
-            <Box px={3} style={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: '1px solid #eee' }} marginBottom={2}>
+          <SidebarStyle sx={{ height: '100%' }}>
+            <Box 
+              p={1}
+              mb={2}
+              style={{ 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center", 
+                borderBottom: '1px solid #eee', 
+                backgroundColor: '#fff' 
+              }}
+            >
               <Logo />
             </Box>
             <Box>
               <SidebarItems />
             </Box>
-          </Box>
+          </SidebarStyle>
         </Drawer>
       </Box>
     );

@@ -8,15 +8,15 @@ const ShortageClaim = () => {
   return (
       <PageContainer  title="Shortage Claim">
 			<Grid container spacing={3}>
-			<Grid item xs={12}>
-				<Breadcrumb titles={['Shortage Claim']} />
-			</Grid>
-			<Grid item xs={12}>
-				<Header title='Shortage'/>
-			</Grid>
-			<Grid item xs={12}>
-				<BulkShortage />
-			</Grid>
+				<Grid item xs={12}>
+					<Breadcrumb titles={['Shortage Claim']} />
+				</Grid>
+				<Grid item xs={12}>
+					<Header title='Shortage'/>
+				</Grid>
+				<Grid item xs={12}>
+					<BulkShortage />
+				</Grid>
 			</Grid>
 	  </PageContainer>
   )

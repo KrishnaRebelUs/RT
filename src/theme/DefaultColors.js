@@ -46,19 +46,18 @@ const baselightTheme = createTheme({
       300: '#DFE5EF',
       400: '#7C8FAC',
       500: '#5A6A85',
-      600: '#2A3547',
-
+      600: '#2A3547'
     },
     accent:{
       main:'#f48124',
       light: '#f4f5f9',
       dark: '#dd222b'
-      
     },
     text: {
       main: '#3a3541',
       light:'#89868D',
-      disabled: '#B4B2B7'
+      disabled: '#B4B2B7',
+      white: '#fff'
     },
     action: {
       disabledBackground: 'rgba(73,82,88,0.12)',

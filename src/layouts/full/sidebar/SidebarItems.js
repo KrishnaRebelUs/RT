@@ -10,7 +10,7 @@ const SidebarItems = () => {
   const pathDirect = pathname;
 
   return (
-    <Box sx={{ px: 3 }}>
+    <Box sx={{ px: 2 }}>
       <List sx={{ pt: 0 }} className="sidebarNav">
         {Menuitems.map((item) => {
           // {/********SubHeader**********/}
