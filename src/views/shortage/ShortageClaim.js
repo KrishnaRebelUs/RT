@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, styled, Button, Divider, Avatar } from '@mui/material';
+import { Grid, Typography, Box, styled, Button, Divider, Avatar,  } from '@mui/material';
 import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -11,6 +11,14 @@ import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
+
+export const ExportCSVBTN = () => {
+
+	return (
+		<Button variant="contained" color="primary">Export CSV</Button>
+	);
+};
+import Stepper from '../components/pages/Stepper';
 
 
 const ShortageClaim = () => {
@@ -62,8 +70,10 @@ const ShortageClaim = () => {
 		}
 	
 		}));
+
 	return (
 		<PageContainer title="Shortage Claim">
+			
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Breadcrumb titles={['Shortage Claim']} />
@@ -174,7 +184,9 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' >Shortage Claim Reconciliation </Typography>}></DashboardCard>
+							<DashboardCard title={<Typography variant='h4' ></Typography>}>
+								<Stepper />
+							</DashboardCard>
 						</Grid>
 					</Grid>
 				</Grid>
