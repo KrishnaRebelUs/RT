@@ -65,6 +65,8 @@ const WinRate = () => {
                     fontSize: '14px', 
                     colors: yAxisLabelColors
                 },
+                maxWidth: 200,
+                
             },
         },
         xaxis: {
