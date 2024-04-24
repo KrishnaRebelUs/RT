@@ -33,7 +33,7 @@ const typography = {
   h6: {
     fontWeight: 600,
     fontSize: '1rem',
-    lineHeight: '1.2rem',
+    lineHeight: '1.6rem',
   },
   button: {
     textTransform: 'capitalize',
@@ -62,6 +62,10 @@ const typography = {
     fontSize: '42px',
     fontWeight: 600,
     lineHeight: '1.2em'
+  },
+  tableData: {
+    fontSize: '14px',
+    fontWeight: 500
   }
 };
 

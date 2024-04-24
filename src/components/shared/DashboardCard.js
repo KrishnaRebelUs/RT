@@ -6,6 +6,7 @@ const DashboardCard = ({
   subtitle,
   children,
   action,
+  date,
   footer,
   cardheading,
   headtitle,
@@ -50,6 +51,7 @@ const DashboardCard = ({
                 )}
               </Box>
               {action}
+              {date}
             </Stack>
           ) : null}
 

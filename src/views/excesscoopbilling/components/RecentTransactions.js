@@ -12,19 +12,24 @@ import {
 } from '@mui/lab';
 import { Link, Typography ,styled} from '@mui/material';
 import { useTheme } from '@emotion/react';
+import { Box } from '@mui/system';
 
 const RecentTransactions = () => {
+  
   const theme = useTheme();
   const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.text.dark,
-	  }));
+	}));
+  const TimelineStyled = styled(Box)(({ theme }) => ({
+		minHeight: '300px',
+    overflowY: 'auto'
+	}));
+
   return (
     <DashboardCard  title={
-      <TypographyStyled variant='h4' sx={{ color: theme.palette.secondary.main }}>
-        Hits & Misses
-      </TypographyStyled>
+      <TypographyStyled variant='h5'>Hits & Misses</TypographyStyled>
     } >
-      <>
+      <TimelineStyled>
         <Timeline
           className="theme-timeline"
           nonce={undefined}
@@ -38,7 +43,7 @@ const RecentTransactions = () => {
               backgroundColor: '#efefef'
             },
             [`& .${timelineOppositeContentClasses.root}`]: {
-              flex: 0.5,
+              flex: 0.3,
               paddingLeft: 0,
             },
           }}
@@ -73,29 +78,6 @@ const RecentTransactions = () => {
             <TimelineContent>Payment was made of $64.95 to Michael</TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="warning" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
-              <Link href="/" underline="none">
-                #ML-3467
-              </Link>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="error" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography fontWeight="600">New arrival recorded</Typography>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
             <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
@@ -103,7 +85,7 @@ const RecentTransactions = () => {
             <TimelineContent>Payment Received</TimelineContent>
           </TimelineItem>
         </Timeline>
-      </>
+      </TimelineStyled>
     </DashboardCard>
   );
 };

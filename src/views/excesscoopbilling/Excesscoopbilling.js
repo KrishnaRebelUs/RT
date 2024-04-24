@@ -5,14 +5,14 @@ import AuditTime from './components/AuditTime';
 import Disputed from './components/Disputed';
 import EfficencyAssesment from './components/EfficencyAssesment';
 import GranularAnalysis from './components/GranularAnalysis';
-import Header from '../../components/pages/Header';
-import Breadcrumb from '../../components/pages/Breadcrumb';
+import Header from '../components/pages/Header';
+import Breadcrumb from '../components/pages/Breadcrumb';
 import Impactoverview from './components/Impactoverview';
 import JobProgress from './components/JobProgress';
 import RecentTransactions from './components/RecentTransactions';
 import RecoupedAmount from './components/RecoupedAmount';
 import WinRate from './components/WinRate';
-import YearlyTrend from '../../components/pages/YearlyTrend';
+import YearlyTrend from '../components/pages/YearlyTrend';
 import DashboardCard from '../../components/shared/DashboardCard';
 import piggy from "src/assets/images/piggy-bank.gif";
 import { useTheme } from "@emotion/react";
@@ -69,10 +69,10 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={4} style={{ position: 'relative' }}>	
 					<Impactoverview />
 				</Grid>
-				<Grid item xs={12} lg={7}>
+				<Grid item xs={12} lg={6}>
 					<GranularAnalysis />
 				</Grid>
-				<Grid item xs={12} lg={5}>
+				<Grid item xs={12} lg={6}>
 					<WinRate />
 				</Grid>
 				<Grid item xs={12} lg={5}>	

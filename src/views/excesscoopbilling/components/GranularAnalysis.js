@@ -13,40 +13,50 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 const TypographyStyled = styled(Typography)({});
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.extraLight
+    backgroundColor: theme.palette.primary.main
 }));
-const TableTypography = styled(TableHead)(({ theme }) => ({
-    color: theme.palette.primary.main,
+const TableTypography = styled(TableCell)(({ theme }) => ({
+    color: 'white',
     fontWeight: '600',
-    fontSize: '16px'
+    fontSize: '14px'
 }));
-const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
-    color: index % 2 === 0 ? theme.palette.secondary.main : theme.palette.accent.main,
+const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
+    borderBottom: '1px solid #eee',
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight,
 }));
-
-const products = [
-    {
-        Subtype: "Duplicate Freight",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
-    },
-    {
-        Subtype: "Duplicate",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
-    },
-    {
-        Subtype: "Duplicate odd",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
-    }
-];
 
 const GranularAnalysis = () => {
     const theme = useTheme(); 
+    const products = [
+        {
+            Subtype: "Duplicate Freight",
+            Findings$: "362,356.00",
+            PriorAdjustments$: "362,356.00",
+            NetOff: "3.9",
+            color: theme.palette.success.dark
+        },
+        {
+            Subtype: "Non-compliant Freight",
+            Findings$: "362,356.00",
+            PriorAdjustments$: "362,356.00",
+            NetOff: "3.9",
+            color: theme.palette.accent.main
+        },
+        {
+            Subtype: "Miscellaneous",
+            Findings$: "362,356.00",
+            PriorAdjustments$: "362,356.00",
+            NetOff: "3.9",
+            color: theme.palette.primary.main
+        },
+        {
+            Subtype: "Duplicate Billing",
+            Findings$: "362,356.00",
+            PriorAdjustments$: "362,356.00",
+            NetOff: "3.9",
+            color: theme.palette.warning.main
+        }
+    ];
     return (
         <DashboardCard title={
             <TypographyStyled variant='h4' sx={{ color: theme.palette.text.dark }}>
@@ -56,52 +66,36 @@ const GranularAnalysis = () => {
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap" }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Sub-type
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Findings $
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Prior Adjustments $
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Net Off
-                                </TableTypography>
-                            </TableCell>
+                            <TableTypography variant="subtitle2" fontWeight={600}>Sub-type</TableTypography>
+                            <TableTypography variant="subtitle2" fontWeight={600}>Findings $</TableTypography>
+                            <TableTypography variant="subtitle2" fontWeight={600}>Prior Adjustments $</TableTypography>
+                            <TableTypography variant="subtitle2" fontWeight={600}>Net Off</TableTypography>
                         </TableRow>
                     </TableHeadStyled>
                     <TableBody>
                         {products.map((product, index) => (
-                            <TableRow key={index}>
-                                   <TableCellStyled index={index}>
-                                    <Typography variant="h6">
+                            <TableRowStyled key={index} index={index} theme={theme}>
+                                <TableCell index={index} style={{ color: product.color}}>
+                                    <Typography variant="tableData">
                                         {product.Subtype}
                                     </Typography>
-                                </TableCellStyled>
+                                </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6">
+                                    <Typography variant="tableData">
                                         {product.Findings$}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6">
+                                    <Typography variant="tableData">
                                         {product.PriorAdjustments$}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6">
+                                    <Typography variant="tableData">
                                         {product.NetOff}
                                     </Typography>
                                 </TableCell>
-                            </TableRow>
+                            </TableRowStyled>
                         ))}
                     </TableBody>
                 </Table>

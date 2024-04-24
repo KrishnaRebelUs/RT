@@ -2,17 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import ApexCharts from 'apexcharts';
 import { useTheme } from "@emotion/react";
 
-const BarChart = ({ color, percentage }) => {
+const BarChart = ({ color, percentage, chartWidth, chartHeight, chartLableFonrSize }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const theme = useTheme();
   
   useEffect(() => {
-    console.log('Percentage changed:', percentage);
     const options = {
       chart: {
-        width: 200,
-        height: 200,
+        width: [chartWidth],
+        height: [chartHeight],
         type: "radialBar"
       },
       
@@ -32,7 +31,7 @@ const BarChart = ({ color, percentage }) => {
             },
             value: {
               color: theme.palette.text.main,
-              fontSize: "20px",
+              fontSize: [chartLableFonrSize],
               fontFamily: "'Plus Jakarta Sans', sans-serif;",
               show: true,
               offsetY: 5, 

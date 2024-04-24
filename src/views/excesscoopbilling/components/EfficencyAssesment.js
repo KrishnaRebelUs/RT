@@ -51,7 +51,7 @@ const EfficencyAssesment = () => {
 
     return (
         <DashboardCard  title={
-            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
+            <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>
               Efficiency Assessment
             </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>

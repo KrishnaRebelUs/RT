@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardCard from '../shared/DashboardCard';
+import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled, Button, Stack, Typography, Grid, Divider } from '@mui/material';
 import {IconChevronRight} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';

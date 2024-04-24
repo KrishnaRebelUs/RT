@@ -8,7 +8,7 @@ import {
     TableRow, styled, useTheme, Button, LinearProgress
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import { IconArrowNarrowUp } from '@tabler/icons-react';
+import { IconFileArrowRight } from '@tabler/icons-react';
 
 const job = [
     {
@@ -63,16 +63,18 @@ const TableTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    border: '1px solid currentColor',
-    color: theme.palette.primary.contrastText,
-    fontSize: '16px',
-    padding: '4px 10px',
+    backgroundColor: theme.palette.primary.extraLight,
+    border: '1px solid',
+    borderColor: theme.palette.primary.light,
+    color: theme.palette.primary.main,
+    fontSize: '13px',
+    padding: '5px 12px',
+    fontWeight: '600',
     '&:hover': {
-        backgroundColor: theme.palette.primary.contrastText,
-        color: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
+        color: 'white',
     },
-}));
+  }));
 
 const JobProgress = () => {
     const theme = useTheme();
@@ -83,7 +85,7 @@ const JobProgress = () => {
                 Jobs in Progress
             </Typography>
         } action={
-            <ButtonStyled>Export  <IconArrowNarrowUp size="16" /></ButtonStyled>
+            <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
         }>
             <Box>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 3 }}>
@@ -106,7 +108,7 @@ const JobProgress = () => {
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Agreement Id/ Disputed Id
+                                    Agreement Id / Disputed Id
                                 </TableTypography>
                             </TableCell>
                             <TableCell>
@@ -168,8 +170,8 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Box display="flex" alignItems="center">
-                                        <LinearProgress variant="determinate" value={job.Progress} sx={{ flexGrow: 1, borderRadius: 10, mr: 1 }} />
-                                        <Typography variant="body2">{job.Progress}%</Typography>
+                                        <LinearProgress variant="determinate" value={job.Progress} sx={{ height: '8px', flexGrow: 1, borderRadius: 10, mr: 1 }} />
+                                        <Typography variant="h6">{job.Progress}%</Typography>
                                     </Box>
                                 </TableCell>
                             </TableRow>

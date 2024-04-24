@@ -1,15 +1,16 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
-import {Typography } from '@mui/material';
+import {Divider, Typography } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
+import { IconAnchor } from '@tabler/icons-react';
 
 const WinRate = () => {
     const theme = useTheme();
     const primary = theme.palette.primary.main;
     const secondary = theme.palette.secondary.main;
 
-    const yAxisLabelColors = [theme.palette.text.primary, theme.palette.text.secondary];
+    const yAxisLabelColors = [theme.palette.success.dark, theme.palette.accent.main, theme.palette.primary.main, theme.palette.warning.main];
 
     const optionsWinRate = {
         chart: {
@@ -20,19 +21,18 @@ const WinRate = () => {
                 show: false,
             },
             offsetX: -20,
-            height: 50,
         },
         colors: [primary, secondary], 
         plotOptions: {
             bar: {
                 horizontal: true,
-                barHeight: '40%',
+                barHeight: '70%',
                 columnWidth: '100%',
                 borderRadius: [6],
                 borderRadiusApplication: 'end',
                 borderRadiusWhenStacked: 'all',
                 dataLabels: {
-                    position: 'center',
+                    position: 'center'
                 },
             },
         },
@@ -46,7 +46,7 @@ const WinRate = () => {
             enabled: false,
         },
         legend: {
-            show: false,
+            show: true,
         },
         grid: {
             borderColor: 'rgba(0,0,0,0.1)',
@@ -58,12 +58,12 @@ const WinRate = () => {
             },
         },
         yaxis: {
-            tickAmount: 4,
+            tickAmount: 5,
             show: true,
             labels: {
                 style: {
-                    fontSize: '14px', 
-                    colors: yAxisLabelColors, 
+                    fontSize: '16px', 
+                    colors: yAxisLabelColors
                 },
             },
         },
@@ -74,7 +74,8 @@ const WinRate = () => {
             },
             labels: {
                 style: {
-                    colors: theme.palette.text.primary, 
+                    colors: theme.palette.text.primary,
+                    fontSize: '14px'
                 },
             },
         },
@@ -96,6 +97,7 @@ const WinRate = () => {
             <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
                 Win Rate
             </Typography>}>
+            <Divider/>
             <Chart
                 options={optionsWinRate}
                 series={seriesWinRate}
