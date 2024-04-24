@@ -24,7 +24,7 @@ const Excesscoopbilling = () => {
 	const theme = useTheme();
   	
 	return (
-      <PageContainer  title="Excess Coop Billing">
+      <PageContainer title="Excess Coop Billing">
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Breadcrumb titles={['Excess Coop Billing']} />

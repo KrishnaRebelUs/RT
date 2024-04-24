@@ -14,7 +14,7 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: 'Excees Coop',
+    title: 'Excess Coop Billing',
     icon: IconChartHistogram,
     href: '/excess-coop-billing',
   },

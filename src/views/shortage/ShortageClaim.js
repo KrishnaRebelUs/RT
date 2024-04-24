@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Box, styled, Button } from '@mui/material';
+import { Grid, Stack, Typography, Box, styled, Button, Divider } from '@mui/material';
 import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -19,8 +19,7 @@ const ShortageClaim = () => {
 		  color:theme.palette.success.main,
 		  width: '50px',
 		}
-	
-		}));
+	}));
 	const ButtonStyled = styled(Button)(({ theme }) => ({
 		backgroundColor: theme.palette.primary.main,
 		border: '1px solid currentColor',
@@ -31,7 +30,7 @@ const ShortageClaim = () => {
 			backgroundColor: theme.palette.primary.contrastText,
 			color: theme.palette.primary.dark,
 		  },
-	  }));
+	}));
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	}));
@@ -53,26 +52,30 @@ const ShortageClaim = () => {
 					<Breadcrumb titles={['Shortage Claim']} />
 				</Grid>
 				<Grid item xs={12}>
-					<Header title='Shortage' />
+					<Header title='Shortage Claim' />
 				</Grid>
 				<Grid item xs={12}>
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
+						<Grid item xs={12} mt={2}>
 							<TypographyTitle variant='h3'>Bulk Shortage Dispute - Historical</TypographyTitle>
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' >
-								Shortage Claim Finding
-							</Typography>}>
-								<Stack direction='row' spacing={2} useFlexGap justifyContent="space-between">
-									<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
-								</Stack>
-								<Stack direction='row' spacing={4} useFlexGap marginTop={3}>
-									<Box>
+							<DashboardCard 
+								title={
+								<Typography variant='h4' >
+									Shortage Claim Finding
+								</Typography>}
+							>
+								<Grid container spacing={3}>
+									<Grid item xs={12}>
+										<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
+									</Grid>
+									<Grid item xs={12}><Divider /></Grid>
+									<Grid item xs={12}>
 										<TypographyPayment variant='h5'>Shortage claims audit:</TypographyPayment>
 										<TypographyDate variant='h6'>11-Jan-2018 to 13-Dec-2021</TypographyDate>
-									</Box>
-								</Stack>
+									</Grid>
+								</Grid>
 							</DashboardCard>
 						</Grid>
 						<Grid item xs={12} lg={4}>

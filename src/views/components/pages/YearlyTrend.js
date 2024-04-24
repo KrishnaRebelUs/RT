@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
-import {Box, styled,Button,  Stack, Typography, Dialog,DialogTitle, DialogContent, Grid} from '@mui/material';
+import {Box, styled,Button,  Stack, Typography, Dialog,DialogTitle, DialogContent, Grid, Divider} from '@mui/material';
 import {IconChevronRight, IconX} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
 const YearlyTrend = () => {
@@ -43,23 +43,21 @@ const YearlyTrend = () => {
 	} action={
 		<ButtonStyled onClick={handleClick} >View Details  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
-     <>
-	    <Stack direction='row' spacing={4} useFlexGap justifyContent="space-between" alignItems='center'>
-			<Box>
-               <TypographyStyled variant='h4' marginBottom={2} sx={{ color: theme.palette.primary.main }}>2024</TypographyStyled>
-			   <Typography variant='h3'>$8989</Typography>
-			</Box>
-		</Stack>
-		<Stack direction='row' spacing={4} useFlexGap marginTop={2}>
-			<Box>
-			<TypographyStyled variant='h6' marginBottom={1} sx={{ color: theme.palette.accent.main }}>2022</TypographyStyled>
-			<Typography variant='h6'sx={{ color: theme.palette.text.dark }} ><b>$ 1,280,966.35</b></Typography>
-			</Box>
-			<Box>
-			<TypographyStyled variant='h6' marginBottom={1}  sx={{ color: theme.palette.success.main }}>2023</TypographyStyled>
-			<Typography variant='h6'>$ 1,680,966.35</Typography>
-			</Box>
-        </Stack>
+		<TypographyStyled variant='h6'>2024</TypographyStyled>
+		<Typography variant='BigTitle' sx={{ color: theme.palette.primary.main }}>$8989</Typography>
+		
+		<Box my={2}><Divider /></Box>
+
+		<Grid container spacing={3}>
+			<Grid item sm={6}>
+				<TypographyStyled variant='h6' mb={1}>2022</TypographyStyled>
+				<Typography variant='h5'sx={{ color: theme.palette.accent.main }} ><b>$ 1,280,966.35</b></Typography>
+			</Grid>
+			<Grid item sm={6}>
+				<TypographyStyled variant='h6' mb={1}>2023</TypographyStyled>
+				<Typography variant='h5' sx={{ color: theme.palette.success.dark }}>$ 1,680,966.35</Typography>
+			</Grid>
+		</Grid>
 		<Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth>
 			<Stack direction='row' justifyContent="space-between">
 				<DialogTitle variant='h3'>YoY Split</DialogTitle>
@@ -77,9 +75,7 @@ const YearlyTrend = () => {
 					</Grid>
 				</Grid>
 			</DialogContent>	
-		</Dialog>
-	
-	 </>		
+		</Dialog>		
 
 	</DashboardCard>
   )
