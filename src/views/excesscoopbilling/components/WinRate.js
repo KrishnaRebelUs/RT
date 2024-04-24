@@ -62,9 +62,11 @@ const WinRate = () => {
             show: true,
             labels: {
                 style: {
-                    fontSize: '16px', 
+                    fontSize: '14px', 
                     colors: yAxisLabelColors
                 },
+                maxWidth: 200,
+                
             },
         },
         xaxis: {
