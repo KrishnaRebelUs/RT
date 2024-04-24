@@ -19,7 +19,7 @@ const Header = ({ title }) => {
     <ListItemStyled>
       <Grid container spacing={2} alignItems="center" justifyContent='space-between' marginTop={0} marginLeft={0}>
         <Grid item xs={6} style={{ paddingTop: '0', marginTop:'0', paddingLeft:'16px'}}>
-          <TypographyStyled variant="h5">{title}</TypographyStyled>
+          <TypographyStyled variant="h3">{title}</TypographyStyled>
         </Grid>
         <Grid item xs={6} style={{ textAlign: 'end', paddingTop: '0', marginTop: '0' }}>
           <img src={man} alt="Man working on laptop" style={{ width: '70px' }} />

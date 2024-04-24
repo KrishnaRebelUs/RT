@@ -2,26 +2,26 @@ import { Grid, Stack } from '@mui/material';
 import React from 'react'
 import PageContainer from 'src/components/container/PageContainer';
 import Breadcrumb from '../components/pages/Breadcrumb';
-import DisputeTable from './components/DisputeTable';
 import Header from '../components/pages/Header';
+import ShortageLogTable from '../components/pages/ShortageLogTable';
 
 
-const ManageDispute = () => {
+const ShortageLog = () => {
   return (
-        <PageContainer  title="Manage Dispute">
+        <PageContainer  title="">
 			<Grid container spacing={3}>
 		      <Grid item xs={12}>
-                <Breadcrumb titles={['Excess Coop', 'Manage Dispute']} />
+                <Breadcrumb titles={['Shortage Claim', 'Shortage Log']} />
               </Grid>		
 			  <Grid item xs={12}>
-				<Header title='Manage Dispute'/>
+				<Header title='Shortage Log'/>
 			  </Grid>
 			  <Grid item xs={12}>
-			   <DisputeTable />
+			   <ShortageLogTable />
 			  </Grid>
 			</Grid>
 	    </PageContainer>
   )
 }
 
-export default ManageDispute;
+export default ShortageLog;
