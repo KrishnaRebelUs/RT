@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardCard from '../shared/DashboardCard';
+import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled,Button,  Stack, Typography } from '@mui/material';
 import {IconChevronRight} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
@@ -20,10 +20,10 @@ const YearlyTrend = () => {
 	  }));
 	  const theme= useTheme();
   return (
-    <DashboardCard   title={
-		<TypographyStyled variant='h4' sx={{ color: theme.palette.primary.main }}>
+    <DashboardCard title={
+		<Typography variant='h4'>
 			Yearly Trends
-		</TypographyStyled>
+		</Typography>
 	} action={
 		<ButtonStyled>View Details  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
@@ -31,7 +31,7 @@ const YearlyTrend = () => {
 	    <Stack direction='row' spacing={4} useFlexGap justifyContent="space-between" alignItems='center'>
 			<Box>
                <TypographyStyled variant='h4' marginBottom={2} sx={{ color: theme.palette.primary.main }}>2024</TypographyStyled>
-			   <Typography variant='h5'>$8989</Typography>
+			   <Typography variant='h3'>$8989</Typography>
 			</Box>
 		</Stack>
 		<Stack direction='row' spacing={4} useFlexGap marginTop={2}>

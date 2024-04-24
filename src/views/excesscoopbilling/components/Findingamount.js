@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled,  Stack, Typography } from '@mui/material';
-import piggy from "src/assets/images/products/1.gif"; 
+import piggy from "src/assets/images/products/1.jpg"; 
 import { useTheme } from '@emotion/react';
 
 const Findingamount = () => {

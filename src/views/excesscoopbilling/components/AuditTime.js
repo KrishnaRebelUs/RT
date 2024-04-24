@@ -2,7 +2,7 @@ import React from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled,  Stack, Typography,Avatar } from '@mui/material';
 import {IconClock,IconBriefcase, IconCoinPound} from '@tabler/icons-react';
-import BarChart from '../../../components/pages/BarChart';
+import BarChart from '../../components/pages/BarChart';
 import { useTheme } from '@emotion/react';
 
 

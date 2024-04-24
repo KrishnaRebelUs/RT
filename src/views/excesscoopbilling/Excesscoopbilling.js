@@ -6,14 +6,14 @@ import Disputed from './components/Disputed';
 import EfficencyAssesment from './components/EfficencyAssesment';
 import Findingamount from './components/Findingamount';
 import GranularAnalysis from './components/GranularAnalysis';
-import Header from '../../components/pages/Header';
-import Breadcrumb from '../../components/pages/Breadcrumb';
+import Header from '../components/pages/Header';
+import Breadcrumb from '../components/pages/Breadcrumb';
 import Impactoverview from './components/Impactoverview';
 import JobProgress from './components/JobProgress';
 import RecentTransactions from './components/RecentTransactions';
 import RecoupedAmount from './components/RecoupedAmount';
 import WinRate from './components/WinRate';
-import YearlyTrend from '../../components/pages/YearlyTrend';
+import YearlyTrend from '../components/pages/YearlyTrend';
 
 const Excesscoopbilling = () => {
   return (

@@ -1,23 +1,15 @@
 import React from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
-import {Box, styled,  Stack, Typography,Avatar,Grid } from '@mui/material';
-import {IconClock,IconBriefcase, IconCoinPound} from '@tabler/icons-react';
-import BarChart from '../../../components/pages/BarChart';
+import {Box, styled, Typography,Grid } from '@mui/material';
+import BarChart from '../../components/pages/BarChart';
 import { useTheme } from '@emotion/react';
+import NumberData from '../../components/pages/NumberData';
 
 
 const Impactoverview = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	  }));
-    const AvatarStyled = styled(Avatar)(({ theme }) => ({
-      backgroundColor: theme.palette.primary.light,
-      borderRadius: '7px',
-     '& svg':{
-        color:theme.palette.primary.contrastText,
-      }
-
-      }));
       const theme = useTheme();
   return (
     <DashboardCard title={
@@ -37,41 +29,9 @@ const Impactoverview = () => {
               <BarChart  color={theme.palette.accent.main} percentage={77.5} width='70px'  />
           </Grid>
      </Grid>
-		<Stack direction='column'marginTop={3}>
-      <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-        <Stack direction='row' spacing={2} alignItems="center" marginBottom={2}>
-          <AvatarStyled sizes='21'>
-              <IconClock />
-          </AvatarStyled>
-          <Box>
-            <Typography variant='h6' className='card-text text-dark'>Hour Saved</Typography>
-          </Box>
-        </Stack>
-        <Typography  variant='h6' className='card-text text-dark'>18</Typography>
-      </Stack>
-      <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-        <Stack direction='row'spacing={2} alignItems="center">
-          <AvatarStyled sizes='21'>
-            <IconBriefcase />
-          </AvatarStyled>
-          <Box>
-            <Typography variant='h6' className='card-text text-dark'>Hour Saved</Typography>
-          </Box>
-        </Stack>
-        <Typography  variant='h6' className='card-text text-dark'>18</Typography>
-      </Stack>
-      <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-        <Stack direction='row'spacing={2} alignItems="center">
-          <AvatarStyled sizes='21'>
-            <IconCoinPound />
-          </AvatarStyled>
-          <Box>
-            <Typography variant='h6' className='card-text text-dark'>Money Saved</Typography>
-          </Box>
-        </Stack>
-        <Typography  variant='h6' className='card-text text-dark'>18</Typography>
-      </Stack>       
-    </Stack>    
+		<Box>
+      <NumberData />
+    </Box>
 	 </>		
 
 	</DashboardCard>
