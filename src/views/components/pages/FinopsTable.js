@@ -5,7 +5,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import DataTable from 'react-data-table-component';
-
+import {IconFileArrowRight} from '@tabler/icons-react';
+import '../../../theme/TableStyle.css'
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main
@@ -26,10 +27,24 @@ const TabStyled = styled(Tab)(({ theme}) => ({
     padding: 0
 }));
 
+const ButtonStyled = styled(Button)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.extraLight,
+    border: '1px solid',
+    borderColor: theme.palette.primary.light,
+    color: theme.palette.primary.main,
+    fontSize: '13px',
+    padding: '5px 12px',
+    fontWeight: '600',
+    '&:hover': {
+        backgroundColor: theme.palette.primary.main,
+        color: 'white',
+    },
+}));
+
 export const ExportCSVBTN = () => {
 
 	return (
-		<Button variant="contained" color="primary">Export CSV</Button>
+		<ButtonStyled variant="contained" color="primary">Export <Box style={{ display: 'flex', alignItems: 'center', marginLeft: '5px' }}><IconFileArrowRight width="20" /></Box></ButtonStyled>
 	);
 };
 

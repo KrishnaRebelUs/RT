@@ -78,7 +78,7 @@ const shortagetble = [
 const ShortageTable = () => {
     const theme = useTheme(); 
     return (
-        <DashboardCard  title={  <Typography variant='h4' > Shortage Claim Reconciliation </Typography>}>
+        <DashboardCard  title={  <Typography variant='h5' > Shortage Claim Reconciliation </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap"}}>
                     <TableHeadStyled theme={theme}>

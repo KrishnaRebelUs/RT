@@ -1,0 +1,21 @@
+:root {
+    --primary: #285a9e;
+    --primary-light: rgb(236, 242, 255);
+}
+.mHisf.rdt_TableHeadRow {
+    background-color: var(--primary);
+    color: #fff;
+}
+.kGckkd.rdt_TableHead, .rdt_TableCell {
+    font-size: 14px;
+    font-weight: 500;
+}
+div.evaFvq {
+    position: inherit;
+}
+div.kUMlDB, div.kUMlDB:not(:last-of-type) {
+    border: none;
+}
+div.kUMlDB:nth-child(even) {
+    background-color: var(--primary-light);
+}

@@ -18,7 +18,7 @@ export const ExportCSVBTN = () => {
 		<Button variant="contained" color="primary">Export CSV</Button>
 	);
 };
-import Stepper from '../components/pages/Stepper';
+import CustomStepper from '../components/pages/CustomStepper';
 
 
 const ShortageClaim = () => {
@@ -184,8 +184,8 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' ></Typography>}>
-								<Stepper />
+							<DashboardCard title={<Typography variant='h5'>Current Progress</Typography>}>
+								<CustomStepper />
 							</DashboardCard>
 						</Grid>
 					</Grid>
@@ -231,7 +231,7 @@ const ShortageClaim = () => {
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-						<FinopsTable />
+					<FinopsTable />
 				</Grid>
 
 			</Grid>
