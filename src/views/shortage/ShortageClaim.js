@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Box, styled } from '@mui/material';
+import { Grid, Stack, Typography, Box, styled, Button } from '@mui/material';
 import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -8,9 +8,30 @@ import PageContainer from '../../components/container/PageContainer';
 import ShortageTable from '../components/pages/ShortageTable';
 import FinopsTable from '../components/pages/FinopsTable';
 import { useTheme } from '@emotion/react';
+import { Link } from 'react-router-dom';
+import {IconChevronRight,IconThumbUp} from '@tabler/icons-react';
+
 
 const ShortageClaim = () => {
 	const theme = useTheme();
+	const BoxStyled = styled(Box)(({ theme }) => ({
+	   '& svg':{
+		  color:theme.palette.success.main,
+		  width: '50px',
+		}
+	
+		}));
+	const ButtonStyled = styled(Button)(({ theme }) => ({
+		backgroundColor: theme.palette.primary.main,
+		border: '1px solid currentColor',
+		color: theme.palette.primary.contrastText,
+		fontSize: '12px',
+		padding: '4px 10px',
+		'&:hover': {
+			backgroundColor: theme.palette.primary.contrastText,
+			color: theme.palette.primary.dark,
+		  },
+	  }));
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	}));
@@ -78,12 +99,9 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={  <Typography variant='h4' >
-											Shortage Claim Finding
-										</Typography>}>
+							<DashboardCard title={<Typography variant='h4' >Shortage Claim Finding </Typography>}>
 							</DashboardCard>
 						</Grid>
-
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
@@ -91,19 +109,19 @@ const ShortageClaim = () => {
 						<Grid item xs={12}>
 							<TypographyTitle variant='h3'>Itemized Shortage Claim Dispute - Ongoing</TypographyTitle>
 						</Grid>
-						<Grid item xs={12} lg={3}>
+						<Grid item xs={12} lg={4}>
 							<DashboardCard title={<Typography variant='h4' >
 								Total Dispute
 							</Typography>}>
 								<Stack direction='row' spacing={2} useFlexGap justifyContent="space-between">
-									<TypographyStyled variant='h2' ><b>$ 929,98.90</b></TypographyStyled>
+									<Typography variant='h2' ><b>$ 929,98.90</b></Typography>
 								</Stack>
 								<Stack direction='left' spacing={4} useFlexGap marginTop={3}>
 									<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-alert-octagon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12.802 2.165l5.575 2.389c.48 .206 .863 .589 1.07 1.07l2.388 5.574c.22 .512 .22 1.092 0 1.604l-2.389 5.575c-.206 .48 -.589 .863 -1.07 1.07l-5.574 2.388c-.512 .22 -1.092 .22 -1.604 0l-5.575 -2.389a2.036 2.036 0 0 1 -1.07 -1.07l-2.388 -5.574a2.036 2.036 0 0 1 0 -1.604l2.389 -5.575c.206 -.48 .589 -.863 1.07 -1.07l5.574 -2.388a2.036 2.036 0 0 1 1.604 0z" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
 								</Stack>
 							</DashboardCard>
 						</Grid>
-						<Grid item xs={12} lg={3}>
+						<Grid item xs={12} lg={4}>
 							<DashboardCard title={<Typography variant='h4' >
 								Total Pending With Amazon
 							</Typography>}>
@@ -115,7 +133,7 @@ const ShortageClaim = () => {
 								</Stack>
 							</DashboardCard>
 						</Grid>
-						<Grid item xs={12} lg={3}>
+						<Grid item xs={12} lg={4}>
 							<DashboardCard title={<Typography variant='h4' >
 								Total Denied
 							</Typography>}>
@@ -127,15 +145,18 @@ const ShortageClaim = () => {
 								</Stack>
 							</DashboardCard>
 						</Grid>
-						<Grid item xs={12} lg={3}>
-							<DashboardCard title={<Typography variant='h4' >
-								Total Approved
-							</Typography>}>
+						<Grid item xs={12} lg={4}>
+							<DashboardCard title={<Typography variant='h6'>Total Approved
+							</Typography>}  action={
+		                            <ButtonStyled component={Link} to="/shortage-log">View Details  <IconChevronRight  size="16" /></ButtonStyled>}>
+							
 								<Stack direction='row' spacing={2} useFlexGap justifyContent="space-between">
 									<TypographyStyled variant='h2' ><b>$ 111,98.90</b></TypographyStyled>
 								</Stack>
 								<Stack direction='left' spacing={4} useFlexGap marginTop={3}>
-								<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-thumb-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3" /></svg>
+							    	<BoxStyled>
+									    <IconThumbUp size='300' />
+									</BoxStyled>
 								</Stack>
 							</DashboardCard>
 						</Grid>

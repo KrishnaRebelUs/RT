@@ -13,7 +13,7 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 const TypographyStyled = styled(Typography)({});
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.light,
     borderRadius:'7px',
    
 }));
