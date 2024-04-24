@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, styled, Button, Divider, Avatar } from '@mui/material';
+import { Grid, Typography, Box, styled, Button, Divider, Avatar,  } from '@mui/material';
 import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -11,6 +11,14 @@ import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
+import DataTable from 'react-data-table-component';
+
+export const ExportCSVBTN = () => {
+
+	return (
+		<Button variant="contained" color="primary">Export CSV</Button>
+	);
+};
 
 
 const ShortageClaim = () => {
@@ -62,8 +70,86 @@ const ShortageClaim = () => {
 		}
 	
 		}));
+
+		const columns = [
+			{
+				name: 'DisputeID',
+				selector: row => row.DisputeID,
+				sortable: true,
+			},
+			{
+				name: 'DisputeType',
+				selector: row => row.DisputeType,
+				sortable: true,
+			},
+			{
+				name: 'DisputeDate',
+				selector: row => row.DisputeType,
+				sortable: true,
+			},
+			{
+				name: 'DisputeStatus',
+				selector: row => row.DisputeStatus,
+				sortable: true,
+			},
+			{
+				name: 'DisputeAmount',
+				selector: row => row.DisputeAmount,
+				sortable: true,
+			},
+			{
+				name: 'ApprovedAmount',
+				selector: row => row.ApprovedAmount,
+				sortable: true,
+			},
+		];
+		
+		const data = [
+			{
+				DisputeID: "#908897968",
+				DisputeType: "362,356.00",
+				DisputeDate: "11/4/24",
+				DisputeStatus: "Received",
+				DisputeAmount: "362,356.00",
+				ApprovedAmount: "100",
+			},
+			{
+				DisputeID: "#908897968",
+				DisputeType: "362,356.00",
+				DisputeDate: "11/4/24",
+				DisputeStatus: "Received",
+				DisputeAmount: "362,356.00",
+				ApprovedAmount: "14000",
+			},
+			{
+				DisputeID: "#908897968",
+				DisputeType: "362,356.00",
+				DisputeDate: "11/4/24",
+				DisputeStatus: "Received",
+				DisputeAmount: "362,356.00",
+				ApprovedAmount: "105500",
+			},
+			{
+				DisputeID: "#908897968",
+				DisputeType: "362,356.00",
+				DisputeDate: "11/4/24",
+				DisputeStatus: "Received",
+				DisputeAmount: "362,356.00",
+				ApprovedAmount: "1042100",
+			},
+			{
+				DisputeID: "#908897968",
+				DisputeType: "362,356.00",
+				DisputeDate: "11/4/24",
+				DisputeStatus: "Received",
+				DisputeAmount: "362,356.00",
+				ApprovedAmount: "10012120",
+			}
+		];
+
 	return (
 		<PageContainer title="Shortage Claim">
+			
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Breadcrumb titles={['Shortage Claim']} />
@@ -219,7 +305,13 @@ const ShortageClaim = () => {
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-						<FinopsTable />
+						{/* <FinopsTable /> */}
+						<DataTable
+							columns={columns}
+							data={data}
+							pagination
+							actions={<ExportCSVBTN />}
+						/>
 				</Grid>
 
 			</Grid>
