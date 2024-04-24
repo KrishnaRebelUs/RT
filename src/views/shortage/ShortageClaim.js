@@ -5,6 +5,8 @@ import Breadcrumb from '../components/pages/Breadcrumb';
 import Header from '../components/pages/Header';
 import YearlyTrend from '../components/pages/YearlyTrend';
 import PageContainer from '../../components/container/PageContainer';
+import ShortageTable from '../components/pages/ShortageTable';
+import FinopsTable from '../components/pages/FinopsTable';
 
 const ShortageClaim = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
@@ -70,41 +72,20 @@ const ShortageClaim = () => {
 				</Grid>
 				<Grid item xs={12}>
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
-						  <TypographyTitle variant='h3'>Shortage Claim Reconcilation</TypographyTitle>
+						<Grid item xs={12} lg={8}>
+							<ShortageTable />
 						</Grid>
-						<Grid item xs={12} lg={6}>
+						<Grid item xs={12} lg={4}>
 							<DashboardCard title={  <Typography variant='h4' >
 											Shortage Claim Finding
 										</Typography>}>
-								<Stack direction='row' spacing={2} useFlexGap justifyContent="space-between">
-									<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
-								</Stack>
-								<Stack direction='row' spacing={4} useFlexGap marginTop={3}>
-									<Box>
-										<TypographyPayment  variant='h5'>Shortage claims audit:</TypographyPayment>
-										<TypographyDate variant='h6'>11-Jan-2018 to 13-Dec-2021</TypographyDate>
-									</Box>
-								</Stack>
-							</DashboardCard>
-						</Grid>
-						<Grid item xs={12} lg={6}>
-							<DashboardCard title={  <Typography variant='h4' >
-											Shortage Claim Finding
-										</Typography>}>
-								<Stack direction='row' spacing={2} useFlexGap justifyContent="space-between">
-									<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
-								</Stack>
-								<Stack direction='row' spacing={4} useFlexGap marginTop={3}>
-									<Box>
-										<TypographyPayment  variant='h5'>Shortage claims audit:</TypographyPayment>
-										<TypographyDate variant='h6'>11-Jan-2018 to 13-Dec-2021</TypographyDate>
-									</Box>
-								</Stack>
 							</DashboardCard>
 						</Grid>
 					
 				    </Grid>		
+				</Grid>
+				<Grid item xs={12}>
+						<FinopsTable />
 				</Grid>
 
 			</Grid>

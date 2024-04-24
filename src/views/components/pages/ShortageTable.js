@@ -10,7 +10,6 @@ import {
 import DashboardCard from '../../../components/shared/DashboardCard';
 
 
-const TypographyStyled = styled(Typography)({});
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
@@ -20,72 +19,96 @@ const TableHeadStyled = styled(TableHead)(({ theme }) => ({
 const TableTypography = styled(TableHead)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
     fontSize: '16px'
-  
-
-   
+}));
+const TableRowStyled = styled(TableRow)(({ theme }) => ({
+     borderBottom: '1px solid #eee',
 }));
 const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
     color: index % 2 === 0 ? theme.palette.secondary.main : theme.palette.accent.main,
 
 }));
 
-const products = [
+const shortagetble = [
     {
-        Subtype: "Duplicate Freight",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
+       Settlement: "Shortage Claim Finding",
+       Active:"362,356.00",
+       Archieved: "362,356.00",
+    
     },
     {
-        Subtype: "Duplicate",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
-    },
-    {
-        Subtype: "Duplicate odd",
-        Findings$: "362,356.00",
-        PriorAdjustments$: "362,356.00",
-        NetOff: "3.9",
-    }
+        Settlement: "Audit Period",
+        Active:"11/4/24",
+        Archieved: "11/4/24",
+     
+     },
+     {
+        Settlement: "Shortage Claim Finding",
+        Active:"362,356.00",
+        Archieved: "362,356.00",
+     
+     },
+     {
+         Settlement: "Audit Period",
+         Active:"11/4/24",
+         Archieved: "11/4/24",
+      
+      },
+      {
+        Settlement: "Shortage Claim Finding",
+        Active:"362,356.00",
+        Archieved: "362,356.00",
+     
+     },
+     {
+         Settlement: "Audit Period",
+         Active:"11/4/24",
+         Archieved: "11/4/24",
+      
+      },
+      {
+        Settlement: "Shortage Claim Finding",
+        Active:"362,356.00",
+        Archieved: "362,356.00",
+     
+     },
+     {
+         Settlement: "Audit Period",
+         Active:"11/4/24",
+         Archieved: "11/4/24",
+      
+      },
+ 
 ];
 
-const Table = () => {
+const ShortageTable = () => {
     const theme = useTheme(); 
     return (
-        <DashboardCard title={
-            <TypographyStyled variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Granular Analysis
-            </TypographyStyled>}>
+        <DashboardCard  title={  <Typography variant='h4' > Shortage Claim Finding </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Sub-type
+                                 
                                 </TableTypography>
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Findings $
+                                   Activity Cases($)
                                 </TableTypography>
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Prior Adjustments $
+                                  Archieved
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Net Off
-                                </TableTypography>
-                            </TableCell>
+                           
                         </TableRow>
                     </TableHeadStyled>
                     <TableBody>
-                        {products.map((product, index) => (
-                            <TableRow key={index}>
+                        {shortagetble.map((shortagetble, index) => (
+                            <TableRowStyled theme={theme} key={index}>
                                    <TableCellStyled index={index}>
                                     <Typography
                                         sx={{
@@ -93,25 +116,21 @@ const Table = () => {
                                             fontWeight: "500",
                                         }}
                                     >
-                                        {product.Subtype}
+                                        {shortagetble.Settlement}
                                     </Typography>
                                 </TableCellStyled>
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={600}>
-                                        {product.Findings$}
+                                        {shortagetble.Active}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={400}>
-                                        {product.PriorAdjustments$}
+                                        {shortagetble.Archieved}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400}>
-                                        {product.NetOff}
-                                    </Typography>
-                                </TableCell>
-                            </TableRow>
+                                
+                            </TableRowStyled>
                         ))}
                     </TableBody>
                 </Table>
@@ -120,4 +139,4 @@ const Table = () => {
     );
 };
 
-export default Table;
+export default ShortageTable;
