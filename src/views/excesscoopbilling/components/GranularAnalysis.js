@@ -13,20 +13,15 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 const TypographyStyled = styled(Typography)({});
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    borderRadius:'7px',
-   
+    backgroundColor: theme.palette.primary.extraLight
 }));
 const TableTypography = styled(TableHead)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.primary.main,
+    fontWeight: '600',
     fontSize: '16px'
-  
-
-   
 }));
 const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
     color: index % 2 === 0 ? theme.palette.secondary.main : theme.palette.accent.main,
-
 }));
 
 const products = [
@@ -58,7 +53,7 @@ const GranularAnalysis = () => {
                 Granular Analysis
             </TypographyStyled>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
+                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap" }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableCell>
@@ -87,27 +82,22 @@ const GranularAnalysis = () => {
                         {products.map((product, index) => (
                             <TableRow key={index}>
                                    <TableCellStyled index={index}>
-                                    <Typography
-                                        sx={{
-                                            fontSize: "15px",
-                                            fontWeight: "500",
-                                        }}
-                                    >
+                                    <Typography variant="h6">
                                         {product.Subtype}
                                     </Typography>
                                 </TableCellStyled>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>
+                                    <Typography variant="h6">
                                         {product.Findings$}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400}>
+                                    <Typography variant="h6">
                                         {product.PriorAdjustments$}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400}>
+                                    <Typography variant="h6">
                                         {product.NetOff}
                                     </Typography>
                                 </TableCell>

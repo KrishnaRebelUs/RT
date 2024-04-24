@@ -1,5 +1,5 @@
-import { Grid, Box, Stack, Typography, styled, useTheme } from '@mui/material';
-import React from 'react'
+import { Grid, Box, Typography, styled } from '@mui/material';
+import React from 'react';
 import PageContainer from 'src/components/container/PageContainer';
 import AuditTime from './components/AuditTime';
 import Disputed from './components/Disputed';
@@ -15,6 +15,7 @@ import WinRate from './components/WinRate';
 import YearlyTrend from '../../components/pages/YearlyTrend';
 import DashboardCard from '../../components/shared/DashboardCard';
 import piggy from "src/assets/images/piggy-bank.gif";
+import { useTheme } from "@emotion/react";
 
 const Excesscoopbilling = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
@@ -42,7 +43,7 @@ const Excesscoopbilling = () => {
 								} >
 									<Grid container spacing={3}>
 										<Grid item>
-											<TypographyStyled variant='h1' sx={{ color: theme.palette.accent.main }}>$ 98442</TypographyStyled>
+											<TypographyStyled variant='BigTitle' sx={{ color: theme.palette.accent.main }}>$98442</TypographyStyled>
 										</Grid>
 										<Grid item>
 											<img src={piggy} alt='piggy'style={{position:'absolute', right:'30px', bottom:'30px', maxWidth: '150px'}}/>
@@ -61,11 +62,11 @@ const Excesscoopbilling = () => {
 							<Disputed />
 						</Grid>
 						<Grid item xs={12} lg={6}>
-						<RecoupedAmount />
+							<RecoupedAmount />
 						</Grid>
 					</Grid>
 				</Grid>
-				<Grid item xs={12} lg={4}>	
+				<Grid item xs={12} lg={4} style={{ position: 'relative' }}>	
 					<Impactoverview />
 				</Grid>
 				<Grid item xs={12} lg={7}>

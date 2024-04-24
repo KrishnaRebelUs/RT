@@ -3,7 +3,7 @@ import LogoDark1 from "src/assets/images/logos/logo.png";
 import { styled } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
-  width: "100px",
+  width: "90px",
   overflow: "hidden",
   display: "block"
   

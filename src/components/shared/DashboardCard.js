@@ -17,7 +17,7 @@ const DashboardCard = ({
   }));
   return (
     <Card
-      sx={{ padding: 0, width: '100%', minHeight:'100%'}}
+      sx={{ padding: 0, width: '100%', minHeight:'100%', boxShadow: '0 5px 15px rgba(0,0,0,0.03)',}}
       elevation={9}
       variant={undefined}
     >
@@ -39,7 +39,7 @@ const DashboardCard = ({
               mb={2}
             >
               <Box>
-                {title ? <Typography variant="h5">{title}</Typography> : ''}
+                {title ? <>{title}</> : ''}
 
                 {subtitle ? (
                   <Typography variant="subtitle2" color="textSecondary">

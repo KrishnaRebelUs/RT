@@ -19,7 +19,7 @@ const Breadcrumb = ({ titles }) => {
           key={index}
           sx={{ display: 'flex', alignItems: 'center' }}
           className={index === titles.length - 1 ? "active" : ""}
-          color="inherit"
+          color="#000"
         >
           {index === titles.length - 1 ? (
             title

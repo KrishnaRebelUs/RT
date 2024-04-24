@@ -1,24 +1,10 @@
 import React, { useState } from "react";
 import { styled, Container, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { useTheme } from "@emotion/react";
 
 import Header from './header/Header';
 import Sidebar from './sidebar/Sidebar';
-
-const MainWrapper = styled('div')(() => ({
-  display: 'flex',
-  minHeight: '100vh',
-  width: '100%',
-}));
-
-const PageWrapper = styled('div')(() => ({
-  display: 'flex',
-  flexGrow: 1,
-  paddingBottom: '60px',
-  flexDirection: 'column',
-  zIndex: 1,
-  backgroundColor: 'transparent',
-}));
 
 const FullLayout = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -37,6 +23,23 @@ const FullLayout = () => {
   console.log("isSidebarOpen:", isSidebarOpen);
   console.log("isMobileSidebarOpen:", isMobileSidebarOpen);
 
+  const MainWrapper = styled('div')(() => ({
+    display: 'flex',
+    minHeight: '100vh',
+    width: '100%',
+  }));
+  
+  const PageWrapper = styled('div')(() => ({
+    display: 'flex',
+    flexGrow: 1,
+    paddingBottom: '60px',
+    flexDirection: 'column',
+    zIndex: 1,
+    backgroundColor: theme.palette.bg.main,
+  }));
+  
+  const theme = useTheme();
+
   return (
     <MainWrapper className='mainwrapper'>
       {/* Sidebar */}
@@ -53,10 +56,12 @@ const FullLayout = () => {
           toggleMobileSidebar={toggleMobileSidebar}
         />
         {/* PageContent */}
-        <Container
+        <Container 
+          style={{
+            maxWidth: '1380px'
+          }}
           sx={{
-            paddingTop: "20px",
-            maxWidth: '1600px',
+            paddingTop: "20px"
           }}
         >
           {/* Page Route */}

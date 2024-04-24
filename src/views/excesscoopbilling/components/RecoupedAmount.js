@@ -8,7 +8,7 @@ const RecoupedAmount = () => {
 		color: theme.palette.secondary.main,
 	  }));
 	  const theme = useTheme();
-	  const secondary = theme.palette.secondary.main;
+	  const secondary = theme.palette.success.main;
 	  const success = 'theme.palette.success.main';
 	  const errorlight = '#fdede8';
 	
@@ -51,25 +51,15 @@ const RecoupedAmount = () => {
 		},
 	  ];
   return (
-    <DashboardCard  title={
-		<TypographyStyled variant='h4' sx={{ color: theme.palette.accent.main }}>
-			 Recoupened Amount
-		</TypographyStyled>
-	} 
-	footer={
-        <Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="60px" />
-      }>
-     <>
-	    <Stack direction='row' spacing={4} useFlexGap justifyContent="space-between" alignItems='center'>
-			<Box>
-			   <TypographyStyled variant='h1' sx={{ color: theme.palette.accent.main }}>$ 4,942,234.43</TypographyStyled>
-			</Box>
-		</Stack>
-		<Stack direction='row'>
-		  
-        </Stack>
-	
-	 </>		
+    <DashboardCard  
+		title={
+			<TypographyStyled variant='h5'>Recoupened Amount</TypographyStyled>
+		} 
+		footer={
+			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="60px" />
+      	}
+	>
+		<TypographyStyled variant='h2' sx={{ color: theme.palette.success.dark }}>$ 4,942,234.43</TypographyStyled>	
 
 	</DashboardCard>
   )

@@ -1,3 +1,5 @@
+import { fontSize } from "@mui/system";
+
 const typography = {
   fontFamily: "'Plus Jakarta Sans', sans-serif;",
   h1: {
@@ -56,6 +58,11 @@ const typography = {
     fontSize: '0.875rem',
     fontWeight: 400,
   },
+  BigTitle: {
+    fontSize: '42px',
+    fontWeight: 600,
+    lineHeight: '1.2em'
+  }
 };
 
 export default typography;
