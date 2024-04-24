@@ -3,6 +3,7 @@ import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/mat
 import PropTypes from 'prop-types';
 import Profile from './Profile';
 import { IconBellRinging, IconMenu2 ,IconMail} from '@tabler/icons-react';
+import { useTheme } from '@emotion/react';
 
 const Header = (props) => {
 
@@ -17,8 +18,10 @@ const Header = (props) => {
   }));
   const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
     width: '100%',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.dark,
   }));
+
+  const theme = useTheme();
 
   return (
     <AppBarStyled position="sticky" color="default">
@@ -26,55 +29,52 @@ const Header = (props) => {
         <IconButton
           color="info"
           aria-label="menu"
-          onClick={props.toggleMobileSidebar} 
+          // onClick={props.toggleMobileSidebar}
           sx={{
-            display: {
-            },
+            color: theme.palette.text.secondary
           }}
         >
-          <IconMenu2 width="20" height="20" />
+          <IconMenu2 width="23" height="23" stroke="1.5" />
         </IconButton>
 
-
-       
         <Box flexGrow={1} />
-        <Stack spacing={1} direction="row" alignItems="center">
-        <IconButton
-          size="large"
-          aria-label="show 11 new notifications"
-          color="inherit"
-          aria-controls="msgs-menu"
-          aria-haspopup="true"
-          sx={{
-            ...(typeof anchorEl2 === 'object' && {
-              color: 'primary.main',
-            }),
-          }}
-        >
-          <Badge variant="dot" color="secondary">
-            <IconMail size="21" stroke="1.5" />
-          </Badge>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <IconButton
+              size="large"
+              aria-label="show 11 new notifications"
+              color="inherit"
+              aria-controls="msgs-menu"
+              aria-haspopup="true"
+              sx={{
+                ...(typeof anchorEl2 === 'object' && {
+                  color: 'primary.main',
+                }),
+              }}
+            >
+            <Badge variant="dot" color="secondary">
+              <IconMail size="21" stroke="1.5" />
+            </Badge>
 
-         </IconButton>
-          <IconButton
-          size="large"
-          aria-label="show 11 new notifications"
-          color="inherit"
-          aria-controls="msgs-menu"
-          aria-haspopup="true"
-          sx={{
-            ...(typeof anchorEl2 === 'object' && {
-              color: 'primary.main',
-            }),
-          }}
-        >
-          <Badge variant="dot" color="primary">
-            <IconBellRinging size="21" stroke="1.5" />
-          </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 11 new notifications"
+              color="inherit"
+              aria-controls="msgs-menu"
+              aria-haspopup="true"
+              sx={{
+                ...(typeof anchorEl2 === 'object' && {
+                  color: 'primary.main',
+                }),
+              }}
+            >
+            <Badge variant="dot" color="primary">
+              <IconBellRinging size="21" stroke="1.5" />
+            </Badge>
 
-         </IconButton>
-          <Profile />
-        </Stack>
+          </IconButton>
+            <Profile />
+          </Stack>
       </ToolbarStyled>
     </AppBarStyled>
   );

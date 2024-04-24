@@ -11,7 +11,7 @@ import {
   ListItemText
 } from '@mui/material';
 
-import { IconListCheck, IconMail, IconUser } from '@tabler/icons-react';
+import { IconSettings, IconBriefcase, IconUser } from '@tabler/icons-react';
 
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
 
@@ -73,15 +73,15 @@ const Profile = () => {
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <IconMail width={20} />
+            <IconBriefcase width={20} />
           </ListItemIcon>
           <ListItemText>My Account</ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <IconListCheck width={20} />
+            <IconSettings width={20} />
           </ListItemIcon>
-          <ListItemText>My Tasks</ListItemText>
+          <ListItemText>Settings</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
           <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth>
