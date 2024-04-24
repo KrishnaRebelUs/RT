@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid, Tab, Typography, Table, TableBody, TableCell, TableHead, TableRow, useTheme,styled } from '@mui/material';
+import { Box, Grid, Tab, Typography, Table, TableBody, TableCell, TableHead, TableRow, useTheme,styled , Button} from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import DashboardCard from '../../../components/shared/DashboardCard';
+import DataTable from 'react-data-table-component';
 
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
@@ -25,6 +26,13 @@ const TabStyled = styled(Tab)(({ theme}) => ({
     padding: 0
 }));
 
+export const ExportCSVBTN = () => {
+
+	return (
+		<Button variant="contained" color="primary">Export CSV</Button>
+	);
+};
+
 const FinopsTable = () => {
     const [value, setValue] = useState('1');
     const theme = useTheme();
@@ -33,46 +41,79 @@ const FinopsTable = () => {
         setValue(newValue);
     };
 
-    const finopsTableData = [
+    const columns = [
+        {
+            name: 'DisputeID',
+            selector: row => row.DisputeID,
+            sortable: true,
+        },
+        {
+            name: 'DisputeType',
+            selector: row => row.DisputeType,
+            sortable: true,
+        },
+        {
+            name: 'DisputeDate',
+            selector: row => row.DisputeType,
+            sortable: true,
+        },
+        {
+            name: 'DisputeStatus',
+            selector: row => row.DisputeStatus,
+            sortable: true,
+        },
+        {
+            name: 'DisputeAmount',
+            selector: row => row.DisputeAmount,
+            sortable: true,
+        },
+        {
+            name: 'ApprovedAmount',
+            selector: row => row.ApprovedAmount,
+            sortable: true,
+        },
+    ];
+    
+    const data = [
         {
             DisputeID: "#908897968",
             DisputeType: "362,356.00",
             DisputeDate: "11/4/24",
             DisputeStatus: "Received",
             DisputeAmount: "362,356.00",
-            ApprovedAmount: "1000",
+            ApprovedAmount: "100",
         },
-		{
+        {
             DisputeID: "#908897968",
             DisputeType: "362,356.00",
             DisputeDate: "11/4/24",
             DisputeStatus: "Received",
             DisputeAmount: "362,356.00",
-            ApprovedAmount: "1000",
+            ApprovedAmount: "14000",
         },
-		{
+        {
             DisputeID: "#908897968",
             DisputeType: "362,356.00",
             DisputeDate: "11/4/24",
             DisputeStatus: "Received",
             DisputeAmount: "362,356.00",
-            ApprovedAmount: "1000",
+            ApprovedAmount: "105500",
         },
-		{
+        {
             DisputeID: "#908897968",
             DisputeType: "362,356.00",
             DisputeDate: "11/4/24",
             DisputeStatus: "Received",
             DisputeAmount: "362,356.00",
-            ApprovedAmount: "1000",
+            ApprovedAmount: "1042100",
         },
-		{
+        {
             DisputeID: "#908897968",
             DisputeType: "362,356.00",
             DisputeDate: "11/4/24",
             DisputeStatus: "Received",
             DisputeAmount: "362,356.00",
-            ApprovedAmount: "1000",
+            ApprovedAmount: "10012120",
         }
     ];
 
@@ -92,30 +133,12 @@ const FinopsTable = () => {
                                     </TabList>
                                 </Box>
                                 <TabPanel value="1" style={{ padding: 0 }}>
-                                    <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
-                                        <TableHeadStyled>
-                                            <TableRow>
-                                                <TableTypography variant="subtitle2"  fontWeight={600}>Dispute ID</TableTypography>
-												<TableTypography variant="subtitle2" fontWeight={600}>Dispute Type</TableTypography>
-												<TableTypography variant="subtitle2" fontWeight={600}>Dispute Date</TableTypography>
-												<TableTypography variant="subtitle2" fontWeight={600}>Dispute Status</TableTypography>
-                                                <TableTypography variant="subtitle2" fontWeight={600}>Dispute Amount</TableTypography>
-												<TableTypography variant="subtitle2" fontWeight={600}>Approved Amount (As per VC)</TableTypography>
-                                            </TableRow>
-                                        </TableHeadStyled>
-                                        <TableBody>
-                                            {finopsTableData.map((row, index) => (
-                                                <TableRowStyled key={index}>
-                                                    <TableCell>{row.DisputeID}</TableCell>
-                                                    <TableCell>{row.DisputeType}</TableCell>
-                                                    <TableCell>{row.DisputeDate}</TableCell>
-                                                    <TableCell>{row.DisputeStatus}</TableCell>
-                                                    <TableCell>{row.DisputeAmount}</TableCell>
-                                                    <TableCell>{row.ApprovedAmount}</TableCell>
-                                                </TableRowStyled>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
+                                    <DataTable
+                                        columns={columns}
+                                        data={data}
+                                        pagination
+                                        actions={<ExportCSVBTN />}
+                                    />
                                 </TabPanel>
                                 <TabPanel value="2">Denied</TabPanel>
                                 <TabPanel value="3">Pending</TabPanel>
