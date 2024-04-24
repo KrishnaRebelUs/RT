@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Box, styled, Button, Divider } from '@mui/material';
+import { Grid, Stack, Typography, Box, styled, Button, Divider, Avatar } from '@mui/material';
 import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -9,7 +9,7 @@ import ShortageTable from '../components/pages/ShortageTable';
 import FinopsTable from '../components/pages/FinopsTable';
 import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import {IconChevronRight,IconThumbUp} from '@tabler/icons-react';
+import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar} from '@tabler/icons-react';
 
 
 const ShortageClaim = () => {
@@ -38,13 +38,22 @@ const ShortageClaim = () => {
 		color: theme.palette.secondary.main,
 		marginBottom: '10px',
 	}));
-	const TypographyDate = styled(Typography)(({ theme }) => ({
-		color: theme.palette.accent.main,
-	}));
 	const TypographyTitle = styled(Typography)(({ theme }) => ({
 		color: theme.palette.text.dark,
 		marginBottom: '15px',
 	}));
+	const AvatarStyled = styled(Avatar)(({ theme }) => ({
+		backgroundColor: theme.palette.primary.extraLight,
+		borderRadius: '7px',
+		width: '40px',
+		height: '40px',
+	   '& svg':{
+		  color:theme.palette.primary.main,
+		  width: '26px',
+		  height: '26px'
+		}
+	
+		}));
 	return (
 		<PageContainer title="Shortage Claim">
 			<Grid container spacing={3}>
@@ -54,26 +63,80 @@ const ShortageClaim = () => {
 				<Grid item xs={12}>
 					<Header title='Shortage Claim' />
 				</Grid>
+
 				<Grid item xs={12}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} mt={2}>
 							<TypographyTitle variant='h3'>Bulk Shortage Dispute - Historical</TypographyTitle>
 						</Grid>
+						<Grid item xs={12} mb={1}>
+							<Grid container direction="row" spacing={3}>
+								<Grid item xs>
+									<DashboardCard>
+										<Grid container spacing={3} alignItems="center">
+											<Grid item sm={8}>
+												<Grid container spacing={3} alignItems="center">
+													<Grid item><AvatarStyled><IconClock /></AvatarStyled></Grid>
+													<Grid item><Typography variant='h5'>Hour Saved</Typography></Grid>
+												</Grid>
+											</Grid>
+											<Grid item sm={4}>
+												<Typography variant='h4' style={{ color: theme.palette.success.main }}>18 h</Typography>
+											</Grid>
+										</Grid>
+									</DashboardCard>
+								</Grid>
+								<Grid item xs>
+									<DashboardCard>
+										<Grid container spacing={3} alignItems="center">
+											<Grid item sm={8}>
+												<Grid container spacing={3} alignItems="center">
+													<Grid item><AvatarStyled><IconBriefcase /></AvatarStyled></Grid>
+													<Grid item><Typography variant='h5'>Resources Saved</Typography></Grid>
+												</Grid>
+											</Grid>
+											<Grid item sm={4}>
+												<Typography variant='h4' style={{ color: theme.palette.success.main }}>18 h</Typography>
+											</Grid>
+										</Grid>
+									</DashboardCard>
+								</Grid>
+								<Grid item xs>
+									<DashboardCard>
+										<Grid container spacing={3} alignItems="center">
+											<Grid item sm={8}>
+												<Grid container spacing={3} alignItems="center">
+													<Grid item><AvatarStyled><IconCurrencyDollar /></AvatarStyled></Grid>
+													<Grid item><Typography variant='h5'>Amount Saved</Typography></Grid>
+												</Grid>
+											</Grid>
+											<Grid item sm={4}>
+												<Typography variant='h4' style={{ color: theme.palette.success.main }}>18 h</Typography>
+											</Grid>
+										</Grid>
+									</DashboardCard>
+								</Grid>
+							</Grid>
+						</Grid>
 						<Grid item xs={12} lg={4}>
 							<DashboardCard 
 								title={
-								<Typography variant='h4' >
+								<Typography variant='h5' >
 									Shortage Claim Finding
 								</Typography>}
 							>
-								<Grid container spacing={3}>
+								<Grid container spacing={4}>
 									<Grid item xs={12}>
 										<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
 									</Grid>
-									<Grid item xs={12}><Divider /></Grid>
 									<Grid item xs={12}>
-										<TypographyPayment variant='h5'>Shortage claims audit:</TypographyPayment>
-										<TypographyDate variant='h6'>11-Jan-2018 to 13-Dec-2021</TypographyDate>
+										<TypographyPayment variant='h6'>Payment Due Date:</TypographyPayment>
+										<Box mb={2}><Divider /></Box>
+										<Grid container spacing={3}>
+											<Grid item><Typography variant='h6' style={{ color: theme.palette.accent.main }}>11 Jan 2018</Typography></Grid>
+											<Grid item><Typography variant='h6' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
+											<Grid item><Typography variant='h6' style={{ color: theme.palette.success.dark }}>13 Dec 2021</Typography></Grid>
+										</Grid>
 									</Grid>
 								</Grid>
 							</DashboardCard>
@@ -82,16 +145,17 @@ const ShortageClaim = () => {
 							<YearlyTrend />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' > Total Line Audit </Typography>}>
-								<Stack direction='row' spacing={2}>
-									<Typography variant='h2'  sx={{color: theme.palette.accent.main}}>$ 98442,989,98.90</Typography>
-								</Stack>
-								<Stack direction='row' spacing={4} marginTop={3}>
-									<Box>
-										<TypographyPayment variant='h5'>Shortage claims audit:</TypographyPayment>
-										<TypographyDate variant='h6'>11-Jan-2018 to 13-Dec-2021</TypographyDate>
-									</Box>
-								</Stack>
+							<DashboardCard title={<Typography variant='h5' >Total Line Audit</Typography>}>
+								<Grid container spacing={4}>
+									<Grid item xs={12}>
+										<TypographyStyled variant='h2' ><b>562864</b></TypographyStyled>
+									</Grid>
+									<Grid item xs={12}>
+										<TypographyPayment variant='h6'>Shortage claims audit:</TypographyPayment>
+										<Box mb={2}><Divider /></Box>
+										<Typography variant='h2' style={{ color: theme.palette.accent.main }}>$52648</Typography>
+									</Grid>
+								</Grid>
 							</DashboardCard>
 						</Grid>
 					</Grid>
@@ -102,8 +166,7 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={4}>
-							<DashboardCard title={<Typography variant='h4' >Shortage Claim Finding </Typography>}>
-							</DashboardCard>
+							<DashboardCard title={<Typography variant='h4' >Shortage Claim Reconciliation </Typography>}></DashboardCard>
 						</Grid>
 					</Grid>
 				</Grid>

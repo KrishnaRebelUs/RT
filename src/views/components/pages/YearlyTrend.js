@@ -13,8 +13,8 @@ const YearlyTrend = () => {
 		padding: '5px 12px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.primary.contrastText,
-			color: theme.palette.primary.dark,
+			backgroundColor: theme.palette.primary.main,
+			color: 'white',
 		  },
 	}));
 	  
