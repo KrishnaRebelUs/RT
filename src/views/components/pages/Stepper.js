@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import Confetti from "react-confetti";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography,Box} from "@mui/material";
 
 const fixedCheckpoints = [
   { name: "Stage 1", coordinates: { x: 10, y: 10 }, status: "ember" },
   { name: "Stage 2", coordinates: { x: 45, y: 10 }, status: "" },
   { name: "Stage 3", coordinates: { x: 85, y: 10 }, status: "" },
-  { name: "Stage 4", coordinates: { x: 60, y: 42 }, status: "" }, // Adjusted coordinates for the 4th circle
+  { name: "Stage 4", coordinates: { x: 60, y: 42 }, status: "" }, 
   { name: "Stage 5", coordinates: { x: 45, y: 42 }, status: "" },
   { name: "Stage 6", coordinates: { x: 10, y: 42 }, status: "" },
   { name: "Stage 7", coordinates: { x: 10, y: 75 }, status: "" },
@@ -76,68 +76,76 @@ const Stepper = () => {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h3">Current Progress</Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <svg
-          style={{
-            width: "95%",
-            height: "90%",
-            marginLeft: "-5px",
-            marginTop: "3px",
-          }}
-        >
-          {checkpoints.map((checkpoint, index) => (
-            <>
-              {index > 0 && (
-                <line
-                  key={`line-${index}`}
-                  className={`line ${
-                    checkpoints[index].status === "completed" ? "completed" : ""
-                  }`}
-                  x1={`${checkpoints[index - 1].coordinates.x}%`}
-                  y1={`${checkpoints[index - 1].coordinates.y}%`}
-                  x2={`${checkpoint.coordinates.x}%`}
-                  y2={`${checkpoint.coordinates.y}%`}
-                />
-              )}
-              <circle
-                key={`circle-${index}`}
-                cx={`${checkpoint.coordinates.x}%`}
-                cy={`${checkpoint.coordinates.y}%`}
-                r="25"
-                stroke="#000"
-                strokeWidth="2"
-                fill={
-                  checkpoint.status === "completed" ? "white" : "primary"
-                }
-                onClick={() => handleStepClick(index + 1)}
-              />
-              <text
-                key={`text-${index}`}
-                x={`${checkpoint.coordinates.x}%`}
-                y={`${checkpoint.coordinates.y}%`}
-                textAnchor="middle"
-                fontSize="12"
-                fill={checkpoint.status === "completed" ? "primary" : "white"}
-                onClick={() => handleStepClick(index + 1)}
-              >
-                {index + 1}
-              </text>
-            </>
-          ))}
-        </svg>
-        {showConfetti && (
-          <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            recycle={false}
-          />
-        )}
-      </Grid>
-    </Grid>
+   <Box sx={{ position: 'relative',
+    width: '90%',
+    height: '350px',
+    paddingLeft: '24px',
+   backgrounColor: '#ffffff',
+    borderRadius: '12px',
+    marginTop:' -50px'}}>
+		<Grid container spacing={2}>
+		<Grid item xs={12}>
+			<Typography variant="h3">Current Progress</Typography>
+		</Grid>
+		<Grid item xs={12}>
+			<svg
+			style={{
+				width: "95%",
+				height: "90%",
+				marginLeft: "-5px",
+				marginTop: "3px",
+			}}
+			>
+			{checkpoints.map((checkpoint, index) => (
+				<>
+				{index > 0 && (
+					<line sx={{stroke: '#d4d4d4',strokeWidth: '2'}}
+					key={`line-${index}`}
+					className={`line ${
+						checkpoints[index].status === "completed" ? "completed" : ""
+					}`}
+					x1={`${checkpoints[index - 1].coordinates.x}%`}
+					y1={`${checkpoints[index - 1].coordinates.y}%`}
+					x2={`${checkpoint.coordinates.x}%`}
+					y2={`${checkpoint.coordinates.y}%`}
+					/>
+				)}
+				<circle
+					key={`circle-${index}`}
+					cx={`${checkpoint.coordinates.x}%`}
+					cy={`${checkpoint.coordinates.y}%`}
+					r="25"
+					stroke="#000"
+					strokeWidth="2"
+					fill={
+					checkpoint.status === "completed" ? "white" : "primary"
+					}
+					onClick={() => handleStepClick(index + 1)}
+				/>
+				<text
+					key={`text-${index}`}
+					x={`${checkpoint.coordinates.x}%`}
+					y={`${checkpoint.coordinates.y}%`}
+					textAnchor="middle"
+					fontSize="12"
+					fill={checkpoint.status === "completed" ? "primary" : "white"}
+					onClick={() => handleStepClick(index + 1)}
+				>
+					{index + 1}
+				</text>
+				</>
+			))}
+			</svg>
+			{showConfetti && (
+			<Confetti
+				width={window.innerWidth}
+				height={window.innerHeight}
+				recycle={false}
+			/>
+			)}
+		</Grid>
+		</Grid>
+   </Box>
   );
 };
 

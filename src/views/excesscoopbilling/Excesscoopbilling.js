@@ -16,6 +16,7 @@ import YearlyTrend from '../components/pages/YearlyTrend';
 import DashboardCard from '../../components/shared/DashboardCard';
 import piggy from "src/assets/images/piggy-bank.gif";
 import { useTheme } from "@emotion/react";
+import Update from './components/Update';
 
 const Excesscoopbilling = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
@@ -75,15 +76,18 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={6}>
 					<WinRate />
 				</Grid>
-				<Grid item xs={12} lg={5}>	
+				<Grid item xs={12} lg={6}>	
 					<EfficencyAssesment />
 				</Grid>
 				<Grid item xs={12} lg={3}>
 					<AuditTime />
 				</Grid>
-				<Grid item xs={12} lg={4}>
+				<Grid item xs={12} lg={3}>
 					<RecentTransactions />
 				</Grid>
+				{/* <Grid item xs={12}>
+					<Update />
+				</Grid> */}
 				<Grid item xs={12}>
 					<JobProgress />
 				</Grid>
