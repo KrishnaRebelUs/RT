@@ -20,7 +20,6 @@ export const ExportCSVBTN = () => {
 };
 import CustomStepper from '../components/pages/CustomStepper';
 
-
 const ShortageClaim = () => {
 	const theme = useTheme();
 	const BoxStyled = styled(Box)(({ theme }) => ({
