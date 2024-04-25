@@ -82,9 +82,7 @@ const JobProgress = () => {
 
     return (
         <DashboardCard title={
-            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Jobs in Progress
-            </Typography>
+            <Typography variant='h5'>Jobs in Progress</Typography>
         } action={
             <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
         }>
@@ -130,7 +128,7 @@ const JobProgress = () => {
                                 <TableCell>
                                     <Typography
                                         sx={{
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }}
                                     >
@@ -139,7 +137,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {moment(job.Date).format('MM/DD/YY')}
@@ -147,15 +145,16 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
+                                            color: theme.palette.accent.main
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Type}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Id}
@@ -163,7 +162,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography sx={{
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Task}
@@ -171,7 +170,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Box display="flex" alignItems="center">
-                                        <LinearProgress variant="determinate" value={job.Progress} sx={{ height: '8px', flexGrow: 1, borderRadius: 10, mr: 1 }} />
+                                        <LinearProgress color="success" variant="determinate" value={job.Progress} sx={{ height: '6px', flexGrow: 1, borderRadius: 10, mr: 1, backgroundColor: theme.palette.primary.extraLight }} />
                                         <Typography variant="h6">{job.Progress}%</Typography>
                                     </Box>
                                 </TableCell>

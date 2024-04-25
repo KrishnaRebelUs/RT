@@ -46,7 +46,7 @@ const YearlyTrend = () => {
 		<TypographyStyled variant='h6'>2024</TypographyStyled>
 		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
 		
-		<Box my={2}><Divider /></Box>
+		<Box my={1}><Divider /></Box>
 
 		<Grid container spacing={3}>
 			<Grid item sm={6}>
