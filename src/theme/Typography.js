@@ -37,7 +37,7 @@ const typography = {
   },
   button: {
     textTransform: 'capitalize',
-    fontWeight: 400,
+    fontWeight: 400
   },
   body1: {
     fontSize: '0.875rem',
