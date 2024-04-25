@@ -60,7 +60,7 @@ const TableHeadStyled = styled(TableHead)(({ theme }) => ({
 
 const TableTypography = styled(Typography)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
-    fontSize: '16px',
+    fontSize: '14px',
 }));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
@@ -92,27 +92,27 @@ const JobProgress = () => {
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 3 }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
-                            <TableCell>
+                            <TableCell style={{ width: '150px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Vendor Name
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '100px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Date
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '150px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Type
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell width="50">
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Agreement Id / Disputed Id
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '200px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Pending Task
                                 </TableTypography>
@@ -130,7 +130,7 @@ const JobProgress = () => {
                                 <TableCell>
                                     <Typography
                                         sx={{
-                                            fontSize: "15px",
+                                            fontSize: "12px",
                                             fontWeight: "600",
                                         }}
                                     >
@@ -139,7 +139,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "12px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {moment(job.Date).format('MM/DD/YY')}
@@ -147,7 +147,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "12px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Type}
@@ -155,7 +155,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "12px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Id}
@@ -163,7 +163,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography sx={{
-                                            fontSize: "15px",
+                                            fontSize: "12px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Task}

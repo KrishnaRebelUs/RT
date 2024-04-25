@@ -34,7 +34,6 @@ const SelectWithSearchAndIcon = () => {
       options={options}
       isSearchable={true}
       placeholder="Select an option"
-      components={{ Option }}
     />
   );
 };
