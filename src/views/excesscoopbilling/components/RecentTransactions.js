@@ -26,9 +26,7 @@ const RecentTransactions = () => {
 	}));
 
   return (
-    <DashboardCard  title={
-      <TypographyStyled variant='h5'>Hits & Misses</TypographyStyled>
-    } >
+    <DashboardCard  title={<TypographyStyled variant='h5'>Hits & Misses</TypographyStyled>} >
       <TimelineStyled>
         <Timeline
           className="theme-timeline"
@@ -43,8 +41,11 @@ const RecentTransactions = () => {
               backgroundColor: '#efefef'
             },
             [`& .${timelineOppositeContentClasses.root}`]: {
-              flex: 0.3,
+              flex: '0 0 120px',
               paddingLeft: 0,
+              fontSize: '12px',
+              fontWeight: '600',
+              color: theme.palette.text.light
             },
           }}
         >
@@ -57,7 +58,10 @@ const RecentTransactions = () => {
             <TimelineContent>Payment received from John Doe of $385.90</TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
+            <TimelineOppositeContent>
+              <Typography variant="body1">26 Jan 2024</Typography>
+              <Typography variant="body2">10:00 am</Typography>
+            </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="secondary" variant="outlined" />
               <TimelineConnector />

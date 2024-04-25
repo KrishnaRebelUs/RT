@@ -58,11 +58,6 @@ const typography = {
     fontSize: '0.875rem',
     fontWeight: 400,
   },
-  BigTitle: {
-    fontSize: '2.1rem',
-    fontWeight: 600,
-    lineHeight: '1.2em'
-  },
   tableData: {
     fontSize: '14px',
     fontWeight: 500

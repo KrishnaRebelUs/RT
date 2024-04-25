@@ -14,8 +14,8 @@ const Disputed = () => {
 		border: '1px solid',
 		borderColor: theme.palette.primary.light,
 		color: theme.palette.primary.main,
-		fontSize: '13px',
-		padding: '5px 12px',
+		fontSize: '12px',
+		padding: '3px 8px',
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
@@ -30,7 +30,7 @@ const Disputed = () => {
 		<ButtonStyled component={Link} to="/manage-dispute">View Details <IconChevronRight  size="15" /></ButtonStyled>
 	}>
 		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>$4,942,234.43</Typography>
-		<TypographyStyled variant='body2'marginTop={2} sx={{ color: theme.palette.text.light }}>View all raised disputes till date</TypographyStyled>	
+		<TypographyStyled variant='body1'marginTop={3} sx={{ color: theme.palette.text.light }}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>
   )

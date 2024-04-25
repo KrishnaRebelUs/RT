@@ -44,7 +44,7 @@ const Excesscoopbilling = () => {
 								} >
 									<Grid container spacing={3}>
 										<Grid item>
-											<TypographyStyled variant='BigTitle' sx={{ color: theme.palette.accent.main }}>$98442</TypographyStyled>
+											<TypographyStyled variant='h2' sx={{ color: theme.palette.accent.main }}>$98442</TypographyStyled>
 										</Grid>
 										<Grid item>
 											<img src={piggy} alt='piggy'style={{position:'absolute', right:'30px', bottom:'30px', maxWidth: '150px'}}/>
@@ -76,13 +76,13 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={6}>
 					<WinRate />
 				</Grid>
-				<Grid item xs={12} lg={5}>	
+				<Grid item xs={12} lg={8}>	
 					<EfficencyAssesment />
 				</Grid>
-				<Grid item xs={12} lg={3}>
+				<Grid item xs={12} lg={4}>
 					<AuditTime />
 				</Grid>
-				<Grid item xs={12} lg={4}>
+				<Grid item xs={12} lg={6}>
 					<RecentTransactions />
 				</Grid>
 				{/* <Grid item xs={12}>
