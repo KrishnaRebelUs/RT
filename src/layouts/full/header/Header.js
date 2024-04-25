@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Profile from './Profile';
 import { IconBellRinging, IconMenu2 ,IconMail} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
+import SelectSearch from './SelectSearch';
 
 const Header = (props) => {
 
@@ -29,13 +30,14 @@ const Header = (props) => {
         <IconButton
           color="info"
           aria-label="menu"
-          // onClick={props.toggleMobileSidebar}
+          onClick={props.toggleMobileSidebar}
           sx={{
             color: theme.palette.text.secondary
           }}
         >
           <IconMenu2 width="23" height="23" stroke="1.5" />
         </IconButton>
+        <SelectSearch />
 
         <Box flexGrow={1} />
           <Stack spacing={1} direction="row" alignItems="center">
