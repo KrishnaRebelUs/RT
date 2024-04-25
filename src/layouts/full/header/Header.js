@@ -40,7 +40,7 @@ const Header = (props) => {
         </IconButton>
           <Grid container spacing={2} marginLeft='5px'>
             <Grid item xs={4}> <SelectSearch /></Grid>
-            <Grid item xs={2} className="currency-slector"> <SelectCurrency /></Grid>
+            <Grid item className="currency-slector"> <SelectCurrency /></Grid>
           </Grid>
 
         <Box flexGrow={1} />

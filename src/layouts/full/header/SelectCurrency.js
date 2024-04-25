@@ -5,8 +5,8 @@ import '../../../theme/FormStyle.css';
 
 const Currency = [
   { value: 'account1', label: 'USD', icon: <IconUser /> }, 
-  { value: 'account2', label: 'USD', icon: <IconUser /> },
-  { value: 'account3', label: 'USD', icon: <IconUser /> },
+  { value: 'account2', label: 'INR', icon: <IconUser /> },
+  { value: 'account3', label: 'EUR', icon: <IconUser /> },
 ];
 
 const SelectCurrency = () => (
