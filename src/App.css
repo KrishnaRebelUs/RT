@@ -1,0 +1,14 @@
+/*--- Table Style ----*/
+:root{
+	--primary: #18244d;
+}
+div .czCoqD
+{
+	color: var(--primary);
+}
+div .epZUJV{
+	border:  2px solid var(--primary);
+}
+div .button svg{
+	color: var(--primary);
+}
