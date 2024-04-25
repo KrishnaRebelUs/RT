@@ -84,9 +84,9 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                     <TabPanel value={value} index={0} style={{ borderLeft: '1px solid #eee', marginLeft: '20px'}}>
                         <Typography variant="h5" style={{ color: theme.palette.accent.main }} mb={3}>Shipment Disparity Details</Typography>
                         <Grid container spacing={3} justifyContent="space-between">
-                            <Grid item><Typography variant='h6' style={{ color: theme.palette.primary.dark }}>11 Jan 2018</Typography></Grid>
+                            <Grid item><Typography variant='h6' style={{ color: theme.palette.primary.dark }}>01/11/2018</Typography></Grid>
                             <Grid item><Typography variant='h6' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
-                            <Grid item><Typography variant='h6' style={{ color: theme.palette.success.dark }}>13 Dec 2021</Typography></Grid>
+                            <Grid item><Typography variant='h6' style={{ color: theme.palette.success.dark }}>12/13/2021</Typography></Grid>
                         </Grid>
                         <Box my={1}><Divider /></Box>
                         <Grid container direction="row" spacing="3">

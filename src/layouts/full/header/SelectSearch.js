@@ -35,6 +35,7 @@ const colourStyles = {
         : 'black', 
       cursor: isDisabled ? 'not-allowed' : 'default',
 
+<<<<<<< HEAD
       ':active': {
         ...styles[':active'],
         backgroundColor: !isDisabled && (isSelected ? 'lightblue' : 'lightgray'),
@@ -44,6 +45,17 @@ const colourStyles = {
   input: (styles) => ({ ...styles, ...dot(<IconUser />) }), 
   placeholder: (styles) => ({ ...styles, ...dot(<IconUser />) }), 
   singleValue: (styles, { data }) => ({ ...styles, ...dot(data.icon) }),
+=======
+  return (
+    <Select
+      value={selectedOption}
+      onChange={handleChange}
+      options={options}
+      isSearchable={true}
+      placeholder="Select an option"
+    />
+  );
+>>>>>>> a60a5e2504978a8cebbd3ed2224dd0b3f6f6d03a
 };
 
 const CustomSelect = () => (

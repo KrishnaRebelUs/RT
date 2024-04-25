@@ -14,8 +14,21 @@ const YearlyTrend = () => {
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
-			color: 'white',
-		  },
+			color: 'white'
+		},
+	}));
+
+	const ButtonClose = styled(Button)(({ theme }) => ({
+		minWidth: '30px',
+		height: '30px',
+		backgroundColor: 'red',
+		color: 'white',
+		right: '15px',
+		top: '15px',
+		'&:hover': {
+			backgroundColor: theme.palette.secondary.main,
+			color: 'white'
+		}
 	}));
 	  
 	const CustomStack = styled(Stack)(({ theme, index }) => ({
@@ -46,7 +59,7 @@ const YearlyTrend = () => {
 		<TypographyStyled variant='h6'>2024</TypographyStyled>
 		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
 		
-		<Box my={2}><Divider /></Box>
+		<Box my={1}><Divider /></Box>
 
 		<Grid container spacing={3}>
 			<Grid item sm={6}>
@@ -61,7 +74,7 @@ const YearlyTrend = () => {
 		<Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth>
 			<Stack direction='row' justifyContent="space-between">
 				<DialogTitle variant='h3'>YoY Split</DialogTitle>
-				<ButtonStyled> Close  <IconX onClick={handleClose} size='16' /></ButtonStyled>
+				<ButtonClose><IconX onClick={handleClose} size='16' /></ButtonClose>
 			</Stack>
 			<DialogContent>
 				<Grid container spacing={2} alignItems="center" justifyContent='center'>

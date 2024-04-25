@@ -60,7 +60,7 @@ const TableHeadStyled = styled(TableHead)(({ theme }) => ({
 
 const TableTypography = styled(Typography)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
-    fontSize: '16px',
+    fontSize: '14px',
 }));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
@@ -82,9 +82,7 @@ const JobProgress = () => {
 
     return (
         <DashboardCard title={
-            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Jobs in Progress
-            </Typography>
+            <Typography variant='h5'>Jobs in Progress</Typography>
         } action={
             <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
         }>
@@ -92,27 +90,27 @@ const JobProgress = () => {
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 3 }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
-                            <TableCell>
+                            <TableCell style={{ width: '150px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Vendor Name
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '100px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Date
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '150px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Type
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell width="50">
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Agreement Id / Disputed Id
                                 </TableTypography>
                             </TableCell>
-                            <TableCell>
+                            <TableCell style={{ width: '200px' }}>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
                                     Pending Task
                                 </TableTypography>
@@ -130,7 +128,7 @@ const JobProgress = () => {
                                 <TableCell>
                                     <Typography
                                         sx={{
-                                            fontSize: "15px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }}
                                     >
@@ -139,7 +137,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {moment(job.Date).format('MM/DD/YY')}
@@ -147,15 +145,16 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
+                                            color: theme.palette.accent.main
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Type}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography  sx={{
-                                            fontSize: "15px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Id}
@@ -163,7 +162,7 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography sx={{
-                                            fontSize: "15px",
+                                            fontSize: "14px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
                                         {job.Task}
@@ -171,8 +170,8 @@ const JobProgress = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Box display="flex" alignItems="center">
-                                        <LinearProgress variant="determinate" value={job.Progress} sx={{ height: '8px', flexGrow: 1, borderRadius: 10, mr: 1 }} />
-                                        <Typography variant="h6">{job.Progress}%</Typography>
+                                        <LinearProgress color="success" variant="determinate" value={job.Progress} sx={{ height: '6px', flexGrow: 1, borderRadius: 10, mr: 1, backgroundColor: theme.palette.primary.extraLight }} />
+                                        <Typography variant="body2" style={{ fontWeight: '600' }}>{job.Progress}%</Typography>
                                     </Box>
                                 </TableCell>
                             </TableRow>
