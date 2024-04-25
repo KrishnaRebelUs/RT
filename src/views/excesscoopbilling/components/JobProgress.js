@@ -171,7 +171,7 @@ const JobProgress = () => {
                                 <TableCell>
                                     <Box display="flex" alignItems="center">
                                         <LinearProgress color="success" variant="determinate" value={job.Progress} sx={{ height: '6px', flexGrow: 1, borderRadius: 10, mr: 1, backgroundColor: theme.palette.primary.extraLight }} />
-                                        <Typography variant="h6">{job.Progress}%</Typography>
+                                        <Typography variant="body2" style={{ fontWeight: '600' }}>{job.Progress}%</Typography>
                                     </Box>
                                 </TableCell>
                             </TableRow>
