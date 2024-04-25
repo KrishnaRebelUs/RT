@@ -5,6 +5,7 @@ import { IconH1 } from "@tabler/icons-react";
 import PageContainer from "../../components/container/PageContainer";
 import Breadcrumb from "../components/pages/Breadcrumb";
 import Header from "../components/pages/Header";
+import RangeChart from "../components/pages/RangeChart";
 
 const PriceClaim = () => {
 
@@ -29,6 +30,9 @@ const PriceClaim = () => {
 						</Grid>
                     </Grid>
                 </Grid>
+				<Grid item xs={12}>
+					<RangeChart />
+				</Grid>
             </Grid>
         </PageContainer>
     )

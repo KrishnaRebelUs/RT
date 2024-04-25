@@ -24,7 +24,7 @@ const Router = [
       { path: '/', element: <Navigate to="/dashboard" /> }, 
       { path: '/dashboard', exact: true, element: <Dashboard /> },
       { path: '/excess-coop-billing', exact: true, element: <Excesscoopbilling /> }, 
-      { path: '/shortage', exact: true, element: <Shortage /> }, 
+      { path: '/shortage-claim', exact: true, element: <Shortage /> }, 
       { path: '/manage-dispute', exact: true, element: <ManageDispute /> }, 
       { path: '/shortage-log', exact: true, element: <ShortageLog /> }, 
       { path: '/price-claim', exact: true, element: <PriceClaim /> }, 

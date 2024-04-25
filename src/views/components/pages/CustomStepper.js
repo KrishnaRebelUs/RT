@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Button, styled, Divider, Typography, Tooltip  } from '@mui/material';
 import { Box, positions } from '@mui/system';
+import Swal from "sweetalert2";
 import { useTheme } from '@emotion/react';
 import SettledImg from "../../../assets/images/Settled.gif";
 import BarChart from './Barchart';
@@ -68,6 +69,19 @@ export default function CustomStepper() {
         borderColor: theme.palette.primary.extraLight,
         borderWidth: '2px'
     }));
+    const handleStepClick = (stepNumber) => {
+        if (stepNumber === 9) {
+            Swal.fire({
+                title: "Congratulations!",
+                text: "You have reached the final step!",
+                icon: "success",
+                confirmButtonText: "OK",
+            });
+        } else {
+
+        }
+        
+    }
     return (
         <Box>
             <Grid container spacing={3} mb={3}>
@@ -149,7 +163,8 @@ export default function CustomStepper() {
                 <Tooltip title={'Hello Bro 9'}>
                     <Steps style={{ right: '0', bottom: '0' }}>
                         <Box>
-                            <Circle style={{ width: '70px', height: '70px', backgroundColor: 'white', borderRadisu: '0' }}><img width="100" src={SettledImg} alt='Settled' /></Circle>
+                            <Circle style={{ width: '70px', height: '70px', backgroundColor: 'white', borderRadisu: '0' }}><img width="100" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}
+                             /></Circle>
                             <Text>Settled</Text>
                         </Box>
                     </Steps>

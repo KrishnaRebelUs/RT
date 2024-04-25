@@ -20,9 +20,9 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: 'Shortage',
+    title: 'Shortage Claim',
     icon: IconClock,
-    href: '/shortage',
+    href: '/shortage-claim',
   },
   {
     id: uniqueId(),
