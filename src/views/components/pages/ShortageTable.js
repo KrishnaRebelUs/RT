@@ -11,121 +11,124 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
-    borderRadius:'7px',
-   
+    borderRadius: '7px',
 }));
+
 const TableTypography = styled(TableHead)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
     fontSize: '16px'
 }));
-const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
-    borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+
+const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
+    color: theme.palette.secondary.main
 }));
 
-const shortagetble = [
-    {
-       Settlement: "Shortage Claim Finding",
-       Active:"362,356.00",
-       Archieved: "362,356.00",
-    
-    },
-    {
-        Settlement: "Audit Period",
-        Active:"11/4/24",
-        Archieved: "11/4/24",
-     
-     },
-     {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
-      {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
-      {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
- 
-];
-
 const ShortageTable = () => {
-    const theme = useTheme(); 
+    const theme = useTheme();
+    const formatNumber = (number) => new Intl.NumberFormat().format(number);
+    const shortagetble = [
+        {
+           Settlement: "Shortage Claim Finding",
+           Active:"$362,356.00",
+           Archieved: "$362,356.00",
+           color: theme.palette.accent.main
+        
+        },
+        {
+            Settlement: "Audit Period",
+            Active:"11/4/24",
+            Archieved: "9/04/24",
+            
+         
+         },
+         {
+            Settlement: "Shortage Claim Finding",
+            Active:"11/24/23",
+            Archieved: "11/24/23",
+            color: theme.palette.error.dark
+         
+         },
+         {
+             Settlement: "Case ID and Creation Date",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+          
+          },
+          {
+            Settlement: "Open Balance",
+            Active:"$362,356.00",
+            Archieved: "$06230.30",
+            color: theme.palette.accent.main
+         
+         },
+         {
+             Settlement: "Audit Period",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+          
+          },
+          {
+            Settlement: "Shortage Claim Finding",
+            Active:"$362,356.00",
+            Archieved: "$362,356.00",
+         
+         },
+         {
+             Settlement: "Audit Period",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+             color:theme.palette.success.main
+          
+          },
+     
+    ];
+
     return (
-        <DashboardCard  title={  <Typography variant='h5' > Shortage Claim Reconciliation </Typography>}>
+        <DashboardCard title={<Typography variant='h4'> Shortage Claim Finding </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap"}}>
+                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                 
                                 </TableTypography>
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                   Activity Cases($)
+                                    Activity Cases($)
                                 </TableTypography>
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                  Archieved
+                                    Archieved
                                 </TableTypography>
                             </TableCell>
-                           
                         </TableRow>
                     </TableHeadStyled>
                     <TableBody>
-                        {shortagetble.map((shortagetble, index) => (
-                            <TableRowStyled theme={theme} key={index} index={index}>
-                                <TableCell>
+                        {shortagetble.map((data, index) => (
+                            <TableRow theme={theme} key={index}>
+                                <TableCellStyled index={index}>
                                     <Typography
                                         sx={{
                                             fontSize: "15px",
                                             fontWeight: "500",
                                         }}
                                     >
-                                        {shortagetble.Settlement}
+                                        {data.Settlement}
+                                    </Typography>
+                                </TableCellStyled>
+                                <TableCell>
+                                    <Typography variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
+                                        {typeof data.Active === 'number' ? formatNumber(data.Active) : data.Active}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>
-                                        {shortagetble.Active}
+                                    <Typography variant="subtitle2" fontWeight={400} style={{ color: data.color }}>
+                                        {typeof data.Archieved === 'number' ? formatNumber(data.Archieved) : data.Archieved}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400}>
-                                        {shortagetble.Archieved}
-                                    </Typography>
-                                </TableCell>
-                                
-                            </TableRowStyled>
+                            </TableRow>
                         ))}
                     </TableBody>
                 </Table>
