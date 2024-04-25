@@ -48,7 +48,7 @@ const handleChange = (event, newValue) => {
 };
 const TabStyled = styled(Tab)(({ theme }) => ({
     color: theme.palette.text.main, 
-    fontSize: '14px', 
+    fontSize: '12px', 
     alignItems:'start', 
     padding:'15px 0 15px 15px', 
     fontWeight: '500',
@@ -82,39 +82,39 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                 </Grid>
                 <Grid item sm={8}>
                     <TabPanel value={value} index={0} style={{ borderLeft: '1px solid #eee', marginLeft: '20px'}}>
-                        <Typography variant="h5" style={{ color: theme.palette.accent.main }} mb={3}>Shipment Disparity Details</Typography>
+                        <Typography variant="body2" style={{ color: theme.palette.accent.main }} mb={3}>Shipment Disparity Details</Typography>
                         <Grid container spacing={3} justifyContent="space-between">
-                            <Grid item><Typography variant='h6' style={{ color: theme.palette.primary.dark }}>01/11/2018</Typography></Grid>
-                            <Grid item><Typography variant='h6' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
-                            <Grid item><Typography variant='h6' style={{ color: theme.palette.success.dark }}>12/13/2021</Typography></Grid>
+                            <Grid item><Typography variant='body2' style={{ color: theme.palette.primary.dark, fontWeight: '600' }}>01/11/2018</Typography></Grid>
+                            <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
+                            <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark, fontWeight: '600' }}>12/13/2021</Typography></Grid>
                         </Grid>
-                        <Box my={1}><Divider /></Box>
+                        <Box my={2}><Divider /></Box>
                         <Grid container direction="row" spacing="3">
                             <Grid item>
-                                <Typography variant='h6' sx={{color: theme.palette.success.main}}>Agreements Scanned</Typography>
+                                <Typography variant='body2' sx={{color: theme.palette.success.main}}>Agreements Scanned</Typography>
                             </Grid>
-                            <Grid item ml={'auto'}><Typography variant='h6'>1,253</Typography></Grid>
+                            <Grid item ml={'auto'}><Typography variant='body2' style={{ fontWeight: '600' }}>1,253</Typography></Grid>
                         </Grid>
-                        <Box my={1}><Divider /></Box>
+                        <Box my={2}><Divider /></Box>
                         <Grid container direction="row" spacing="3">
                             <Grid item>
-                                <Typography variant='h6' sx={{color: theme.palette.accent.main}}>CoOp Invoices Scanned</Typography>
+                                <Typography variant='body2' sx={{color: theme.palette.accent.main}}>CoOp Invoices Scanned</Typography>
                             </Grid>
-                            <Grid item ml={'auto'}><Typography variant='h6'>1,253</Typography></Grid>
+                            <Grid item ml={'auto'}><Typography variant='body2' style={{ fontWeight: '600' }}>1,253</Typography></Grid>
                         </Grid>
-                        <Box my={1}><Divider /></Box>
+                        <Box my={2}><Divider /></Box>
                         <Grid container direction="row" spacing="3">
                             <Grid item>
-                                <Typography variant='h6' sx={{color: theme.palette.primary.main}}>PO's Scanned</Typography>
+                                <Typography variant='body2' sx={{color: theme.palette.primary.main}}>PO's Scanned</Typography>
                             </Grid>
-                            <Grid item ml={'auto'}><Typography variant='h6'>1,163</Typography></Grid>
+                            <Grid item ml={'auto'}><Typography variant='body2' style={{ fontWeight: '600' }}>1,163</Typography></Grid>
                         </Grid>
-                        <Box my={1}><Divider /></Box>
+                        <Box my={2}><Divider /></Box>
                         <Grid container direction="row" spacing="3">
                             <Grid item>
-                                <Typography variant='h6' sx={{color: theme.palette.warning.main}}>Sum Identified</Typography>
+                                <Typography variant='body2' sx={{color: theme.palette.warning.main}}>Sum Identified</Typography>
                             </Grid>
-                            <Grid item ml={'auto'}><Typography variant='h6'>11,4047</Typography></Grid>
+                            <Grid item ml={'auto'}><Typography variant='body2' style={{ fontWeight: '600' }}>11,4047</Typography></Grid>
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1} style={{ borderLeft: '1px solid #eee', marginLeft: '20px'}}>
