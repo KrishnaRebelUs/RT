@@ -87,55 +87,6 @@ const ShortageClaim = () => {
 						<Grid item xs={12} my={1}>
 							<Typography variant='h3'>Bulk Shortage Dispute - Historical</Typography>
 						</Grid>
-						<Grid item xs={12} mb={1}>
-							<Grid container direction="row" spacing={3}>
-								<Grid item xs>
-									<DashboardCard>
-										<Grid container spacing={3} alignItems="center">
-											<Grid item sm={8}>
-												<Grid container sx={{ flexWrap: 'nowrap' }} spacing={2} alignItems="center">
-													<Grid item><AvatarStyled><IconClock/></AvatarStyled></Grid>
-													<Grid item><Typography variant='h5'>Hour Saved</Typography></Grid>
-												</Grid>
-											</Grid>
-											<Grid item sm={4}>
-												<Typography variant='h4' style={{ color: theme.palette.primary.main, textAlign:'right' }}>18 h</Typography>
-											</Grid>
-										</Grid>
-									</DashboardCard>
-								</Grid>
-								<Grid item xs>
-									<DashboardCard>
-										<Grid container spacing={3} alignItems="center">
-											<Grid item sm={8}>
-												<Grid container spacing={2} sx={{ flexWrap: 'nowrap' }} alignItems="center">
-													<Grid item><AvatarStyled style={{ backgroundColor: theme.palette.accent.light }}><IconBriefcase style={{ color: theme.palette.accent.main }}/></AvatarStyled></Grid>
-													<Grid item><Typography variant='h5'>Resources Saved</Typography></Grid>
-												</Grid>
-											</Grid>
-											<Grid item sm={4}>
-												<Typography variant='h4' style={{ color: theme.palette.accent.main, textAlign:'right' }}>496</Typography>
-											</Grid>
-										</Grid>
-									</DashboardCard>
-								</Grid>
-								<Grid item xs>
-									<DashboardCard>
-										<Grid container spacing={3} alignItems="center">
-											<Grid item sm={8}>
-												<Grid container spacing={2} sx={{ flexWrap: 'nowrap' }} alignItems="center">
-													<Grid item><AvatarStyled style={{ backgroundColor: theme.palette.success.light }}><IconCurrencyDollar style={{ color: theme.palette.success.main }}/></AvatarStyled></Grid>
-													<Grid item><Typography variant='h5'>Amount Saved</Typography></Grid>
-												</Grid>
-											</Grid>
-											<Grid item sm={4}>
-												<Typography variant='h4' style={{ color: theme.palette.success.main, textAlign:'right' }}>${new Intl.NumberFormat().format(98442)}</Typography>
-											</Grid>
-										</Grid>
-									</DashboardCard>
-								</Grid>
-							</Grid>
-						</Grid>
 						<Grid item xs={12} lg={4}>
 							<DashboardCard 
 								title={
@@ -178,6 +129,55 @@ const ShortageClaim = () => {
 						</Grid>
 					</Grid>
 				</Grid>
+				<Grid item xs={12} mb={1}>
+					<Grid container direction="row" spacing={3}>
+						<Grid item xs>
+							<DashboardCard>
+								<Grid container spacing={3} alignItems="center">
+									<Grid item sm={8}>
+										<Grid container sx={{ flexWrap: 'nowrap' }} spacing={2} alignItems="center">
+											<Grid item><AvatarStyled><IconClock/></AvatarStyled></Grid>
+											<Grid item><Typography variant='h6'>Hour Saved</Typography></Grid>
+										</Grid>
+									</Grid>
+									<Grid item sm={4}>
+										<Typography variant='h4' style={{ color: theme.palette.primary.main, textAlign:'right' }}>18 h</Typography>
+									</Grid>
+								</Grid>
+							</DashboardCard>
+						</Grid>
+						<Grid item xs>
+							<DashboardCard>
+								<Grid container spacing={3} alignItems="center">
+									<Grid item sm={8}>
+										<Grid container spacing={2} sx={{ flexWrap: 'nowrap' }} alignItems="center">
+											<Grid item><AvatarStyled style={{ backgroundColor: theme.palette.accent.light }}><IconBriefcase style={{ color: theme.palette.accent.main }}/></AvatarStyled></Grid>
+											<Grid item><Typography variant='h6'>Resources Saved</Typography></Grid>
+										</Grid>
+									</Grid>
+									<Grid item sm={4}>
+										<Typography variant='h4' style={{ color: theme.palette.accent.main, textAlign:'right' }}>496</Typography>
+									</Grid>
+								</Grid>
+							</DashboardCard>
+						</Grid>
+						<Grid item xs>
+							<DashboardCard>
+								<Grid container spacing={3} alignItems="center">
+									<Grid item sm={8}>
+										<Grid container spacing={2} sx={{ flexWrap: 'nowrap' }} alignItems="center">
+											<Grid item><AvatarStyled style={{ backgroundColor: theme.palette.success.light }}><IconCurrencyDollar style={{ color: theme.palette.success.main }}/></AvatarStyled></Grid>
+											<Grid item><Typography variant='h6'>Amount Saved</Typography></Grid>
+										</Grid>
+									</Grid>
+									<Grid item sm={4}>
+										<Typography variant='h4' style={{ color: theme.palette.success.main, textAlign:'right' }}>${new Intl.NumberFormat().format(98442)}</Typography>
+									</Grid>
+								</Grid>
+							</DashboardCard>
+						</Grid>
+					</Grid>
+				</Grid>
 				<Grid item xs={12}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} lg={8}>
@@ -197,7 +197,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={6} xl={3}>
 							<ClaimCard>
-								<DashboardCard title={<Typography variant='h5'>Total Disputed</Typography>}>
+								<DashboardCard title={<Typography variant='h6'>Total Disputed</Typography>}>
 									<Typography variant='h3' sx={{ color: theme.palette.primary.main }}>$1,330,771.61</Typography>
 									<IconExclamationCircle size='70' style={{position:'absolute', right:'30px', bottom:'30px', color: theme.palette.primary.main}}/>
 								</DashboardCard>
@@ -205,7 +205,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={6} xl={3}>
 							<ClaimCard>
-								<DashboardCard title={<Typography variant='h5'>Total Pending With Amazon</Typography>}>
+								<DashboardCard title={<Typography variant='h6'>Total Pending With Amazon</Typography>}>
 									<Typography variant='h3' sx={{ color: theme.palette.warning.main }}>$439,573.41</Typography>
 									<Box style={{position:'absolute', right:'10px', bottom:'10px'}}><BarChart color={theme.palette.accent.main} percentage={30} chartWidth="130" chartHeight="130" chartLableFonrSize="16px"  /></Box>
 								</DashboardCard>
@@ -213,7 +213,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={6} xl={3}>
 							<ClaimCard>
-								<DashboardCard title={<Typography variant='h5'>Total Denied</Typography>}>
+								<DashboardCard title={<Typography variant='h6'>Total Denied</Typography>}>
 									<Typography variant='h3' sx={{ color: theme.palette.error.main }}>$535,758.19</Typography>
 									<IconThumbDown size='70' style={{position:'absolute', right:'30px', bottom:'30px', color: theme.palette.error.main}}/>
 								</DashboardCard>
@@ -221,7 +221,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={6} xl={3}>
 							<ClaimCard>
-								<DashboardCard title={<Typography variant='h5'>Total Approved</Typography>}>
+								<DashboardCard title={<Typography variant='h6'>Total Approved</Typography>}>
 									<Typography variant='h3' sx={{ color: theme.palette.success.dark }}>$4,942,234.43</Typography>
 									<Box mt={3}><ButtonStyled component={Link} to="/shortage-log">View Details <IconChevronRight size="16" /></ButtonStyled></Box>
 									<IconThumbUp size='70' style={{position:'absolute', right:'30px', bottom:'30px', color: theme.palette.success.main}}/>

@@ -86,8 +86,8 @@ export default function CustomStepper() {
         <Box>
             <Grid container spacing={3} mb={3}>
                 <Grid item mr={'auto'}>
-                    <Grid container spacing={2} alignItems="flex-end">
-                        <Grid item style={{ transform: "translateY(5px)" }}><Typography variant="BigTitle" sx={{ color: theme.palette.success.dark }}>04</Typography></Grid>
+                    <Grid container spacing={1} alignItems="flex-end">
+                        <Grid item style={{ transform: "translateY(5px)" }}><Typography variant="h2" sx={{ color: theme.palette.success.dark }}>04</Typography></Grid>
                         <Grid item><Typography variant="h5">Stage</Typography></Grid>    
                     </Grid>
                 </Grid>
@@ -100,7 +100,6 @@ export default function CustomStepper() {
                     <Steps className="active">
                         <Box>
                             <Circle className="circle">1</Circle>
-                            <Text className="stepText">Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -108,7 +107,6 @@ export default function CustomStepper() {
                     <Steps style={{ left: '0', right: '0', margin: 'auto' }}>
                         <Box>
                             <Circle>2</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -116,7 +114,6 @@ export default function CustomStepper() {
                     <Steps style={{ right: '0' }}>
                         <Box>
                             <Circle>3</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -124,7 +121,6 @@ export default function CustomStepper() {
                     <Steps style={{ right: '0', top: '40%' }}>
                         <Box>
                             <Circle>4</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -132,7 +128,6 @@ export default function CustomStepper() {
                     <Steps style={{ left: '0', right: '0', top: '40%', margin: 'auto' }}>
                         <Box>
                             <Circle>5</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -140,7 +135,6 @@ export default function CustomStepper() {
                     <Steps style={{ left: '0', top: '40%' }}>
                         <Box>
                             <Circle>6</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -148,7 +142,6 @@ export default function CustomStepper() {
                     <Steps style={{ bottom: '0' }}>
                         <Box>
                             <Circle>7</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -156,7 +149,6 @@ export default function CustomStepper() {
                     <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
                         <Box>
                             <Circle>8</Circle>
-                            <Text>Step</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -165,7 +157,6 @@ export default function CustomStepper() {
                         <Box>
                             <Circle style={{ width: '70px', height: '70px', backgroundColor: 'white', borderRadisu: '0' }}><img width="100" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}
                              /></Circle>
-                            <Text>Settled</Text>
                         </Box>
                     </Steps>
                 </Tooltip>
@@ -175,9 +166,9 @@ export default function CustomStepper() {
                     <LineWrapper style={{ right: '0', top: '27%', transform: 'translate(40px) rotate(90deg)'}}><Line></Line></LineWrapper>
                     <LineWrapper style={{ left: '0', top: '48%', transform: 'translateX(45px)'}}><Line></Line></LineWrapper>
                     <LineWrapper style={{ right: '0', top: '48%', transform: 'translateX(-45px)'}}><Line></Line></LineWrapper>
-                    <LineWrapper style={{ left: '0', top: '67%', transform: 'translate(-43px) rotate(90deg)'}}><Line></Line></LineWrapper>
-                    <LineWrapper style={{ left: '0', bottom: '45px', transform: 'translateX(45px)'}}><Line></Line></LineWrapper>
-                    <LineWrapper style={{ right: '0', bottom: '45px', transform: 'translateX(-45px)'}}><Line></Line></LineWrapper>
+                    <LineWrapper style={{ left: '13px', top: '67%', transform: 'translate(-43px) rotate(90deg)'}}><Line></Line></LineWrapper>
+                    <LineWrapper style={{ left: '0', bottom: '30px', transform: 'translateX(45px)'}}><Line></Line></LineWrapper>
+                    <LineWrapper style={{ right: '0', bottom: '30px', transform: 'translateX(-45px)'}}><Line></Line></LineWrapper>
                 </Box>
             </StepsWrap>
         </Box>
