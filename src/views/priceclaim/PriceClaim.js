@@ -10,7 +10,7 @@ import DashboardCard from '../../components/shared/DashboardCard';
 import {IconChevronRight,IconThumbUp, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
 import FinopsTable from '../components/pages/FinopsTable';
-import RangeChart from '../components/pages/RangeChart';
+import RangeChart from "../components/pages/RangeChart";
 
 const PriceClaim = () => {
 	const theme = useTheme();
@@ -41,13 +41,13 @@ const PriceClaim = () => {
 	}));
 
     return (
-        <PageContainer title="Shortage Claim">
+        <PageContainer title="Price Claim">
 			<Grid container spacing={3}>
 				<Grid item xs={12}>
 					<Breadcrumb titles={['Price Claim']} />
 				</Grid>
 				<Grid item xs={12}>
-					<Header title='Shortage' />
+					<Header title='Price Claim' />
 				</Grid>
 				<Grid item xs={12}>
 					<Grid container spacing={2}>
@@ -93,7 +93,9 @@ const PriceClaim = () => {
                     </Grid>
                 </Grid>
 				<Grid item xs={12}>
-					<RangeChart />
+					<DashboardCard>
+				    	<RangeChart />
+					</DashboardCard>
 				</Grid>
             </Grid>
         </PageContainer>
