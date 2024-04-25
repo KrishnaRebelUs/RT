@@ -9,7 +9,7 @@ const TypographyStyled = styled(Typography)(({ theme }) => ({
 const TypographyParaStyled = styled(Typography)(({ theme }) => ({
 	color: theme.palette.primary.main,
 	position: 'relative',
-	marginBottom: '10px',
+	marginBottom: '5px',
 	'&::before': {
 	  content: '""',
 	  position: 'absolute',
@@ -20,9 +20,14 @@ const TypographyParaStyled = styled(Typography)(({ theme }) => ({
 	  backgroundColor: theme.palette.accent.main,
 	  marginRight: '8px',
 	  bottom: '7px',
-	  left: '-27px', 
+	  left: '-25px', 
 	},
   }));
+  const GridStyled = styled(Grid)(({ theme }) => ({
+	marginLeft:'26px',
+    marginTop: '10px'
+
+}));
   
   
 
@@ -30,34 +35,36 @@ const Update = () => {
 	const theme = useTheme();
   return (
 	<DashboardCard title={<TypographyStyled variant='h5'>Updates</TypographyStyled>}>
-         <Grid container spacing={2} mb={2}>
-            <Grid item xs="4" >
-				<Typography variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</Typography>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
-			<Grid item xs="4">
-	    		<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
-			<Grid item xs="4">
-		    	<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
+         <Grid container spacing={2}  alignItems='center'>
+           <marquee direction='up' speed="100" style={{marginLeft: '17px'}}>
+			    <GridStyled item xs="12">
+					<TypographyParaStyled variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				<GridStyled item xs="12">
+					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				<GridStyled item xs="12">
+					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				<GridStyled item xs="12" >
+					<TypographyParaStyled variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				<GridStyled item xs="12">
+					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				<GridStyled item xs="12">
+					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
+					<Typography variant='body2'>3 May</Typography>
+				</GridStyled>
+				
+		   </marquee>
 		 </Grid>
-		 <Grid container spacing={2}>
-            <Grid item xs="4" >
-				<Typography variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</Typography>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
-			<Grid item xs="4">
-	    		<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
-			<Grid item xs="4">
-		    	<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-				<Typography variant='body2'>3 May</Typography>
-			</Grid>
-		 </Grid>
+	
 	</DashboardCard>
   )
 }

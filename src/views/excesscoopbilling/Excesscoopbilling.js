@@ -85,9 +85,9 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={6}>
 					<RecentTransactions />
 				</Grid>
-				{/* <Grid item xs={12}>
+				<Grid item xs={12} lg={6}>
 					<Update />
-				</Grid> */}
+				</Grid>
 				<Grid item xs={12}>
 					<JobProgress />
 				</Grid>
