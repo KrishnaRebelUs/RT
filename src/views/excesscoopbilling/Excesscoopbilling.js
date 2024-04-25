@@ -76,13 +76,13 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={6}>
 					<WinRate />
 				</Grid>
-				<Grid item xs={12} lg={6}>	
+				<Grid item xs={12} lg={5}>	
 					<EfficencyAssesment />
 				</Grid>
 				<Grid item xs={12} lg={3}>
 					<AuditTime />
 				</Grid>
-				<Grid item xs={12} lg={3}>
+				<Grid item xs={12} lg={4}>
 					<RecentTransactions />
 				</Grid>
 				{/* <Grid item xs={12}>

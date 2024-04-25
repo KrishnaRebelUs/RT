@@ -22,7 +22,7 @@ const typography = {
   },
   h4: {
     fontWeight: 600,
-    fontSize: '1.3125rem',
+    fontSize: '1.125rem',
     lineHeight: '1.6rem',
   },
   h5: {
@@ -59,7 +59,7 @@ const typography = {
     fontWeight: 400,
   },
   BigTitle: {
-    fontSize: '2.8rem',
+    fontSize: '2.1rem',
     fontWeight: 600,
     lineHeight: '1.2em'
   },
