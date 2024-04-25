@@ -1,42 +1,57 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
-import { Box, Stack } from '@mui/material';
-import {IconUser} from '@tabler/icons-react';
+import { IconUser } from '@tabler/icons-react';
+import '../../../theme/FormStyle.css';
 
-const options = [
-  { value: 'US - Demo Account', label: 'US - Demo Account', icon: <IconUser size='16' /> },
-  { value: 'US - Demo Account', label: 'US - Demo Account', icon: <IconUser /> },
-  { value: 'US - Demo Account', label: 'US - Demo Account', icon: <IconUser /> },
-  { value: 'US - Demo Account', label: 'US - Demo Account', icon: <IconUser />},
-  { value: 'US - Demo Account', label: 'US - Demo Account', icon: <IconUser />},
+const colourOptions = [
+  { value: 'account1', label: 'Us Demo Account 1', icon: <IconUser /> }, 
+  { value: 'account2', label: 'Us Demo Account 2', icon: <IconUser />  },
+  { value: 'account3', label: 'Us Demo Account 3', icon: <IconUser /> },
 ];
 
-const SelectWithSearchAndIcon = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const dot = (icon) => ({
+  alignItems: 'center',
+  display: 'flex',
 
-  const handleChange = selectedOption => {
-    setSelectedOption(selectedOption);
-  };
+});
 
-  const Option = ({ data }) => (
-  <Box>
-    <Stack direction='row' spacing={3}>
-		<Box>{data.icon}</Box>
-		<Box>{data.label}</Box>
-	</Stack>
-  </Box>
-  );
+const colourStyles = {
+  control: (styles) => ({ ...styles, backgroundColor: 'white' }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? 'lightblue'
+        : isFocused
+        ? 'lightgray' 
+        : undefined,
+		border: isDisabled,
+      color: isDisabled
+        ? '#ccc'
+        : isSelected
+        ? 'white'
+        : 'black', 
+      cursor: isDisabled ? 'not-allowed' : 'default',
 
-  return (
-    <Select
-      value={selectedOption}
-      onChange={handleChange}
-      options={options}
-      isSearchable={true}
-      placeholder="Select an option"
-      components={{ Option }}
-    />
-  );
+      ':active': {
+        ...styles[':active'],
+        backgroundColor: !isDisabled && (isSelected ? 'lightblue' : 'lightgray'),
+      },
+    };
+  },
+  input: (styles) => ({ ...styles, ...dot(<IconUser />) }), 
+  placeholder: (styles) => ({ ...styles, ...dot(<IconUser />) }), 
+  singleValue: (styles, { data }) => ({ ...styles, ...dot(data.icon) }),
 };
 
-export default SelectWithSearchAndIcon;
+const CustomSelect = () => (
+  <Select
+    defaultValue={colourOptions[0]}
+    options={colourOptions}
+
+  />
+);
+
+export default CustomSelect;

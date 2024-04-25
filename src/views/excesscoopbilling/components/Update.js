@@ -36,7 +36,7 @@ const Update = () => {
   return (
 	<DashboardCard title={<TypographyStyled variant='h5'>Updates</TypographyStyled>}>
          <Grid container spacing={2}  alignItems='center'>
-           <marquee direction='up' speed="100" style={{marginLeft: '17px'}}>
+           <marquee direction='down' scrollamount="2" style={{marginLeft: '17px'}}>
 			    <GridStyled item xs="12">
 					<TypographyParaStyled variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
 					<Typography variant='body2'>3 May</Typography>

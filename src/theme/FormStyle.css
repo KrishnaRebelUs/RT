@@ -1,0 +1,47 @@
+:root {
+    --primary: #285a9e;
+    --primary-light: rgb(236, 242, 255);
+}
+div .css-13cymwt-control{
+	border: none;
+    background-color: var(--primary-light);
+    border-radius: 4px;
+    color: #000;
+	font-size: 16px;
+	font-weight: 700;
+    width: 100%;
+}
+div .css-t3ipsp-control{
+	border: none;
+    background-color: var(--primary-light);
+    border-radius: 4px;
+	border: none !important;
+	box-shadow: none;
+    color: #000;
+	font-size: 16px;
+	font-weight: 700;
+    width: 100%;
+}
+div .css-tr4s17-option{
+   background-color: var(--primary);
+}
+.currency-slector .css-13cymwt-control{
+   background-color:  var(--primary);
+}
+.currency-slector .css-w9q2zk-Input2{
+	color: #fff;
+}
+.currency-slector .css-t3ipsp-control{
+	background-color:  var(--primary);
+	border-radius: 4px;
+	border: 1px solid  var(--primary);
+ }
+ .currency-slector .css-t3ipsp-control:hover,  .currency-slector .css-13cymwt-control:hover{
+	border: 1px solid var(--primary);
+ }
+ .currency-slector .css-1dimb5e-singleValue{
+	color: #fff;
+ }
+ .currency-slector .css-15lsz6c-indicatorContainer svg{
+	color: #fff;
+ }

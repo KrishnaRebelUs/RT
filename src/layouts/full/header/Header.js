@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
+import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge,Grid } from '@mui/material';
 import PropTypes from 'prop-types';
 import Profile from './Profile';
 import { IconBellRinging, IconMenu2 ,IconMail} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
 import SelectSearch from './SelectSearch';
+import SelectCurrency from './SelectCurrency';
 
 const Header = (props) => {
 
@@ -37,7 +38,10 @@ const Header = (props) => {
         >
           <IconMenu2 width="23" height="23" stroke="1.5" />
         </IconButton>
-        <SelectSearch />
+          <Grid container spacing={2} marginLeft='5px'>
+            <Grid item xs={4}> <SelectSearch /></Grid>
+            <Grid item xs={2} className="currency-slector"> <SelectCurrency /></Grid>
+          </Grid>
 
         <Box flexGrow={1} />
           <Stack spacing={1} direction="row" alignItems="center">
