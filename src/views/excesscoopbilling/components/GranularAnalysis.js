@@ -9,16 +9,13 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 
-
-const TypographyStyled = styled(Typography)({});
-
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main
 }));
 const TableTypography = styled(TableCell)(({ theme }) => ({
     color: 'white',
     fontWeight: '600',
-    fontSize: '14px'
+    fontSize: '12px'
 }));
 const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
@@ -59,9 +56,7 @@ const GranularAnalysis = () => {
     ];
     return (
         <DashboardCard title={
-            <TypographyStyled variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Granular Analysis
-            </TypographyStyled>}>
+            <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Granular Analysis</Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap" }}>
                     <TableHeadStyled theme={theme}>
@@ -76,7 +71,7 @@ const GranularAnalysis = () => {
                         {products.map((product, index) => (
                             <TableRowStyled key={index} index={index} theme={theme}>
                                 <TableCell index={index} style={{ color: product.color}}>
-                                    <Typography variant="tableData">
+                                    <Typography style={{ fontSize: '12px', fontWeight: '500' }} variant="tableData">
                                         {product.Subtype}
                                     </Typography>
                                 </TableCell>

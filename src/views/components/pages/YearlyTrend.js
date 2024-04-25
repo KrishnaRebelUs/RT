@@ -9,8 +9,8 @@ const YearlyTrend = () => {
 		border: '1px solid',
 		borderColor: theme.palette.primary.light,
 		color: theme.palette.primary.main,
-		fontSize: '13px',
-		padding: '5px 12px',
+		fontSize: '12px',
+		padding: '3px 8px',
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
@@ -44,18 +44,18 @@ const YearlyTrend = () => {
 		<ButtonStyled onClick={handleClick} >View Details  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
 		<TypographyStyled variant='h6'>2024</TypographyStyled>
-		<Typography variant='BigTitle' sx={{ color: theme.palette.primary.main }}>$8989</Typography>
+		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>$8989</Typography>
 		
 		<Box my={2}><Divider /></Box>
 
 		<Grid container spacing={3}>
 			<Grid item sm={6}>
 				<TypographyStyled variant='h6' mb={1}>2022</TypographyStyled>
-				<Typography variant='h5'sx={{ color: theme.palette.accent.main }} ><b>$ 1,280,966.35</b></Typography>
+				<Typography variant='h6'sx={{ color: theme.palette.accent.main }} ><b>$ 1,280,966.35</b></Typography>
 			</Grid>
 			<Grid item sm={6}>
 				<TypographyStyled variant='h6' mb={1}>2023</TypographyStyled>
-				<Typography variant='h5' sx={{ color: theme.palette.success.dark }}>$ 1,680,966.35</Typography>
+				<Typography variant='h6' sx={{ color: theme.palette.success.dark }}>$ 1,680,966.35</Typography>
 			</Grid>
 		</Grid>
 		<Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth>
