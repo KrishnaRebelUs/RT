@@ -33,6 +33,9 @@ div .css-tr4s17-option {
 	background-color: var(--primary);
 	min-width: 100px;
 }
+.currency-slector .css-t3ipsp-control{
+	min-width: 100px;
+}
 
 .currency-slector .css-w9q2zk-Input2,
 .currency-slector .css-w9q2zk-Input2 input,

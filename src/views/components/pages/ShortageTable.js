@@ -9,6 +9,8 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 
+
+
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     borderRadius:'7px',
@@ -18,69 +20,74 @@ const TableTypography = styled(TableHead)(({ theme }) => ({
     color: theme.palette.primary.contrastText,
     fontSize: '16px'
 }));
-const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
-    borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+
+const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
+    color: theme.palette.secondary.main
+
 }));
 
-const shortagetble = [
-    {
-       Settlement: "Shortage Claim Finding",
-       Active:"362,356.00",
-       Archieved: "362,356.00",
-    
-    },
-    {
-        Settlement: "Audit Period",
-        Active:"11/4/24",
-        Archieved: "11/4/24",
-     
-     },
-     {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
-      {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
-      {
-        Settlement: "Shortage Claim Finding",
-        Active:"362,356.00",
-        Archieved: "362,356.00",
-     
-     },
-     {
-         Settlement: "Audit Period",
-         Active:"11/4/24",
-         Archieved: "11/4/24",
-      
-      },
- 
-];
 
 const ShortageTable = () => {
     const theme = useTheme(); 
+    const shortagetble = [
+        {
+           Settlement: "Shortage Claim Finding",
+           Active:"362,356.00",
+           Archieved: "362,356.00",
+           color: theme.palette.accent.main
+        
+        },
+        {
+            Settlement: "Audit Period",
+            Active:"11/4/24",
+            Archieved: "9/04/24",
+            
+         
+         },
+         {
+            Settlement: "Shortage Claim Finding",
+            Active:"11/24/23",
+            Archieved: "11/24/23",
+            color: theme.palette.error.dark
+         
+         },
+         {
+             Settlement: "Audit Period",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+          
+          },
+          {
+            Settlement: "Shortage Claim Finding",
+            Active:"362,356.00",
+            Archieved: "362,356.00",
+         
+         },
+         {
+             Settlement: "Audit Period",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+          
+          },
+          {
+            Settlement: "Shortage Claim Finding",
+            Active:"362,356.00",
+            Archieved: "362,356.00",
+         
+         },
+         {
+             Settlement: "Audit Period",
+             Active:"11/4/24",
+             Archieved: "11/4/24",
+          
+          },
+     
+    ];
+    
     return (
-        <DashboardCard  title={  <Typography variant='h5' > Shortage Claim Reconciliation </Typography>}>
+        <DashboardCard  title={<Typography variant='h4' > Shortage Claim Finding </Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap"}}>
+                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableCell>
@@ -103,8 +110,8 @@ const ShortageTable = () => {
                     </TableHeadStyled>
                     <TableBody>
                         {shortagetble.map((shortagetble, index) => (
-                            <TableRowStyled theme={theme} key={index} index={index}>
-                                <TableCell>
+                            <TableRow theme={theme} key={index}>
+                                   <TableCellStyled index={index}>
                                     <Typography
                                         sx={{
                                             fontSize: "15px",
@@ -113,19 +120,19 @@ const ShortageTable = () => {
                                     >
                                         {shortagetble.Settlement}
                                     </Typography>
-                                </TableCell>
+                                </TableCellStyled>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>
-                                        {shortagetble.Active}
+                                    <Typography variant="subtitle2" fontWeight={600} style={{ color: shortagetble.color}}>
+                                       {shortagetble.Active}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400}>
+                                    <Typography variant="subtitle2" fontWeight={400} style={{ color: shortagetble.color}}>
                                         {shortagetble.Archieved}
                                     </Typography>
                                 </TableCell>
                                 
-                            </TableRowStyled>
+                            </TableRow>
                         ))}
                     </TableBody>
                 </Table>
