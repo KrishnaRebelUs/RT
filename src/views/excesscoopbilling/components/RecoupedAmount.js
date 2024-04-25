@@ -59,7 +59,7 @@ const RecoupedAmount = () => {
 			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="60px" />
       	}
 	>
-		<TypographyStyled variant='h2' sx={{ color: theme.palette.success.dark }}>$ 4,942,234.43</TypographyStyled>	
+		<TypographyStyled variant='h2' sx={{ color: theme.palette.success.dark }}>$ {new Intl.NumberFormat().format(4942234.43)}</TypographyStyled>	
 
 	</DashboardCard>
   )

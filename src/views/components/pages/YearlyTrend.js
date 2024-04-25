@@ -44,18 +44,18 @@ const YearlyTrend = () => {
 		<ButtonStyled onClick={handleClick} >View Details  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
 		<TypographyStyled variant='h6'>2024</TypographyStyled>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>$8989</Typography>
+		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
 		
 		<Box my={2}><Divider /></Box>
 
 		<Grid container spacing={3}>
 			<Grid item sm={6}>
 				<TypographyStyled variant='h6' mb={1}>2022</TypographyStyled>
-				<Typography variant='h6'sx={{ color: theme.palette.accent.main }} ><b>$ 1,280,966.35</b></Typography>
+				<Typography variant='h6'sx={{ color: theme.palette.accent.main }} ><b>${new Intl.NumberFormat().format(8989)}</b></Typography>
 			</Grid>
 			<Grid item sm={6}>
 				<TypographyStyled variant='h6' mb={1}>2023</TypographyStyled>
-				<Typography variant='h6' sx={{ color: theme.palette.success.dark }}>$ 1,680,966.35</Typography>
+				<Typography variant='h6' sx={{ color: theme.palette.success.dark }}>$ {new Intl.NumberFormat().format(1680966.35)}</Typography>
 			</Grid>
 		</Grid>
 		<Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth>
@@ -69,7 +69,7 @@ const YearlyTrend = () => {
 						{[...Array(6)].map((_, index) => (
 							<CustomStack key={index} index={index} direction="row" spacing={4} justifyContent="space-between">
 								<TypographyStyled variant='h6'>2024</TypographyStyled>
-								<Typography variant='h6'>202229,82</Typography>
+								<Typography variant='h6'>${new Intl.NumberFormat().format(12966.35)}</Typography>
 							</CustomStack>
 						))}
 					</Grid>

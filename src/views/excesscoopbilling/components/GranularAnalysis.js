@@ -27,29 +27,29 @@ const GranularAnalysis = () => {
     const products = [
         {
             Subtype: "Duplicate Freight",
-            Findings$: "362,356.00",
-            PriorAdjustments$: "362,356.00",
+            Findings$: "362356.00",
+            PriorAdjustments$: "362356.00",
             NetOff: "3.9",
             color: theme.palette.success.dark
         },
         {
             Subtype: "Non-compliant Freight",
-            Findings$: "362,356.00",
-            PriorAdjustments$: "362,356.00",
+            Findings$: "362356.00",
+            PriorAdjustments$: "362356.00",
             NetOff: "3.9",
             color: theme.palette.accent.main
         },
         {
             Subtype: "Miscellaneous",
-            Findings$: "362,356.00",
-            PriorAdjustments$: "362,356.00",
+            Findings$: "362356.00",
+            PriorAdjustments$: "362356.00",
             NetOff: "3.9",
             color: theme.palette.primary.main
         },
         {
             Subtype: "Duplicate Billing",
-            Findings$: "362,356.00",
-            PriorAdjustments$: "362,356.00",
+            Findings$: "362356.00",
+            PriorAdjustments$: "362356.00",
             NetOff: "3.9",
             color: theme.palette.warning.main
         }
@@ -77,12 +77,12 @@ const GranularAnalysis = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="tableData">
-                                        {product.Findings$}
+                                        ${new Intl.NumberFormat().format(product.Findings$)}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="tableData">
-                                        {product.PriorAdjustments$}
+                                    ${new Intl.NumberFormat().format(product.PriorAdjustments$)}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

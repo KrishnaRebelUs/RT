@@ -50,7 +50,7 @@ const NumberData= () => {
               <Typography variant='h6'>Amount Saved</Typography>
             </Box>
           </Stack>
-          <Typography  variant='h6' style={{ color: theme.palette.primary.light }}>$57423</Typography>
+          <Typography  variant='h6' style={{ color: theme.palette.primary.light }}>${new Intl.NumberFormat().format(57423)}</Typography>
         </Stack>       
       </Stack>    
 	</Box>
