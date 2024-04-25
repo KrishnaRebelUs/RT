@@ -29,7 +29,7 @@ const Disputed = () => {
 	} action={
 		<ButtonStyled component={Link} to="/manage-dispute">View Details <IconChevronRight  size="15" /></ButtonStyled>
 	}>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>$4,942,234.43</Typography>
+		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
 		<TypographyStyled variant='body2'marginTop={2} sx={{ color: theme.palette.text.light }}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>

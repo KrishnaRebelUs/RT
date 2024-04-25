@@ -11,6 +11,7 @@ import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
+import moment from 'moment';
 
 export const ExportCSVBTN = () => {
 
@@ -128,7 +129,7 @@ const ShortageClaim = () => {
 												</Grid>
 											</Grid>
 											<Grid item sm={4}>
-												<Typography variant='h4' style={{ color: theme.palette.success.main, textAlign:'right' }}>$58954</Typography>
+												<Typography variant='h4' style={{ color: theme.palette.success.main, textAlign:'right' }}>${new Intl.NumberFormat().format(98442)}</Typography>
 											</Grid>
 										</Grid>
 									</DashboardCard>
@@ -144,13 +145,13 @@ const ShortageClaim = () => {
 							>
 								<Grid container spacing={4}>
 									<Grid item xs={12}>
-										<TypographyStyled variant='h2' ><b>$ 98442,989,98.90</b></TypographyStyled>
+										<TypographyStyled variant='h2' ><b>${new Intl.NumberFormat().format(98298998.90)} </b></TypographyStyled>
 									</Grid>
 									<Grid item xs={12}>
 										<TypographyPayment variant='h6'>Payment Due Date:</TypographyPayment>
 										<Box mb={2}><Divider /></Box>
 										<Grid container spacing={3}>
-											<Grid item><Typography variant='h6' style={{ color: theme.palette.accent.main }}>11 Jan 2018</Typography></Grid>
+											<Grid item><Typography variant='h6' style={{ color: theme.palette.accent.main }}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
 											<Grid item><Typography variant='h6' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
 											<Grid item><Typography variant='h6' style={{ color: theme.palette.success.dark }}>13 Dec 2021</Typography></Grid>
 										</Grid>

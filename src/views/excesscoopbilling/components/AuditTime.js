@@ -5,6 +5,7 @@ import {IconClock,IconBriefcase, IconCoinPound} from '@tabler/icons-react';
 import BarChart from '../../components/pages/BarChart';
 import { useTheme } from '@emotion/react';
 import NumberData from '../../components/pages/NumberData';
+import moment from 'moment';
 
 
 const AuditTime = () => {
@@ -25,7 +26,9 @@ const AuditTime = () => {
       title={
         <Typography variant='h5'>Audit Time</Typography>
       }
-      date={'26 Jan 2024'}
+      date={
+        moment().format('MM/DD/YY')
+      }
     >
     <Grid container alignItems={'center'}>
       <Grid item lg={6}>

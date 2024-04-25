@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconFileArrowRight } from '@tabler/icons-react';
+import moment from 'moment';
 
 const job = [
     {
@@ -141,7 +142,7 @@ const JobProgress = () => {
                                             fontSize: "15px",
                                             fontWeight: "600",
                                         }} variant="subtitle2" fontWeight={500}>
-                                        {job.Date}
+                                        {moment(job.Date).format('MM/DD/YY')}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>

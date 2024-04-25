@@ -44,7 +44,9 @@ const Excesscoopbilling = () => {
 								} >
 									<Grid container spacing={3}>
 										<Grid item>
-											<TypographyStyled variant='BigTitle' sx={{ color: theme.palette.accent.main }}>$98442</TypographyStyled>
+											<TypographyStyled variant='BigTitle' sx={{ color: theme.palette.accent.main }}>
+												${new Intl.NumberFormat().format(98442)}
+											</TypographyStyled>
 										</Grid>
 										<Grid item>
 											<img src={piggy} alt='piggy'style={{position:'absolute', right:'30px', bottom:'30px', maxWidth: '150px'}}/>
