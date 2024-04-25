@@ -41,19 +41,16 @@ const RecentTransactions = () => {
               backgroundColor: '#efefef'
             },
             [`& .${timelineOppositeContentClasses.root}`]: {
-              flex: '0 0 100px',
+              flex: 0.4,
               paddingLeft: 0,
               fontSize: '12px',
               fontWeight: '600',
-              color: theme.palette.text.light
+              color: theme.palette.primary.main
             },
           }}
         >
           <TimelineItem>
-            <TimelineOppositeContent>
-              <Typography variant="body2" color="primary">20 Jan 2024</Typography>
-              <Typography variant="body2">10:00 am</Typography>
-            </TimelineOppositeContent>
+            <TimelineOppositeContent>02/01/24</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="primary" variant="outlined" />
               <TimelineConnector />
@@ -61,10 +58,7 @@ const RecentTransactions = () => {
             <TimelineContent>Payment received from John Doe of $385.90</TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>
-              <Typography variant="body2" color="secondary">26 Jan 2024</Typography>
-              <Typography variant="body2">10:00 am</Typography>
-            </TimelineOppositeContent>
+            <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="secondary" variant="outlined" />
               <TimelineConnector />
@@ -77,10 +71,7 @@ const RecentTransactions = () => {
             </TimelineContent>
           </TimelineItem>
           <TimelineItem>
-            <TimelineOppositeContent>
-              <Typography variant="body2" color="success">15 March 2024</Typography>
-              <Typography variant="body2">02:15 pm</Typography>
-            </TimelineOppositeContent>
+            <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="success" variant="outlined" />
               <TimelineConnector />
