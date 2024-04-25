@@ -11,7 +11,7 @@ const ManageDispute = () => {
         <PageContainer  title="Manage Dispute">
 			<Grid container spacing={3}>
 		      <Grid item xs={12}>
-                <Breadcrumb titles={['Excess Coop', 'Manage Dispute']} />
+                <Breadcrumb titles={['Excess Coop Billing', 'Manage Dispute']} />
               </Grid>		
 			  <Grid item xs={12}>
 				<Header title='Manage Dispute'/>
