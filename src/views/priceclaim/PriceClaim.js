@@ -6,14 +6,11 @@ import { Link } from 'react-router-dom';
 import PageContainer from "../../components/container/PageContainer";
 import Breadcrumb from "../components/pages/Breadcrumb";
 import Header from "../components/pages/Header";
-<<<<<<< HEAD
-import RangeChart from "../components/pages/RangeChart";
-=======
 import DashboardCard from '../../components/shared/DashboardCard';
 import {IconChevronRight,IconThumbUp, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
 import FinopsTable from '../components/pages/FinopsTable';
->>>>>>> 3e81fa4c5176847f05f5086514efb6b5252ef2aa
+import RangeChart from "../components/pages/RangeChart";
 
 const PriceClaim = () => {
 	const theme = useTheme();
@@ -96,7 +93,9 @@ const PriceClaim = () => {
                     </Grid>
                 </Grid>
 				<Grid item xs={12}>
-					<RangeChart />
+					<DashboardCard>
+				    	<RangeChart />
+					</DashboardCard>
 				</Grid>
             </Grid>
         </PageContainer>

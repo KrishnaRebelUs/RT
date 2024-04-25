@@ -32,12 +32,34 @@ const RangeChart= () => {
         { x: 'May', y: [5100, 5900] },
         { x: 'Jun', y: [5400, 6700] },
         { x: 'Jul', y: [4300, 4600] },
-        { x: 'Aug', y: [2100, 2900] }
+        { x: 'Aug', y: [2100, 2900] },
+		{ x: 'Sept', y: [3900, 4900] },
+        { x: 'Oct', y: [3400, 3900] },
+        { x: 'Nov', y: [5100, 5900] },
+        { x: 'Dec', y: [5400, 6700] },
       ]
     },
+	{
+		type: 'rangeArea',
+		name: 'Approved Amount',
+		data: [
+		  { x: 'Jan', y: [3100, 3400] },
+		  { x: 'Feb', y: [4200, 5200] },
+		  { x: 'Mar', y: [3900, 4900] },
+		  { x: 'Apr', y: [3400, 3900] },
+		  { x: 'May', y: [5100, 5900] },
+		  { x: 'Jun', y: [5400, 6700] },
+		  { x: 'Jul', y: [4300, 4600] },
+		  { x: 'Aug', y: [2100, 2900] },
+		  { x: 'Sept', y: [3900, 4900] },
+		  { x: 'Oct', y: [3400, 3900] },
+		  { x: 'Nov', y: [5100, 5900] },
+		  { x: 'Dec', y: [5400, 6700] },
+		]
+	  },
     {
       type: 'line',
-      name: 'Team B Median',
+      name: 'Dispute Median',
       data: [
         { x: 'Jan', y: 1500 },
         { x: 'Feb', y: 1700 },
@@ -53,7 +75,7 @@ const RangeChart= () => {
     },
     {
       type: 'line',
-      name: 'Team A Median',
+      name: 'Denied Median',
       data: [
         { x: 'Jan', y: 3300 },
         { x: 'Feb', y: 4900 },
@@ -64,9 +86,29 @@ const RangeChart= () => {
         { x: 'Jul', y: 4500 },
         { x: 'Aug', y: 2400 },
         { x: 'Sep', y: 2100 },
-        { x: 'Oct', y: 1500 }
+        { x: 'Oct', y: 1500 },
+		{ x: 'Nov', y: 4300 },
+        { x: 'Dec', y: 3700 },
       ]
-    }
+    },
+	{
+		type: 'line',
+		name: 'Approved Median',
+		data: [
+		  { x: 'Jan', y: 3300 },
+		  { x: 'Feb', y: 4900 },
+		  { x: 'Mar', y: 4300 },
+		  { x: 'Apr', y: 3700 },
+		  { x: 'May', y: 5500 },
+		  { x: 'Jun', y: 5900 },
+		  { x: 'Jul', y: 4500 },
+		  { x: 'Aug', y: 2400 },
+		  { x: 'Sep', y: 2100 },
+		  { x: 'Oct', y: 1500 },
+		  { x: 'Nov', y: 4300 },
+		  { x: 'Dec', y: 3700 },
+		]
+	  }
   ];
 
   const options = {
@@ -75,7 +117,10 @@ const RangeChart= () => {
       type: 'rangeArea',
       animations: {
         speed: 500
-      }
+      },
+	  toolbar:{
+		show: false,
+	  }
     },
     colors: ['#d4526e', '#33b2df', '#d4526e', '#33b2df'],
     dataLabels: {
@@ -93,11 +138,11 @@ const RangeChart= () => {
     },
     legend: {
       show: true,
-      customLegendItems: ['Team B', 'Team A'],
+      customLegendItems: ['Dispute Amount', 'Denied Amount', 'Approved Amount'],
       inverseOrder: true
     },
     title: {
-      text: 'Range Area with Forecast Line (Combo)'
+      text: ''
     },
     markers: {
       hover: {
