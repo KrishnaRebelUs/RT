@@ -24,7 +24,7 @@ const AuditTime = () => {
   return (
     <DashboardCard 
       title={
-        <Typography variant='h5'>Audit Time</Typography>
+        <Typography variant='h5'>Audit Time Period</Typography>
       }
       date={
         moment().format('MM/DD/YY')
@@ -32,10 +32,10 @@ const AuditTime = () => {
     >
     <Grid container alignItems={'center'}>
       <Grid item lg={6}>
-        <TypographyStyled variant='h6' marginBottom={1} sx={{ color: theme.palette.accent.main}}>Contribution to Total Findings</TypographyStyled>
+        <TypographyStyled variant='h5' marginBottom={1} sx={{ color: theme.palette.accent.main}}>Contribution to Total Findings</TypographyStyled>
       </Grid>
       <Grid item lg={6}>
-        <Box style={{ marginTop: '-15px', marginBottom: '-15px' }}><BarChart color={theme.palette.success.main} percentage={50} chartWidth="150" chartHeight="150" chartLableFonrSize="16px" /></Box>
+        <Box style={{ marginTop: '-25px', marginBottom: '-25px', marginLeft: '20px' }}><BarChart color={theme.palette.success.main} percentage={50} chartWidth="150" chartHeight="150" chartLableFonrSize="16px" /></Box>
       </Grid>
     </Grid>
     <NumberData />		

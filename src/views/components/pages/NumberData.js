@@ -20,10 +20,8 @@ const NumberData= () => {
 	<Box>
 	   <Stack direction='column'marginTop={3}>
         <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row' spacing={2} alignItems="center" marginBottom={2}>
-            <AvatarStyled>
-                <IconClock />
-            </AvatarStyled>
+          <Stack direction='row' spacing={1} alignItems="center" marginBottom={2}>
+            <AvatarStyled style={{ backgroundColor: theme.palette.success.main }}><IconClock /></AvatarStyled>
             <Box>
               <Typography variant='h6'>Hour Saved</Typography>
             </Box>
@@ -32,7 +30,7 @@ const NumberData= () => {
         </Stack>
         <Box mb={2} ><Divider /></Box>
         <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row'spacing={2} alignItems="center">
+          <Stack direction='row'spacing={1} alignItems="center">
             <AvatarStyled style={{ backgroundColor: theme.palette.accent.main }}>
               <IconBriefcase/>
             </AvatarStyled>
@@ -44,7 +42,7 @@ const NumberData= () => {
         </Stack>
         <Box mb={2} ><Divider /></Box>
         <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row'spacing={2} alignItems="center">
+          <Stack direction='row'spacing={1} alignItems="center">
             <AvatarStyled style={{ backgroundColor: theme.palette.primary.light }}>
               <IconCurrencyDollar />
             </AvatarStyled>

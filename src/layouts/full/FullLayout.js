@@ -57,9 +57,6 @@ const FullLayout = () => {
         />
         {/* PageContent */}
         <Container 
-          style={{
-            maxWidth: '1380px'
-          }}
           sx={{
             paddingTop: "20px"
           }}

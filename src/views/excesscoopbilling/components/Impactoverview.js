@@ -33,8 +33,9 @@ const Impactoverview = () => {
     >
       <Grid container alignItems="center">
         <Grid item sm={6} py={2}>
-          <Typography variant='h5' mb={2}>Recouped Amount</Typography>
-          <Typography variant='BigTitle' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
+         
+          <Typography variant='h6' mb={1}>Recouped Amount</Typography>
+          <Typography variant='h2' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
         </Grid>
         <Grid item sm={6}><BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="180" chartHeight="180" chartLableFonrSize="18px" /></BarChartStyled></Grid>
       </Grid>

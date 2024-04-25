@@ -38,7 +38,7 @@ const WinRate = () => {
         },
         stroke: {
             show: true,
-            width: 15,
+            width: 22,
             lineCap: "butt",
             colors: ["transparent"],
         },
@@ -62,9 +62,9 @@ const WinRate = () => {
             show: true,
             labels: {
                 style: {
-                    fontSize: '18px', 
+                    fontSize: '14px', 
                     colors: yAxisLabelColors,
-                    fontWeight: '600'
+                    fontWeight: '500'
                 },
                 maxWidth: 'auto',
                 
