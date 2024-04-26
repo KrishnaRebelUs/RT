@@ -96,7 +96,7 @@ export default function CustomStepper() {
                 </Grid>
             </Grid>
             <StepsWrap mt={4}>
-                <Tooltip title={'Hello Bro 1'}>
+                <Tooltip arrow title={'Findings Shared – Awaiting Contract'}>
                     <Steps className="active">
                         <Box>
                             <Circle className="circle">1</Circle>

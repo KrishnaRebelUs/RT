@@ -9,8 +9,8 @@ const YearlyTrend = ( title ) => {
 		border: '1px solid',
 		borderColor: theme.palette.primary.light,
 		color: theme.palette.primary.main,
-		fontSize: '12px',
-		padding: '3px 8px',
+		fontSize: '11px',
+		padding: '3px 6px',
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
@@ -50,12 +50,12 @@ const YearlyTrend = ( title ) => {
 	  };
   return (
     <DashboardCard title={
-		<Typography variant='h4'>Yearly Trends</Typography>
+		<Typography variant='h6'>Yearly Trends</Typography>
 	} action={
 		<ButtonStyled onClick={handleClick} >View Details  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
 		<TypographyStyled variant='h6'>2024</TypographyStyled>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
+		<Typography variant='h3' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
 		
 		<Box my={1}><Divider /></Box>
 
