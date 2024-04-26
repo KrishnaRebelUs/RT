@@ -48,17 +48,18 @@ const handleChange = (event, newValue) => {
     setValue(newValue);
 };
 const TabStyled = styled(Tab)(({ theme }) => ({
-    color: theme.palette.accent.main, 
+    color: theme.palette.text.light, 
     fontSize: '12px', 
     alignItems: 'start', 
     padding: '15px 10px',
     fontWeight: '500', 
     minHeight: 'inherit',
-    backgroundColor: theme.palette.accent.light,
+    backgroundColor: theme.palette.bg.main,
     marginBottom: '5px',
     textAlign: 'left',
     '&.Mui-selected': { 
-        color: theme.palette.accent.main
+        color: theme.palette.accent.main,
+        backgroundColor: theme.palette.accent.light
     }
 }));
 

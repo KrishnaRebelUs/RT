@@ -1,4 +1,4 @@
-import { Grid, Stack } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react'
 import PageContainer from 'src/components/container/PageContainer';
 import Breadcrumb from '../components/pages/Breadcrumb';
@@ -17,11 +17,11 @@ const ManageDispute = () => {
 				<Header title='Manage Dispute'/>
 			  </Grid>
 			  <Grid item xs={12}>
-			   <DisputeTable />
+			   	<DisputeTable />
 			  </Grid>
 			</Grid>
 	    </PageContainer>
-  )
+  	)
 }
 
 export default ManageDispute;

@@ -10,14 +10,13 @@ const colourOptions = [
 ];
 
 const CustomSelect = () => (
-  <Select
+  <Box className="accountStyle">
+    <Box className="accountStyle_icon"><IconUser /></Box>
+    <Select
       defaultValue={colourOptions[0]}
       options={colourOptions}
     />
-  // <Box className="accountStyle">
-  //   <Box className="accountStyle_icon"><IconUser /></Box>
-    
-  // </Box>
+  </Box>
 );
 
 export default CustomSelect;

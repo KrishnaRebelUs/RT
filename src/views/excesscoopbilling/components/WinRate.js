@@ -34,7 +34,6 @@ const WinRate = () => {
                 borderRadiusWhenStacked: 'all',
                 dataLabels: {
                     position: 'end',
-                    
                 },
                 
             },
@@ -48,21 +47,25 @@ const WinRate = () => {
         dataLabels: {
             enabled: true,
             style: {
-                colors: ['#F44336'],
+                colors: ['#999', '#fff']
             },
-            offsetY: -10,
+            background: {
+                enabled: true,
+                foreColor: '#fff',
+                padding: 8,
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: '#fff',
+                opacity: 0.9,
+                color: '#999',
+            },
+            offsetY: -20,
         },
         legend: {
             show: true,
         },
         grid: {
-            borderColor: 'rgba(0,0,0,0.1)',
-            strokeDashArray: 10,
-            xaxis: {
-                lines: {
-                    show: false,
-                },
-            },
+            show: false
         },
         yaxis: {
             tickAmount: 5,
@@ -104,9 +107,7 @@ const WinRate = () => {
 
     return (
         <DashboardCard title={
-            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Win Rate
-            </Typography>}>
+            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>Win Rate</Typography>}>
             <Divider/>
             <Chart
                 options={optionsWinRate}
