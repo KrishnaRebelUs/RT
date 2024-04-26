@@ -14,7 +14,9 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconArrowNarrowUp } from '@tabler/icons-react';
-
+import Search from './Search';
+import DataTable from 'react-data-table-component';
+import moment from 'moment';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
@@ -29,20 +31,51 @@ const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
     backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight,
 }));
+
 const ButtonStyled = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.light,
-    border: '1px solid currentColor',
-    color: theme.palette.primary.contrastText,
-    fontSize: '16px',
-    padding: '4px 10px',
+    backgroundColor: theme.palette.primary.extraLight,
+    border: '1px solid',
+    borderColor: theme.palette.primary.light,
+    color: theme.palette.primary.main,
+    fontSize: '13px',
+    padding: '5px 12px',
+    fontWeight: '600',
     '&:hover': {
-        backgroundColor: theme.palette.primary.contrastText,
-        color: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
+        color: 'white',
     },
 }));
-
 const ShortageLogTable = () => {
     const theme = useTheme();
+
+    const columns = [
+        {
+            name: 'Vendor Name',
+            selector: row => row.VendorName,
+            sortable: true,
+        },
+        {
+            name: 'Created Date',
+            selector: row => row.CreatedDate,
+            sortable: true,
+        },
+        {
+            name: 'Disputed',
+            selector: row => row.Disputed,
+            sortable: true,
+        },
+        {
+            name: 'Not Disputed',
+            selector: row => row.NotDisputed,
+            sortable: true,
+        },
+        {
+            name: 'Total',
+            selector: row => row.Total,
+            sortable: true,
+        },
+    ];
+
     const ShortageDisputeTable = [
         {
             VendorName: 'CA - Chefman – Canada',
@@ -85,50 +118,23 @@ const ShortageLogTable = () => {
         <DashboardCard title="Itemized Shortage Dipute Log">
             <Box>
 				<Grid container spacing={2}>
-					{/* <Grid item xs="4">
-					
-					</Grid> */}
+					<Grid item xs="4">
+					    <Search />
+					</Grid>
 					<Grid item xs="2">
 					   <Stack direction='row' spacing={2}>
-					      <ButtonStyled>Resete</ButtonStyled>
+					      <ButtonStyled>Reset</ButtonStyled>
 					      <ButtonStyled>Export <IconArrowNarrowUp  size="30" /></ButtonStyled>
 					   </Stack>
 					</Grid>
 					
 				</Grid>
                 <TableContainer>
-                    <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
-                        <TableHeadStyled>
-                            <TableRow>
-                                <TableCellStyled>  Vendor Name</TableCellStyled>
-                                <TableCellStyled>Created Date</TableCellStyled>
-                                <TableCellStyled> Disputed</TableCellStyled>
-                                <TableCellStyled>Not Dispute </TableCellStyled>
-                                <TableCellStyled>Total</TableCellStyled>
-                            </TableRow>
-                        </TableHeadStyled>
-                        <TableBody>
-                            {ShortageDisputeTable.map((dispute, index) => (
-                                <TableRowStyled theme={theme} index={index} key={index}>
-                                    <TableCell>
-									{dispute.VendorName}
-                                    </TableCell>
-                                    <TableCell>
-									    {dispute.CreatedDate}
-                                    </TableCell>
-                                    <TableCell>
-								     	{dispute.Disputed}
-                                    </TableCell>
-                                    <TableCell>
-								    	{dispute.NotDisputed}
-                                    </TableCell>
-                                    <TableCell>
-									   {dispute.Total}
-                                    </TableCell>
-                                </TableRowStyled>
-                            ))}
-                        </TableBody>
-                    </Table>
+                   <DataTable
+                        columns={columns}
+                        data={ShortageDisputeTable}
+                        pagination
+                    />
                 </TableContainer>
             </Box>
         </DashboardCard>
