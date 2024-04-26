@@ -28,6 +28,7 @@ const WinRate = () => {
                 barHeight: '70%',
                 distributed: true,
                 horizontal: true,
+                borderRadius: 3,
                 dataLabels: {
                     position: 'end'
                 },
@@ -38,7 +39,7 @@ const WinRate = () => {
             enabled: true,
             textAnchor: 'middle',
             offsetX: 0,
-            offsetY: -17,
+            offsetY: -25,
             style: {
                 colors: yAxisLabelColors,
                 fontSize: '14px',
@@ -50,14 +51,12 @@ const WinRate = () => {
             },
             background: {
                 enabled: true,
-                foreColor: 'black',
-                padding: 4,
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: 'green',
+                foreColor: '#fff',
+                padding: 5,
+                borderRadius: 4,
                 opacity: 0.9,
                 dropShadow: {
-                    enabled: true,
+                    enabled: false,
                     top: 1,
                     left: 1,
                     blur: 1,
@@ -68,22 +67,23 @@ const WinRate = () => {
         },
         stroke: {
             show: true,
-            width: 32,
+            width: 35,
             lineCap: "butt",
             colors: ["transparent"],
         },
         xaxis: {
             categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
             labels: {
-                show: false,
+                show: false
             },
             axisBorder: {
-                show: true,
+                show: true
             },
         },
         yaxis: {
             labels: {
                 show: true,
+                offsetY: -14,
                 style: {
                     fontSize: '14px',
                     colors: yAxisLabelColors,

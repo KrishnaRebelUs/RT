@@ -45,7 +45,7 @@ const ShortageTable = () => {
             Settlement: "Audit Period",
             Active:["11/24/23"],
             Archieved: ["11/24/23"],
-            color: theme.palette.error.dark
+            color: theme.palette.error.main
             
          
          },
