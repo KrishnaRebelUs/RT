@@ -1,10 +1,7 @@
 import React from 'react';
 import { Box, Autocomplete,TextField,Checkbox } from '@mui/material';
-import { IconCheckbox} from '@tabler/icons-react';
 
 
-const icon = <CheckBoxOutlineBlankIcon size='16' />;
-const checkedIcon = <IconCheckbox  size='16' />;
 const account = [
     { text: 'Select All',},
     { text: 'MX - Chefman México S. d. R.L.'},

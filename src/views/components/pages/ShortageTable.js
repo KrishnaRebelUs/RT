@@ -29,22 +29,22 @@ const ShortageTable = () => {
     const shortagetble = [
         {
            Settlement: "Shortage Claim Finding",
-           Active: "$ 36,230.20",
-           Archieved: "$ 36,230.20",
+           Active: ["$ 36,230.20"],
+           Archieved: ["$ 36,230.20"],
            color: theme.palette.accent.main
         
         },
         {
-            Settlement: " Start Audit Period",
-            Active: "11/24/23",
-            Archieved: "9/04/22",
+            Settlement: "Audit Period",
+            Active: ["11/24/23"],
+            Archieved: ["9/04/22"],
             
          
          },
          {
-            Settlement: "End Audit Period",
-            Active:"11/24/23",
-            Archieved: "11/24/23",
+            Settlement: "Audit Period",
+            Active:["11/24/23"],
+            Archieved: ["11/24/23"],
             color: theme.palette.error.dark
             
          
@@ -57,15 +57,15 @@ const ShortageTable = () => {
          },
          {
             Settlement: "Open Balance",
-            Active:"$ 36,230.20",
-            Archieved: "$ 36,230.20",
+            Active:["$ 36,230.20"],
+            Archieved: ["$ 36,230.20"],
             color: theme.palette.accent.main
          },
         
           {
             Settlement: "Confirmation Date",
-            Active:"06/16/23",
-            Archieved: "09/09/23",
+            Active:["06/16/23"],
+            Archieved: ["09/09/23"],
          
          },
          {
@@ -89,8 +89,8 @@ const ShortageTable = () => {
           {
             
             Settlement: "Settlement Amount",
-            Active:"$ 36,230.20",
-            Archieved: "$ 36,230.20",
+            Active:["$ 36,230.20"],
+            Archieved: ["$ 36,230.20"],
             color:theme.palette.success.main
          
          },
@@ -136,17 +136,29 @@ const ShortageTable = () => {
                                 </TableCellStyled>
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
-                                       {/* {
+                                       { 
                                         data.Active.map((d,i)=>{
-                                           
+                                            return (
+                                                <Typography key={i} variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
+                                                    {typeof d === 'number' ? formatNumber(d) : d}
+                                                </Typography>
+                                            );
                                         })
-                                       } */}
+                                    }
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                          <Typography key={index} variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
-                                                {typeof data.Archieved === 'number' ? formatNumber(data.Archieved) : data.Archieved}
-                                            </Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>
+                                        {
+                                        data.Archieved.map((d,i)=>{
+                                            return (
+                                                <Typography key={i} variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
+                                                    {typeof d === 'number' ? formatNumber(d) : d}
+                                                </Typography>
+                                            );
+                                        })
+                                    }
+                                    </Typography>
                                 </TableCell>
                             </TableRow>
                         ))}
