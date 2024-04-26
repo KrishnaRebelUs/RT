@@ -19,12 +19,15 @@ div .button svg{
 	font-size: 16px !important;
 }
 .dispute-form input{
-	padding: 15px 14px;
+	padding: 10px 14px;
 	background-color: var(--secondary-light);
 	border-radius: 7px;
 	color: var(--primary);
 	font-weight: 700;
 
+}
+.MuiOutlinedInput-notchedOutline{
+	border: 1px solid var(--secondary-light);
 }
 .dispute-form .MuiInputBase-root{
 	margin-top: 10px;
@@ -41,7 +44,7 @@ div .button svg{
 }
 .dispute-form .css-13cymwt-control, .dispute-form .css-t3ipsp-control{
 	width: 120px;
-	height: 50px;
+	height: 38px;
 	display: flex;
 	font-size: 16x !important;
 	font-weight: 700;
@@ -73,4 +76,8 @@ div .button svg{
 .dispute-form .css-1xc3v61-indicatorContainer{
 	color: var(--primary);
 	font-weight: bolder;
+}
+.dispute-table span{
+ margin: 0;
+ padding: 0;
 }
