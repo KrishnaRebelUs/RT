@@ -8,8 +8,9 @@ import {
     TableRow, styled, useTheme, Button, Stack, TableContainer, Dialog,DialogTitle, DialogContent, DialogActions, Grid 
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import {IconPencilMinus, IconTrash} from '@tabler/icons-react';
+import {IconPencilMinus, IconTrash ,IconX} from '@tabler/icons-react';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
+import { light } from '@mui/material/styles/createPalette';
 
 const disputeTable = [
     {
@@ -113,8 +114,8 @@ const disputeTable = [
    
 ];
 
-const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.success.main,
+const TableHeadStyled = styled(TableHead)(({ }) => ({
+    backgroundColor: '#00A15D',
     borderRadius:'7px',
    
 }));
@@ -131,6 +132,18 @@ const TableTypography = styled(TableCell)(({ theme, index }) => ({
 const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
     color: index % 2 === 0 ? theme.palette.primary.main : theme.palette.text.dark,
 
+}));
+const ButtonClose = styled(Button)(({ theme }) => ({
+    minWidth: '30px',
+    height: '30px',
+    backgroundColor: 'red',
+    color: 'white',
+    right: '15px',
+    top: '15px',
+    '&:hover': {
+        backgroundColor: theme.palette.secondary.main,
+        color: 'white'
+    }
 }));
 
 const DisputeTable = () => {
@@ -162,12 +175,12 @@ const DisputeTable = () => {
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Amount
+                                Dispute Amount
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Refund
+                                    Refund Amount
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
@@ -177,22 +190,22 @@ const DisputeTable = () => {
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Date
+                                   Created Date
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Payment Date
+                                    Payment Received Date
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Payment ID
+                                    Payment Unique ID
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Resolve Date
+                                    ResolveD Date
                                 </Typography>
                             </TableTypography>
                             <TableTypography>
@@ -212,7 +225,6 @@ const DisputeTable = () => {
                             </TableTypography>
                             <TableTypography>
                                 <Typography variant="subtitle2" fontWeight={600}>
-                                    Action
                                 </Typography>
                             </TableTypography>
                         </TableRow>
@@ -221,40 +233,40 @@ const DisputeTable = () => {
                         {disputeTable.map((dispute, index) => (
                             <TableRow key={index}>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Id}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600} style={{color: theme.palette.primary.main}}>{dispute.Id}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Amount}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Amount}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Refund}</Typography>
+                                    <Typography variant="subtitle2"  fontWeight={600}>{dispute.Refund}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Created}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Created}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Date}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Date}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Payment}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Payment}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.PaymentId}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.PaymentId}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.ResolveDate}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.ResolveDate}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Reason}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Reason}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Tat}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Tat}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Typography variant="subtitle2">{dispute.Status}</Typography>
+                                    <Typography variant="subtitle2" fontWeight={600} style={{color: theme.palette.success.main}}>{dispute.Status}</Typography>
                                 </TableCellStyled>
                                 <TableCellStyled>
-                                    <Stack direction='row' alignItems='center' spacing={1}>
+                                    <Stack direction='row' alignItems='center'>
                                         <Button size="small" startIcon={<IconPencilMinus />}   onClick={handleEditClick} ></Button>
                                         <Button size="small" startIcon={<IconTrash />}></Button>
                                     </Stack>
@@ -265,48 +277,52 @@ const DisputeTable = () => {
                 </Table>
 			 </TableContainer>
             </Box>
-            <Dialog open={open} onClose={handleClose} maxWidth='sm' >
-                <DialogTitle variant='h5'>Manage Client Dispute</DialogTitle>
+            <Dialog open={open} onClose={handleClose} maxWidth='xs' style={{padding: '30px'}}>
+            <Stack direction='row' justifyContent="space-between" borderBottom={1} borderColor="#eee">
+				<DialogTitle variant='h3'>Manage Client Dispute</DialogTitle>
+				<ButtonClose><IconX onClick={handleClose} size='16' /></ButtonClose>
+			</Stack>
                 <DialogContent>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} marginBottom={2}>
-                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name' mb="5px">
+                    <Grid container spacing={2} className="dispute-form">
+                        <Grid item xs={12} marginBottom={1}>
+                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name'>
                                 Dispute Id
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" fullWidth />
                         </Grid>
-                        <Grid item xs={12} marginBottom={2}>
-                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name' mb="5px">
+                        <Grid item xs={12} marginBottom={1}>
+                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name'>
                                 Dispute Amount
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" fullWidth />
                         </Grid>
-                        <Grid item xs={12} marginBottom={2}>
-                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name' mb="5px">
+                        <Grid item xs={12} marginBottom={1}>
+                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name'>
                                 Refund Amount
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" fullWidth />
                         </Grid>
                            
                         <Grid item xs={12} marginBottom={1}>
-                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name' mb="5px">
+                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name'>
                                 Payment Unique Id
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" fullWidth />
                         </Grid>
                         <Grid item xs={12} marginBottom={1}>
-                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name' mb="5px">
+                            <TypographyStyled variant="subtitle1" fontWeight={600} component="label" htmlFor='name'>
                                 Payment Receive Date
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" fullWidth />
                         </Grid>
                         <Grid item container justifyContent="center" gap={5}>
                             <Button variant="contained" color="secondary">
-                                Cancel
-                            </Button>
-                            <Button variant="contained" color="primary">
                                 Update
                             </Button>
+                            <Button variant="contained" style={{backgroundColor: theme.palette.primary.light}}>
+                                Cancel
+                            </Button>
+                           
                         </Grid>
                     </Grid>
                 </DialogContent>
