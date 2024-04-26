@@ -70,16 +70,6 @@ const columns = [
         sortable: true,
     },
     {
-        name : 'Created By',
-        selector: row => row.Created,
-        sortable: true,
-    },
-    {
-        name : 'Created Date',
-        selector: row => row.Date,
-        sortable: true,
-    },
-    {
         name : 'Payment Received Date',
         selector: row => row.Payment,
         sortable: true,
@@ -87,21 +77,6 @@ const columns = [
     {
         name : 'Payment Unique ID',
         selector: row => row.PaymentId,
-        sortable: true,
-    },
-    {
-        name : 'Resolve Date',
-        selector: row => row.ResolveDate,
-        sortable: true,
-    },
-    {
-        name : 'Reason',
-        selector: row => row.Reason,
-        sortable: true,
-    },
-    {
-        name : 'TAT',
-        selector: row => row.Tat,
         sortable: true,
     },
     {
@@ -241,6 +216,36 @@ const disputeTable = [
         setOpen(false); 
     };
 
+    const ExpandedComponent = ({ data }) => {
+        return (
+            <Box>
+                <TableContainer>
+                    <Table>
+                        <TableHeadStyled>
+                            <TableRow>
+
+                                <TableTypography>Created By </TableTypography>
+                                <TableTypography>Created Date</TableTypography>
+                                <TableTypography>Resolve Date</TableTypography>
+                                <TableTypography>Reason</TableTypography>
+                                <TableTypography>TAT</TableTypography>
+                            </TableRow>
+                        </TableHeadStyled>
+                        <TableBody>
+                            <TableRowStyled>
+                                <TableCell>{data.Created}</TableCell>
+                                <TableCell>{data.Date}</TableCell>
+                                <TableCell>{data.ResolveDate}</TableCell>
+                                <TableCell>{data.Reason}</TableCell>
+                                <TableCell>{data.Tat}</TableCell>
+                            </TableRowStyled>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Box>
+        );
+    }
+
 
     return (
         <DashboardCard>
@@ -251,6 +256,8 @@ const disputeTable = [
                     data={disputeTable}
                     pagination
                     expandableRows
+                    expandableRowsComponent={ExpandedComponent}
+
                 />
             </Box>
             <Dialog open={open} onClose={handleClose} maxWidth='xs' style={{padding: '30px'}}>
