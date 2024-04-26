@@ -17,7 +17,7 @@ const account = [
 const Search = () => {
   return (
 	
-	<Box>
+	<Box className='search-box'>
 		<Autocomplete
 		multiple
 		id="checkboxes-tags-demo"
@@ -33,7 +33,6 @@ const Search = () => {
 			{option.text}
 			</li>
 		)}
-		style={{ width: 500 }}
 		renderInput={(params) => (
 			<TextField {...params}  placeholder="Select Amzon Vendor Account" />
 		)}

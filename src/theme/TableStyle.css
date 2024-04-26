@@ -19,3 +19,9 @@ div.kUMlDB, div.kUMlDB:not(:last-of-type) {
 div.kUMlDB:nth-child(even) {
     background-color: var(--primary-light);
 }
+.UxZV .MuiBox-root .MuiLinearProgress-root{
+   background-color: #eee;
+}
+.mHisf .fpBGKh .UxZV .MuiBox-root .css-v3x8ju-MuiLinearProgress-root{
+    width: 100% !important;
+}

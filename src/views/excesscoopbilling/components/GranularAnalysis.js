@@ -10,7 +10,7 @@ import {
 import DashboardCard from '../../../components/shared/DashboardCard';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.contrast
 }));
 const TableTypography = styled(TableCell)(({ theme }) => ({
     color: 'white',
