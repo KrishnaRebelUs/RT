@@ -12,3 +12,14 @@ div .epZUJV{
 div .button svg{
 	color: var(--primary);
 }
+/*---- Manage Dispute Form ---*/
+label{
+	color: #183D72 !important;
+	font-size: 16px !important;
+}
+.dispute-form input{
+	padding: 10px 14px !important;
+}
+.dispute-form .MuiTextField-root{
+	margin-top: 10px;
+}
