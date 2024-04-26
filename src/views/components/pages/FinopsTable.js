@@ -155,9 +155,30 @@ const FinopsTable = () => {
                                         actions={<ExportCSVBTN />}
                                     />
                                 </TabPanel>
-                                <TabPanel value="2">Denied</TabPanel>
-                                <TabPanel value="3">Pending</TabPanel>
-                                <TabPanel value="4">All</TabPanel>
+                                <TabPanel value="2">
+                                <DataTable
+                                        columns={columns}
+                                        data={data}
+                                        pagination
+                                        actions={<ExportCSVBTN />}
+                                    />
+                                </TabPanel>
+                                <TabPanel value="3">
+                                <DataTable
+                                        columns={columns}
+                                        data={data}
+                                        pagination
+                                        actions={<ExportCSVBTN />}
+                                    />
+                                </TabPanel>
+                                <TabPanel value="4">
+                                <DataTable
+                                        columns={columns}
+                                        data={data}
+                                        pagination
+                                        actions={<ExportCSVBTN />}
+                                    />
+                                </TabPanel>
                             </TabContext>
                         </Box>
                     </Grid>

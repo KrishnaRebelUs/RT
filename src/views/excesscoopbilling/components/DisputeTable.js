@@ -11,6 +11,125 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 import {IconPencil, IconTrash ,IconX} from '@tabler/icons-react';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import SelectCurrency from '../../../layouts/full/header/SelectCurrency';
+import DataTable from 'react-data-table-component';
+import moment from 'moment';
+
+
+const TableHeadStyled = styled(TableHead)(({ }) => ({
+    backgroundColor: '#00A15D',
+    borderRadius:'7px',
+   
+}));
+const TypographyStyled = styled(Typography)(({ theme }) => ({
+   color: theme.palette.primary.main,
+   marginBottom:'10px'
+   
+}));
+
+const TableTypography = styled(TableCell)(({ theme, index }) => ({
+    color: theme.palette.primary.contrastText,
+
+}));
+const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
+    backgroundColor: index % 2 === 0 ? theme.palette.primary.contrastText: theme.palette.secondary.light,
+
+}));
+const ButtonClose = styled(Button)(({ theme }) => ({
+    minWidth: '30px',
+    height: '30px',
+    backgroundColor: 'red',
+    color: 'white',
+    right: '15px',
+    top: '15px',
+    '&:hover': {
+        backgroundColor: theme.palette.secondary.main,
+        color: 'white'
+    }
+}));
+
+const DisputeTable = () => {
+    const theme = useTheme();
+    const [open, setOpen] = useState(false);
+
+
+    
+const columns = [
+    {
+        name : 'Dispute ID',
+        selector: row => row.Id,
+        sortable: true,
+    },
+    {
+        name : 'Dispute Amount',
+        selector: row => row.Amount,
+        sortable: true,
+    },
+    {
+        name : 'Refund Amount',
+        selector: row => row.Refund,
+        sortable: true,
+    },
+    {
+        name : 'Created By',
+        selector: row => row.Created,
+        sortable: true,
+    },
+    {
+        name : 'Created Date',
+        selector: row => row.Date,
+        sortable: true,
+    },
+    {
+        name : 'Payment Received Date',
+        selector: row => row.Payment,
+        sortable: true,
+    },
+    {
+        name : 'Payment Unique ID',
+        selector: row => row.PaymentId,
+        sortable: true,
+    },
+    {
+        name : 'Resolve Date',
+        selector: row => row.ResolveDate,
+        sortable: true,
+    },
+    {
+        name : 'Reason',
+        selector: row => row.Reason,
+        sortable: true,
+    },
+    {
+        name : 'TAT',
+        selector: row => row.Tat,
+        sortable: true,
+    },
+    {
+        name : 'Status',
+        selector: row => row.Status,
+        sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body2' style={{ textAlign: 'center', color: 'green' }}>{row.Status}</Typography>
+                </Box>
+            );
+        }
+    },
+    {
+        name : 'Action',
+        selector: row => row.Action,
+        sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Stack direction='row' alignItems='center'>
+                    <Button size="small" startIcon={<IconPencil  size='16'/>}   onClick={handleEditClick} style={{minWidth: '0'}} ></Button>
+                    <Button size="small" startIcon={<IconTrash size='16' />} style={{minWidth: '0'}} ></Button>
+                </Stack>
+            );
+        }
+    },
+];
 
 const disputeTable = [
     {
@@ -114,42 +233,6 @@ const disputeTable = [
    
 ];
 
-const TableHeadStyled = styled(TableHead)(({ }) => ({
-    backgroundColor: '#00A15D',
-    borderRadius:'7px',
-   
-}));
-const TypographyStyled = styled(Typography)(({ theme }) => ({
-   color: theme.palette.primary.main,
-   marginBottom:'10px'
-   
-}));
-
-const TableTypography = styled(TableCell)(({ theme, index }) => ({
-    color: theme.palette.primary.contrastText,
-
-}));
-const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
-    backgroundColor: index % 2 === 0 ? theme.palette.primary.contrastText: theme.palette.secondary.light,
-
-}));
-const ButtonClose = styled(Button)(({ theme }) => ({
-    minWidth: '30px',
-    height: '30px',
-    backgroundColor: 'red',
-    color: 'white',
-    right: '15px',
-    top: '15px',
-    '&:hover': {
-        backgroundColor: theme.palette.secondary.main,
-        color: 'white'
-    }
-}));
-
-const DisputeTable = () => {
-    const theme = useTheme();
-    const [open, setOpen] = useState(false);
-
     const handleEditClick = () => {
         setOpen(true);
     };
@@ -163,119 +246,12 @@ const DisputeTable = () => {
         <DashboardCard>
             <Typography variant="h4" mb={2}>Dispute Table</Typography>
             <Box>
-             <TableContainer>
-	  		    <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}
-                >
-                    <TableHeadStyled>
-                        <TableRow>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Dispute ID
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                Dispute Amount
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Refund Amount
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Created By
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                   Created Date
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Payment Received Date
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Payment Unique ID
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    ResolveD Date
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Reason
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    TAT
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                    Status
-                                </Typography>
-                            </TableTypography>
-                            <TableTypography>
-                                <Typography variant="subtitle2" fontWeight={600}>
-                                </Typography>
-                            </TableTypography>
-                        </TableRow>
-                    </TableHeadStyled>
-                    <TableBody>
-                        {disputeTable.map((dispute, index) => (
-                            <TableRowStyled key={index} index={index} className="dispute-table">
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600} style={{color: theme.palette.primary.main}}>{dispute.Id}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Amount}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2"  fontWeight={600}>{dispute.Refund}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Created}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Date}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Payment}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.PaymentId}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.ResolveDate}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Reason}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600}>{dispute.Tat}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={600} style={{color: theme.palette.success.main}}>{dispute.Status}</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Stack direction='row' alignItems='center'>
-                                        <Button size="small" startIcon={<IconPencil  size='16'/>}   onClick={handleEditClick} style={{minWidth: '0'}} ></Button>
-                                        <Button size="small" startIcon={<IconTrash size='16' />} style={{minWidth: '0'}} ></Button>
-                                    </Stack>
-                                </TableCell>
-                            </TableRowStyled>
-                        ))}
-                    </TableBody>
-                </Table>
-			 </TableContainer>
+                <DataTable
+                    columns={columns}
+                    data={disputeTable}
+                    pagination
+                    expandableRows
+                />
             </Box>
             <Dialog open={open} onClose={handleClose} maxWidth='xs' style={{padding: '30px'}}>
             <Stack direction='row' justifyContent="space-between" borderBottom={1} borderColor="#eee">
