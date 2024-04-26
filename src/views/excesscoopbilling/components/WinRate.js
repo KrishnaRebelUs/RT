@@ -34,7 +34,6 @@ const WinRate = () => {
                 borderRadiusWhenStacked: 'all',
                 dataLabels: {
                     position: 'end',
-                    
                 },
                 
             },
@@ -48,7 +47,8 @@ const WinRate = () => {
         dataLabels: {
             enabled: true,
             style: {
-                colors: ['#F44336'],
+                colors: ['#000'],
+                background: [red]
             },
             offsetY: -10,
         },
@@ -56,13 +56,7 @@ const WinRate = () => {
             show: true,
         },
         grid: {
-            borderColor: 'rgba(0,0,0,0.1)',
-            strokeDashArray: 10,
-            xaxis: {
-                lines: {
-                    show: false,
-                },
-            },
+            show: false
         },
         yaxis: {
             tickAmount: 5,
