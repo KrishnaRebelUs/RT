@@ -10,11 +10,61 @@ import {
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconFileArrowRight } from '@tabler/icons-react';
 import moment from 'moment';
+import DataTable from 'react-data-table-component';
+
+const columns = [
+    {
+        name: 'Vendor Name',
+        selector: row => row.Vendor,
+        sortable: true,
+    },
+    {
+        name: 'Date',
+        selector: row => row.Date,
+        formatter: row => moment(row.Date).format('MM/DD/YY HH:mm'),
+        sortable: true,
+    },
+    {
+        name: 'Type',
+        selector: row => row.Type,
+        sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body2' style={{ textAlign: 'center' }}>{row.Type}</Typography>
+                </Box>
+            );
+        }
+    },
+    {
+        name: 'Agreement Id / Disputed Id',
+        selector: row => row.Id,
+        sortable: true,
+    },
+    {
+        name: 'Pending Task',
+        selector: row => row.Task,
+        sortable: true,
+    },
+    {
+        name: 'Progress',
+        selector: row => row.Progress,
+        cell : (row, index, column, id) => {
+            return (
+                <Box>
+                    <LinearProgress variant="determinate" value={row.Progress} />
+                    <Typography variant='body2' style={{ textAlign: 'center' }}>{row.Progress}%</Typography>
+                </Box>
+            );
+        },
+        sortable: true,
+    },
+];
 
 const job = [
     {
         Vendor: 'Au-Califal',
-        Date: '11/04/24',
+        Date: '11/04/24 11:50 AM',
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
@@ -22,7 +72,7 @@ const job = [
     },
     {
         Vendor: 'Au-Califal',
-        Date: '11/04/24',
+        Date: '11/04/24 11:50 AM',
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
@@ -30,7 +80,7 @@ const job = [
     },
     {
         Vendor: 'Au-Califal',
-        Date: '11/04/24',
+        Date: '11/04/24 11:50 AM',
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
@@ -38,7 +88,7 @@ const job = [
     },
     {
         Vendor: 'Au-Califal',
-        Date: '11/04/24',
+        Date: '11/04/24 11:50 AM',
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
@@ -46,12 +96,12 @@ const job = [
     },
     {
         Vendor: 'Au-Califal',
-        Date: '11/04/24',
+        Date: '11/04/24 11:50 AM',
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
         Progress: 4
-    },
+    }
 ];
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
@@ -87,97 +137,11 @@ const JobProgress = () => {
             <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
         }>
             <Box>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 3 }}>
-                    <TableHeadStyled theme={theme}>
-                        <TableRow>
-                            <TableCell style={{ width: '150px' }}>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Vendor Name
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell style={{ width: '100px' }}>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Date
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell style={{ width: '150px' }}>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Type
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell width="50">
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Agreement Id / Disputed Id
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell style={{ width: '200px' }}>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Pending Task
-                                </TableTypography>
-                            </TableCell>
-                            <TableCell>
-                                <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Progress
-                                </TableTypography>
-                            </TableCell>
-                        </TableRow>
-                    </TableHeadStyled>
-                    <TableBody>
-                        {job.map((job, index) => (
-                            <TableRow key={index} sx={{ color: theme.palette.text.primary }}>
-                                <TableCell>
-                                    <Typography
-                                        sx={{
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                        }}
-                                    >
-                                        {job.Vendor}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography  sx={{
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                        }} variant="subtitle2" fontWeight={500}>
-                                        {moment(job.Date).format('MM/DD/YY')}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography  sx={{
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                            color: theme.palette.accent.main
-                                        }} variant="subtitle2" fontWeight={500}>
-                                        {job.Type}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography  sx={{
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                        }} variant="subtitle2" fontWeight={500}>
-                                        {job.Id}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography sx={{
-                                            fontSize: "14px",
-                                            fontWeight: "600",
-                                        }} variant="subtitle2" fontWeight={500}>
-                                        {job.Task}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Box display="flex" alignItems="center">
-                                        <LinearProgress color="success" variant="determinate" value={job.Progress} sx={{ height: '6px', flexGrow: 1, borderRadius: 10, mr: 1, backgroundColor: theme.palette.primary.extraLight }} />
-                                        <Typography variant="body2" style={{ fontWeight: '600' }}>{job.Progress}%</Typography>
-                                    </Box>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                <DataTable
+                    columns={columns}
+                    data={job}
+                    pagination
+                />
             </Box>
         </DashboardCard>
     );
