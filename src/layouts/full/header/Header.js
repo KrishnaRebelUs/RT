@@ -39,8 +39,8 @@ const Header = (props) => {
           <IconMenu2 width="23" height="23" stroke="1.5" />
         </IconButton>
           <Grid container spacing={2} marginLeft='5px'>
-            <Grid item xs={4}> <SelectSearch /></Grid>
-            <Grid item xs={2} className="currency-slector"> <SelectCurrency /></Grid>
+            <Grid item xs={3}> <SelectSearch /></Grid>
+            <Grid item xs className="currency-slector"> <SelectCurrency /></Grid>
           </Grid>
 
         <Box flexGrow={1} />
