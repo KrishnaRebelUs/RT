@@ -1,9 +1,10 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { useTheme } from '@mui/material/styles';
-import {Divider, Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconAnchor } from '@tabler/icons-react';
+import { color, padding, style } from '@mui/system';
 
 const WinRate = () => {
     const theme = useTheme();
@@ -15,100 +16,98 @@ const WinRate = () => {
     const optionsWinRate = {
         chart: {
             type: 'bar',
-            fontFamily: "'Plus Jakarta Sans', sans-serif;",
-            foreColor: '#adb0bb',
             toolbar: {
                 show: false,
             },
-            offsetX: -20,
+            height: 380,
+            offsetX: 0,
+            offsetY: 0,
         },
-        colors: [primary, secondary], 
-        
         plotOptions: {
             bar: {
-                horizontal: true,
                 barHeight: '70%',
-                columnWidth: '100%',
-                borderRadius: [6],
-                borderRadiusApplication: 'end',
-                borderRadiusWhenStacked: 'all',
+                distributed: true,
+                horizontal: true,
                 dataLabels: {
-                    position: 'end',
+                    position: 'end'
                 },
-                
+            }
+        },
+        colors: yAxisLabelColors,
+        dataLabels: {
+            enabled: true,
+            textAnchor: 'middle',
+            offsetX: 0,
+            offsetY: -17,
+            style: {
+                colors: yAxisLabelColors,
+                fontSize: '14px',
+                fontWeight: '500',
+
+            },
+            formatter: function (val, opt) {
+                return val + '%';
+            },
+            background: {
+                enabled: true,
+                foreColor: 'black',
+                padding: 4,
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: 'green',
+                opacity: 0.9,
+                dropShadow: {
+                    enabled: true,
+                    top: 1,
+                    left: 1,
+                    blur: 1,
+                    color: '#000',
+                    opacity: 0.45
+                }
             },
         },
         stroke: {
             show: true,
-            width: 22,
+            width: 32,
             lineCap: "butt",
             colors: ["transparent"],
         },
-        dataLabels: {
-            enabled: true,
-            style: {
-                colors: ['#999', '#fff']
+        xaxis: {
+            categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
+            labels: {
+                show: false,
             },
-            background: {
-                enabled: true,
-                foreColor: '#fff',
-                padding: 8,
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: '#fff',
-                opacity: 0.9,
-                color: '#999',
+            axisBorder: {
+                show: true,
             },
-            offsetY: -20,
-        },
-        legend: {
-            show: true,
-        },
-        grid: {
-            show: false
         },
         yaxis: {
-            tickAmount: 5,
-            show: true,
             labels: {
+                show: true,
                 style: {
-                    fontSize: '14px', 
+                    fontSize: '14px',
                     colors: yAxisLabelColors,
                     fontWeight: '500'
                 },
                 maxWidth: 'auto',
-                
             },
         },
-        xaxis: {
-            categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
-            axisBorder: {
-                show: false,
-            },
-            labels: {
-                style: {
-                    colors: theme.palette.text.primary,
-                    fontSize: '14px'
-                },
-            },
-        },
-        tooltip: {
-            theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
-            fillSeriesColor: false,
+        grid: {
+            show: false
         },
     };
 
     const seriesWinRate = [
         {
             name: 'Win Rate',
-            data: [20, 40, 30, 50],
+            data: [10, 20, 30, 10],
         },
     ];
 
     return (
         <DashboardCard title={
             <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>Win Rate</Typography>}>
-            <Divider/>
+            <Divider />
             <Chart
                 options={optionsWinRate}
                 series={seriesWinRate}
