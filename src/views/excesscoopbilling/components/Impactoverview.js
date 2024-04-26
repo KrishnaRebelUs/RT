@@ -1,7 +1,7 @@
 import React from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled, Typography, Avatar, Grid, Divider } from '@mui/material';
-import BarChart from '../../components/pages/BarChart';
+import BarChart from '../../components/pages/Barchart';
 import { useTheme } from '@emotion/react';
 import NumberData from '../../components/pages/NumberData';
 
@@ -35,9 +35,12 @@ const Impactoverview = () => {
         <Grid item sm={6} py={2}>
          
           <Typography variant='h6' mb={1}>Recouped Amount</Typography>
-          <Typography variant='h2' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
+          <Typography variant='h3' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
         </Grid>
-        <Grid item sm={6}><BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="180" chartHeight="180" chartLableFonrSize="18px" /></BarChartStyled></Grid>
+        <Grid item sm={6}>
+          <BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="180" chartHeight="180" chartLableFonrSize="18px" /></BarChartStyled>
+          <Typography variant='body1' style={{ textAlign: 'center', marginLeft: '25px', marginTop: '5px', fontWeight: '500'}}>Rate</Typography>
+        </Grid>
       </Grid>
       <Box mt={4}><Divider/></Box>
       <NumberData />
