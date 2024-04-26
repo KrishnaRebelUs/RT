@@ -2,6 +2,7 @@
 :root{
 	--primary: #18244d;
 	--secondary-light: #F4F5F9;
+	--accent : #f48124;
 }
 div .czCoqD
 {
@@ -13,6 +14,39 @@ div .epZUJV{
 div .button svg{
 	color: var(--primary);
 }
+
+.fpBGKh .MuiBox-root{
+	 width: 100% !important;
+ }
+ .fpBGKh .css-v3x8ju-MuiLinearProgress-root{
+	height: 12px;
+	border-radius: 4px;
+	background-color: #eee;
+ }
+ .fpBGKh .css-9rrl0w-MuiLinearProgress-bar1{
+	background-color: #00A15D;
+ }
+ div#cell-6-undefined .MuiBox-root p{
+	text-align: right !important;
+ }
+ div#cell-3-undefined .MuiBox-root p{
+	text-align: left !important;
+	color: #FF8820;
+ }
+ .deUxZV .fpBGKh .MuiBox-root p{
+	text-align: left !important;
+ }
+ .fpBGKh .erkbiK div:first-child{
+	white-space: pre-wrap;
+	color: #000;
+ }
+ .allowRowEvents{
+	font-weight: 400;
+	font-size: 14px;
+ }
+ .fpBGKh .lnOUep{
+	white-space: pre-wrap;
+ }
 /*---- Manage Dispute Form ---*/
 .dispute-form label{
 	color: #183D72 !important;
@@ -80,4 +114,49 @@ div .button svg{
 .dispute-table span{
  margin: 0;
  padding: 0;
+}
+/*--- Search Box ---*/
+.search-box .MuiInputBase-formControl
+{
+	padding: 4px 10px !important;
+	border-radius: 7px;
+	border: none !important;
+	background-color: var(--secondary-light);
+	color: #000;
+}
+.css-1b6xtd7-MuiAutocomplete-listbox{
+	max-height: 60vh !important;
+}
+ul li.MuiAutocomplete-option:nth-child(even){
+	background-color: var(--secondary-light) !important;
+ }
+ ul li.MuiAutocomplete-option{
+	font-weight: 500;
+	font-size: 16px;
+	color: #89868D;
+ }
+.search-box .MuiInputBase-formControl input{
+	color: #000;
+}
+/*--- Breadcrumb ---*/
+.MuiBreadcrumbs-li a{
+	color: var(--primary);
+	font-size: 16px;
+}
+.MuiBreadcrumbs-li a:hover{
+	color: #285A9E;
+	text-decoration: underline !important;
+}
+.MuiBreadcrumbs-li p{
+	font-size: 16px;
+}
+/*--- Tabs ---*/
+.MuiTabs-fixed .MuiTabs-flexContainer .css-mpo1kn-MuiButtonBase-root-MuiTab-root{
+	color: #000 !important;
+}
+.MuiTabs-fixed .MuiTabs-flexContainer .css-mpo1kn-MuiButtonBase-root-MuiTab-root.Mui-selected{
+ color: var(--accent) !important;
+}
+.MuiTabs-indicator{
+	background-color: var(--accent) !important;
 }

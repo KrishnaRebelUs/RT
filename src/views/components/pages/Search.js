@@ -17,7 +17,7 @@ const account = [
 const Search = () => {
   return (
 	
-	<Box>
+	<Box className='search-box'>
 		<Autocomplete
 		multiple
 		id="checkboxes-tags-demo"

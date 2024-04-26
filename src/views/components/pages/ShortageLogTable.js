@@ -2,8 +2,6 @@ import React from 'react';
 import {
     Typography,
     Box,
-    Table,
-    TableBody,
     TableCell,
     TableContainer,
     TableHead,
@@ -13,10 +11,10 @@ import {
 	Grid,Button, Stack
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import { IconArrowNarrowUp } from '@tabler/icons-react';
+import { IconFileArrowRight } from '@tabler/icons-react';
 import Search from './Search';
 import DataTable from 'react-data-table-component';
-import moment from 'moment';
+import '../../../theme/TableStyle.css'
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
@@ -32,6 +30,7 @@ const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight,
 }));
 
+
 const ButtonStyled = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.primary.extraLight,
     border: '1px solid',
@@ -44,7 +43,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
         backgroundColor: theme.palette.primary.main,
         color: 'white',
     },
-}));
+  }));
 const ShortageLogTable = () => {
     const theme = useTheme();
 
@@ -115,16 +114,17 @@ const ShortageLogTable = () => {
     ];
 
     return (
-        <DashboardCard title="Itemized Shortage Dipute Log">
+        <DashboardCard  title={
+            <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Itemized Shortage Dipute Log</Typography>}>
             <Box>
-				<Grid container spacing={2}>
+				<Grid container spacing={2} alignItems='center' marginBottom={3}>
 					<Grid item xs="4">
 					    <Search />
 					</Grid>
-					<Grid item xs="2">
+					<Grid item xs="4">
 					   <Stack direction='row' spacing={2}>
 					      <ButtonStyled>Reset</ButtonStyled>
-					      <ButtonStyled>Export <IconArrowNarrowUp  size="30" /></ButtonStyled>
+					      <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
 					   </Stack>
 					</Grid>
 					

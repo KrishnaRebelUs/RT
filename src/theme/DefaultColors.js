@@ -10,7 +10,8 @@ const baselightTheme = createTheme({
       light: '#5c84c3',
       extraLight: 'rgb(236, 242, 255)',
       dark: '#1e3e67',
-      contrastText: '#ffffff'
+      contrastText: '#ffffff',
+      contrast: '#5785D0'
     },
     secondary: {
       main: '#18244d',

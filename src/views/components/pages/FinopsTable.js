@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Grid, Tab, Typography, Table, TableBody, TableCell, TableHead, TableRow, useTheme,styled , Button} from '@mui/material';
+import { Box, Grid, Tab, Typography,  TableCell, TableHead, TableRow, useTheme,styled , Button} from '@mui/material';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -61,21 +61,57 @@ const FinopsTable = () => {
             name: 'DisputeID',
             selector: row => row.DisputeID,
             sortable: true,
+            cell: (row, index, column, id) => {
+                return (
+                    <Box>
+                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>{row.DisputeID}</Typography>
+                    </Box>
+                );
+            }
         },
         {
             name: 'DisputeType',
             selector: row => row.DisputeType,
             sortable: true,
+            cell: (row, index, column, id) => {
+                return (
+                    <Box>
+                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.accent.main }}>{row.DisputeType}</Typography>
+                    </Box>
+                );
+            }
         },
         {
             name: 'DisputeDate',
             selector: row => row.DisputeType,
             sortable: true,
+            cell: (row, index, column, id) => {
+                return (
+                    <Box>
+                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>{row.DisputeDate}</Typography>
+                    </Box>
+                );
+            }
         },
         {
             name: 'DisputeStatus',
             selector: row => row.DisputeStatus,
             sortable: true,
+            cell: (row, index, column, id) => {
+                if (row.DisputeStatus === 'Resolved') {
+                    return (
+                        <Box>
+                            <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.success.main }}>{row.DisputeStatus}</Typography>
+                        </Box>
+                    );
+                } else {
+                    return (
+                        <Box>
+                            <Typography variant='body2' style={{ color: 'red' }}>{row.DisputeStatus}</Typography>
+                        </Box>
+                    );
+                }
+            }
         },
         {
             name: 'DisputeAmount',
@@ -83,7 +119,7 @@ const FinopsTable = () => {
             sortable: true,
         },
         {
-            name: 'ApprovedAmount',
+            name: 'ApprovedAmount (As Per Vc)',
             selector: row => row.ApprovedAmount,
             sortable: true,
         },
@@ -91,44 +127,68 @@ const FinopsTable = () => {
     
     const data = [
         {
-            DisputeID: "#908897968",
-            DisputeType: "362,356.00",
-            DisputeDate: "11/4/24",
-            DisputeStatus: "Received",
-            DisputeAmount: "362,356.00",
-            ApprovedAmount: "100",
+            DisputeID: "DSPT10021849951",
+            DisputeType: "Shortage",
+            DisputeDate: "03/06/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$229.40",
+            ApprovedAmount: "$143.64",
         },
         {
-            DisputeID: "#908897968",
-            DisputeType: "362,356.00",
-            DisputeDate: "11/4/24",
-            DisputeStatus: "Received",
-            DisputeAmount: "362,356.00",
-            ApprovedAmount: "14000",
+            DisputeID: "DSPT10021849489",
+            DisputeType: "Shortage",
+            DisputeDate: "04/08/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$329.40",
+            ApprovedAmount: "$3,324.01",
         },
         {
-            DisputeID: "#908897968",
-            DisputeType: "362,356.00",
-            DisputeDate: "11/4/24",
-            DisputeStatus: "Received",
-            DisputeAmount: "362,356.00",
-            ApprovedAmount: "105500",
+            DisputeID: "DSPT10021849999",
+            DisputeType: "Shortage",
+            DisputeDate: "09/08/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$529.40",
+            ApprovedAmount: "$173.64",
         },
         {
-            DisputeID: "#908897968",
-            DisputeType: "362,356.00",
-            DisputeDate: "11/4/24",
-            DisputeStatus: "Received",
-            DisputeAmount: "362,356.00",
-            ApprovedAmount: "1042100",
+            DisputeID: "DSPT10021849852",
+            DisputeType: "Shortage",
+            DisputeDate: "05/06/23",
+            DisputeStatus: "Pending Amazon Action",
+            DisputeAmount: "$829.40",
+            ApprovedAmount: "$173.64",
         },
         {
-            DisputeID: "#908897968",
-            DisputeType: "362,356.00",
-            DisputeDate: "11/4/24",
-            DisputeStatus: "Received",
-            DisputeAmount: "362,356.00",
-            ApprovedAmount: "10012120",
+            DisputeID: "DSPT10021849202",
+            DisputeType: "Shortage",
+            DisputeDate: "03/08/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$229.40",
+            ApprovedAmount: "$243.64",
+        },
+        {
+            DisputeID: "DSPT10021849001",
+            DisputeType: "Shortage",
+            DisputeDate: "08/02/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$129.40",
+            ApprovedAmount: "$1043.64",
+        },
+        {
+            DisputeID: "DSPT12011504991",
+            DisputeType: "Shortage",
+            DisputeDate: "01/01/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$329.40",
+            ApprovedAmount: "$183.64",
+        },
+        {
+            DisputeID: "DSPT12011504991",
+            DisputeType: "Shortage",
+            DisputeDate: "03/06/23",
+            DisputeStatus: "Resolved",
+            DisputeAmount: "$ 429.40",
+            ApprovedAmount: "$193.64",
         }
     ];
 
@@ -138,10 +198,10 @@ const FinopsTable = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Box sx={{ width: '100%', typography: 'body1' }}>
-                            <TabContext value={value}>
+                            <TabContext value={value} className="table-tabs">
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                     <TabList onChange={handleChange} indicatorColor="secondary">
-                                        <TabStyled label="Approved" value="1" />
+                                        <TabStyled label="Approved" value="1"  style={{color:theme.palette.text.dark}}/>
                                         <TabStyled label="Denied" value="2" />
                                         <TabStyled label="Pending" value="3" />
                                         <TabStyled label="All" value="4" />
@@ -155,7 +215,7 @@ const FinopsTable = () => {
                                         actions={<ExportCSVBTN />}
                                     />
                                 </TabPanel>
-                                <TabPanel value="2">
+                                <TabPanel value="2" style={{ padding: 0 }}>
                                 <DataTable
                                         columns={columns}
                                         data={data}
@@ -163,7 +223,7 @@ const FinopsTable = () => {
                                         actions={<ExportCSVBTN />}
                                     />
                                 </TabPanel>
-                                <TabPanel value="3">
+                                <TabPanel value="3" style={{ padding: 0 }}>
                                 <DataTable
                                         columns={columns}
                                         data={data}
@@ -171,7 +231,7 @@ const FinopsTable = () => {
                                         actions={<ExportCSVBTN />}
                                     />
                                 </TabPanel>
-                                <TabPanel value="4">
+                                <TabPanel value="4" style={{ padding: 0 }}>
                                 <DataTable
                                         columns={columns}
                                         data={data}

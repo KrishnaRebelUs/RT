@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-    Typography, Box,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow, styled, useTheme, Button, LinearProgress
+import { Typography, Box,TableHead, styled, useTheme, Button, LinearProgress
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconFileArrowRight } from '@tabler/icons-react';
 import moment from 'moment';
 import DataTable from 'react-data-table-component';
+import '../../../theme/TableStyle.css'
 
 const columns = [
     {
@@ -68,7 +63,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 65
+        Progress: 100
     },
     {
         Vendor: 'Au-Califal',
@@ -76,7 +71,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 45
+        Progress: 60
     },
     {
         Vendor: 'Au-Califal',
@@ -84,7 +79,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 75
+        Progress: 25
     },
     {
         Vendor: 'Au-Califal',
@@ -92,16 +87,16 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 35
+        Progress: 60
     },
-    {
-        Vendor: 'Au-Califal',
-        Date: '11/04/24 11:50 AM',
-        Type: 'Quantity Mismatch',
-        Id: '88799979',
-        Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 4
-    }
+    // {
+    //     Vendor: 'Au-Califal',
+    //     Date: '11/04/24 11:50 AM',
+    //     Type: 'Quantity Mismatch',
+    //     Id: '88799979',
+    //     Task: 'Pulling Po Invoice Data(3/3)',
+    //     Progress: 4
+    // }
 ];
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
