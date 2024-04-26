@@ -15,6 +15,8 @@ import { IconFileArrowRight } from '@tabler/icons-react';
 import Search from './Search';
 import DataTable from 'react-data-table-component';
 import '../../../theme/TableStyle.css'
+import moment from 'moment';
+import { func } from 'prop-types';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
@@ -56,6 +58,9 @@ const ShortageLogTable = () => {
         {
             name: 'Created Date',
             selector: row => row.CreatedDate,
+            formatter: function (d) {
+                return moment(d).format('MM/DD/YY');
+            },
             sortable: true,
         },
         {

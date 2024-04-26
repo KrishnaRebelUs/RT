@@ -73,6 +73,7 @@ const columns = [
         name : 'Payment Received Date',
         selector: row => row.Payment,
         sortable: true,
+        formatter: row => moment(row.Payment).format('DD/MM/YY')
     },
     {
         name : 'Payment Unique ID',
@@ -234,8 +235,8 @@ const disputeTable = [
                         <TableBody>
                             <TableRowStyled>
                                 <TableCell>{data.Created}</TableCell>
-                                <TableCell>{data.Date}</TableCell>
-                                <TableCell>{data.ResolveDate}</TableCell>
+                                <TableCell>{moment(data.Date).format('DD/MM/YY') }</TableCell>
+                                <TableCell>{moment(data.ResolveDate).format('DD/MM/YY') }</TableCell>
                                 <TableCell>{data.Reason}</TableCell>
                                 <TableCell>{data.Tat}</TableCell>
                             </TableRowStyled>

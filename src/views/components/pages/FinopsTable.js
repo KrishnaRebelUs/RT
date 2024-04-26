@@ -7,6 +7,7 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 import DataTable from 'react-data-table-component';
 import {IconFileArrowRight} from '@tabler/icons-react';
 import '../../../theme/TableStyle.css'
+import moment from 'moment';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main
@@ -88,7 +89,9 @@ const FinopsTable = () => {
             cell: (row, index, column, id) => {
                 return (
                     <Box>
-                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>{row.DisputeDate}</Typography>
+                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>
+                            {moment(row.DisputeDate).format('MM/DD/YY')}
+                        </Typography>
                     </Box>
                 );
             }
