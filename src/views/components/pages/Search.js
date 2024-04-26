@@ -33,7 +33,6 @@ const Search = () => {
 			{option.text}
 			</li>
 		)}
-		style={{ width: 500 }}
 		renderInput={(params) => (
 			<TextField {...params}  placeholder="Select Amzon Vendor Account" />
 		)}
