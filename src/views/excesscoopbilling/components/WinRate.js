@@ -47,10 +47,19 @@ const WinRate = () => {
         dataLabels: {
             enabled: true,
             style: {
-                colors: ['#000'],
-                background: [red]
+                colors: ['#999', '#fff']
             },
-            offsetY: -10,
+            background: {
+                enabled: true,
+                foreColor: '#fff',
+                padding: 8,
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: '#fff',
+                opacity: 0.9,
+                color: '#999',
+            },
+            offsetY: -20,
         },
         legend: {
             show: true,
@@ -98,9 +107,7 @@ const WinRate = () => {
 
     return (
         <DashboardCard title={
-            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>
-                Win Rate
-            </Typography>}>
+            <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>Win Rate</Typography>}>
             <Divider/>
             <Chart
                 options={optionsWinRate}
