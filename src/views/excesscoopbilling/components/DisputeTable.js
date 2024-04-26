@@ -231,7 +231,7 @@ const DisputeTable = () => {
                     </TableHeadStyled>
                     <TableBody>
                         {disputeTable.map((dispute, index) => (
-                            <TableRowStyled key={index} index={index}>
+                            <TableRowStyled key={index} index={index} className="dispute-table">
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={600} style={{color: theme.palette.primary.main}}>{dispute.Id}</Typography>
                                 </TableCell>
@@ -267,8 +267,8 @@ const DisputeTable = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Stack direction='row' alignItems='center'>
-                                        <Button size="small" startIcon={<IconPencil />}   onClick={handleEditClick} style={{minWidth: '0'}} ></Button>
-                                        <Button size="small" startIcon={<IconTrash />} style={{minWidth: '0'}} ></Button>
+                                        <Button size="small" startIcon={<IconPencil  size='16'/>}   onClick={handleEditClick} style={{minWidth: '0'}} ></Button>
+                                        <Button size="small" startIcon={<IconTrash size='16' />} style={{minWidth: '0'}} ></Button>
                                     </Stack>
                                 </TableCell>
                             </TableRowStyled>
