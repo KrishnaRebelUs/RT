@@ -53,7 +53,7 @@ const RecoupedAmount = () => {
   return (
     <DashboardCard  
 		title={
-			<TypographyStyled variant='h5'>Recoupened Amount</TypographyStyled>
+			<TypographyStyled variant='h5'>Recouped Amount</TypographyStyled>
 		} 
 		footer={
 			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="60px" />
