@@ -23,6 +23,7 @@ const WinRate = () => {
             offsetX: -20,
         },
         colors: [primary, secondary], 
+        
         plotOptions: {
             bar: {
                 horizontal: true,
@@ -32,8 +33,10 @@ const WinRate = () => {
                 borderRadiusApplication: 'end',
                 borderRadiusWhenStacked: 'all',
                 dataLabels: {
-                    position: 'center'
+                    position: 'end',
+                    
                 },
+                
             },
         },
         stroke: {
@@ -43,7 +46,11 @@ const WinRate = () => {
             colors: ["transparent"],
         },
         dataLabels: {
-            enabled: false,
+            enabled: true,
+            style: {
+                colors: ['#F44336'],
+            },
+            offsetY: -10,
         },
         legend: {
             show: true,
