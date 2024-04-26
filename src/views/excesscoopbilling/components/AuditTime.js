@@ -33,7 +33,7 @@ const AuditTime = () => {
       
     >
     <Grid container alignItems={'center'}>
-      <Grid item xs={12} mb={1}>{moment().format('MM/DD/YY')}</Grid>
+      <Grid item xs={12} mb={1} style={{ fontWeight: 600 }}>{moment().format('MM/DD/YY')}</Grid>
       <Grid item lg={4}>
         <TypographyStyled variant='body1' marginBottom={1} sx={{ color: theme.palette.accent.main}}>Contribution to Total Findings</TypographyStyled>
       </Grid>
