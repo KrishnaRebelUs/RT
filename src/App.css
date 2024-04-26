@@ -1,6 +1,7 @@
 /*--- Table Style ----*/
 :root{
 	--primary: #18244d;
+	--secondary-light: #F4F5F9;
 }
 div .czCoqD
 {
@@ -13,13 +14,63 @@ div .button svg{
 	color: var(--primary);
 }
 /*---- Manage Dispute Form ---*/
-label{
+.dispute-form label{
 	color: #183D72 !important;
 	font-size: 16px !important;
 }
 .dispute-form input{
-	padding: 10px 14px !important;
+	padding: 10px 14px;
+	background-color: var(--secondary-light);
+	border-radius: 7px;
+	color: var(--primary);
+	font-weight: 700;
+
 }
-.dispute-form .MuiTextField-root{
+.dispute-form .MuiInputBase-root{
 	margin-top: 10px;
+	
+}
+.dispute-form fieldset{
+    border: 1px solid var(--secondary-light);
+	border-radius: 7px;
+	color: var(--primary);
+	
+}
+.dispute-form fieldset:hover{
+	border:  1px solid var(--primary);
+}
+.dispute-form .css-13cymwt-control, .dispute-form .css-t3ipsp-control{
+	width: 100px;
+	height: 40px;
+	display: flex;
+	font-size: 16x !important;
+	font-weight: 700;
+	align-items: center;
+	background-color: var(--secondary-light);
+	border-radius: 7px;
+}
+.dispute-form .css-13cymwt-control input, .dispute-form .css-t3ipsp-control input{
+	padding: 0;
+}
+.dispute-form .css-1u9des2-indicatorSeparator{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.dispute-form .css-4xgw5l-IndicatorsContainer2{
+	height: 42px;
+}
+.dispute-form .css-w9q2zk-Input2{
+	padding: 0;
+	margin: 0;
+}
+.dispute-form .css-b62m3t-container{
+	margin-top: 10px;
+}
+.dispute-form .css-1dimb5e-singleValue{
+	font-weight: 700;
+	color: var(--primary);
+}
+.dispute-form .css-1xc3v61-indicatorContainer{
+	color: var(--primary);
+	font-weight: bolder;
 }
