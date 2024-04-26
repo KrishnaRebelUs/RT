@@ -5,12 +5,11 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TableRow, styled, useTheme, Button, Stack, TableContainer, Dialog,DialogTitle, DialogContent, DialogActions, Grid, Select 
+    TableRow, styled, useTheme, Button, Stack, TableContainer, Dialog,DialogTitle, DialogContent,  Grid, 
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import {IconPencilMinus, IconTrash ,IconX} from '@tabler/icons-react';
+import {IconPencil, IconTrash ,IconX} from '@tabler/icons-react';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
-import { light } from '@mui/material/styles/createPalette';
 import SelectCurrency from '../../../layouts/full/header/SelectCurrency';
 
 const disputeTable = [
@@ -268,8 +267,8 @@ const DisputeTable = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Stack direction='row' alignItems='center'>
-                                        <Button size="small" startIcon={<IconPencilMinus />}   onClick={handleEditClick} ></Button>
-                                        <Button size="small" startIcon={<IconTrash />}></Button>
+                                        <Button size="small" startIcon={<IconPencil />}   onClick={handleEditClick} style={{minWidth: '0'}} ></Button>
+                                        <Button size="small" startIcon={<IconTrash />} style={{minWidth: '0'}} ></Button>
                                     </Stack>
                                 </TableCell>
                             </TableRowStyled>
@@ -320,7 +319,7 @@ const DisputeTable = () => {
                             </TypographyStyled>
                             <CustomTextField id="name" variant="outlined" type="date" fullWidth />
                         </Grid>
-                        <Grid item container justifyContent="center" gap={5}>
+                        <Grid item container justifyContent="center" gap={1}>
                             <Button variant="contained" color="secondary">
                                 Update
                             </Button>
