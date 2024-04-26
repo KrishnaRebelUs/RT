@@ -29,57 +29,71 @@ const ShortageTable = () => {
     const shortagetble = [
         {
            Settlement: "Shortage Claim Finding",
-           Active:"$362,356.00",
-           Archieved: "$362,356.00",
+           Active: "$ 36,230.20",
+           Archieved: "$ 36,230.20",
            color: theme.palette.accent.main
         
         },
         {
             Settlement: "Audit Period",
-            Active:"11/4/24",
-            Archieved: "9/04/24",
+            Active: "11/24/23",
+            Archieved: "9/04/22",
             
          
          },
          {
-            Settlement: "Shortage Claim Finding",
+            Settlement: "Audit Period",
             Active:"11/24/23",
             Archieved: "11/24/23",
             color: theme.palette.error.dark
+            
          
          },
          {
-             Settlement: "Case ID and Creation Date",
-             Active:"11/4/24",
-             Archieved: "11/4/24",
-          
-          },
-          {
+            Settlement: "Case ID and Creation Date",
+            Active: ['1423658', '11/24/23'],
+            Archieved: ['1423658', '11/24/23'],
+         
+         },
+         {
             Settlement: "Open Balance",
-            Active:"$362,356.00",
-            Archieved: "$06230.30",
+            Active:"$ 36,230.20",
+            Archieved: "$ 36,230.20",
             color: theme.palette.accent.main
+         },
+        
+          {
+            Settlement: "Confirmation Date",
+            Active:"06/16/23",
+            Archieved: "09/09/23",
          
          },
          {
-             Settlement: "Audit Period",
-             Active:"11/4/24",
-             Archieved: "11/4/24",
+             Settlement: "Settlement Offer",
+             Active: ['$ 36,230.20', '08/04/23'],
+             Archieved: ['$ 36,230.20', '08/04/23'],
           
           },
           {
-            Settlement: "Shortage Claim Finding",
-            Active:"$362,356.00",
-            Archieved: "$362,356.00",
+            Settlement: "Counter Offer",
+            Active: ['$ 36,230.20', '08/04/23'],
+            Archieved: ['$ 36,230.20', '08/04/23'],
          
          },
          {
-             Settlement: "Audit Period",
-             Active:"11/4/24",
-             Archieved: "11/4/24",
-             color:theme.palette.success.main
-          
-          },
+            Settlement: "Accepted Offer",
+            Active: ['$ 36,230.20', '08/04/23'],
+            Archieved: ['$ 36,230.20', '08/04/23'],
+         
+         },
+          {
+            
+            Settlement: "Settlement Amount",
+            Active:"$ 36,230.20",
+            Archieved: "$ 36,230.20",
+            color:theme.palette.success.main
+         
+         },
      
     ];
 
@@ -100,7 +114,7 @@ const ShortageTable = () => {
                             </TableCell>
                             <TableCell>
                                 <TableTypography variant="subtitle2" fontWeight={600}>
-                                    Archieved
+                                    Archived
                                 </TableTypography>
                             </TableCell>
                         </TableRow>
@@ -109,24 +123,30 @@ const ShortageTable = () => {
                         {shortagetble.map((data, index) => (
                             <TableRow theme={theme} key={index}>
                                 <TableCellStyled index={index}>
-                                    <Typography
-                                        sx={{
-                                            fontSize: "15px",
-                                            fontWeight: "500",
-                                        }}
-                                    >
-                                        {data.Settlement}
-                                    </Typography>
+                                   
+                                        <Typography
+                                            sx={{
+                                                fontSize: "15px",
+                                                fontWeight: "500",
+                                            }}
+                                        >
+                                            {data.Settlement}
+                                        </Typography>
+
                                 </TableCellStyled>
                                 <TableCell>
                                     <Typography variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
-                                        {typeof data.Active === 'number' ? formatNumber(data.Active) : data.Active}
+                                       {/* {
+                                        data.Active.map((d,i)=>{
+                                           
+                                        })
+                                       } */}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="subtitle2" fontWeight={400} style={{ color: data.color }}>
-                                        {typeof data.Archieved === 'number' ? formatNumber(data.Archieved) : data.Archieved}
-                                    </Typography>
+                                          <Typography key={index} variant="subtitle2" fontWeight={600} style={{ color: data.color }}>
+                                                {typeof data.Archieved === 'number' ? formatNumber(data.Archieved) : data.Archieved}
+                                            </Typography>
                                 </TableCell>
                             </TableRow>
                         ))}
