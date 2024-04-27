@@ -80,6 +80,7 @@ const columns = [
         name : 'Payment Received Date',
         selector: row => row.Payment,
         sortable: true,
+        formatter: row => moment(row.Payment).format('DD/MM/YY')
     },
     {
         name : 'Payment Unique ID',
@@ -241,10 +242,11 @@ const disputeTable = [
                         <TableBody>
                             <TableRowStyled>
                                 <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Created}</TableCell>
-                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Date}</TableCell>
-                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.ResolveDate}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{moment(data.Date).format('DD/MM/YY') }</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{moment(data.ResolveDate).format('DD/MM/YY') }</TableCell>
                                 <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Reason}</TableCell>
                                 <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Tat}</TableCell>
+                               
                             </TableRowStyled>
                         </TableBody>
                     </Table>

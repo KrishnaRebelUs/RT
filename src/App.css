@@ -210,3 +210,8 @@ ul li.MuiAutocomplete-option:nth-child(even){
 .update-tab button.Mui-selected{
 	color: var(--accent);
 }
+div .css-clttge-MuiAutocomplete-root .MuiAutocomplete-inputRoot{
+	display: flex;
+	flex-wrap: nowrap;
+	overflow: hidden;
+}

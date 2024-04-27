@@ -7,7 +7,7 @@ import DashboardCard from '../../../components/shared/DashboardCard';
 import DataTable from 'react-data-table-component';
 import {IconFileArrowRight} from '@tabler/icons-react';
 import '../../../theme/TableStyle.css'
-import { borderBottom } from '@mui/system';
+import moment from 'moment';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main
@@ -89,7 +89,9 @@ const FinopsTable = () => {
             cell: (row, index, column, id) => {
                 return (
                     <Box>
-                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>{row.DisputeDate}</Typography>
+                        <Typography variant='body1' fontWeight='500' fontSize='14px' style={{ color: theme.palette.secondary.main }}>
+                            {moment(row.DisputeDate).format('MM/DD/YY')}
+                        </Typography>
                     </Box>
                 );
             }
@@ -208,7 +210,7 @@ const FinopsTable = () => {
                                         <TabStyled label="All" value="4" />
                                     </TabList>
                                    <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                       <Grid item xs={4} style={{paddingTop:'0'}}>
+                                       <Grid item xs={5} style={{paddingTop:'0'}}>
                                            <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
                                                 <Box>
                                                     <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
