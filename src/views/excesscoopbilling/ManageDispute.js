@@ -16,7 +16,7 @@ const ManageDispute = () => {
 			  <Grid item xs={12}>
 				<Header title='Manage Dispute'/>
 			  </Grid>
-			  <Grid item xs={12}>
+			  <Grid item xs={12} className="dispute-table">
 			   	<DisputeTable />
 			  </Grid>
 			</Grid>

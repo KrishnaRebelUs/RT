@@ -6,55 +6,9 @@ import { IconFileArrowRight } from '@tabler/icons-react';
 import moment from 'moment';
 import DataTable from 'react-data-table-component';
 import '../../../theme/TableStyle.css'
+import { width } from '@mui/system';
 
-const columns = [
-    {
-        name: 'Vendor Name',
-        selector: row => row.Vendor,
-        sortable: true,
-    },
-    {
-        name: 'Date',
-        selector: row => row.Date,
-        formatter: row => moment(row.Date).format('MM/DD/YY HH:mm'),
-        sortable: true,
-    },
-    {
-        name: 'Type',
-        selector: row => row.Type,
-        sortable: true,
-        cell: (row, index, column, id) => {
-            return (
-                <Box>
-                    <Typography variant='body2' style={{ textAlign: 'center' }}>{row.Type}</Typography>
-                </Box>
-            );
-        }
-    },
-    {
-        name: 'Agreement Id / Disputed Id',
-        selector: row => row.Id,
-        sortable: true,
-    },
-    {
-        name: 'Pending Task',
-        selector: row => row.Task,
-        sortable: true,
-    },
-    {
-        name: 'Progress',
-        selector: row => row.Progress,
-        cell : (row, index, column, id) => {
-            return (
-                <Box>
-                    <LinearProgress variant="determinate" value={row.Progress} />
-                    <Typography variant='body2' style={{ textAlign: 'center' }}>{row.Progress}%</Typography>
-                </Box>
-            );
-        },
-        sortable: true,
-    },
-];
+
 
 const job = [
     {
@@ -124,6 +78,54 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 
 const JobProgress = () => {
     const theme = useTheme();
+    const columns = [
+        {
+            name: 'Vendor Name',
+            selector: row => row.Vendor,
+            sortable: true,
+        },
+        {
+            name: 'Date',
+            selector: row => row.Date,
+            formatter: row => moment(row.Date).format('MM/DD/YY HH:mm'),
+            sortable: true,
+        },
+        {
+            name: 'Type',
+            selector: row => row.Type,
+            sortable: true,
+            cell: (row, index, column, id) => {
+                return (
+                    <Box>
+                        <Typography variant='body1' fontWeight='500' style={{ textAlign: 'left',color:theme.palette.accent.main }}>{row.Type}</Typography>
+                    </Box>
+                );
+            }
+        },
+        {
+            name: 'Agreement Id / Disputed Id',
+            selector: row => row.Id,
+            sortable: true,
+        },
+        {
+            name: 'Pending Task',
+            selector: row => row.Task,
+            sortable: true,
+        },
+        {
+            name: 'Progress',
+            selector: row => row.Progress,
+            cell : (row, index, column, id) => {
+                return (
+                    <Box style={{ display: 'flex', flexDirection:'column-reverse', width: '100%' }}>
+                        <LinearProgress variant="determinate" color="success" value={row.Progress} style={{color:'#eee', height: "10px",borderRadius:'4px'}} />
+                        <Typography variant='body2' style={{ textAlign: 'right' }}>{row.Progress}%</Typography>
+                    </Box>
+                );
+            },
+            sortable: true,
+        },
+    ];
 
     return (
         <DashboardCard title={

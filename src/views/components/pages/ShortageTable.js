@@ -9,21 +9,7 @@ import {
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { DataGrid } from '@mui/x-data-grid';
-import { render } from 'react-dom';
 
-const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: '7px',
-}));
-
-const TableTypography = styled(TableHead)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
-    fontSize: '16px'
-}));
-
-const TableCellStyled = styled(TableCell)(({ theme, index }) => ({
-    color: theme.palette.secondary.main
-}));
 
 const ShortageTable = () => {
     const theme = useTheme();
@@ -39,7 +25,7 @@ const ShortageTable = () => {
         },
         {
             id:2,
-            Settlement: "Audit Period",
+            Settlement: " Start Audit Period",
             Active: ["11/24/23"],
             Archieved: ["9/04/22"],
             
@@ -47,7 +33,7 @@ const ShortageTable = () => {
          },
          {
             id:3,
-            Settlement: "Audit Period",
+            Settlement: "End Audit Period",
             Active:["11/24/23"],
             Archieved: ["11/24/23"],
             color: theme.palette.error.main

@@ -58,6 +58,13 @@ const columns = [
         name : 'Dispute ID',
         selector: row => row.Id,
         sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body1' fontWeight='500' style={{ color:theme.palette.primary.main }}>{row.Id}</Typography>
+                </Box>
+            );
+        }
     },
     {
         name : 'Dispute Amount',
@@ -233,11 +240,11 @@ const disputeTable = [
                         </TableHeadStyled>
                         <TableBody>
                             <TableRowStyled>
-                                <TableCell>{data.Created}</TableCell>
-                                <TableCell>{data.Date}</TableCell>
-                                <TableCell>{data.ResolveDate}</TableCell>
-                                <TableCell>{data.Reason}</TableCell>
-                                <TableCell>{data.Tat}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Created}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Date}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.ResolveDate}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Reason}</TableCell>
+                                <TableCell fontWeight={600} style={{color:'#000', fontSize:'14px'}}>{data.Tat}</TableCell>
                             </TableRowStyled>
                         </TableBody>
                     </Table>
@@ -248,8 +255,8 @@ const disputeTable = [
 
 
     return (
-        <DashboardCard>
-            <Typography variant="h4" mb={2}>Dispute Table</Typography>
+        <DashboardCard className="dispute-table" title={<Typography variant="h4" mb={2}>Dispute Table</Typography>}>
+            
             <Box>
                 <DataTable
                     columns={columns}
