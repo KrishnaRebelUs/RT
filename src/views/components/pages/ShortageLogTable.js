@@ -123,7 +123,7 @@ const ShortageLogTable = () => {
             <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Itemized Shortage Dipute Log</Typography>}>
             <Box>
 				<Grid container spacing={2} alignItems='center' marginBottom={3}>
-					<Grid item xs="4">
+					<Grid item xs="5">
 					    <Search />
 					</Grid>
 					<Grid item xs="4">

@@ -1,5 +1,5 @@
-import { Grid, Box, Typography, styled } from '@mui/material';
-import React from 'react';
+import { Grid, Box, Typography, styled,Tab} from '@mui/material';
+import React ,{useState} from 'react';
 import PageContainer from 'src/components/container/PageContainer';
 import AuditTime from './components/AuditTime';
 import Disputed from './components/Disputed';
@@ -16,9 +16,9 @@ import YearlyTrend from '../components/pages/YearlyTrend';
 import DashboardCard from '../../components/shared/DashboardCard';
 import piggy from "src/assets/images/piggy-bank.gif";
 import { useTheme } from "@emotion/react";
-import Update from './components/Update';
 
 const Excesscoopbilling = () => {
+	
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	}));
@@ -83,7 +83,9 @@ const Excesscoopbilling = () => {
 					<AuditTime />
 				</Grid>
 				<Grid item xs={12} lg={4}>
-					<RecentTransactions />
+		     		<RecentTransactions />
+
+
 				</Grid>
 				{/* <Grid item xs={12}>
 					<Update />

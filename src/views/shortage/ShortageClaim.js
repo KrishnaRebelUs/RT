@@ -189,7 +189,7 @@ const ShortageClaim = () => {
 						<Grid item xs={12} my={2}>
 							<Typography variant='h3'>Itemized Shortage Claim Dispute - Ongoing</Typography>
 						</Grid>
-						<Grid item xs={12} lg={6} xl={3}>
+						<Grid item sm={6} md={3}>
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Disputed</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.primary.main }}>$1,330,771.61</Typography>
@@ -197,7 +197,7 @@ const ShortageClaim = () => {
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
-						<Grid item xs={12} lg={6} xl={3}>
+						<Grid item sm={6} md={3}>
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Pending With Amazon</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.warning.main }}>${new Intl.NumberFormat().format(538941)}</Typography>
@@ -205,7 +205,7 @@ const ShortageClaim = () => {
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
-						<Grid item xs={12} lg={6} xl={3}>
+						<Grid item sm={6} md={3}>
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Denied</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.error.main }}>${new Intl.NumberFormat().format(6894247)}</Typography>
@@ -213,7 +213,7 @@ const ShortageClaim = () => {
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
-						<Grid item xs={12} lg={6} xl={3}>
+						<Grid item sm={6} md={3}>
 							<ClaimCard>
 								<DashboardCard 
 									title={
@@ -224,7 +224,7 @@ const ShortageClaim = () => {
 									}
 								>
 									<Typography variant='h4' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(4942234)}</Typography>
-									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom:'30px', color: theme.palette.success.main}}/>
+									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom: '15px', color: theme.palette.success.main}}/>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>

@@ -11,7 +11,7 @@ const ShortageLog = () => {
         <PageContainer  title="">
 			<Grid container spacing={3}>
 		      <Grid item xs={12}>
-                <Breadcrumb titles={['Shortage Claim', 'Shortage Log']} />
+                <Breadcrumb titles={['Shortage Claim', 'Itemized Shortage Dipute Log']} />
               </Grid>		
 			  <Grid item xs={12}>
 				<Header title='Itemized Shortage Dipute Log'/>
