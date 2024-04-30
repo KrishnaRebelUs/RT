@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Autocomplete,TextField,Checkbox } from '@mui/material';
+import { wrap } from 'lodash';
 
 
 const account = [
@@ -23,6 +24,7 @@ const Search = () => {
 		id="checkboxes-tags-demo"
 		options={account}
 		disableCloseOnSelect
+		style={{overflow:'hidden', flexWrap:'nowrap', display:'flex'}}
 		getOptionLabel={(option) => option.text}
 		renderOption={(props, option, { selected }) => (
 			<li {...props}>

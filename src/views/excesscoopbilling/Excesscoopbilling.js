@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, styled,Tab} from '@mui/material';
+import { Grid, Box, Typography, styled,Stack} from '@mui/material';
 import React ,{useState} from 'react';
 import PageContainer from 'src/components/container/PageContainer';
 import AuditTime from './components/AuditTime';
@@ -16,6 +16,9 @@ import YearlyTrend from '../components/pages/YearlyTrend';
 import DashboardCard from '../../components/shared/DashboardCard';
 import piggy from "src/assets/images/piggy-bank.gif";
 import { useTheme } from "@emotion/react";
+import Update from './components/Update';
+
+
 
 const Excesscoopbilling = () => {
 	
@@ -40,7 +43,7 @@ const Excesscoopbilling = () => {
 						<Grid item xs={12} lg={6}>
 							<Box style={{ position: 'relative', height: '100%' }}>
 								<DashboardCard title={
-									<TypographyStyled variant='h5' sx={{ color: theme.palette.text.main }}>Finding Amount</TypographyStyled>
+									<TypographyStyled variant='h5' sx={{ color: theme.palette.accent.main }}>Finding Amount</TypographyStyled>
 								} >
 									<Grid container spacing={3}>
 										<Grid item>
@@ -76,20 +79,21 @@ const Excesscoopbilling = () => {
 				<Grid item xs={12} lg={6}>
 					<WinRate />
 				</Grid>
-				<Grid item xs={12} lg={5}>	
+				<Grid item xs={12} lg={4}>	
 					<EfficencyAssesment />
 				</Grid>
 				<Grid item xs={12} lg={3}>
 					<AuditTime />
 				</Grid>
-				<Grid item xs={12} lg={4}>
-		     		<RecentTransactions />
-
-
+				<Grid item xs={12} lg={5}>
+		     	       <DashboardCard>
+							<Stack direction='row' spacing={1}>
+							 <RecentTransactions />
+							 <Update />
+							</Stack>
+					   </DashboardCard>
 				</Grid>
-				{/* <Grid item xs={12}>
-					<Update />
-				</Grid> */}
+				
 				<Grid item xs={12}>
 					<JobProgress />
 				</Grid>

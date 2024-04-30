@@ -24,6 +24,7 @@ const baselightTheme = createTheme({
       light: '#c8fff4',
       dark: '#02b3a9',
       contrastText: '#ffffff',
+      extraDark: '#00A15D'
     },
     info: {
       main: '#539BFF',
@@ -57,7 +58,8 @@ const baselightTheme = createTheme({
     accent: {
       main:'#f48124',
       light: '#FDEDE8',
-      dark: '#dd222b'
+      dark: '#dd222b',
+      extraDark: '#00A15D'
     },
     text: {
       main: '#3a3541',

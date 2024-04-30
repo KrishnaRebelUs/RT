@@ -1,71 +1,50 @@
 import { useTheme } from '@emotion/react';
-import { Typography, Grid, styled } from '@mui/material'
+import { Typography, Grid, styled,Box,List, ListItem} from '@mui/material'
+import { fontWeight } from '@mui/system';
 import React from 'react'
-import DashboardCard from '../../../components/shared/DashboardCard';
 
 const TypographyStyled = styled(Typography)(({ theme }) => ({
-	color: theme.palette.text.dark
-}));
-const TypographyParaStyled = styled(Typography)(({ theme }) => ({
 	color: theme.palette.primary.main,
-	position: 'relative',
-	marginBottom: '5px',
-	'&::before': {
-	  content: '""',
-	  position: 'absolute',
-	  display: 'inline-block',
-	  width: '12px',
-	  height: '12px',
-	  borderRadius: '50%',
-	  backgroundColor: theme.palette.accent.main,
-	  marginRight: '8px',
-	  bottom: '7px',
-	  left: '-25px', 
-	},
-  }));
-  const GridStyled = styled(Grid)(({ theme }) => ({
-	marginLeft:'26px',
-    marginTop: '10px'
-
+	borderBottom: '1px solid',
+	borderColor: '#ccc', 
+	paddingBottom: '10px'
 }));
+const BoxStyled = styled(Box)(({ theme }) => ({
+	border: '1px solid',
+	borderColor: theme.palette.primary.main,
+	borderRadius: '7px',
+	padding: '10px 20px',
+  }));
+
+  const ListStyled = styled(ListItem)(({ theme }) => ({
+	borderBottom: '2px solid',
+	borderColor: '#ccc', 
+	padding:'5px 0',
+	color: theme.palette.primary.main,
+	fontWeight: '600'
+  }));
+
   
   
 
 const Update = () => {
 	const theme = useTheme();
   return (
-	<DashboardCard title={<TypographyStyled variant='h5'>Updates</TypographyStyled>}>
-         <Grid container spacing={2}  alignItems='center'>
-             <marquee scrollAmount="1" direction='up' speed="100" style={{marginLeft: '17px'}}>
-			    <GridStyled item xs="12">
-					<TypographyParaStyled variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				<GridStyled item xs="12">
-					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				<GridStyled item xs="12">
-					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				<GridStyled item xs="12" >
-					<TypographyParaStyled variant='h6' style={{color: theme.palette.primary.main}}>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				<GridStyled item xs="12">
-					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				<GridStyled item xs="12">
-					<TypographyParaStyled variant='h6'>Successfully recovered in Batch 1 $ 20,000</TypographyParaStyled>
-					<Typography variant='body2'>3 May</Typography>
-				</GridStyled>
-				
-		   </marquee>
-		 </Grid>
-	
-	</DashboardCard>
+	<BoxStyled className='actual-updates'>
+	    <TypographyStyled variant='h5' sx={{color: theme.palette.accent.main}}>Upadtes</TypographyStyled>
+	    <marquee direction='up' loop='' height='420px' style={{overlow:'hidden'}}>
+		  <List>
+				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				  <ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
+				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				  <ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
+				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+		  </List>
+	    </marquee>
+   </BoxStyled>
   )
 }
 

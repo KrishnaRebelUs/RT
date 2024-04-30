@@ -29,7 +29,7 @@ const RecoupedAmount = () => {
 		},
 		stroke: {
 		  curve: 'smooth',
-		  width: 2,
+		  width: 5,
 		},
 		fill: {
 		  colors: [success],
@@ -53,13 +53,13 @@ const RecoupedAmount = () => {
   return (
     <DashboardCard  
 		title={
-			<TypographyStyled variant='h5'>Recouped Amount</TypographyStyled>
+			<TypographyStyled variant='h5' sx={{color: theme.palette.success.main}}>Recouped Amount</TypographyStyled>
 		} 
 		footer={
-			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="60px" />
+			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="100px" width='200px' className='recoupend-amount'/>
       	}
 	>
-		<TypographyStyled variant='h2' sx={{ color: theme.palette.success.dark }}>$ {new Intl.NumberFormat().format(4942234.43)}</TypographyStyled>	
+		<TypographyStyled variant='h2'   sx={{color: theme.palette.success.main}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	
 
 	</DashboardCard>
   )

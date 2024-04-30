@@ -12,7 +12,7 @@ const Currency = [
 const SelectCurrency = () => (
   <Select
     defaultValue={Currency[0]}
-    options={Currency}
+    options={Currency} className="select-currency"
   />
 );
 
