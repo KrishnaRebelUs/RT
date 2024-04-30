@@ -23,12 +23,6 @@ import CustomStepper from '../components/pages/CustomStepper';
 
 const ShortageClaim = () => {
 	const theme = useTheme();
-	const BoxStyled = styled(Box)(({ theme }) => ({
-	   '& svg':{
-		  color:theme.palette.success.main,
-		  width: '50px',
-		}
-	}));
 	const ButtonStyled = styled(Button)(({ theme }) => ({
 		backgroundColor: theme.palette.primary.extraLight,
 		border: '1px solid',
@@ -49,13 +43,9 @@ const ShortageClaim = () => {
 		color: theme.palette.secondary.main,
 		marginBottom: '10px',
 	}));
-	const TypographyTitle = styled(Typography)(({ theme }) => ({
-		color: theme.palette.text.dark,
-		marginBottom: '15px',
-	}));
 	const ClaimCard = styled(Box)(({ theme }) => ({
 		position: 'relative',
-		minHeight: '150px',
+		minHeight: '200px',
 		height: '100%'
 	}));
 	const AvatarStyled = styled(Avatar)(({ theme }) => ({
@@ -70,7 +60,7 @@ const ShortageClaim = () => {
 		  height: '18px'
 		}
 	
-		}));
+	}));
 
 	return (
 		<PageContainer title="Shortage Claim">
@@ -169,7 +159,6 @@ const ShortageClaim = () => {
 
 							</DashboardCard>
 						</Grid>
-
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
@@ -185,9 +174,9 @@ const ShortageClaim = () => {
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-					<Grid container spacing={2}>
+		     		<Grid container spacing={2}>
 						<Grid item xs={12} my={2}>
-							<Typography variant='h3'>Itemized Shortage Claim Dispute - Ongoing</Typography>
+							<Typography variant='h3'>Price Claim Dispute</Typography>
 						</Grid>
 						<Grid item sm={6} md={3}>
 							<ClaimCard>
@@ -224,16 +213,17 @@ const ShortageClaim = () => {
 									}
 								>
 									<Typography variant='h4' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(4942234)}</Typography>
-									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom: '15px', color: theme.palette.success.main}}/>
+									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom: '30px', color: theme.palette.success.main}}/>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
 					</Grid>
 				</Grid>
 				<Grid item xs={12}>
-					<FinopsTable />
+					<DashboardCard  title={<Typography variant='h4'>FinOps-Shortage Claim</Typography>}>
+				    	<FinopsTable />
+					</DashboardCard>
 				</Grid>
-
 			</Grid>
 		</PageContainer>
 	)

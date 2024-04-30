@@ -2,26 +2,20 @@
     --primary: #285a9e;
     --primary-light: rgb(236, 242, 255);
 }
-.mHisf.rdt_TableHeadRow {
+.sc-dmyCSP.rdt_TableHeadRow {
     background-color: var(--primary);
     color: #fff;
 }
-.kGckkd.rdt_TableHead, .rdt_TableCell {
+.sc-guDLey.rdt_TableHead, .rdt_TableCell {
     font-size: 14px;
     font-weight: 500;
 }
 div.evaFvq {
     position: inherit;
 }
-div.kUMlDB, div.kUMlDB:not(:last-of-type) {
+div.sc-jsEeTM, div.sc-jsEeTM:not(:last-of-type) {
     border: none;
 }
-div.kUMlDB:nth-child(even) {
+div.sc-jsEeTM:nth-child(even) {
     background-color: var(--primary-light);
-}
-.UxZV .MuiBox-root .MuiLinearProgress-root{
-   background-color: #eee;
-}
-.mHisf .fpBGKh .UxZV .MuiBox-root .css-v3x8ju-MuiLinearProgress-root{
-    width: 100% !important;
 }

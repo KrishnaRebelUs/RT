@@ -1,22 +1,60 @@
 import React from 'react';
-import Select from 'react-select';
 import { IconUser } from '@tabler/icons-react';
 import '../../../theme/FormStyle.css';
-import { Box, styled } from '@mui/material';
-const colourOptions = [
-  { value: 'account1', label: 'Us Demo Account 1'}, 
-  { value: 'account2', label: 'Us Demo Account 2'},
-  { value: 'account3', label: 'Us Demo Account 3'},
+import { Box,Select,Checkbox,FormControl,Input,MenuItem, ListItemText} from '@mui/material';
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+const names = [
+  'Us Demo Account 1', 
+  'Us Demo Account 2',
+  'Us Demo Account 3',
 ];
 
-const CustomSelect = () => (
-  <Box className="accountStyle">
-    <Box className="accountStyle_icon"><IconUser /></Box>
-    <Select
-      defaultValue={colourOptions[0]}
-      options={colourOptions}
-    />
-  </Box>
-);
+const SelectSearch = () => {
+  const [personName, setPersonName] = React.useState([]);
 
-export default CustomSelect;
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
+  return (
+    <Box className="accountStyle">
+      <Box className="accountStyle_icon"><IconUser /></Box>
+      <Box>
+        
+          <Select
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
+            value={personName}
+            onChange={handleChange}
+            className="select-search"
+            input={<Input label="Tag" placeholder='Select Account' />}
+            renderValue={(selected) => selected.join(', ')}
+            MenuProps={MenuProps}
+          >
+            {names.map((name) => (
+              <MenuItem key={name} value={name}>
+                <Checkbox checked={personName.indexOf(name) > -1} />
+                <ListItemText primary={name} />
+              </MenuItem>
+            ))}
+          </Select>
+      </Box>
+    </Box>
+  )
+}
+
+export default SelectSearch

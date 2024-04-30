@@ -6,7 +6,16 @@ import { useTheme } from '@emotion/react';
 import NumberData from '../../components/pages/NumberData';
 
 
+
 const Impactoverview = () => {
+  
+  const theme = useTheme();
+  const data = [
+    { body: "Hour Saved", number: "18 h", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark},
+    { body: "Resources Saved", number: "496", icon: "IconBriefcase", avatarBackgroundColor: theme.palette.accent.main, numberColor: theme.palette.success.extrDark },
+    { body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar",avatarBackgroundColor: theme.palette.primary.light, numberColor: theme.palette.success.extrDark}
+  ];
+  
   const AvatarStyled = styled(Avatar)(({ theme }) => ({
     backgroundColor: theme.palette.success.main,
     borderRadius: '6px',
@@ -24,7 +33,6 @@ const Impactoverview = () => {
     marginBottom: '-25px'
   }));
 
-  const theme = useTheme();
   return (
     <DashboardCard
       title={
@@ -34,16 +42,17 @@ const Impactoverview = () => {
       <Grid container alignItems="center">
         <Grid item sm={6} py={2}>
          
-          <Typography variant='h6' mb={1}>Recouped Amount</Typography>
-          <Typography variant='h3' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
+          <Typography variant='h6' mb={1} sx={{ color: theme.palette.accent.main }} >Recouped Amount</Typography>
+          <Typography variant='h2' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
         </Grid>
         <Grid item sm={6}>
           <BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="180" chartHeight="180" chartLableFonrSize="18px" /></BarChartStyled>
-          <Typography variant='body1' style={{ textAlign: 'center', marginLeft: '25px', marginTop: '5px', fontWeight: '500'}}>Rate</Typography>
+          <Typography variant='body1' style={{ textAlign: 'center', marginLeft: '25px', marginTop: '5px', fontWeight: '500'}} sx={{ color: theme.palette.accent.main }} >Rate</Typography>
         </Grid>
       </Grid>
-      <Box mt={4}><Divider/></Box>
-      <NumberData />
+      <Box mt={4}></Box>
+      <NumberData data={data} />
+
 
 	  </DashboardCard>
   )

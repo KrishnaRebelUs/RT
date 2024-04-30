@@ -13,6 +13,7 @@ const ShortageLog = Loadable(lazy(() => import('../views/shortage/Shortagelog'))
 const Shortage = Loadable(lazy(() => import('../views/shortage/ShortageClaim')));
 const PriceClaim = Loadable(lazy(() => import('../views/priceclaim/PriceClaim')));
 const FinancialScorecard = Loadable(lazy(() => import('../views/financialscorecard/FinancialScorecard')));
+const MissedInvoicing = Loadable(lazy(() => import('../views/missedinvoicing/MissedInvoicing')));
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
@@ -30,6 +31,7 @@ const Router = [
       { path: '/shortage-log', exact: true, element: <ShortageLog /> }, 
       { path: '/price-claim', exact: true, element: <PriceClaim /> }, 
       { path: '/financial-scorecard', exact: true, element: <FinancialScorecard /> }, 
+      { path: '/missed-invoicing', exact: true, element: <MissedInvoicing /> }, 
     ],
   },
   {

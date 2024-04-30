@@ -47,7 +47,7 @@ const WinRate = () => {
 
             },
             formatter: function (val, opt) {
-                return val + '%';
+                return val + '%'; // Add percentage sign to the formatted value
             },
             background: {
                 enabled: true,
@@ -74,7 +74,7 @@ const WinRate = () => {
         xaxis: {
             categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
             labels: {
-                show: false
+                show: true
             },
             axisBorder: {
                 show: true
@@ -99,8 +99,8 @@ const WinRate = () => {
 
     const seriesWinRate = [
         {
-            name: 'Win Rate',
-            data: [10, 20, 30, 10],
+            name: 'Win Rate %',
+            data: [66, 57, 87, 60],
         },
     ];
 

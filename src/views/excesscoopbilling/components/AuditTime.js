@@ -1,7 +1,6 @@
 import React from 'react'
 import DashboardCard from '../../../components/shared/DashboardCard';
 import {Box, styled, Stack, Typography, Avatar, Grid, Divider } from '@mui/material';
-import {IconClock,IconBriefcase, IconCurrencyDollar } from '@tabler/icons-react';
 import BarChart from '../../components/pages/Barchart';
 import { useTheme } from '@emotion/react';
 import NumberData from '../../components/pages/NumberData';
@@ -10,6 +9,13 @@ import moment from 'moment';
 
 const AuditTime = () => {
   const theme= useTheme();
+  const data = [
+    { body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar",avatarBackgroundColor: theme.palette.primary.light, numberColor: theme.palette.success.extrDark},
+    { body: "Resources Saved", number: "496", icon: "IconBriefcase", avatarBackgroundColor: theme.palette.accent.main, numberColor: theme.palette.success.extrDark },
+    { body: "Hour Saved", number: "18 h", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark},
+   
+  
+  ];
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.text.white,
 	}));
@@ -41,42 +47,8 @@ const AuditTime = () => {
         <Box style={{ marginTop: '-25px', marginBottom: '-25px', marginLeft: '20px' }}><BarChart color={theme.palette.success.main} percentage={50} chartWidth="150" chartHeight="150" chartLableFonrSize="16px" /></Box>
       </Grid>
     </Grid>
-    <Stack direction='column'marginTop={3}>
-        <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row' spacing={1} alignItems="center" marginBottom={2}>
-            <AvatarStyled style={{ backgroundColor: theme.palette.success.main }}><IconClock /></AvatarStyled>
-            <Box>
-              <Typography variant='body2'>Hour Saved</Typography>
-            </Box>
-          </Stack>
-          <Typography variant='body2' style={{ color: theme.palette.success.main }}>18 h</Typography>
-        </Stack>
-        <Box mb={2} ><Divider /></Box>
-        <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row'spacing={1} alignItems="center">
-            <AvatarStyled style={{ backgroundColor: theme.palette.accent.main }}>
-              <IconBriefcase/>
-            </AvatarStyled>
-            <Box>
-              <Typography variant='body2'>Resources Saved</Typography>
-            </Box>
-          </Stack>
-          <Typography  variant='body2' style={{ color: theme.palette.accent.main }}>496</Typography>
-        </Stack>
-        <Box mb={2} ><Divider /></Box>
-        <Stack direction='row'spacing={4} alignItems="center" justifyContent="space-between"  marginBottom={2}>
-          <Stack direction='row'spacing={1} alignItems="center">
-            <AvatarStyled style={{ backgroundColor: theme.palette.primary.light }}>
-              <IconCurrencyDollar />
-            </AvatarStyled>
-            <Box>
-              <Typography variant='body2'>Amount Saved</Typography>
-            </Box>
-          </Stack>
-          <Typography  variant='body2' style={{ color: theme.palette.primary.light }}>${new Intl.NumberFormat().format(57423)}</Typography>
-        </Stack>       
-      </Stack>	
-
+    <Box mt={4}></Box>
+    <NumberData data={data} />
 	</DashboardCard>
   )
 }

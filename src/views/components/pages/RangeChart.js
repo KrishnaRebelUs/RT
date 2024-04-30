@@ -2,115 +2,59 @@ import React from 'react';
 import Chart from 'react-apexcharts'
 
 const RangeChart= () => {
+  function getRandomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   const seriesData = [
     {
       type: 'rangeArea',
       name: 'Dispute Amount',
-      data: [
-        { x: 'Jan', y: [1100, 1900] },
-        { x: 'Feb', y: [1200, 1800] },
-        { x: 'Mar', y: [900, 2900] },
-        { x: 'Apr', y: [1400, 2700] },
-        { x: 'May', y: [2600, 3900] },
-        { x: 'Jun', y: [500, 1700] },
-        { x: 'Jul', y: [1900, 2300] },
-        { x: 'Aug', y: [1000, 1500] },
-		{ x: 'Sep', y: [1000, 1500] },
-		{ x: 'Oct', y: [1000, 1500] },
-		{ x: 'Nov', y: [1000, 1500] },
-		{ x: 'Dec', y: [1000, 1500] }
-      ]
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: [getRandomInRange(500, 3000), getRandomInRange(2000, 6000)]
+      }))
     },
     {
       type: 'rangeArea',
       name: 'Denied Amount',
-      data: [
-        { x: 'Jan', y: [3100, 3400] },
-        { x: 'Feb', y: [4200, 5200] },
-        { x: 'Mar', y: [3900, 4900] },
-        { x: 'Apr', y: [3400, 3900] },
-        { x: 'May', y: [5100, 5900] },
-        { x: 'Jun', y: [5400, 6700] },
-        { x: 'Jul', y: [4300, 4600] },
-        { x: 'Aug', y: [2100, 2900] },
-		{ x: 'Sept', y: [3900, 4900] },
-        { x: 'Oct', y: [3400, 3900] },
-        { x: 'Nov', y: [5100, 5900] },
-        { x: 'Dec', y: [5400, 6700] },
-      ]
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: [getRandomInRange(3000, 5000), getRandomInRange(4000, 7000)]
+      }))
     },
-	{
-		type: 'rangeArea',
-		name: 'Approved Amount',
-		data: [
-		  { x: 'Jan', y: [3100, 3400] },
-		  { x: 'Feb', y: [4200, 5200] },
-		  { x: 'Mar', y: [3900, 4900] },
-		  { x: 'Apr', y: [3400, 3900] },
-		  { x: 'May', y: [5100, 5900] },
-		  { x: 'Jun', y: [5400, 6700] },
-		  { x: 'Jul', y: [4300, 4600] },
-		  { x: 'Aug', y: [2100, 2900] },
-		  { x: 'Sept', y: [3900, 4900] },
-		  { x: 'Oct', y: [3400, 3900] },
-		  { x: 'Nov', y: [5100, 5900] },
-		  { x: 'Dec', y: [5400, 6700] },
-		]
-	  },
+    {
+      type: 'rangeArea',
+      name: 'Approved Amount',
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: [getRandomInRange(2000, 4000), getRandomInRange(3000, 6000)]
+      }))
+    },
     {
       type: 'line',
       name: 'Dispute Median',
-      data: [
-        { x: 'Jan', y: 1500 },
-        { x: 'Feb', y: 1700 },
-        { x: 'Mar', y: 1900 },
-        { x: 'Apr', y: 2200 },
-        { x: 'May', y: 3000 },
-        { x: 'Jun', y: 1000 },
-        { x: 'Jul', y: 2100 },
-        { x: 'Aug', y: 1200 },
-        { x: 'Sep', y: 1800 },
-        { x: 'Oct', y: 2000 }
-      ]
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: getRandomInRange(1000, 3000)
+      }))
     },
     {
       type: 'line',
       name: 'Denied Median',
-      data: [
-        { x: 'Jan', y: 3300 },
-        { x: 'Feb', y: 4900 },
-        { x: 'Mar', y: 4300 },
-        { x: 'Apr', y: 3700 },
-        { x: 'May', y: 5500 },
-        { x: 'Jun', y: 5900 },
-        { x: 'Jul', y: 4500 },
-        { x: 'Aug', y: 2400 },
-        { x: 'Sep', y: 2100 },
-        { x: 'Oct', y: 1500 },
-		{ x: 'Nov', y: 4300 },
-        { x: 'Dec', y: 3700 },
-      ]
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: getRandomInRange(3000, 6000)
+      }))
     },
-	{
-		type: 'line',
-		name: 'Approved Median',
-		data: [
-		  { x: 'Jan', y: 3300 },
-		  { x: 'Feb', y: 4900 },
-		  { x: 'Mar', y: 4300 },
-		  { x: 'Apr', y: 3700 },
-		  { x: 'May', y: 5500 },
-		  { x: 'Jun', y: 5900 },
-		  { x: 'Jul', y: 4500 },
-		  { x: 'Aug', y: 2400 },
-		  { x: 'Sep', y: 2100 },
-		  { x: 'Oct', y: 1500 },
-		  { x: 'Nov', y: 4300 },
-		  { x: 'Dec', y: 3700 },
-		]
-	  }
+    {
+      type: 'line',
+      name: 'Approved Median',
+      data: Array.from({ length: 12 }, (_, i) => ({
+        x: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i],
+        y: getRandomInRange(2000, 5000)
+      }))
+    }
   ];
-
   const options = {
     chart: {
       height: 350,

@@ -25,12 +25,12 @@ const Disputed = () => {
 	  const theme = useTheme();
   return (
     <DashboardCard title={
-		<Typography variant='h5'>Disputed Amount</Typography>
+		<Typography variant='h5' sx={{color: theme.palette.primary.light}}>Disputed Amount</Typography>
 	} action={
 		<ButtonStyled component={Link} to="/manage-dispute">View Details <IconChevronRight  size="15" /></ButtonStyled>
 	}>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
-		<TypographyStyled variant='body1'marginTop={3} sx={{ color: theme.palette.text.light }}>View all raised disputes till date</TypographyStyled>	
+		<Typography variant='h2' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
+		<TypographyStyled variant='body1'marginTop={3} sx={{ color: theme.palette.text.dark }} fontWeight={500}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>
   )

@@ -1,5 +1,5 @@
 import {
- IconLayoutDashboard,IconChartHistogram, IconClock ,IconGraph,IconReceipt2
+ IconLayoutDashboard,IconChartHistogram, IconClock ,IconGraph,IconReceipt2,IconFileDollar
 } from '@tabler/icons-react';
 
 import { uniqueId } from 'lodash';
@@ -35,6 +35,12 @@ const Menuitems = [
     title: 'Price Claim',
     icon:  IconReceipt2,
     href: '/price-claim',
+  },
+  {
+    id: uniqueId(),
+    title: 'Missed Invoicing',
+    icon: IconFileDollar,
+    href: '/missed-invoicing',
   },
  
  

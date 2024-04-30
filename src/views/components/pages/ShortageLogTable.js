@@ -122,11 +122,11 @@ const ShortageLogTable = () => {
         <DashboardCard  title={
             <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Itemized Shortage Dipute Log</Typography>}>
             <Box>
-				<Grid container spacing={2} alignItems='center' marginBottom={3}>
+				<Grid container spacing={3} alignItems='center' marginBottom={3}>
 					<Grid item xs="5">
 					    <Search />
 					</Grid>
-					<Grid item xs="4">
+					<Grid item xs="5">
 					   <Stack direction='row' spacing={2}>
 					      <ButtonStyled>Reset</ButtonStyled>
 					      <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>

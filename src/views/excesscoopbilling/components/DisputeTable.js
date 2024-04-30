@@ -70,22 +70,51 @@ const columns = [
         name : 'Dispute Amount',
         selector: row => row.Amount,
         sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body1' fontWeight='500' style={{ color:theme.palette.text.dark }}>{row.Amount}</Typography>
+                </Box>
+            );
+        }
     },
     {
         name : 'Refund Amount',
         selector: row => row.Refund,
         sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body1' fontWeight='500' style={{ color:theme.palette.text.dark }}>{row.Refund}</Typography>
+                </Box>
+            );
+        }
     },
     {
         name : 'Payment Received Date',
         selector: row => row.Payment,
         sortable: true,
-        formatter: row => moment(row.Payment).format('DD/MM/YY')
+        formatter: row => moment(row.Payment).format('DD/MM/YY'),
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body1' fontWeight='500' style={{ color:theme.palette.text.dark }}>{moment(row.Payment).format('DD/MM/YY')}</Typography>
+                </Box>
+            );
+        }
+        
     },
     {
         name : 'Payment Unique ID',
         selector: row => row.PaymentId,
         sortable: true,
+        cell: (row, index, column, id) => {
+            return (
+                <Box>
+                    <Typography variant='body1' fontWeight='500' style={{ color:theme.palette.text.dark }}>{row.PaymentId}</Typography>
+                </Box>
+            );
+        }
     },
     {
         name : 'Status',
@@ -232,11 +261,11 @@ const disputeTable = [
                         <TableHeadStyled>
                             <TableRow>
 
-                                <TableTypography>Created By </TableTypography>
-                                <TableTypography>Created Date</TableTypography>
-                                <TableTypography>Resolve Date</TableTypography>
-                                <TableTypography>Reason</TableTypography>
-                                <TableTypography>TAT</TableTypography>
+                                <TableTypography fontWeight={600} style={{color:'#fff', fontSize:'14px'}}>Created By </TableTypography>
+                                <TableTypography fontWeight={600} style={{color:'#fff', fontSize:'14px'}}>Created Date</TableTypography>
+                                <TableTypography fontWeight={600} style={{color:'#fff', fontSize:'14px'}}>Resolve Date</TableTypography>
+                                <TableTypography fontWeight={600} style={{color:'#fff', fontSize:'14px'}}>Reason</TableTypography>
+                                <TableTypography fontWeight={600} style={{color:'#fff', fontSize:'14px'}}>TAT</TableTypography>
                             </TableRow>
                         </TableHeadStyled>
                         <TableBody>

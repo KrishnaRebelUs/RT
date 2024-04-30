@@ -196,78 +196,76 @@ const FinopsTable = () => {
     ];
 
     return (
-        <DashboardCard title={<Typography variant='h4'>FinOps-Shortage Claim</Typography>}>
-            <Box>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <Box sx={{ width: '100%', typography: 'body1' }}>
-                            <TabContext value={value} className="table-tabs">
-                                <Box sx={{ borderBottom: 1, borderColor: 'divider' }} style={{display:'flex',justifyContent: "space-between", marginBottom:'20px', alignItems:'center', borderBottom:'0'}}>
-                                    <TabList onChange={handleChange} indicatorColor="secondary" className='finops-tab' style={{overflow:'visible'}}>
-                                        <TabStyled label="Approved" value="1"  style={{color:theme.palette.text.dark}}/>
-                                        <TabStyled label="Denied" value="2" />
-                                        <TabStyled label="Pending" value="3" />
-                                        <TabStyled label="All" value="4" />
-                                    </TabList>
-                                   <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                       <Grid item xs={5} style={{paddingTop:'0'}}>
-                                           <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
-                                                <Box>
-                                                    <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
-                                                </Box>
-                                                <Box>
-                                                    <Typography variant="body2" style={{backgroundColor: '#2AC670', color: "#fff", fontSize:'14px',lineHeight:'25px', width:"50px", height:'25px',textAlign:'center', marginLeft:'42px'}} className="win-rate-number">66%</Typography>
-                                                </Box>
-                                            </Stack>
-                                       </Grid>
-                                       <Grid>
-                                           <Stack direction='row' spacing={2} style={{marginTop:'16px'}}>
-                                                <ButtonStyled>Import  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
-                                                <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
-                                            </Stack>
-                                       </Grid>
-                                   </Grid>
+        <Box>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <Box sx={{ width: '100%', typography: 'body1' }}>
+                        <TabContext value={value} className="table-tabs">
+                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }} style={{display:'flex',justifyContent: "space-between", marginBottom:'20px', alignItems:'center', borderBottom:'0'}}>
+                                <TabList onChange={handleChange} indicatorColor="secondary" className='finops-tab' style={{overflow:'visible'}}>
+                                    <TabStyled label="Approved" value="1"  style={{color:theme.palette.text.dark}}/>
+                                    <TabStyled label="Denied" value="2" />
+                                    <TabStyled label="Pending" value="3" />
+                                    <TabStyled label="All" value="4" />
+                                </TabList>
+                            <Grid container spacing={2}  justifyContent='end' alignItems="center">
+                                <Grid item xs={5} style={{paddingTop:'0'}}>
+                                    <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
+                                            <Box>
+                                                <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="body2" style={{backgroundColor: '#2AC670', color: "#fff", fontSize:'14px',lineHeight:'25px', width:"50px", height:'25px',textAlign:'center', marginLeft:'42px'}} className="win-rate-number">66%</Typography>
+                                            </Box>
+                                        </Stack>
+                                </Grid>
+                                <Grid>
+                                    <Stack direction='row' spacing={2} style={{marginTop:'16px'}}>
+                                            <ButtonStyled>Import  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
+                                            <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
+                                        </Stack>
+                                </Grid>
+                            </Grid>
 
-                                </Box>
-                                <TabPanel value="1" style={{ padding: 0 }}>
-                                    <DataTable
-                                        columns={columns}
-                                        data={data}
-                                        pagination
-                                        // actions={<ImportCSVBTN />}
-                                        // actions={<ExportCSVBTN />}
-                                    />
-                                </TabPanel>
-                                <TabPanel value="2" style={{ padding: 0 }}>
+                            </Box>
+                            <TabPanel value="1" style={{ padding: 0 }}>
                                 <DataTable
-                                        columns={columns}
-                                        data={data}
-                                        pagination
-                                        // actions={<ExportCSVBTN />}
-                                    />
-                                </TabPanel>
-                                <TabPanel value="3" style={{ padding: 0 }}>
-                                <DataTable
-                                        columns={columns}
-                                        data={data}
-                                        pagination
-                                        // actions={<ExportCSVBTN />}
-                                    />
-                                </TabPanel>
-                                <TabPanel value="4" style={{ padding: 0 }}>
-                                <DataTable
-                                        columns={columns}
-                                        data={data}
-                                        pagination
-                                        // actions={<ExportCSVBTN />}
-                                    />
-                                </TabPanel>
-                            </TabContext>
-                        </Box>
-                    </Grid>
+                                    columns={columns}
+                                    data={data}
+                                    pagination
+                                    // actions={<ImportCSVBTN />}
+                                    // actions={<ExportCSVBTN />}
+                                />
+                            </TabPanel>
+                            <TabPanel value="2" style={{ padding: 0 }}>
+                            <DataTable
+                                    columns={columns}
+                                    data={data}
+                                    pagination
+                                    // actions={<ExportCSVBTN />}
+                                />
+                            </TabPanel>
+                            <TabPanel value="3" style={{ padding: 0 }}>
+                            <DataTable
+                                    columns={columns}
+                                    data={data}
+                                    pagination
+                                    // actions={<ExportCSVBTN />}
+                                />
+                            </TabPanel>
+                            <TabPanel value="4" style={{ padding: 0 }}>
+                            <DataTable
+                                    columns={columns}
+                                    data={data}
+                                    pagination
+                                    // actions={<ExportCSVBTN />}
+                                />
+                            </TabPanel>
+                        </TabContext>
+                    </Box>
                 </Grid>
-            </Box>
-        </DashboardCard>
+            </Grid>
+    </Box>
     );
 };
 

@@ -5,16 +5,16 @@ import {IconChevronRight, IconX} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
 const YearlyTrend = ( title ) => {
 	const ButtonStyled = styled(Button)(({ theme }) => ({
-		backgroundColor: theme.palette.primary.extraLight,
+		backgroundColor: theme.palette.primary.main,
 		border: '1px solid',
-		borderColor: theme.palette.primary.light,
-		color: theme.palette.primary.main,
+		borderColor: theme.palette.primary.main,
+		color: theme.palette.primary.contrastText,
 		fontSize: '12px',
 		padding: '3px 8px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.primary.main,
-			color: 'white'
+			backgroundColor: theme.palette.primary.extraLight,
+			color: theme.palette.primary.main,
 		},
 	}));
 
@@ -50,23 +50,20 @@ const YearlyTrend = ( title ) => {
 	  };
   return (
     <DashboardCard title={
-		<Typography variant='h4'>Yearly Trends</Typography>
+		<Typography variant='h4' sx={{color:theme.palette.primary.main}}>Yearly Trends</Typography>
 	} action={
-		<ButtonStyled onClick={handleClick} >View Details  <IconChevronRight  size="16" /></ButtonStyled>
+		<ButtonStyled onClick={handleClick} >View Trends  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
-		<TypographyStyled variant='h6'>2024</TypographyStyled>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8989)}</Typography>
-		
-		<Box my={1}><Divider /></Box>
-
-		<Grid container spacing={3} justifyContent="space-between">
+		<TypographyStyled variant='h6' sx={{color:theme.palette.primary.main}}>2024</TypographyStyled>
+		<Typography variant='h2' marginBottom={2} sx={{ color: theme.palette.text.dark }}>${new Intl.NumberFormat().format(8989)}</Typography>
+		<Grid container spacing={10}>
 			<Grid item>
-				<TypographyStyled variant='h6' mb={1}>2022</TypographyStyled>
-				<Typography variant='h6'sx={{ color: theme.palette.accent.main }} ><b>${new Intl.NumberFormat().format(8989)}</b></Typography>
+				<TypographyStyled variant='h6' mb={1} sx={{ color: theme.palette.accent.main }}>2022</TypographyStyled>
+				<Typography variant='h6'><b>${new Intl.NumberFormat().format(8989)}</b></Typography>
 			</Grid>
 			<Grid item>
-				<TypographyStyled variant='h6' mb={1}>2023</TypographyStyled>
-				<Typography variant='h6' sx={{ color: theme.palette.success.dark }}>$ {new Intl.NumberFormat().format(1680966.35)}</Typography>
+				<TypographyStyled variant='h6' mb={1} sx={{ color: theme.palette.success.dark }}>2023</TypographyStyled>
+				<Typography variant='h6'>$ {new Intl.NumberFormat().format(1680966.35)}</Typography>
 			</Grid>
 		</Grid>
 		<Dialog open={open} onClose={handleClose} maxWidth='sm' fullWidth>
