@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Grid, Button, styled, Divider, Typography, Tooltip  } from '@mui/material';
 import { Box, positions } from '@mui/system';
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+import Confetti from "react-confetti";
 import { useTheme } from '@emotion/react';
 import SettledImg from "../../../assets/images/settled.jpg";
-import BarChart from './Barchart';
+
 
 export default function CustomStepper() {
     const theme = useTheme();
+    const [showConfetti, setShowConfetti] = useState(false);
+    const [confettiDuration, setConfettiDuration] = useState(5000);
     const StepMain = styled(Box)(({ theme }) => ({
         position: 'relative',
         width: '100%'
@@ -102,33 +105,22 @@ export default function CustomStepper() {
         bottom: '-8px',
         backgroundColor: theme.palette.primary.extraLight
     }));
-    const handleStepClick = (stepNumber) => {
+    const handleStepClick = stepNumber => {
         if (stepNumber === 9) {
-            Swal.fire({
-                title: "Congratulations!",
-                text: "You have reached the final step!",
-                icon: "success",
-                confirmButtonText: "OK",
-            });
-        } else {
-
+            setShowConfetti(true);
+            // Swal.fire({
+            //     title: 'Congratulations!',
+            //     text: 'You are at the final stage!',
+            //     icon: 'success',
+            //     confirmButtonText: 'OK'
+            // });
+            setTimeout(() => {
+                setShowConfetti(false);
+            }, confettiDuration);
         }
-        
-    }
+    };
     return (
         <Box>
-            <Grid container spacing={3} mb={3}>
-                <Grid item mr={'auto'}>
-                    <Grid container spacing={1} alignItems="flex-end">
-                        <Grid item style={{ transform: "translateY(5px)" }}><Typography variant="h2" sx={{ color: theme.palette.success.dark }}>04</Typography></Grid>
-                        <Grid item><Typography variant="h5">Stage</Typography></Grid>    
-                    </Grid>
-                </Grid>
-                <Grid item>
-                    <Box style={{ marginTop: '-70px', marginBottom: '-30px', marginRight: '-25px' }} ><BarChart color={theme.palette.success.main} percentage={30} chartWidth="170" chartHeight="170" chartLableFonrSize="16px"  /></Box>
-                </Grid>
-            </Grid>
-            <Box my={4}><Divider /></Box>
             <StepMain>
                 <StepsWrap>
                     <Steps className="active">
@@ -206,6 +198,11 @@ export default function CustomStepper() {
                     </Box>
                 </StepsWrap>
             </StepMain>
+            {showConfetti && ( <Confetti   width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+        />
+      )}
         </Box>
     )
 }

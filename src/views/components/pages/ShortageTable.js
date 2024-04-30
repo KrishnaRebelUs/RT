@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-    Typography, Box,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow, styled, useTheme
-} from '@mui/material';
+import { Typography, Box,useTheme,IconButton} from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { DataGrid } from '@mui/x-data-grid';
+import { IconPencil} from '@tabler/icons-react';
+import { Stack } from '@mui/system';
 
 
 const ShortageTable = () => {
@@ -102,7 +97,7 @@ const ShortageTable = () => {
             width: 220,
             renderCell: (params) => {
                 return (
-                    <Typography variant="subtitle2" fontWeight={600} >
+                    <Typography variant="subtitle2" fontWeight={600}  sx={{display:'flex', alignItems:'cem'}}>
                         {params.value}
                     </Typography>
                 );
@@ -115,10 +110,16 @@ const ShortageTable = () => {
             width: 220,
             renderCell: (params) => {
                 return (
-                    <Typography variant="subtitle2" fontWeight={600} style={{ color: params.row.color }}>
-                        { params.value[0] }
-                        { params.value[1] ? <Box>{params.value[1]}</Box> : null}
-                    </Typography>
+                    <Stack direction='row' spacing={3}  alignItems='center'>
+                        <Typography variant="subtitle2" fontWeight={600} style={{ color: params.row.color }}>
+                            {params.value[0]}
+                            {params.value[1] ? <Box>{params.value[1]}</Box> : null}
+                        </Typography>
+                        <IconButton aria-label="edit" size="small" style={{ marginLeft: 'auto' }}>
+                            <IconPencil size='16' />
+                        </IconButton>
+                    </Stack>
+
                 );
             }
         },
@@ -129,10 +130,15 @@ const ShortageTable = () => {
             width: 220,
             renderCell: (params) => {
                 return (
-                    <Typography variant="subtitle2" fontWeight={600} style={{ color: params.row.color }}>
-                        { params.value[0] }
-                        { params.value[1] ? <Box>{params.value[1]}</Box> : null}
-                    </Typography>
+                   <Stack direction='row' spacing={3}  alignItems='center'>
+                        <Typography variant="subtitle2" fontWeight={600} style={{ color: params.row.color }}>
+                            { params.value[0] }
+                            { params.value[1] ? <Box>{params.value[1]}</Box> : null}
+                        </Typography>
+                        <IconButton aria-label="edit" size="small" style={{ marginLeft: 'auto' }}>
+                            <IconPencil size='16' />
+                        </IconButton>
+                   </Stack>
                 );
             }
         }

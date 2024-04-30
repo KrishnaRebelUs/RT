@@ -43,16 +43,16 @@ const NumberData = (props) => {
 
   return (
     <Box>
-      <Stack direction='column' marginTop={3}>
+      <Stack direction='column'>
         {data.map((section, index) => (
           <React.Fragment key={index}>
-            <Stack direction='row' spacing={4} alignItems="center" justifyContent="space-between" marginBottom={2}>
-              <Stack direction='row' spacing={1} alignItems="center" marginBottom={2}>
-              <AvatarStyled style={{ backgroundColor: section.avatarBackgroundColor || theme.palette.success.main }}>
-                {iconComponents[index] && React.createElement(iconComponents[index])}
-              </AvatarStyled>
+            <Stack direction='row' spacing={4} alignItems="center" justifyContent="space-between">
+              <Stack direction='row' spacing={1} alignItems="center" marginBottom={index !== data.length - 1 ? 2 : 0}>
+                <AvatarStyled style={{ backgroundColor: section.avatarBackgroundColor || theme.palette.success.main }}>
+                  {iconComponents[index] && React.createElement(iconComponents[index])}
+                </AvatarStyled>
                 <Box>
-                  <Typography variant='h6' style={{ color: theme.palette.secondary.main }}>{section.body}</Typography>
+                  <Typography variant='body1' style={{ color: theme.palette.secondary.main }} fontWeight={600}>{section.body}</Typography>
                 </Box>
               </Stack>
               <Typography variant='h6' style={{ color: section.numberColor || theme.palette.success.main }}>
@@ -60,7 +60,7 @@ const NumberData = (props) => {
               </Typography>
 
             </Stack>
-            <Box mb={2}></Box>
+            {index !== data.length - 1 && <Box mb={3}></Box>}
           </React.Fragment>
         ))}
       </Stack>
