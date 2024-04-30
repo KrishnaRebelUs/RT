@@ -4,6 +4,9 @@
   --secondary-light: #f4f5f9;
   --accent: #f48124;
 }
+body{
+  overflow-x: hidden ;
+}
 div .czCoqD {
   color: var(--primary);
 }

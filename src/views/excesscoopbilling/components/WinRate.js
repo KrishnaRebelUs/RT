@@ -25,13 +25,16 @@ const WinRate = () => {
         },
         plotOptions: {
             bar: {
-                barHeight: '70%',
+                barHeight: '85%',
                 distributed: true,
                 horizontal: true,
                 borderRadius: 3,
                 dataLabels: {
                     position: 'end'
                 },
+                fill: {
+                    colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], // Specify colors with different opacities
+                }
             }
         },
         colors: yAxisLabelColors,
@@ -47,8 +50,9 @@ const WinRate = () => {
 
             },
             formatter: function (val, opt) {
-                return val + '%'; // Add percentage sign to the formatted value
+                return val + '%'; 
             },
+            
             background: {
                 enabled: true,
                 foreColor: '#fff',
@@ -56,10 +60,10 @@ const WinRate = () => {
                 borderRadius: 4,
                 opacity: 0.9,
                 dropShadow: {
-                    enabled: false,
-                    top: 1,
-                    left: 1,
-                    blur: 1,
+                    enabled: true,
+                    top: 10,
+                    left: 5,
+                    blur: 5,
                     color: '#000',
                     opacity: 0.45
                 }
@@ -74,11 +78,15 @@ const WinRate = () => {
         xaxis: {
             categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
             labels: {
-                show: true
+                show: true,
+                formatter: function (val, opt) {
+                    return val + '%'; 
+                },
             },
             axisBorder: {
                 show: true
             },
+            
         },
         yaxis: {
             labels: {
