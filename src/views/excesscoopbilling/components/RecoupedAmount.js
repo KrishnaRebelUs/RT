@@ -35,9 +35,12 @@ const RecoupedAmount = () => {
 		fill: {
 			type: "gradient",
 			gradient: {
-			  shadeIntensity: 1,
-			  opacityTo: 0.2,
-			  stops: [80, 90, 100]
+				shade: "light",
+				type: "vertical",
+				shadeIntensity: 0,
+				opacityFrom: 0,
+				opacityTo: 0.3,
+				stops: [0, 50, 80, 100]
 			}
 		},
 		marker: {
@@ -51,7 +54,7 @@ const RecoupedAmount = () => {
 		{
 		  name: '',
 		  color: secondary,
-		  data: [25, 66, 20, 40, 12, 58, 20],
+		  data: [0, 40, 30, 66, 30, 65, 12, 58, 20],
 		},
 	  ];
   return (
@@ -63,7 +66,7 @@ const RecoupedAmount = () => {
 			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="100px" width='200px' className='recoupend-amount'/>
       	}
 	>
-		<TypographyStyled variant='h2'   sx={{color:  theme.palette.success.extraDark}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	
+		<TypographyStyled variant='h3' sx={{color:  theme.palette.success.extraDark}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	
 
 	</DashboardCard>
   )
