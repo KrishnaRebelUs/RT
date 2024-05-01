@@ -52,14 +52,27 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.palette.primary.contrast,
     color: theme.palette.primary.contrastText,
-    fontSize: '12px',
-    padding: '5px 12px',
+    fontSize: '15px',
+    padding: '0',
     fontWeight: '600',
+    transition: 'all ease 0.3s',
     '&:hover': {
         backgroundColor: theme.palette.primary.main,
         color:theme.palette.primary.contrastText,
         borderColor:theme.palette.primary.main
     },
+    '& .btn-indicator':{
+        width: '1px',
+        backgroundColor: theme.palette.primary.main,
+        alignSelf: 'stretch',
+        marginLeft: '4px'
+
+    }
+}));
+const BoxStyled = styled(Box)(({ theme }) => ({
+   
+    padding: '7px 12px',
+    fontWeight: '600',
 }));
 
 const JobProgress = () => {
@@ -115,9 +128,9 @@ const JobProgress = () => {
 
     return (
         <DashboardCard>
-            <Grid container spacing={3} marginBottom={3}>
+            <Grid container spacing={3} marginBottom={3} alignItems='ce'>
                 <Grid item><Typography variant='h5'>Jobs in Progress</Typography></Grid>
-                <Grid item><ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled></Grid>
+                <Grid item><ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="22" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled></Grid>
             </Grid>
             <Box>
                 <DataTable
