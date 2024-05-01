@@ -49,18 +49,16 @@ const handleChange = (event, newValue) => {
 };
 const TabStyled = styled(Tab)(({ theme }) => ({
     color: theme.palette.text.main, 
-    fontSize: '12px', 
+    fontSize: '14px', 
     alignItems: 'start', 
-    padding: '18px 15px',
-    fontWeight: '500', 
+    padding: '5px 8px',
+    fontWeight: '600', 
     minHeight: 'inherit',
-    backgroundColor: theme.palette.bg.main,
     marginBottom: '5px',
     textAlign: 'left',
     transition: 'all 0.3s ease',
     '&.Mui-selected, &:hover': { 
         color: theme.palette.accent.main,
-        backgroundColor: theme.palette.accent.light
     }
 }));
 
@@ -70,7 +68,7 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                 Efficiency Assessment
             </Typography>}>
             <Grid container spacing={1}>
-                <Grid item md={5}>
+                <Grid item md={6}>
                     <Tabs
                         orientation="vertical"
                         value={value}
@@ -85,19 +83,15 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                         <TabStyled label="Duplicate Billing" {...a11yProps(4)} />
                     </Tabs>
                 </Grid>
-                <Grid item md={7}>
+                <Grid item md={6}>
                     <TabPanel value={value} index={0}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
-                                <Grid container spacing={2} style={{flexWrap:'nowrap'}}>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.accent.main }}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark }}>{moment('13 Dec 2021').format('MM/DD/YY')}</Typography></Grid>
-                                </Grid>
+                                <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container spacing={3}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}}>Agreements Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>3,253</Typography>
@@ -106,7 +100,7 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}}>CoOp Invoices Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}} fontWeight={600}>CoOp Invoices Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,253</Typography>
@@ -115,36 +109,32 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}}>PO's Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}} fontWeight={600}>PO's Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,163</Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}}>Sum Identified</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <Grid container spacing={3}>
+                         <Grid container spacing={3}>
                             <Grid item xs={12}>
-                                <Grid container spacing={3}  style={{flexWrap:'nowrap'}}>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.accent.main }}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark }}>{moment('13 Dec 2021').format('MM/DD/YY')}</Typography></Grid>
-                                </Grid>
+                                <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container spacing={3}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}}>Agreements Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>3,253</Typography>
@@ -153,7 +143,7 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}}>CoOp Invoices Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}} fontWeight={600}>CoOp Invoices Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,253</Typography>
@@ -162,36 +152,32 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}}>PO's Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}} fontWeight={600}>PO's Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,163</Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}}>Sum Identified</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </Grid>
+                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
-                                <Grid container spacing={3}  style={{flexWrap:'nowrap'}}>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.accent.main }}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }}>To</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark }}>{moment('13 Dec 2021').format('MM/DD/YY')}</Typography></Grid>
-                                </Grid>
+                                <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container spacing={3}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}}>Agreements Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>3,253</Typography>
@@ -200,7 +186,7 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}}>CoOp Invoices Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}} fontWeight={600}>CoOp Invoices Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,253</Typography>
@@ -209,19 +195,19 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                 <Grid item xs={12} my={2}><Divider /></Grid>
                                 <Grid container justifyContent={'space-between'} spacing="3">
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}}>PO's Scanned</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}} fontWeight={600}>PO's Scanned</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
                                         <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,163</Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}}>Sum Identified</Typography>
+                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -230,60 +216,9 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                     <TabPanel value={value} index={3}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
-                                <Grid container spacing={3}  style={{flexWrap:'nowrap'}}>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.accent.main }} fontWeight={600}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }} fontWeight={600}>To</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark }} fontWeight={600}>{moment('13 Dec 2021').format('MM/DD/YY')}</Typography></Grid>
-                                </Grid>
+                                <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
-                                    <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }} fontWeight={600}>3,253</Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
-                                    <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}} fontWeight={600}>CoOp Invoices Scanned</Typography>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,253</Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
-                                    <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}} fontWeight={600}>PO's Scanned</Typography>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,163</Typography>
-                                    </Grid>
-                                </Grid>
-                                <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
-                                    <Grid item xs={8}>
-                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </TabPanel>
-                    <TabPanel value={value} index={4}>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12}>
-                                <Grid container spacing={3}  style={{flexWrap:'nowrap'}}>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.accent.main }} fontWeight={600}> {moment('11 Jan 2018').format('MM/DD/YY')}</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.text.light }} fontWeight={600}>To</Typography></Grid>
-                                    <Grid item><Typography variant='body2' style={{ color: theme.palette.success.dark }} fontWeight={600}>{moment('13 Dec 2021').format('MM/DD/YY')}</Typography></Grid>
-                                </Grid>
-                                <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container spacing={3}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
                                     </Grid>
@@ -310,12 +245,55 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </TabPanel>
+                    <TabPanel value={value} index={4}>
+                         <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
+                                <Grid item xs={12} my={2}><Divider /></Grid>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={8}>
+                                        <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>3,253</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={12} my={2}><Divider /></Grid>
+                                <Grid container justifyContent={'space-between'} spacing="3">
+                                    <Grid item xs={8}>
+                                        <Typography variant='body2'  sx={{color: theme.palette.accent.main}} fontWeight={600}>CoOp Invoices Scanned</Typography>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,253</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={12} my={2}><Divider /></Grid>
+                                <Grid container justifyContent={'space-between'} spacing="3">
+                                    <Grid item xs={8}>
+                                        <Typography variant='body2'  sx={{color: theme.palette.primary.main}} fontWeight={600}>PO's Scanned</Typography>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>1,163</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={12} my={2}><Divider /></Grid>
+                                <Grid container justifyContent={'space-between'} spacing={1}>
+                                    <Grid item xs={8}>
+                                        <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>

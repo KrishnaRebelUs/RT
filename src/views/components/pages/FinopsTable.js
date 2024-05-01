@@ -10,7 +10,7 @@ import '../../../theme/TableStyle.css'
 import moment from 'moment';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.light
 }));
 const TableTypography = styled(TableCell)(({ }) => ({
     color: 'white',
@@ -29,16 +29,17 @@ const TabStyled = styled(Tab)(({ theme}) => ({
 }));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.extraLight,
+    backgroundColor: theme.palette.primary.contrast,
     border: '1px solid',
-    borderColor: theme.palette.primary.light,
-    color: theme.palette.primary.main,
-    fontSize: '13px',
+    borderColor: theme.palette.primary.contrast,
+    color: theme.palette.primary.contrastText,
+    fontSize: '12px',
     padding: '5px 12px',
     fontWeight: '600',
     '&:hover': {
         backgroundColor: theme.palette.primary.main,
-        color: 'white',
+        color:theme.palette.primary.contrastText,
+        borderColor:theme.palette.primary.main
     },
 }));
 
@@ -209,7 +210,7 @@ const FinopsTable = () => {
                                     <TabStyled label="All" value="4" />
                                 </TabList>
                             <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                <Grid item xs={5} style={{paddingTop:'0'}}>
+                                <Grid item xs={4} xl={4}style={{paddingTop:'0'}}>
                                     <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
                                             <Box>
                                                 <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
