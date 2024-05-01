@@ -10,7 +10,7 @@ import '../../../theme/TableStyle.css'
 import moment from 'moment';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.light
 }));
 const TableTypography = styled(TableCell)(({ }) => ({
     color: 'white',
@@ -210,7 +210,7 @@ const FinopsTable = () => {
                                     <TabStyled label="All" value="4" />
                                 </TabList>
                             <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                <Grid item xs={5} xl={4}style={{paddingTop:'0'}}>
+                                <Grid item xs={4} xl={4}style={{paddingTop:'0'}}>
                                     <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
                                             <Box>
                                                 <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
