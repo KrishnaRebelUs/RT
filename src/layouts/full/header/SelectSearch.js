@@ -39,6 +39,7 @@ const SelectSearch = () => {
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
+          multiple
           value={personName}
           onChange={handleChange}
           className="select-search"

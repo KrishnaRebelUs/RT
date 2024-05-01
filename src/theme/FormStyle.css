@@ -9,8 +9,9 @@ div.css-art2ul-ValueContainer2, div.accountStyle .css-13cymwt-control{
 div.css-hlgwow{
 	padding: 0 15px !important;
 }
-.currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue{
+.currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue, .currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue input{
 	padding-left: 15px;
+	color: #fff;
 }
 .accountStyle .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue{
 	padding-left: 0;
