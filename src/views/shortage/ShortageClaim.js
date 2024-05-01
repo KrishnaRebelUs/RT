@@ -126,7 +126,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={3}>
 						   <DashboardCard>
-							<NumberData data={data} />
+								<NumberData data={data} />
 						   </DashboardCard>
 						</Grid>
 					</Grid>
