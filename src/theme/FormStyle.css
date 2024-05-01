@@ -9,9 +9,20 @@ div.css-art2ul-ValueContainer2, div.accountStyle .css-13cymwt-control{
 div.css-hlgwow{
 	padding: 0 15px !important;
 }
-.currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue, .currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue input{
-	padding-left: 15px;
+.currency-slector .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue, .currency-slector .css-art2ul-ValueContainer2{
+	padding-left: 7px !important;
 	color: #fff;
+}
+.currency-slector  .css-w9q2zk-Input2 input,
+.currency-slector .css-feonkk-Input2{
+	padding-left: 7px !important;
+    color: #fff;
+}
+.currency-slector .css-w9q2zk-Input2,
+.currency-slector .css-w9q2zk-Input2 input,
+.currency-slector input#react-select-5-input {
+	color: #fff !important;
+	padding-left: 7px;
 }
 .accountStyle .css-art2ul-ValueContainer2 .css-1dimb5e-singleValue{
 	padding-left: 0;
@@ -58,11 +69,7 @@ div .css-tr4s17-option {
 .currency-slector .css-13cymwt-control {
 	background-color: var(--primary);
 }
-.currency-slector .css-w9q2zk-Input2,
-.currency-slector .css-w9q2zk-Input2 input,
-.currency-slector input#react-select-5-input {
-	color: #fff !important;
-}
+
 
 .currency-slector .css-t3ipsp-control {
 	background-color: var(--primary);

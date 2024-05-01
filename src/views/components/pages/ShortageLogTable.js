@@ -2,10 +2,7 @@ import React from 'react';
 import {
     Typography,
     Box,
-    TableCell,
     TableContainer,
-    TableHead,
-    TableRow,
     styled,
     useTheme,
 	Grid,Button, Stack
@@ -16,21 +13,6 @@ import Search from './Search';
 import DataTable from 'react-data-table-component';
 import '../../../theme/TableStyle.css'
 import moment from 'moment';
-import { func } from 'prop-types';
-
-const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.light,
-    borderRadius: '7px',
-}));
-
-const TableCellStyled = styled(TableCell)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
-}));
-
-const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
-    borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight,
-}));
 
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
@@ -38,14 +20,27 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.palette.primary.contrast,
     color: theme.palette.primary.contrastText,
-    fontSize: '12px',
-    padding: '5px 12px',
+    fontSize: '15px',
+    padding: '0',
     fontWeight: '600',
+    transition: 'all ease 0.3s',
     '&:hover': {
         backgroundColor: theme.palette.primary.main,
         color:theme.palette.primary.contrastText,
         borderColor:theme.palette.primary.main
     },
+    '& .btn-indicator':{
+        width: '1px',
+        backgroundColor: theme.palette.primary.main,
+        alignSelf: 'stretch',
+        marginLeft: '4px'
+
+    }
+}));
+const BoxStyled = styled(Box)(({ theme }) => ({
+   
+    padding: '7px 12px',
+    fontWeight: '600',
 }));
 const ShortageLogTable = () => {
     const theme = useTheme();
@@ -130,7 +125,7 @@ const ShortageLogTable = () => {
 					<Grid item xs="5">
 					   <Stack direction='row' spacing={2}>
 					      <ButtonStyled>Reset</ButtonStyled>
-					      <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
+                          <ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="22" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
 					   </Stack>
 					</Grid>
 					

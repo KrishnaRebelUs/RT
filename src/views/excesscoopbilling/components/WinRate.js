@@ -23,14 +23,17 @@ const WinRate = () => {
             offsetX: 0,
             offsetY: 0,
         },
+        legend: {
+            show: false,
+        },
         plotOptions: {
             bar: {
-                barHeight: '85%',
+                barHeight: '80%',
                 distributed: true,
                 horizontal: true,
                 borderRadius: 3,
                 dataLabels: {
-                    position: 'end'
+                    position: 'start'
                 },
                 fill: {
                     colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], 
@@ -47,6 +50,7 @@ const WinRate = () => {
                 colors: yAxisLabelColors,
                 fontSize: '14px',
                 fontWeight: '500',
+                textAlign: 'left'
 
             },
             formatter: function (val, opt) {
@@ -83,6 +87,9 @@ const WinRate = () => {
                     return val + '%'; 
                 },
             },
+            dataLabels: {
+                 show: true,
+            },
             axisBorder: {
                 show: true
             },
@@ -91,11 +98,15 @@ const WinRate = () => {
         yaxis: {
             labels: {
                 show: true,
-                offsetY: -14,
+                offsetY: 0,
                 style: {
                     fontSize: '14px',
                     colors: yAxisLabelColors,
-                    fontWeight: '500'
+                    fontWeight: '500',
+                    textAnchor: 'start',
+                },
+                axisBorder: {
+                    show: false,
                 },
                 maxWidth: 'auto',
             },
@@ -115,7 +126,6 @@ const WinRate = () => {
     return (
         <DashboardCard title={
             <Typography variant='h4' sx={{ color: theme.palette.text.dark }}>Win Rate</Typography>}>
-            <Divider />
             <Chart
                 options={optionsWinRate}
                 series={seriesWinRate}

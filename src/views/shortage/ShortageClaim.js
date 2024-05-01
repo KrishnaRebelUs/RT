@@ -99,7 +99,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={2}>
 						    <DashboardCard title={
-								<Typography variant='h4'  sx={{color: theme.palette.accent.main}}>
+								<Typography variant='h4'  sx={{color: theme.palette.accent.main, textAlign:'center'}}>
 									Current Stage
 								</Typography>}>
 								<Grid container spacing={3}>
