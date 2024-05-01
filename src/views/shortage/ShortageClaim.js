@@ -81,7 +81,7 @@ const ShortageClaim = () => {
 							>
 								<Grid container spacing={4}>
 									<Grid item xs={12}>
-										<Typography variant='h2' ><b>${new Intl.NumberFormat().format(4942234.43)} </b></Typography>
+										<Typography variant='h3' ><b>${new Intl.NumberFormat().format(4942234.43)} </b></Typography>
 									</Grid>
 									<Grid item xs={12}>
 										<TypographyPayment variant='h6'>Payment Due Date:</TypographyPayment>
@@ -115,7 +115,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={3}>
 						   <DashboardCard>
-							<NumberData data={data} />
+								<NumberData data={data} />
 						   </DashboardCard>
 						</Grid>
 					</Grid>
