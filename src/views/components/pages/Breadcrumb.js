@@ -27,7 +27,7 @@ const Breadcrumb = ({ titles }) => {
         Dashboard
       </Link>
       {titles.map((title, index) => (
-        <Typography
+        <Link
           key={index}
           sx={{ display: 'flex', alignItems: 'center' }}
           className={index === titles.length - 1 ? "active" : ""}
@@ -40,7 +40,7 @@ const Breadcrumb = ({ titles }) => {
               underline="none"
               sx={{ display: 'flex', alignItems: 'center' }}
               color="text.dark"
-              to={`/${title.replace(/\s+/g, '-').toLowerCase()}`} // Convert spaces to dashes and lowercase
+              to={`/${title.replace(/\s+/g, '-').toLowerCase()}`} 
               style={{
                 textDecoration: 'none',
                 '&:hover, &:focus': {
@@ -52,7 +52,7 @@ const Breadcrumb = ({ titles }) => {
               {title}
             </Link>
           )}
-        </Typography>
+        </Link>
       ))}
    
     </Breadcrumbs>
