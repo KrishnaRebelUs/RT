@@ -30,7 +30,7 @@ const BarChart = ({ color, percentage, chartWidth, chartHeight, chartLableFonrSi
               show: false
             },
             value: {
-              color: theme.palette.text.main,
+              color: theme.palette.accent.main,
               fontSize: [chartLableFonrSize],
               fontFamily: "'Plus Jakarta Sans', sans-serif;",
               show: true,
