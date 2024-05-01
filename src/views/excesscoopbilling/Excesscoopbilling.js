@@ -86,7 +86,7 @@ const Excesscoopbilling = () => {
 					<AuditTime />
 				</Grid>
 				<Grid item xs={12} lg={5}>
-		     	       <DashboardCard>
+		     	       <DashboardCard height='350px'>
 							<Stack direction='row' spacing={1}>
 							 <RecentTransactions />
 							 <Update />

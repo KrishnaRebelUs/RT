@@ -34,17 +34,20 @@ const AuditTime = () => {
   return (
     <DashboardCard 
       title={
-        <Typography variant='h5'>Audit Time Period</Typography>
+        <Typography variant='h6'>Audit Time Period</Typography>
+      }
+      action={
+        moment().format('MM/DD/YY')
       }
       
     >
     <Grid container alignItems={'center'}>
-      <Grid item xs={12} mb={1} style={{ fontWeight: 600 }}>{moment().format('MM/DD/YY')}</Grid>
-      <Grid item lg={4}>
+      <Grid item xs={12} mb={1} style={{ fontWeight: 600 }}></Grid>
+      <Grid item lg={6}>
         <TypographyStyled variant='body1' marginBottom={1} sx={{ color: theme.palette.accent.main}}>Contribution to Total Findings</TypographyStyled>
       </Grid>
-      <Grid item lg={8}>
-        <Box style={{ marginTop: '-25px', marginBottom: '-25px', marginLeft: '20px' }}><BarChart color={theme.palette.success.main} percentage={50} chartWidth="150" chartHeight="150" chartLableFonrSize="16px" /></Box>
+      <Grid item lg={6}>
+        <Box style={{ marginTop: '-25px', marginBottom: '-25px'}}><BarChart color={theme.palette.accent.main} percentage={77.5} chartWidth="130" chartHeight="130" chartLableFonrSize="16px" /></Box>
       </Grid>
     </Grid>
     <Box mt={4}></Box>

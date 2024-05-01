@@ -30,18 +30,19 @@ const ShortageClaim = () => {
 		{ body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar",avatarBackgroundColor: theme.palette.primary.light, numberColor: theme.palette.success.extrDark}
 	  ];
 	  
-	const ButtonStyled = styled(Button)(({ theme }) => ({
-		backgroundColor: theme.palette.primary.extraLight,
+	  const ButtonStyled = styled(Button)(({ theme }) => ({
+		backgroundColor: theme.palette.primary.contrast,
 		border: '1px solid',
-		borderColor: theme.palette.primary.light,
-		color: theme.palette.primary.main,
-		fontSize: '12px',
-		padding: '2px 8px',
+		borderColor: theme.palette.primary.contrast,
+		color: theme.palette.primary.contrastText,
+		fontSize: '10px',
+		padding: '2px 6px',
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
-			color: 'white',
-		  },
+			color:theme.palette.primary.contrastText,
+			borderColor:theme.palette.primary.main
+		},
 	}));
 	const TypographyPayment = styled(Typography)(({ theme }) => ({
 		color: theme.palette.secondary.main,
@@ -52,19 +53,7 @@ const ShortageClaim = () => {
 		minHeight: '200px',
 		height: '100%'
 	}));
-	const AvatarStyled = styled(Avatar)(({ theme }) => ({
-		backgroundColor: theme.palette.primary.extraLight,
-		borderRadius: '4px',
-		width: '25px',
-		height: '25px',
-		transform: 'translatey(5px)',
-	   '& svg':{
-		  color:theme.palette.primary.main,
-		  width: '18px',
-		  height: '18px'
-		}
 	
-	}));
 
 	return (
 		<PageContainer title="Shortage Claim">
@@ -115,11 +104,11 @@ const ShortageClaim = () => {
 								</Typography>}>
 								<Grid container spacing={3}>
 									<Grid item xs={12}>
-										<Typography variant="h3" sx={{color: theme.palette.secondary.main, textAlign:'center'}}>Stage: 4</Typography>
+										<Typography variant="h3" sx={{color: theme.palette.secondary.main, textAlign:'center'}}marginBottom={1}>Stage: 4</Typography>
 									
 									</Grid>
 									<Grid item xs={12}>
-										<Box style={{ marginTop: '-30px',marginLeft:'-26px'}} ><BarChart color={theme.palette.secondary.main} percentage={37} chartWidth="150" chartHeight="150" chartLableFonrSize="16px"  /></Box>
+										<Box style={{ marginTop: '-30px',marginLeft:'-13px'}} ><BarChart color={theme.palette.secondary.main} percentage={37} chartWidth="150" chartHeight="130" chartLableFonrSize="16px"  /></Box>
 									</Grid>
 								</Grid>
 							</DashboardCard>
@@ -152,7 +141,7 @@ const ShortageClaim = () => {
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Disputed</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.primary.main }}>$1,330,771.61</Typography>
-									<IconExclamationCircle size='70' style={{position:'absolute', right:'25px', bottom:'30px', color: theme.palette.primary.main}}/>
+									<IconExclamationCircle size='70' style={{position:'absolute', right:'25px', bottom:'60px', color: theme.palette.primary.main}}/>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
@@ -160,7 +149,7 @@ const ShortageClaim = () => {
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Pending With Amazon</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.warning.main }}>${new Intl.NumberFormat().format(538941)}</Typography>
-									<Box style={{position:'absolute', right:'10px', bottom:'10px'}}><BarChart color={theme.palette.accent.main} percentage={30} chartWidth="130" chartHeight="120" chartLableFonrSize="16px"  /></Box>
+									<Box style={{position:'absolute', right:'10px', bottom:'40px'}}><BarChart color={theme.palette.accent.main} percentage={30} chartWidth="130" chartHeight="120" chartLableFonrSize="16px"  /></Box>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
@@ -168,7 +157,7 @@ const ShortageClaim = () => {
 							<ClaimCard>
 								<DashboardCard title={<Typography variant='h6'>Total Denied</Typography>}>
 									<Typography variant='h4' sx={{ color: theme.palette.error.main }}>${new Intl.NumberFormat().format(6894247)}</Typography>
-									<IconThumbDown size='70' style={{position:'absolute', right:'25px', bottom:'30px', color: theme.palette.error.main}}/>
+									<IconThumbDown size='70' style={{position:'absolute', right:'25px', bottom:'60px', color: theme.palette.error.main}}/>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
@@ -179,11 +168,11 @@ const ShortageClaim = () => {
 										<Typography variant='h6'>Total Approved</Typography>
 									}
 									action={
-										<ButtonStyled component={Link} to="/shortage-log">View <IconChevronRight size="16" /></ButtonStyled>
+										<ButtonStyled component={Link} to="/shortage-log">View Details <IconChevronRight size="16" /></ButtonStyled>
 									}
 								>
 									<Typography variant='h4' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(4942234)}</Typography>
-									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom: '30px', color: theme.palette.success.main}}/>
+									<IconThumbUp size='70' style={{position:'absolute', right:'25px', bottom: '60px', color: theme.palette.success.main}}/>
 								</DashboardCard>
 							</ClaimCard>
 						</Grid>
