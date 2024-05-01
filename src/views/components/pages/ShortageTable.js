@@ -1,13 +1,21 @@
 import React from 'react';
 import { Typography, Box,useTheme,IconButton} from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import { DataGrid } from '@mui/x-data-grid';
 import { IconPencil} from '@tabler/icons-react';
 import { Stack } from '@mui/system';
+import {
+    GridRowModes,
+    DataGrid,
+    GridToolbarContainer,
+    GridActionsCellItem,
+    GridRowEditStopReasons,
+  } from '@mui/x-data-grid';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const ShortageTable = () => {
     const theme = useTheme();
+
     const formatNumber = (number) => new Intl.NumberFormat().format(number);
     const shortagetble = [
         {
@@ -89,6 +97,25 @@ const ShortageTable = () => {
      
     ];
 
+    const [rows, setRows] = React.useState(shortagetble);
+    const [rowModesModel, setRowModesModel] = React.useState({});
+
+    const handleEditClick = (id,field) => () => {
+        console.log('Edit row', id);
+        setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+      };
+
+      const handleRowEditStop = (params, event) => {
+        if (params.reason === GridRowEditStopReasons.rowFocusOut) {
+          event.defaultMuiPrevented = true;
+        }
+      };
+
+    const handleRowModesModelChange = (newRowModesModel) => {
+        setRowModesModel(newRowModesModel);
+    };
+    
+
 
     const columns = [
         {
@@ -116,7 +143,7 @@ const ShortageTable = () => {
                             {params.value[1] ? <Box>{params.value[1]}</Box> : null}
                         </Typography>
                         <IconButton aria-label="edit" size="small" style={{ marginLeft: 'auto' }}>
-                            <IconPencil size='16' />
+                            <IconPencil size='16' onClick={handleEditClick(params.row.id,'Active')}  />
                         </IconButton>
                     </Stack>
 
@@ -141,7 +168,8 @@ const ShortageTable = () => {
                    </Stack>
                 );
             }
-        }
+        },
+        
     ];
 
     return (
@@ -149,6 +177,10 @@ const ShortageTable = () => {
             <DataGrid
                     rows={shortagetble}
                     columns={columns}
+                    editMode="row"
+                    rowModesModel={rowModesModel}
+                    onRowModesModelChange={handleRowModesModelChange}
+                    onRowEditStop={handleRowEditStop}
                 />
         </DashboardCard>
     );
