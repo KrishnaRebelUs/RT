@@ -1,6 +1,5 @@
 import { useTheme } from '@emotion/react';
 import { Typography, Grid, styled,Box,List, ListItem} from '@mui/material'
-import { fontWeight } from '@mui/system';
 import React from 'react'
 
 const TypographyStyled = styled(Typography)(({ theme }) => ({
@@ -30,9 +29,9 @@ const BoxStyled = styled(Box)(({ theme }) => ({
 const Update = () => {
 	const theme = useTheme();
   return (
-	<BoxStyled className='actual-updates'>
+	<BoxStyled className='actual-updates' height='330px' style={{overflow:'hidden'}}>
 	    <TypographyStyled variant='h5' sx={{color: theme.palette.accent.main}}>Upadtes</TypographyStyled>
-	    <marquee direction='up' loop='' height='420px' style={{overlow:'hidden'}}>
+	    <marquee direction='up' scrollamount='10' height='100%'>
 		  <List>
 				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
 				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>

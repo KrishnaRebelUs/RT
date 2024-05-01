@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box,TableHead, styled, useTheme, Button, LinearProgress
+import { Typography, Box,TableHead, styled, useTheme, Button, LinearProgress, Grid
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconFileArrowRight } from '@tabler/icons-react';
@@ -43,36 +43,22 @@ const job = [
         Task: 'Pulling Po Invoice Data(3/3)',
         Progress: 60
     },
-    // {
-    //     Vendor: 'Au-Califal',
-    //     Date: '11/04/24 11:50 AM',
-    //     Type: 'Quantity Mismatch',
-    //     Id: '88799979',
-    //     Task: 'Pulling Po Invoice Data(3/3)',
-    //     Progress: 4
-    // }
+   
 ];
-const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    borderRadius: '7px',
-}));
 
-const TableTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
-    fontSize: '14px',
-}));
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.contrast,
     border: '1px solid',
-    borderColor: theme.palette.primary.main,
+    borderColor: theme.palette.primary.contrast,
     color: theme.palette.primary.contrastText,
     fontSize: '12px',
     padding: '5px 12px',
     fontWeight: '600',
     '&:hover': {
-        backgroundColor: theme.palette.primary.extraLight,
-        color: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main,
+        color:theme.palette.primary.contrastText,
+        borderColor:theme.palette.primary.main
     },
 }));
 
@@ -128,11 +114,11 @@ const JobProgress = () => {
     ];
 
     return (
-        <DashboardCard title={
-            <Typography variant='h5'>Jobs in Progress</Typography>
-        } action={
-            <ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled>
-        }>
+        <DashboardCard>
+            <Grid container spacing={3} marginBottom={3}>
+                <Grid item><Typography variant='h5'>Jobs in Progress</Typography></Grid>
+                <Grid item><ButtonStyled>Export  <IconFileArrowRight size="18" style={{ marginLeft: '5px' }} /></ButtonStyled></Grid>
+            </Grid>
             <Box>
                 <DataTable
                     columns={columns}

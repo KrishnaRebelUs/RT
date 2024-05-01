@@ -63,7 +63,7 @@ const RecentTransactions = () => {
   return (
     <Box>
         <Typography variant='h5' sx={{color: theme.palette.text.dark}}>Hits & Misses</Typography>
-          <TimelineStyled style={{overflow:'hidden', height:'470px'}}>
+          <TimelineStyled style={{overflow:'auto', height:'270px'}}>
           <Timeline
             className="theme-timeline"
             nonce={undefined}
@@ -86,51 +86,51 @@ const RecentTransactions = () => {
             }}
           >
             <TimelineItem>
-              <TimelineOppositeContent>11/14/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/14/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>
-                <Typography fontWeight="600">Successfully recovered in Batch 1 $ 20,000</Typography>
+              <TimelineContent style={{padding: '6px 8px'}}>
+                <Typography fontWeight="400" fontSize='12px'>Successfully recovered in Batch 1 $ 20,000</Typography>
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent>11/13/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/13/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="accent" variant="outlined" />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>
-                <Typography fontWeight="600">Awaiting to hear from Amazon on Batch 2</Typography>{' '}
+              <TimelineContent style={{padding: '6px 8px'}}>
+                <Typography  fontWeight="400" fontSize='12px'>Awaiting to hear from Amazon on Batch 2</Typography>{' '}
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent>11/11/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/11/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="primary" variant="outlined" />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>
-                <Typography fontWeight="600">Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</Typography>
+              <TimelineContent style={{padding: '6px 8px'}}>
+                <Typography fontWeight="400" fontSize='12px'>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</Typography>
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent>11/10/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/10/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
               </TimelineSeparator>
-              <TimelineContent>
-                 <Typography fontWeight="600">Over 22 reports are required to untangle these disputes</Typography>
+              <TimelineContent style={{padding: '6px 8px'}}>
+                 <Typography fontWeight="400" fontSize='12px'>Over 22 reports are required to untangle these disputes</Typography>
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent>11/10/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/10/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
               </TimelineSeparator>
-              <TimelineContent>
-                 <Typography fontWeight="600">About 5% of Amazon sales are lost due to uncollected revenue, chargebacks, and accounting errors</Typography>
+              <TimelineContent style={{padding: '6px 8px'}}>
+                 <Typography  fontWeight="400" fontSize='12px'>About 5% of Amazon sales are lost due to uncollected revenue, chargebacks, and accounting errors</Typography>
               </TimelineContent>
             </TimelineItem>
           </Timeline>

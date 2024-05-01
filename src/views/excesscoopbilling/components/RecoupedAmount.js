@@ -9,7 +9,7 @@ const RecoupedAmount = () => {
 	  }));
 	  const theme = useTheme();
 	  const secondary = theme.palette.success.main;
-	  const success = 'theme.palette.success.main';
+	  const success = theme.palette.success.exrtaDark;
 	  const errorlight = '#fdede8';
 	
 	  // chart
@@ -18,6 +18,7 @@ const RecoupedAmount = () => {
 		  type: 'area',
 		  fontFamily: "'Plus Jakarta Sans', sans-serif;",
 		  foreColor: '#adb0bb',
+		  stacked: true,
 		  toolbar: {
 			show: false,
 		  },
@@ -32,13 +33,17 @@ const RecoupedAmount = () => {
 		  width: 5,
 		},
 		fill: {
-		  colors: [success],
-		  type: 'solid',
-		  opacity: 0.05,
+			type: "gradient",
+			gradient: {
+			  shadeIntensity: 1,
+			  opacityFrom: 0.7,
+			  opacityTo: 0.9,
+			  stops: [0, 90, 100]
+			}
 		},
-		markers: {
-		  size: 0,
-		},
+		marker: {
+			show: false
+		  },
 		tooltip: {
 		  theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
 		},
@@ -53,13 +58,13 @@ const RecoupedAmount = () => {
   return (
     <DashboardCard  
 		title={
-			<TypographyStyled variant='h5' sx={{color: theme.palette.success.main}}>Recouped Amount</TypographyStyled>
+			<TypographyStyled variant='h5' sx={{color: theme.palette.success.extraDark}}>Recouped Amount</TypographyStyled>
 		} 
 		footer={
 			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="100px" width='200px' className='recoupend-amount'/>
       	}
 	>
-		<TypographyStyled variant='h2'   sx={{color: theme.palette.success.main}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	
+		<TypographyStyled variant='h2'   sx={{color:  theme.palette.success.extraDark}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	
 
 	</DashboardCard>
   )

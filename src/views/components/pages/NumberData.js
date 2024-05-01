@@ -15,7 +15,8 @@ const NumberData = (props) => {
     '& svg': {
       color: theme.palette.primary.contrastText,
       width: '22px',
-      height: '22px'
+      height: '22px',
+      size:'14'
     }
   }));
 
@@ -46,7 +47,7 @@ const NumberData = (props) => {
       <Stack direction='column'>
         {data.map((section, index) => (
           <React.Fragment key={index}>
-            <Stack direction='row' spacing={4} alignItems="center" justifyContent="space-between">
+            <Stack direction='row' spacing={1} alignItems="center">
               <Stack direction='row' spacing={1} alignItems="center" marginBottom={index !== data.length - 1 ? 2 : 0}>
                 <AvatarStyled style={{ backgroundColor: section.avatarBackgroundColor || theme.palette.success.main }}>
                   {iconComponents[index] && React.createElement(iconComponents[index])}
@@ -55,12 +56,12 @@ const NumberData = (props) => {
                   <Typography variant='body1' style={{ color: theme.palette.secondary.main }} fontWeight={600}>{section.body}</Typography>
                 </Box>
               </Stack>
-              <Typography variant='h6' style={{ color: section.numberColor || theme.palette.success.main }}>
+              <Typography variant='h6' style={{ color: section.numberColor || theme.palette.success.extraDark }}>
                 {section.number}
               </Typography>
 
             </Stack>
-            {index !== data.length - 1 && <Box mb={3}></Box>}
+            {index !== data.length - 1 && <Box mb={2}></Box>}
           </React.Fragment>
         ))}
       </Stack>

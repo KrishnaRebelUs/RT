@@ -10,18 +10,19 @@ const Disputed = () => {
 		fontSize: '16px',
 	  }));
 	  const ButtonStyled = styled(Button)(({ theme }) => ({
-		backgroundColor: theme.palette.primary.extraLight,
+		backgroundColor: theme.palette.primary.contrast,
 		border: '1px solid',
-		borderColor: theme.palette.primary.light,
-		color: theme.palette.primary.main,
+		borderColor: theme.palette.primary.contrast,
+		color: theme.palette.primary.contrastText,
 		fontSize: '12px',
 		padding: '3px 8px',
 		fontWeight: '600',
 		'&:hover': {
 			backgroundColor: theme.palette.primary.main,
-			color: 'white',
+			color:theme.palette.primary.contrastText,
+			borderColor:theme.palette.primary.main
 		},
-	  }));
+	}));
 	  const theme = useTheme();
   return (
     <DashboardCard title={

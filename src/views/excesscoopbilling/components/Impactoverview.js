@@ -34,19 +34,15 @@ const Impactoverview = () => {
   }));
 
   return (
-    <DashboardCard
-      title={
-        <Typography variant='h3' sx={{ color: theme.palette.primary.main }}>Impact Overview</Typography>
-      }
-    >
+    <DashboardCard action>
       <Grid container alignItems="center">
-        <Grid item sm={6} py={2}>
-         
+        <Grid item sm={8} py={2}>
+          <Typography variant='h3' sx={{ color: theme.palette.primary.main }} marginBottom={3}>Impact Overview</Typography>
           <Typography variant='h6' mb={1} sx={{ color: theme.palette.accent.main }} >Recouped Amount</Typography>
           <Typography variant='h2' sx={{ color: theme.palette.accent.main }} >$ {new Intl.NumberFormat().format(1280)}</Typography>
         </Grid>
-        <Grid item sm={6}>
-          <BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="180" chartHeight="180" chartLableFonrSize="18px" /></BarChartStyled>
+        <Grid item sm={4}>
+          <BarChartStyled><BarChart color={theme.palette.accent.main} percentage={75.5} chartWidth="130" chartHeight="150" chartLableFonrSize="18px" /></BarChartStyled>
           <Typography variant='body1' style={{ textAlign: 'center', marginLeft: '25px', marginTop: '5px', fontWeight: '500'}} sx={{ color: theme.palette.accent.main }} >Rate</Typography>
         </Grid>
       </Grid>
