@@ -12,7 +12,7 @@ const AuditTime = () => {
   const data = [
     { body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar",avatarBackgroundColor: theme.palette.primary.light, numberColor: theme.palette.success.extrDark},
     { body: "Resources Saved", number: "496", icon: "IconBriefcase", avatarBackgroundColor: theme.palette.accent.main, numberColor: theme.palette.success.extrDark },
-    { body: "Hour Saved", number: "18 h", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark},
+    { body: "Payroll Saved", number: "18", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark},
    
   
   ];
