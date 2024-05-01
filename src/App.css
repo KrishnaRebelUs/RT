@@ -166,15 +166,17 @@ ul li.MuiAutocomplete-option {
 }
 /*--- Breadcrumb ---*/
 .MuiBreadcrumbs-li a {
-  color: var(--primary);
+  color: #000;
   font-size: 16px;
 }
 .MuiBreadcrumbs-li a:hover {
   color: #285a9e;
   text-decoration: underline !important;
 }
-.MuiBreadcrumbs-li p {
-  font-size: 16px;
+.MuiBreadcrumbs-li a.active {
+   text-decoration: none !important;
+   color:  var(--primary);
+
 }
 /*--- Tabs ---*/
 
