@@ -20,7 +20,7 @@ export default function CustomStepper() {
         width: '420px',
         height: '500px',
         margin: 'auto',
-        marginTop:'120px',
+        marginTop:'150px',
     }));
     const Steps = styled(Button)(({ theme }) => ({
         position: 'absolute',
@@ -76,19 +76,23 @@ export default function CustomStepper() {
     }));
     const Line = styled(Divider)(({ theme }) => ({
         width: '100%',
-        borderColor: theme.palette.primary.extraLight,
-        borderWidth: '2px',
+        borderColor: '#DBDCDE',
+        borderWidth: '3px',
         '&.active': {
             borderColor: theme.palette.primary.main
         }
     }));
     const TooltipStep = styled(Box)(({ theme }) => ({
-        width: '150px',
+        width: '170px',
+        height: '100px',
         backgroundColor: '#DBDCDE',
         color: '#183D72',
         padding: '10px',
         borderRadius: '7px',
         fontWeight: 600,
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center', 
         textAlign: 'center',
         position: 'absolute',
         transform: 'translate(3px, 10px)',
@@ -181,7 +185,7 @@ export default function CustomStepper() {
                     </Steps>
                     <Steps style={{ right: '0', bottom: '0' }}>
                         <Circle style={{ zIndex: '999' }}><img width="50" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}/></Circle>
-                        <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
+                        <TooltipStep className="tooltipStep" style={{ bottom: '60px' }}>
                             <Typography variant="body1">Amount credited to VC account – WINNNNNN</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>

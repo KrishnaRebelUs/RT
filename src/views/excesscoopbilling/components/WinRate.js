@@ -30,7 +30,7 @@ const WinRate = () => {
                 horizontal: true,
                 borderRadius: 3,
                 dataLabels: {
-                    position: 'end'
+                    position: 'start'
                 },
                 fill: {
                     colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], 
@@ -95,7 +95,8 @@ const WinRate = () => {
                 style: {
                     fontSize: '14px',
                     colors: yAxisLabelColors,
-                    fontWeight: '500'
+                    fontWeight: '500',
+                    textAnchor: 'left',
                 },
                 maxWidth: 'auto',
             },

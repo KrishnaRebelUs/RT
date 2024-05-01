@@ -207,7 +207,7 @@ ul li.MuiAutocomplete-option {
 .win-rate-text::after {
   content: "";
   position: absolute;
-  bottom: -6px;
+  bottom: -9px;
   left: 0;
   width: 100px;
   height: 3px;
@@ -216,7 +216,7 @@ ul li.MuiAutocomplete-option {
 .win-rate-number::after {
   content: "";
   position: absolute;
-  bottom: -7px;
+  bottom: -10px;
   left: -49px;
   width: 100px;
   height: 3px;
