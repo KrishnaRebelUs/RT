@@ -128,7 +128,7 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <Grid container spacing={3}>
+                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
@@ -159,16 +159,16 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </Grid>
+                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         <Grid container spacing={3}>
@@ -202,12 +202,12 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -245,19 +245,19 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={4}>
-                       <Grid container spacing={3}>
+                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'12px'}} fontWeight={600}> 1-Apr-2017 to 31-Oct-2021</Typography>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
@@ -288,12 +288,12 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={12} my={2}><Divider /></Grid>
-                                <Grid container justifyContent={'space-between'} spacing="3">
+                                <Grid container justifyContent={'space-between'} spacing={1}>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.secondary.main}} fontWeight={600}>Sum Identified</Typography>
                                     </Grid>
                                     <Grid item xs={4}>
-                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}>11,4047</Typography>
+                                        <Typography variant='body2' style={{ textAlign: 'right', fontWeight: '600' }}> $11,405.27</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
