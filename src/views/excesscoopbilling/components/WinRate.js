@@ -33,7 +33,7 @@ const WinRate = () => {
                     position: 'end'
                 },
                 fill: {
-                    colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], // Specify colors with different opacities
+                    colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], 
                 }
             }
         },
