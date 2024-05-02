@@ -15,56 +15,56 @@ const MissedInvoicing = () => {
 
 
 	const ButtonStyled = styled(Button)(({ theme }) => ({
-		backgroundColor: theme.palette.primary.extraLight,
+		backgroundColor: theme.palette.primary.main,
 		border: '1px solid',
-		borderColor: theme.palette.primary.light,
-		color: theme.palette.primary.main,
+		borderColor: theme.palette.primary.main,
+		color: theme.palette.primary.contrastText,
 		fontSize: '13px',
 		padding: '5px 12px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.primary.main,
-			color: 'white',
+			backgroundColor: theme.palette.primary.extraLight,
+			color: theme.palette.primary.main,
 		  },
 	}));
 	const ButtonStyledGreen = styled(Button)(({ theme }) => ({
-		color:theme.palette.success.extraDark, 
-		backgroundColor:theme.palette.success.light, 
+		color: theme.palette.primary.contrastText, 
+		backgroundColor: theme.palette.success.extraDark, 
 		border: '1px solid',
-		borderColor: theme.palette.success.main,
+		borderColor: theme.palette.success.extraDark,
 		fontSize: '13px',
 		padding: '5px 12px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.success.extraDark,
-			color: 'white',
+			backgroundColor: theme.palette.success.light,
+			color: theme.palette.success.extraDark,
 			borderColor: theme.palette.success.extraDark
 		  },
 	}));
 	const ButtonStyledAction = styled(Button)(({ theme }) => ({
-		color:theme.palette.accent.main, 
-		backgroundColor:theme.palette.accent.light, 
+		color: theme.palette.primary.contrastText, 
+		backgroundColor:theme.palette.accent.main, 
 		border: '1px solid',
 		borderColor: theme.palette.accent.main,
 		fontSize: '13px',
 		padding: '5px 12px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.accent.main,
-			color: 'white',
+			backgroundColor: theme.palette.accent.light,
+			color: theme.palette.accent.main,
 		  },
 	}));
 	const ButtonStyledSecondary = styled(Button)(({ theme }) => ({
-		color:theme.palette.secondary.main, 
-		backgroundColor:theme.palette.secondary.light, 
+		color:theme.palette.primary.contrastText, 
+		backgroundColor: theme.palette.secondary.main, 
 		border: '1px solid',
 		borderColor: theme.palette.secondary.main,
 		fontSize: '13px',
 		padding: '5px 12px',
 		fontWeight: '600',
 		'&:hover': {
-			backgroundColor: theme.palette.secondary.main,
-			color: 'white',
+			backgroundColor: theme.palette.secondary.light,
+			color: theme.palette.secondary.main,
 		  },
 	}));
 

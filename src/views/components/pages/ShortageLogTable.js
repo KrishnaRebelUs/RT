@@ -39,7 +39,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 }));
 const BoxStyled = styled(Box)(({ theme }) => ({
    
-    padding: '7px 12px',
+    padding: '5px 12px',
     fontWeight: '600',
 }));
 const ShortageLogTable = () => {

@@ -50,7 +50,7 @@ const GranularAnalysis = () => {
             Subtype: "Duplicate Billing",
             Findings$: "362356.00",
             PriorAdjustments$: "362356.00",
-            NetOff: "3.9",
+            NetOff: "9000000",
             color: theme.palette.warning.main
         }
     ];

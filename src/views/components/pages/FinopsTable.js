@@ -39,7 +39,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 }));
 const BoxStyled = styled(Box)(({ theme }) => ({
    
-    padding: '7px 12px',
+    padding: '5px 12px',
     fontWeight: '600',
 }));
 
@@ -210,7 +210,7 @@ const FinopsTable = () => {
                                     <TabStyled label="All" value="4" />
                                 </TabList>
                             <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                <Grid item xs={4} xl={4}style={{paddingTop:'0'}}>
+                                <Grid item xs={5} xl={4}style={{paddingTop:'0'}}>
                                     <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
                                             <Box>
                                                 <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
@@ -222,8 +222,8 @@ const FinopsTable = () => {
                                 </Grid>
                                 <Grid>
                                     <Stack direction='row' spacing={2} style={{marginTop:'16px'}}>
-                                            <ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="22" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
-                                            <ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="22" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
+                                            <ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="18" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
+                                            <ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="18" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
                                         </Stack>
                                 </Grid>
                             </Grid>

@@ -18,9 +18,9 @@ export default function CustomStepper() {
     const StepsWrap = styled(Box)(({ theme }) => ({
         position: 'relative',
         width: '420px',
-        height: '500px',
+        height: '400px',
         margin: 'auto',
-        marginTop:'150px',
+        marginTop:'140px',
     }));
     const Steps = styled(Button)(({ theme }) => ({
         position: 'absolute',
@@ -83,7 +83,7 @@ export default function CustomStepper() {
         }
     }));
     const TooltipStep = styled(Box)(({ theme }) => ({
-        width: '170px',
+        width: '150px',
         height: '100px',
         backgroundColor: '#DBDCDE',
         color: '#183D72',
@@ -130,70 +130,70 @@ export default function CustomStepper() {
                     <Steps className="active">
                         <Circle className="circle">1</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Findings Shared – Awaiting Contract</Typography>
+                            <Typography variant="body2" fontSize='12px'>Findings Shared – Awaiting Contract</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
                     <Steps className="active" style={{ left: '0', right: '0', margin: 'auto' }}>
                         <Circle className="circle">2</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Disputes Raised – Submitted</Typography>
+                            <Typography variant="body2"  fontSize='12px'>Disputes Raised – Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
                     <Steps className="active" style={{ right: '0' }}>
                         <Circle className="circle">3</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Outstanding Balance Shared by Amazon – Open Bal. Confirmed</Typography>
+                            <Typography variant="body2"  fontSize='12px'>Outstanding Balance Shared by Amazon – Open Bal. Confirmed</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
                     <Steps className="active" style={{ right: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">4</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Offer Received – File not received</Typography>
+                            <Typography variant="body2" fontSize='12px'>Offer Received – File not received</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
                     <Steps style={{ left: '0', right: '0', top: 'calc(50% - 20px)', margin: 'auto' }}>
                         <Circle className="circle">5</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Settlement Offer Received from Amazon – Offer Shared with Customer</Typography>
+                            <Typography variant="body2" fontSize='12px'>Settlement Offer Received from Amazon – Offer Shared with Customer</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
                     <Steps style={{ left: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">6</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Counteroffer Presented to Amazon – Counteroffer Submitted</Typography>
+                            <Typography variant="body2" fontSize='12px'>Counteroffer Presented to Amazon – Counteroffer Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
                     <Steps style={{ bottom: '0' }}>
                         <Circle className="circle">7</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Revised Settlement Offer from Amazon – Revised Offer Shared with Customer</Typography>
+                            <Typography variant="body2"fontSize='12px'>Revised Settlement Offer from Amazon – Revised Offer Shared with Customer</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
                     <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
                         <Circle className="circle">8</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body1">Final Settlement Accepted – Settlement Accepted</Typography>
+                            <Typography variant="body2" fontSize='12px'>Final Settlement Accepted – Settlement Accepted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
                     <Steps style={{ right: '0', bottom: '0' }}>
                         <Circle style={{ zIndex: '999' }}><img width="50" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}/></Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '60px' }}>
-                            <Typography variant="body1">Amount credited to VC account – WINNNNNN</Typography>
+                            <Typography variant="body2" fontSize='12px'>Amount credited to VC account – WINNNNNN</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
                     <Box>
                         <LineWrapper style={{ left: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
                         <LineWrapper style={{ right: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '-45px', top: '27%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
+                        <LineWrapper style={{ right: '-45px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
                         <LineWrapper style={{ left: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line></Line></LineWrapper>
