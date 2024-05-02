@@ -61,7 +61,7 @@ const RecentTransactions = () => {
     overflow:'hidden'
 	}));
   return (
-    <Box>
+    <Box className='transcaction'>
         <Typography variant='h5' sx={{color: theme.palette.text.dark}}>Hits & Misses</Typography>
           <TimelineStyled style={{overflow:'auto', height:'270px'}}>
           <Timeline

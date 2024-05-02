@@ -9,7 +9,7 @@ const Disputed = () => {
 		color: theme.palette.secondary.main,
 		fontSize: '16px',
 	  }));
-	  const ButtonStyled = styled(Button)(({ theme }) => ({
+	const ButtonStyled = styled(Button)(({ theme }) => ({
 		backgroundColor: theme.palette.primary.contrast,
 		border: '1px solid',
 		borderColor: theme.palette.primary.contrast,
