@@ -37,7 +37,8 @@ const AuditTime = () => {
         <Typography variant='h6'>Audit Time Period</Typography>
       }
       action={
-        moment().format('MM/DD/YY')
+        <Typography variant='h6' fontSize='14px'>{ moment().format('MM/DD/YY')}</Typography>
+       
       }
       
     >

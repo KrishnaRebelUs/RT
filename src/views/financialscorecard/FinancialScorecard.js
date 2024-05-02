@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Box, styled, Typography,Grid,Stack,FormControlLabel ,Switch} from "@mui/material";
+import { Box, styled, Typography,Grid,Stack,FormControlLabel ,Switch,FormGroup} from "@mui/material";
 import { useTheme } from "@emotion/react";
 import PageContainer from "../../components/container/PageContainer";
 import Breadcrumb from "../components/pages/Breadcrumb";
@@ -35,10 +35,53 @@ const FinancialScorecard = () => {
 		marginRight: '5px',
 		display:'inline-flex'
 	 }));
-	 const TypographyStyled = styled(Typography)(({ theme }) => ({
-		fontSize:'13px',
-		fontWeight: '600'
-	 }));
+	const TypographyStyled = styled(Typography)(({ theme }) => ({
+	fontSize:'13px',
+	fontWeight: '600'
+	}));
+	const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+		width: 62,
+		height: 34,
+		padding: 7,
+		'& .MuiSwitch-switchBase': {
+		  margin: 1,
+		  padding: 0,
+		  transform: 'translateX(6px)',
+		  '&.Mui-checked': {
+			color: '#fff',
+			transform: 'translateX(22px)',
+			'& .MuiSwitch-thumb:before': {
+				backgroundImage:`url(data:image/svg+xml;utf8,<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg>)`,
+			},
+			'& + .MuiSwitch-track': {
+			  opacity: 1,
+			  backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+			},
+		  },
+		},
+		'& .MuiSwitch-thumb': {
+		  backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+		  width: 32,
+		  height: 32,
+		  '&::before': {
+			content: "''",
+			position: 'absolute',
+			width: '100%',
+			height: '100%',
+			left: 0,
+			top: 0,
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center',
+			   backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l4 4" /><path d="M5 12l4 -4" /></svg>')`,
+		  },
+		},
+		'& .MuiSwitch-track': {
+		  opacity: 1,
+		  backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+		  borderRadius: 20 / 2,
+		},
+	  }));
+	  
 
     return (
         <PageContainer title="Financial Scorecard">
@@ -95,6 +138,11 @@ const FinancialScorecard = () => {
                          <Grid item xs={12}>
 							<Stack direction='row' spacing={2}>
                                 <Typography variant="h3">Yearly Comparison</Typography>
+								<FormGroup>
+								<FormControlLabel
+									control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+								/>
+								</FormGroup>
 							</Stack>
 						 </Grid>
 						</Grid>

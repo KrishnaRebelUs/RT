@@ -27,32 +27,34 @@ const Breadcrumb = ({ titles }) => {
         Dashboard
       </Link>
       {titles.map((title, index) => (
+      <Link
+      key={index}
+      sx={{ display: 'flex', alignItems: 'center' }}
+      className={index === titles.length - 1 ? "active" : ""}
+      color="#000"
+      underline="none" 
+      textDecoration= 'none'
+    >
+      {index === titles.length - 1 ? (
+        title
+      ) : (
         <Link
-          key={index}
           sx={{ display: 'flex', alignItems: 'center' }}
-          className={index === titles.length - 1 ? "active" : ""}
-          color="#000"
+          color="text.dark"
+          to={`/${title.replace(/\s+/g, '-').toLowerCase()}`} 
+           underline="none" 
+          style={{
+            textDecoration: 'none',
+            '&:hover, &:focus': {
+              color: theme.palette.primary.main
+            }
+          }}
         >
-          {index === titles.length - 1 ? (
-            title
-          ) : (
-            <Link
-              underline="none"
-              sx={{ display: 'flex', alignItems: 'center' }}
-              color="text.dark"
-              to={`/${title.replace(/\s+/g, '-').toLowerCase()}`} 
-              style={{
-                textDecoration: 'none',
-                '&:hover, &:focus': {
-                  textDecoration: 'underline',
-                  color: theme.palette.primary.main
-                }
-              }}
-            >
-              {title}
-            </Link>
-          )}
+          {title}
         </Link>
+      )}
+    </Link>
+    
       ))}
    
     </Breadcrumbs>

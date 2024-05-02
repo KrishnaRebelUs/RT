@@ -28,29 +28,29 @@ const GranularAnalysis = () => {
         {
             Subtype: "Duplicate Freight",
             Findings$: "362356.00",
-            PriorAdjustments$: "362356.00",
-            NetOff: "3.9",
+            PriorAdjustments$: "65231.00",
+            NetOff: "6547.25",
             color: theme.palette.success.dark
         },
         {
             Subtype: "Non-compliant Freight",
             Findings$: "362356.00",
-            PriorAdjustments$: "362356.00",
-            NetOff: "3.9",
+            PriorAdjustments$: "65231.00",
+            NetOff: "6547.25",
             color: theme.palette.accent.main
         },
         {
             Subtype: "Miscellaneous",
             Findings$: "362356.00",
-            PriorAdjustments$: "362356.00",
-            NetOff: "3.9",
+            PriorAdjustments$: "65231.00",
+            NetOff: "6547.25",
             color: theme.palette.primary.main
         },
         {
             Subtype: "Duplicate Billing",
             Findings$: "362356.00",
-            PriorAdjustments$: "362356.00",
-            NetOff: "9000000",
+            PriorAdjustments$: "65231.00",
+            NetOff: "6547.25",
             color: theme.palette.warning.main
         }
     ];
