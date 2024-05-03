@@ -7,7 +7,7 @@ const baselightTheme = createTheme({
   palette: {
     primary: {
       main: '#285a9e',
-      light: '#dae8ff',
+      light: '#5c84c3',
       extraLight: 'rgb(236, 242, 255)',
       dark: '#1e3e67',
       contrastText: '#ffffff',

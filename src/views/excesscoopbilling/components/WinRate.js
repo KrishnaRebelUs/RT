@@ -97,7 +97,7 @@ const WinRate = () => {
                         <Grid item sm={8}>
                             <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
                                 <CustomProgressBar width="87%">
-                                    <ProgressLight style={{ backgroundColor: theme.palette.primary.light }}></ProgressLight>
+                                    <ProgressLight style={{ backgroundColor: theme.palette.primary.extraLight }}></ProgressLight>
                                     <ProgressDark style={{ backgroundColor: theme.palette.primary.main }}></ProgressDark>
                                     <ProgressLabel style={{ backgroundColor: theme.palette.primary.main }}>87% <Box component="span" style={{ borderColor: theme.palette.primary.main }}></Box></ProgressLabel>
                                 </CustomProgressBar>
