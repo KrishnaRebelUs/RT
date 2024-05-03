@@ -85,31 +85,52 @@ const ShortageLogTable = () => {
             Total: '0'
         },
         {
-            VendorName: 'CA - Chefman – Canada',
+            VendorName: 'GB - CHEFMAN UK LIMITED',
             CreatedDate: '01/09/24',
-            Disputed: '0',
-            NotDisputed: '10',
+            Disputed: '2',
+            NotDisputed: '0',
             Total: '0'
         },
         {
-            VendorName: 'CA - Chefman – Canada',
+            VendorName: 'US - L Oreal/Cerave',
             CreatedDate: '01/09/24',
             Disputed: '0',
-            NotDisputed: '10',
-            Total: '0'
+            NotDisputed: '12',
+            Total: '10'
         },
         {
-            VendorName: 'CA - Chefman – Canada',
+            VendorName: 'US - Hyper Pet LLC',
             CreatedDate: '01/09/24',
             Disputed: '0',
-            NotDisputed: '10',
-            Total: '0'
+            NotDisputed: '13',
+            Total: '11'
         },
         {
-            VendorName: 'CA - Chefman – Canada',
+            VendorName: 'US - Aquasana Inc.',
+            CreatedDate: '01/09/24',
+            Disputed: '1',
+            NotDisputed: '0',
+            Total: '12'
+        },
+        {
+            VendorName: 'US - Weiler Corporation',
+            CreatedDate: '01/09/24',
+            Disputed: '6',
+            NotDisputed: '0',
+            Total: '15'
+        },
+        {
+            VendorName: 'US - Doskocil',
             CreatedDate: '01/09/24',
             Disputed: '0',
-            NotDisputed: '10',
+            NotDisputed: '0',
+            Total: '8'
+        },
+        {
+            VendorName: 'US - Force Factor Brands LLC',
+            CreatedDate: '01/09/24',
+            Disputed: '1',
+            NotDisputed: '0',
             Total: '0'
         },
     ];

@@ -1,6 +1,7 @@
-import { useTheme } from '@emotion/react';
-import { Typography, Grid, styled,Box,List, ListItem} from '@mui/material'
-import React from 'react'
+import { keyframes, useTheme } from '@emotion/react';
+import { Typography, Grid, styled,Box,List, ListItem} from '@mui/material';
+import React from 'react';
+import '../../../theme/Marquee.css';
 
 const TypographyStyled = styled(Typography)(({ theme }) => ({
 	color: theme.palette.primary.main,
@@ -12,37 +13,36 @@ const BoxStyled = styled(Box)(({ theme }) => ({
 	border: '1px solid',
 	borderColor: theme.palette.primary.main,
 	borderRadius: '7px',
-	padding: '10px 20px',
-  }));
-
-  const ListStyled = styled(ListItem)(({ theme }) => ({
-	borderBottom: '2px solid',
-	borderColor: '#ccc', 
-	padding:'5px 0',
-	color: theme.palette.primary.main,
-	fontWeight: '600'
-  }));
-
-  
-  
+	padding: '10px 20px'
+}));
 
 const Update = () => {
 	const theme = useTheme();
   return (
-	<BoxStyled className='actual-updates' height='330px' style={{overflow:'hidden'}}>
+	<BoxStyled>
 	    <TypographyStyled variant='h5' sx={{color: theme.palette.accent.main}}>Updates</TypographyStyled>
-	    <marquee direction='up' scrollamount='10' height='100%'>
+		<Box className="marquee" height="270px">
 			<List>
-				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
-				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				<ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
-				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
-				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				<ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
-				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Awaiting to hear from Amazon on Batch 2</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Awaiting to hear from Amazon on Batch 2</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
 			</List>
-	    </marquee>
+			<List aria-hidden="true">
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Awaiting to hear from Amazon on Batch 2</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
+				<ListItem>Successfully recovered in Batch 1 $ 20,000</ListItem>
+				<ListItem>Awaiting to hear from Amazon on Batch 2</ListItem>
+				<ListItem>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListItem>
+			</List>
+		</Box>
    </BoxStyled>
   )
 }
