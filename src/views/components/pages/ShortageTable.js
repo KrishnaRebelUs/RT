@@ -131,7 +131,7 @@ const ShortageTable = () => {
             field: 'Active',
             editable: true,
             headerName: 'Activity Cases($)',
-            width: 200,
+            width: 150,
             renderCell: (params) => {
                 return (
                     <Stack direction='row' spacing={3}  alignItems='center'>
@@ -160,7 +160,7 @@ const ShortageTable = () => {
                             { params.value[1] ? <Box>{params.value[1]}</Box> : null}
                         </Typography>
                         <IconButton aria-label="edit" size="small" style={{ marginLeft: 'auto' }}>
-                            <IconPencil size='16' />
+                            {/* <IconPencil size='16' /> */}
                         </IconButton>
                    </Stack>
                 );
