@@ -17,7 +17,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 100
+        Progress: '100%'
     },
     {
         Vendor: 'Au-Califal',
@@ -25,7 +25,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 60
+        Progress: '60%'
     },
     {
         Vendor: 'Au-Califal',
@@ -33,7 +33,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 25
+        Progress: '25%'
     },
     {
         Vendor: 'Au-Califal',
@@ -41,7 +41,7 @@ const job = [
         Type: 'Quantity Mismatch',
         Id: '88799979',
         Task: 'Pulling Po Invoice Data(3/3)',
-        Progress: 60
+        Progress: '60%'
     },
    
 ];
@@ -123,9 +123,8 @@ const JobProgress = () => {
             selector: row => row.Progress,
             cell : (row, index, column, id) => {
                 return (
-                    <Box style={{ display: 'flex', flexDirection:'column-reverse', width: '100%' }}>
-                        <LinearProgress variant="determinate" color="success" value={row.Progress} style={{color:'#eee', height: "10px",borderRadius:'4px'}} />
-                        <Typography variant='body2' style={{ textAlign: 'right' }}>{row.Progress}%</Typography>
+                    <Box width='100%' height='10px' style={{backgroundColor:theme.palette.bg.main, borderRadius:'7px', overflow: 'hidden'}}>
+                           <Box width={row.Progress} height='100%' style={{backgroundColor:theme.palette.success.main, color: theme.palette.primary.contrastText,fontSize:'10px', textAlign: 'right',paddingRight:'7px', }}>{row.Progress}</Box>
                     </Box>
                 );
             },
