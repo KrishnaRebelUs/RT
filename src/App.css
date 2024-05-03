@@ -3,6 +3,7 @@
   --primary: #18244d;
   --secondary-light: #f4f5f9;
   --accent: #f48124;
+  --scrollbarColor: rgb(40 90 158 / 10%);
 }
 body{
   overflow-x: hidden ;
@@ -183,7 +184,6 @@ ul li.MuiAutocomplete-option {
 
 }
 /*--- Tabs ---*/
-
 .MuiTabs-fixed
   .MuiTabs-flexContainer
   .css-mpo1kn-MuiButtonBase-root-MuiTab-root {
@@ -304,11 +304,8 @@ div.css-2dvya8 .MuiAutocomplete-inputRoot {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
+  background-color: var(--scrollbarColor);
   border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent);
 }
 /*---- Table ----*/
 table{

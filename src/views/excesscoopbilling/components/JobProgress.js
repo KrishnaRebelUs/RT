@@ -123,8 +123,17 @@ const JobProgress = () => {
             selector: row => row.Progress,
             cell : (row, index, column, id) => {
                 return (
-                    <Box width='100%' height='10px' style={{backgroundColor:theme.palette.bg.main, borderRadius:'7px', overflow: 'hidden'}}>
-                           <Box width={row.Progress} height='100%' style={{backgroundColor:theme.palette.success.main, color: theme.palette.primary.contrastText,fontSize:'10px', textAlign: 'right',paddingRight:'7px', }}>{row.Progress}</Box>
+                    <Box width='100%' height='15px' style={{backgroundColor: '#eee', borderRadius:'7px', overflow: 'hidden'}}>
+                        <Box width={row.Progress} height='100%' 
+                            style={{
+                                backgroundColor:theme.palette.success.main, 
+                                color: theme.palette.primary.contrastText,
+                                fontSize: '12px', 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                        >{row.Progress}</Box>
                     </Box>
                 );
             },
