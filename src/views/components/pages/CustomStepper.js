@@ -7,7 +7,8 @@ import { useTheme } from '@emotion/react';
 import SettledImg from "../../../assets/images/settled.jpg";
 
 
-export default function CustomStepper() {
+export default function CustomStepper({ account }) {
+    console.log("Account:", account);
     const theme = useTheme();
     const [showConfetti, setShowConfetti] = useState(false);
     const [confettiDuration, setConfettiDuration] = useState(1000);
@@ -18,7 +19,7 @@ export default function CustomStepper() {
     const StepsWrap = styled(Box)(({ theme }) => ({
         position: 'relative',
         width: '420px',
-        height: '400px',
+        height: '450px',
         margin: 'auto',
         marginTop:'140px',
     }));
@@ -193,7 +194,7 @@ export default function CustomStepper() {
                     <Box>
                         <LineWrapper style={{ left: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
                         <LineWrapper style={{ right: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '-45px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
+                        <LineWrapper style={{ right: '-49px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
                         <LineWrapper style={{ left: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line></Line></LineWrapper>

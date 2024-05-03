@@ -3,15 +3,16 @@ import React from 'react'
 import DashboardCard from '../../components/shared/DashboardCard';
 import Breadcrumb from '../components/pages/Breadcrumb';
 import Header from '../components/pages/Header';
-import YearlyTrend from '../components/pages/YearlyTrend';
+import YearlyTrend from './components/YearlyTrend';
 import PageContainer from '../../components/container/PageContainer';
 import ShortageTable from '../components/pages/ShortageTable';
 import FinopsTable from '../components/pages/FinopsTable';
 import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
-import {IconChevronRight,IconThumbUp, IconClock, IconBriefcase, IconCurrencyDollar, IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
+import {IconChevronRight,IconThumbUp,IconExclamationCircle, IconThumbDown } from '@tabler/icons-react';
 import BarChart from '../components/pages/Barchart';
 import moment from 'moment';
+import CustomStepper from '../components/pages/CustomStepper';
 
 export const ExportCSVBTN = () => {
 
@@ -19,10 +20,14 @@ export const ExportCSVBTN = () => {
 		<Button variant="contained" color="primary">Export CSV</Button>
 	);
 };
-import CustomStepper from '../components/pages/CustomStepper';
+
 import NumberData from '../components/pages/NumberData';
 
 const ShortageClaim = () => {
+	const account = {
+		accountName: 'xyz', 
+		stage: '5'
+	}
 	const theme = useTheme();
 	const data = [
 		{ body: "Hour Saved", number: "18 h", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark},
@@ -127,7 +132,7 @@ const ShortageClaim = () => {
 						</Grid>
 						<Grid item xs={12} lg={6}>
 							<DashboardCard title={<Typography variant='h4'>Current Progress</Typography>}>
-								<CustomStepper />
+								<CustomStepper account={account} />
 							</DashboardCard>
 						</Grid>
 					</Grid>
