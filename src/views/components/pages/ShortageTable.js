@@ -6,11 +6,8 @@ import { Stack } from '@mui/system';
 import {
     GridRowModes,
     DataGrid,
-    GridToolbarContainer,
-    GridActionsCellItem,
     GridRowEditStopReasons,
   } from '@mui/x-data-grid';
-import EditIcon from '@mui/icons-material/Edit';
 
 
 const ShortageTable = () => {
@@ -121,7 +118,7 @@ const ShortageTable = () => {
         {
             field: 'Settlement',
             headerName: 'Settlement',
-            width: 220,
+            width: 200,
             renderCell: (params) => {
                 return (
                     <Typography variant="subtitle2" fontWeight={600}  sx={{display:'flex', alignItems:'cem'}}>
@@ -134,7 +131,7 @@ const ShortageTable = () => {
             field: 'Active',
             editable: true,
             headerName: 'Activity Cases($)',
-            width: 220,
+            width: 200,
             renderCell: (params) => {
                 return (
                     <Stack direction='row' spacing={3}  alignItems='center'>
@@ -154,7 +151,7 @@ const ShortageTable = () => {
             field: 'Archieved',
             editable:true,
             headerName: 'Archived',
-            width: 220,
+            width: 200,
             renderCell: (params) => {
                 return (
                    <Stack direction='row' spacing={3}  alignItems='center'>
@@ -181,6 +178,13 @@ const ShortageTable = () => {
                     rowModesModel={rowModesModel}
                     onRowModesModelChange={handleRowModesModelChange}
                     onRowEditStop={handleRowEditStop}
+                    disableColumnMenu
+                    autoHeight 
+                    hideScrollbar={true}
+                    hideCellRightBorder={true}
+                    hideColumnRightBorder={true}
+                    disableColumnResize
+
                 />
         </DashboardCard>
     );

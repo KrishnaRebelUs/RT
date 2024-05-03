@@ -9,7 +9,7 @@ const Disputed = () => {
 		color: theme.palette.secondary.main,
 		fontSize: '16px',
 	  }));
-	  const ButtonStyled = styled(Button)(({ theme }) => ({
+	const ButtonStyled = styled(Button)(({ theme }) => ({
 		backgroundColor: theme.palette.primary.contrast,
 		border: '1px solid',
 		borderColor: theme.palette.primary.contrast,
@@ -30,8 +30,8 @@ const Disputed = () => {
 	} action={
 		<ButtonStyled component={Link} to="/manage-dispute">View Details <IconChevronRight  size="15" /></ButtonStyled>
 	}>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
-		<TypographyStyled variant='body1'marginTop={3} sx={{ color: theme.palette.text.dark }} fontWeight={500}>View all raised disputes till date</TypographyStyled>	
+		<Typography variant='h3' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
+		<TypographyStyled variant='body2' marginTop={3} sx={{ color: theme.palette.text.dark }}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>
   )

@@ -10,13 +10,10 @@ const NumberData = (props) => {
   const AvatarStyled = styled(Avatar)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
     borderRadius: '7px',
-    width: '32px',
-    height: '32px',
     '& svg': {
       color: theme.palette.primary.contrastText,
       width: '22px',
-      height: '22px',
-      size:'14'
+      height: '22px'
     }
   }));
 
@@ -47,20 +44,27 @@ const NumberData = (props) => {
       <Stack direction='column'>
         {data.map((section, index) => (
           <React.Fragment key={index}>
-            <Stack direction='row' spacing={1} alignItems="center">
+            <Box>
               <Stack direction='row' spacing={1} alignItems="center" marginBottom={index !== data.length - 1 ? 2 : 0}>
-                <AvatarStyled style={{ backgroundColor: section.avatarBackgroundColor || theme.palette.success.main }}>
+                <AvatarStyled 
+                  style={{ 
+                    backgroundColor: section.avatarBackgroundColor || theme.palette.success.main, 
+                    width: section.avatarWidth || '32px',
+                    height: section.avatarHeight || '32px'
+                  }}
+                >
                   {iconComponents[index] && React.createElement(iconComponents[index])}
                 </AvatarStyled>
                 <Box>
-                  <Typography variant='body1' style={{ color: theme.palette.secondary.main }} fontWeight={600}>{section.body}</Typography>
+                  <Typography style={{ color: theme.palette.secondary.main, fontSize: section.listTitleSize || theme.body2 }} fontWeight={600}>{section.body}:</Typography>
                 </Box>
-              </Stack>
-              <Typography variant='h6' style={{ color: section.numberColor || theme.palette.success.extraDark }}>
+                <Typography style={{ color: section.numberColor || theme.palette.success.extraDark, fontSize: section.listTitleSize || theme.body2 }}>
                 {section.number}
               </Typography>
+              </Stack>
+            
 
-            </Stack>
+            </Box>
             {index !== data.length - 1 && <Box mb={2}></Box>}
           </React.Fragment>
         ))}

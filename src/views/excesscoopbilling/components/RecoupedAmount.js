@@ -30,17 +30,14 @@ const RecoupedAmount = () => {
 		},
 		stroke: {
 		  curve: 'smooth',
-		  width: 5,
+		  width: 3,
 		},
 		fill: {
 			type: "gradient",
 			gradient: {
-				shade: "light",
-				type: "vertical",
-				shadeIntensity: 0,
-				opacityFrom: 0,
-				opacityTo: 0.3,
-				stops: [0, 50, 80, 100]
+			  shadeIntensity: 1,
+			  opacityTo: 0.2,
+			  stops: [0, 100]
 			}
 		},
 		marker: {
@@ -63,7 +60,7 @@ const RecoupedAmount = () => {
 			<TypographyStyled variant='h5' sx={{color: theme.palette.success.extraDark}}>Recouped Amount</TypographyStyled>
 		} 
 		footer={
-			<Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height="100px" width='200px' className='recoupend-amount'/>
+			<Chart style={{ marginTop: '-50px' }} options={optionscolumnchart} series={seriescolumnchart} type="area" height="100px" width='200px' className='recoupend-amount'/>
       	}
 	>
 		<TypographyStyled variant='h3' sx={{color:  theme.palette.success.extraDark}}>$ {new Intl.NumberFormat().format(3794508)}</TypographyStyled>	

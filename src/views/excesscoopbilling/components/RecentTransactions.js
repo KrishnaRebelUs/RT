@@ -61,8 +61,8 @@ const RecentTransactions = () => {
     overflow:'hidden'
 	}));
   return (
-    <Box>
-        <Typography variant='h5' sx={{color: theme.palette.text.dark}}>Hits & Misses</Typography>
+    <Box className='transcaction'>
+        <Typography variant='h5' sx={{color: theme.palette.text.dark}} mb={2}>Hits & Misses</Typography>
           <TimelineStyled style={{overflow:'auto', height:'270px'}}>
           <Timeline
             className="theme-timeline"
@@ -71,7 +71,7 @@ const RecentTransactions = () => {
             onResizeCapture={undefined}
             sx={{
               p: 0,
-              mb: '-40px',
+              marginTop: '0',
               '& .MuiTimelineConnector-root': {
                 width: '1px',
                 backgroundColor: '#efefef'

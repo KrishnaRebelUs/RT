@@ -12,16 +12,7 @@ import LineChart from "../components/pages/LineChart";
 
 
 const FinancialScorecard = () => {
-	// const [state, setState] = useState({
-	// 	gilad: true,
-	//   });
-	
-	//   const handleChange = (event) => {
-	// 	setState({
-	// 	  ...state,
-	// 	  [event.target.name]: event.target.checked,
-	// 	});
-	//   };
+
 	const theme = useTheme();
 	const ClaimCard = styled(Box)(({ theme }) => ({
 		position: 'relative',
@@ -44,6 +35,10 @@ const FinancialScorecard = () => {
 		marginRight: '5px',
 		display:'inline-flex'
 	 }));
+	 const TypographyStyled = styled(Typography)(({ theme }) => ({
+		fontSize:'13px',
+		fontWeight: '600'
+	 }));
 
     return (
         <PageContainer title="Financial Scorecard">
@@ -64,9 +59,9 @@ const FinancialScorecard = () => {
 								<DashboardCard title={<Typography variant='h6' sx={{ color: theme.palette.success.main }}>2.14% <IconArrowUpRight size='16' /></Typography>}>
 									<Typography variant='h4'>EBITDA % (YTD)</Typography>
 									 <Stack direction='row' spacing={1} marginTop={2}>
-										<Typography variant="subtitle2"  sx={{ color: theme.palette.text.dark }} fontWeight={600}><BoxStylegreen />User</Typography>
-										<Typography variant="subtitle2"  sx={{ color: theme.palette.text.dark }} fontWeight={600}><BoxStyleblue /> Product</Typography>
-										<Typography variant="subtitle2"  sx={{ color: theme.palette.text.dark }} fontWeight={600}><BoxStylegreen />categories</Typography>
+										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStylegreen />Total User</TypographyStyled>
+										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStyleblue />Total Product</TypographyStyled>
+										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }}><BoxStylegreen />Total Categories</TypographyStyled>
 									 </Stack>
 								    <ColumnChart />
 								</DashboardCard>
@@ -77,8 +72,8 @@ const FinancialScorecard = () => {
 							     <DashboardCard title={<Typography variant='h6' sx={{ color: theme.palette.success.main }}>$250,234 <IconArrowUpRight size='16' /></Typography>}>
 									<Typography variant='h4'>EBITDA ($) YTD</Typography>
 									<Stack direction='row' spacing={2} marginTop={2}>
-										<Typography variant="subtitle2"  sx={{ color: theme.palette.text.dark }} fontWeight={600}><BoxStylegreen /> Past</Typography>
-										<Typography variant="subtitle2"  sx={{ color: theme.palette.text.dark }} fontWeight={600}><BoxStyleblue />Latest</Typography>
+										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStylegreen /> Past</TypographyStyled>
+										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStyleblue />Latest</TypographyStyled>
 									 </Stack>
 								    <LineChart />
 								</DashboardCard>
@@ -100,7 +95,6 @@ const FinancialScorecard = () => {
                          <Grid item xs={12}>
 							<Stack direction='row' spacing={2}>
                                 <Typography variant="h3">Yearly Comparison</Typography>
-								{/* <FormControlLabel  control={<Switch checked={state.gilad} onChange={handleChange}/>   }/> */}
 							</Stack>
 						 </Grid>
 						</Grid>

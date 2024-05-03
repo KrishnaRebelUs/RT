@@ -50,7 +50,7 @@ const GranularAnalysis = () => {
             Subtype: "Duplicate Billing",
             Findings$: "362356.00",
             PriorAdjustments$: "362356.00",
-            NetOff: "3.9",
+            NetOff: "6547.25",
             color: theme.palette.warning.main
         }
     ];
@@ -70,7 +70,7 @@ const GranularAnalysis = () => {
                     <TableBody>
                         {products.map((product, index) => (
                             <TableRowStyled key={index} index={index} theme={theme}>
-                                <TableCell index={index} style={{ color: product.color}}>
+                                <TableCell index={index} style={{ color: product.color, width: '165px'}}>
                                     <Typography style={{ fontSize: '12px', fontWeight: '500' }} variant="tableData">
                                         {product.Subtype}
                                     </Typography>

@@ -30,18 +30,18 @@ const Update = () => {
 	const theme = useTheme();
   return (
 	<BoxStyled className='actual-updates' height='330px' style={{overflow:'hidden'}}>
-	    <TypographyStyled variant='h5' sx={{color: theme.palette.accent.main}}>Upadtes</TypographyStyled>
+	    <TypographyStyled variant='h5' sx={{color: theme.palette.accent.main}}>Updates</TypographyStyled>
 	    <marquee direction='up' scrollamount='10' height='100%'>
-		  <List>
-				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
-				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				  <ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
-				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
-				  <ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
-				  <ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
-				  <ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
-		  </List>
+			<List>
+				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				<ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
+				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+				<ListStyled>Successfully recovered in Batch 1 $ 20,000</ListStyled>
+				<ListStyled>Awaiting to hear from Amazon on Batch 2</ListStyled>
+				<ListStyled>Amazon hosts over 100 categories of overbillings, chargebacks, and deductions</ListStyled>
+			</List>
 	    </marquee>
    </BoxStyled>
   )

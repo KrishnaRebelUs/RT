@@ -16,6 +16,7 @@ const WinRate = () => {
     const optionsWinRate = {
         chart: {
             type: 'bar',
+            stacked: true,
             toolbar: {
                 show: false,
             },
@@ -34,23 +35,20 @@ const WinRate = () => {
                 borderRadius: 3,
                 dataLabels: {
                     position: 'start'
-                },
-                fill: {
-                    colors: ['#FF5733', 'rgba(255, 87, 51, 0.5)'], 
                 }
+            },
+            dropShadow: {
+                enabled: false
             }
         },
         colors: yAxisLabelColors,
         dataLabels: {
             enabled: true,
-            textAnchor: 'middle',
-            offsetX: 0,
-            offsetY: -25,
+            offsetY: -24,
             style: {
                 colors: yAxisLabelColors,
                 fontSize: '14px',
-                fontWeight: '500',
-                textAlign: 'left'
+                fontWeight: '500'
 
             },
             formatter: function (val, opt) {
@@ -61,10 +59,9 @@ const WinRate = () => {
                 enabled: true,
                 foreColor: '#fff',
                 padding: 5,
-                borderRadius: 4,
-                opacity: 0.9,
+                borderRadius: 2,
                 dropShadow: {
-                    enabled: true,
+                    enabled: false,
                     top: 10,
                     left: 5,
                     blur: 5,
@@ -75,9 +72,9 @@ const WinRate = () => {
         },
         stroke: {
             show: true,
-            width: 35,
+            width: 25,
             lineCap: "butt",
-            colors: ["transparent"],
+            colors: ["transparent"]
         },
         xaxis: {
             categories: ['Incorrect Freight', 'Incorrect Code', 'Incorrect Agreement', 'Duplicate Agreement'],
@@ -88,10 +85,10 @@ const WinRate = () => {
                 },
             },
             dataLabels: {
-                 show: true,
+                show: true,
             },
             axisBorder: {
-                show: true
+                show: false
             },
             
         },
@@ -105,22 +102,19 @@ const WinRate = () => {
                     fontWeight: '500',
                     textAnchor: 'start',
                 },
-                axisBorder: {
-                    show: false,
-                },
                 maxWidth: 'auto',
             },
         },
         grid: {
             show: false
-        },
+        }
     };
 
     const seriesWinRate = [
         {
             name: 'Win Rate %',
             data: [66, 57, 87, 60],
-        },
+        }
     ];
 
     return (

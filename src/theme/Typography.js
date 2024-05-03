@@ -59,7 +59,7 @@ const typography = {
     fontWeight: 400,
   },
   tableData: {
-    fontSize: '14px',
+    fontSize: '12px',
     fontWeight: 500
   }
 };
