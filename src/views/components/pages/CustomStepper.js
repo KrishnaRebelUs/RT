@@ -10,7 +10,7 @@ import SettledImg from "../../../assets/images/settled.jpg";
 export default function CustomStepper() {
     const theme = useTheme();
     const [showConfetti, setShowConfetti] = useState(false);
-    const [confettiDuration, setConfettiDuration] = useState(5000);
+    const [confettiDuration, setConfettiDuration] = useState(1000);
     const StepMain = styled(Box)(({ theme }) => ({
         position: 'relative',
         width: '100%'
@@ -33,7 +33,7 @@ export default function CustomStepper() {
             '.tooltipStep' : {
                 opacity: '1',
                 visibility: 'visible',
-                transform: 'translate(3px, 0)'
+
             }
         },
         '&.active': {
@@ -112,12 +112,12 @@ export default function CustomStepper() {
     const handleStepClick = stepNumber => {
         if (stepNumber === 9) {
             setShowConfetti(true);
-            // Swal.fire({
-            //     title: 'Congratulations!',
-            //     text: 'You are at the final stage!',
-            //     icon: 'success',
-            //     confirmButtonText: 'OK'
-            // });
+            Swal.fire({
+                title: 'Congratulations!',
+                text: 'You are at the final stage!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
             setTimeout(() => {
                 setShowConfetti(false);
             }, confettiDuration);
@@ -201,12 +201,9 @@ export default function CustomStepper() {
                         <LineWrapper style={{ right: '0', bottom: '20px'}}><Line></Line></LineWrapper>
                     </Box>
                 </StepsWrap>
+                {showConfetti && ( <Confetti   width={window.innerWidth} height={window.innerHeight} recycle={false} /> )}
             </StepMain>
-            {showConfetti && ( <Confetti   width={window.innerWidth}
-          height={window.innerHeight}
-          recycle={false}
-        />
-      )}
+       
         </Box>
     )
 }
