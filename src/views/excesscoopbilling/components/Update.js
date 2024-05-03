@@ -6,12 +6,12 @@ import '../../../theme/Marquee.css';
 const TypographyStyled = styled(Typography)(({ theme }) => ({
 	color: theme.palette.primary.main,
 	borderBottom: '1px solid',
-	borderColor: '#ccc', 
+	borderColor: '#ddd', 
 	paddingBottom: '10px'
 }));
 const BoxStyled = styled(Box)(({ theme }) => ({
 	border: '1px solid',
-	borderColor: theme.palette.primary.main,
+	borderColor: theme.palette.primary.light,
 	borderRadius: '7px',
 	padding: '10px 20px'
 }));

@@ -6,13 +6,12 @@
 }
 .marquee li {
     display: block;
-    padding: 0;
-    margin: 20px 0;
+    padding: 10px 0;
     position: relative;
     top: 5px;
 }
 .marquee li:not(:last-child) {
-    margin-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 @keyframes marquee {
     0% { transform: translateY(0); } 
