@@ -37,7 +37,7 @@ const RecoupedAmount = () => {
 			gradient: {
 			  shadeIntensity: 1,
 			  opacityTo: 0.2,
-			  stops: [80, 90, 100]
+			  stops: [60,80, 100]
 			}
 		},
 		marker: {

@@ -79,8 +79,11 @@ const TabStyled = styled(Tab)(({ theme }) => ({
             title={
                 <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Efficiency Assessment</Typography>
             }
+            action={
+                <Typography variant='h6' sx={{ color: theme.palette.text.dark }}>Audit Time Period</Typography>
+            }
         >
-            <Grid container>
+            <Grid container spacing={4} justifyContent='space-between'>
                 <Grid item md={4}>
                     <Tabs
                         orientation="vertical"
@@ -98,10 +101,10 @@ const TabStyled = styled(Tab)(({ theme }) => ({
                 </Grid>
                 <Grid item md={8}>
                     <TabPanel value={value} index={0}>
-                        <Grid container>
+                        <Grid container spacing={4} justifyContent='space-between'>
                             <Grid item mt={1}>
                                 <Typography variant='body2' style={{ color: theme.palette.text.dark ,fontSize:'11px'}} fontWeight={600} mb={3}> 1-Apr-2017 to 31-Oct-2021</Typography>
-                                <Grid container spacing={3} mb={3}>
+                                <Grid container spacing={3} mb={3} justifyContent='space-between'>
                                     <Grid item xs={8}>
                                         <Typography variant='body2'  sx={{color: theme.palette.success.dark}} fontWeight={600}>Agreements Scanned</Typography>
                                     </Grid>
