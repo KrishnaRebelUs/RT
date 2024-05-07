@@ -6,6 +6,7 @@ import { IconBellRinging, IconMenu2 ,IconMail} from '@tabler/icons-react';
 import { useTheme } from '@emotion/react';
 import SelectSearch from './SelectSearch';
 import SelectCurrency from './SelectCurrency';
+import Flag from './Flag';
 
 const Header = (props) => {
 
@@ -28,7 +29,7 @@ const Header = (props) => {
   return (
     <AppBarStyled position="sticky" color="default">
       <ToolbarStyled>
-        <IconButton
+        {/* <IconButton
           color="info"
           aria-label="menu"
           onClick={props.toggleMobileSidebar}
@@ -37,7 +38,7 @@ const Header = (props) => {
           }}
         >
           <IconMenu2 width="23" height="23" stroke="1.5" />
-        </IconButton>
+        </IconButton> */}
           <Grid container spacing={2} marginLeft='5px'>
             <Grid item xs={3}> <SelectSearch /></Grid>
             <Grid item xs className="currency-slector"> <SelectCurrency /></Grid>
@@ -45,6 +46,7 @@ const Header = (props) => {
 
         <Box flexGrow={1} />
           <Stack spacing={1} direction="row" alignItems="center">
+            <Flag />
             <IconButton
               size="large"
               aria-label="show 11 new notifications"

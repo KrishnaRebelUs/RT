@@ -13,6 +13,7 @@ import {IconChevronRight,IconThumbUp,IconExclamationCircle, IconThumbDown } from
 import BarChart from '../components/pages/Barchart';
 import moment from 'moment';
 import CustomStepper from '../components/pages/CustomStepper';
+import RangeChart from "../components/pages/RangeChart";
 
 export const ExportCSVBTN = () => {
 
@@ -131,7 +132,7 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={6}>
-							<DashboardCard title={<Typography variant='h4'>Current Progress</Typography>}>
+							<DashboardCard title={<Typography variant='h4'>Current Progress</Typography>} >
 								<CustomStepper account={account} />
 							</DashboardCard>
 						</Grid>
@@ -186,6 +187,11 @@ const ShortageClaim = () => {
 				<Grid item xs={12}>
 					<DashboardCard  title={<Typography variant='h4'>FinOps-Shortage Claim</Typography>}>
 				    	<FinopsTable />
+					</DashboardCard>
+				</Grid>
+				<Grid item xs={12}>
+					<DashboardCard>
+				    	<RangeChart />
 					</DashboardCard>
 				</Grid>
 			</Grid>

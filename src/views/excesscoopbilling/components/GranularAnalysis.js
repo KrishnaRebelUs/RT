@@ -58,7 +58,7 @@ const GranularAnalysis = () => {
         <DashboardCard title={
             <Typography variant='h5' sx={{ color: theme.palette.text.dark }}>Granular Analysis</Typography>}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
-                <Table aria-label="simple table" sx={{ whiteSpace: "nowrap" }}>
+                <Table aria-label="simple table" sx={{ whiteSpace: "wrap" }}>
                     <TableHeadStyled theme={theme}>
                         <TableRow>
                             <TableTypography variant="subtitle2" fontWeight={600}>Sub-type</TableTypography>
@@ -77,17 +77,18 @@ const GranularAnalysis = () => {
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="tableData">
-                                        ${new Intl.NumberFormat().format(product.Findings$)}
+                                       ${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 }).format(product.Findings$)}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="tableData">
-                                    ${new Intl.NumberFormat().format(product.PriorAdjustments$)}
+                                    ${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 }).format(product.PriorAdjustments$)}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Typography variant="tableData">
-                                        {product.NetOff}
+                                    ${new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 }).format(product.NetOff)}
+                                       
                                     </Typography>
                                 </TableCell>
                             </TableRowStyled>

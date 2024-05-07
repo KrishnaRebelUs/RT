@@ -1,0 +1,6 @@
+div.avatar-popup .css-1g20yy2-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50% ,-50%) !important;
+  box-shadow: 0 9px 17.5px rgb(0,0,0,0.6)  !important;
+}

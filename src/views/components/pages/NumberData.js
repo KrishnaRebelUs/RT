@@ -41,6 +41,7 @@ const NumberData = (props) => {
 
   return (
     <Box>
+      <Typography variant='h5' marginBottom={3}> Efforts to Audit</Typography>
       <Stack direction='column'>
         {data.map((section, index) => (
           <React.Fragment key={index}>
