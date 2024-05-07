@@ -234,35 +234,35 @@ export default function CustomStepper({ account }) {
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    {/* <Steps style={{ left: '0', right: '0', top: 'calc(50% - 20px)', margin: 'auto' }}>
-                        <Circle className="circle">5</Circle>
-                        <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body2" fontSize='12px'>Settlement Offer Received from Amazon – Offer Shared with Customer</Typography>
-                            <Tooltipline className="tooltipLine"></Tooltipline>
-                        </TooltipStep>    
-                    </Steps> */}
-                    <Steps style={{ left: '0', top: 'calc(50% - 20px)' }}>
+                    <Steps style={{ left: '0', right: '0', top: 'calc(50% - 20px)', margin: 'auto' }}>
                         <Circle className="circle">5</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Counteroffer Presented to Amazon – Counteroffer Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps style={{ bottom: '0' }}>
+                    <Steps style={{ left: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">6</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
-                            <Typography variant="body2"fontSize='12px'>Revised Settlement Offer from Amazon – Revised Offer Shared with Customer</Typography>
+                            <Typography variant="body2" fontSize='12px'> Revised Settlement Offer from Amazon – Revised Offer Shared with Customer</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
+                    <Steps style={{ bottom: '0' }}>
                         <Circle className="circle">7</Circle>
+                        <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
+                            <Typography variant="body2"fontSize='12px'>Final Settlement Accepted – Settlement Accepted</Typography>
+                            <Tooltipline className="tooltipLine"></Tooltipline>
+                        </TooltipStep>    
+                    </Steps>
+                    {/* <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
+                        <Circle className="circle">8</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Final Settlement Accepted – Settlement Accepted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
-                    </Steps>
-                    <Steps style={{ right: '0', bottom: '0' }}>
+                    </Steps> */}
+                    <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
                         <Circle style={{ zIndex: '999' }}><img width="50" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}/></Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '60px' }}>
                             <Typography variant="body2" fontSize='12px'>Amount credited to VC account – WINNNNNN</Typography>
@@ -277,7 +277,7 @@ export default function CustomStepper({ account }) {
                         <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ left: '0', bottom: '20px'}}><Line></Line></LineWrapper>
-                        <LineWrapper style={{ right: '0', bottom: '20px'}}><Line></Line></LineWrapper>
+                        {/* <LineWrapper style={{ right: '0', bottom: '20px'}}><Line></Line></LineWrapper> */}
                     </Box>
                 </StepsWrap>
                 {showConfetti && ( <Confetti   width={window.innerWidth} height={window.innerHeight} recycle={false} /> )}

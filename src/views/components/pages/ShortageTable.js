@@ -159,11 +159,15 @@ const ShortageTable = () => {
 
     return (
         <DashboardCard>
-            <Grid container spacing={2} marginBottom={3} alignItems='center'>
-                <Grid item><Typography variant='h4'>Shortage Claim Finding </Typography></Grid>
-                <Grid item><ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
-                <Grid item><ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
-                <Grid item><ButtonStyled><BoxStyled>View Details</BoxStyled></ButtonStyled></Grid>
+            <Grid container spacing={3} marginBottom={3} alignItems='center'>
+                <Grid item xs={5}><Typography variant='h4'>Shortage Claim Finding </Typography></Grid>
+                <Grid item xs={7}>
+                    <Grid container spacing={1}>
+                        <Grid item><ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
+                        <Grid item><ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
+                        <Grid item><ButtonStyled><BoxStyled>View Details</BoxStyled></ButtonStyled></Grid>
+                    </Grid>
+                </Grid>
             </Grid>
             <DataGrid
                 rows={shortagetble}

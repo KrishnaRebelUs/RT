@@ -66,7 +66,7 @@ const NumberData = (props) => {
             
 
             </Box>
-            {index !== data.length - 1 && <Box mb={2}></Box>}
+            {/* {index !== data.length - 1 && <Box mb={2}></Box>} */}
           </React.Fragment>
         ))}
       </Stack>

@@ -132,7 +132,7 @@ const ShortageClaim = () => {
 							<ShortageTable />
 						</Grid>
 						<Grid item xs={12} lg={6}>
-							<DashboardCard title={<Typography variant='h4'>Current Progress</Typography>} >
+							<DashboardCard title={<Typography variant='h4'>Current Progress</Typography>}>
 								<CustomStepper account={account} />
 							</DashboardCard>
 						</Grid>
