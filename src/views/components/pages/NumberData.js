@@ -41,7 +41,7 @@ const NumberData = (props) => {
 
   return (
     <Box>
-      <Typography variant='h5' marginBottom={3}> Efforts to Audit</Typography>
+      <Typography variant='h4' marginBottom={3}> Efforts to Audit</Typography>
       <Stack direction='column'>
         {data.map((section, index) => (
           <React.Fragment key={index}>
@@ -66,7 +66,6 @@ const NumberData = (props) => {
             
 
             </Box>
-            {index !== data.length - 1 && <Box mb={2}></Box>}
           </React.Fragment>
         ))}
       </Stack>

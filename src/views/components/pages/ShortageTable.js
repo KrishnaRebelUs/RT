@@ -159,7 +159,7 @@ const ShortageTable = () => {
 
     return (
         <DashboardCard>
-            <Grid container spacing={2} marginBottom={3} alignItems='center'>
+            <Grid container spacing={1} marginBottom={3} alignItems='center'>
                 <Grid item><Typography variant='h4'>Shortage Claim Finding </Typography></Grid>
                 <Grid item><ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
                 <Grid item><ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="16" style={{ margin: 'auto', verticalAlign: 'middle' }} /></BoxStyled></ButtonStyled></Grid>
