@@ -127,3 +127,14 @@ div.css-13cymwt-control:focus {
 	padding: 10px;
 	padding-left: 40px;
 }
+.select-search.Mui-selected.Mui-focusVisible{
+	background-color: var(--primary) !important;
+	color: #fff !important;
+}
+.select-search.Mui-selected{
+	background-color: var(--primary) !important;
+	color: #fff !important;
+}
+.select-search .search-list{
+	padding: 5px;
+}

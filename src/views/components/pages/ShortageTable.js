@@ -35,27 +35,38 @@ const BoxStyled = styled(Box)(({ theme }) => ({
 const TableCellStyled = styled(TableCell)(({ theme }) => ({
     fontSize: '12px',
     fontWeight: '600',
+    padding: '7px 16px'
 }));
 
 const ShortageTable = () => {
     const theme = useTheme();
     const [editableId, setEditableId] = useState(null);
     const [editedValues, setEditedValues] = useState({});
-    const [open, setOpen] = useState(false);
+    const [editDialogOpen, setEditDialogOpen] = useState(false);
+    const [viewDialogOpen, setViewDialogOpen] = useState(false);
     const [editedValue, setEditedValue] = useState('');
+    const [selectedRow, setSelectedRow] = useState(null);
 
     const formatNumber = (number) => new Intl.NumberFormat().format(number);
     const handleEdit = (id) => {
         console.log("Edit clicked for id:", id);
         setEditableId(id);
-        setOpen(true);
         setEditedValue(editedValues[id] || (shortagetble.find(item => item.id === id)?.Active?.[0]) || '');
+        setEditDialogOpen(true);
     };
 
-    const handleView = (id) => {
-        console.log("View clicked for id:", id);
+    const handleView = (row) => {
+        console.log("View clicked for row:", row);
+        setSelectedRow(row);
+        setViewDialogOpen(true);
+    };
+    const handleCloseEdit = () => {
+        setEditDialogOpen(false);
     };
 
+    const handleCloseView = () => {
+        setViewDialogOpen(false);
+    };
     const handleInputChange = (event) => {
         setEditedValue(event.target.value);
     };
@@ -66,8 +77,9 @@ const ShortageTable = () => {
 
     const handleSave = () => {
         setEditedValues({ ...editedValues, [editableId]: editedValue });
-        setOpen(false);
+        setEditDialogOpen(false);
     };
+
 
     const shortagetble = [
         {
@@ -148,8 +160,7 @@ const ShortageTable = () => {
                 <TableHead>
                     <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
                         <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Settlement</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}></TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active Case($)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -157,52 +168,51 @@ const ShortageTable = () => {
                         <TableRow key={row.id}>
                             <TableCellStyled>{row.Settlement}</TableCellStyled>
                             <TableCellStyled style={{ color: row.color }}>
-                                {Array.isArray(row.Active) ? (
-                                    <>
-                                        {row.Active.map((item, index) => (
-                                            <span key={index}>
-                                                {index > 0 && <br />}
-                                                {editableId === row.id ? (
-                                                    <Input 
-                                                        value={editedValue} 
-                                                        onChange={handleInputChange} 
-                                                    />
-                                                ) : (
-                                                    item
-                                                )}
-                                            </span>
-                                        ))}
-                                    </>
-                                ) : editableId === row.id ? (
-                                    <Input 
-                                        value={editedValue} 
-                                        onChange={handleInputChange} 
-                                    />
-                                ) : (
-                                    row.Active
-                                )}
-                                {row.id  && (
-                                    <>
-                                        <IconButton onClick={() => handleEdit(row.id)}><IconPencil size="16" /></IconButton>
-                                        <IconButton onClick={() => handleView(row.id)}><IconEye size="16" /></IconButton>
-                                    </>
-                                )}
-                            </TableCellStyled>
-                            <TableCellStyled> 
-                                <ButtonStyled><BoxStyled>Upload</BoxStyled></ButtonStyled>
+                                {row.Active.map((value, index) => (
+                                    <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
+                                        {value}
+                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
+                                        <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row)} />
+                                        <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>
+                                    </Box>
+                                ))}
                             </TableCellStyled>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={editDialogOpen} onClose={handleCloseEdit}>
                 <DialogTitle>Edit Value</DialogTitle>
                 <DialogContent>
                     <Input value={editedValue} onChange={handleInputChange} />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleCloseEdit}>Cancel</Button>
                     <Button onClick={handleSave}>Save</Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog open={viewDialogOpen} onClose={handleCloseView}>
+                <DialogTitle>{selectedRow ? selectedRow.Settlement : ''}</DialogTitle>
+                <DialogContent>
+                    <Table>
+                        <TableHead>
+                            <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
+                                <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Settlement</TableCell>
+                                <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active Case($)</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {selectedRow && selectedRow.Active.map((value, index) => (
+                                <TableRow key={index}>
+                                    <TableCell>{index === 0 ? selectedRow.Settlement : ''}</TableCell>
+                                    <TableCell>{value}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseView}>Close</Button>
                 </DialogActions>
             </Dialog>
         </DashboardCard>

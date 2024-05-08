@@ -191,9 +191,9 @@ const Profile = () => {
                   }}
                   onClick={() => handleAvatarSelect(avatar.src, index)}
                 />
-                <Typography variant="body2" align="center" mt={1}>
+                {/* <Typography variant="body2" align="center" mt={1}>
                   Avatar {index + 1}
-                </Typography>
+                </Typography> */}
               </Grid>
             ))}
           </Grid>
