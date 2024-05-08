@@ -4,3 +4,10 @@ div.avatar-popup .css-1g20yy2-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
   transform: translate(-50% ,-50%) !important;
   box-shadow: 0 9px 17.5px rgb(0,0,0,0.6)  !important;
 }
+
+div.profile-dropdown .css-1g20yy2-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+	top: 64px;
+	left: 1320px !important;
+	width: 180px;
+
+}
