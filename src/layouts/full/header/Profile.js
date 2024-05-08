@@ -17,7 +17,6 @@ import {
   Typography,
   TextField,styled,Stack
 } from '@mui/material';
-import '../../../theme/Avatar.css';
 
 import { IconSettings, IconBriefcase, IconUser,IconX } from '@tabler/icons-react';
 
@@ -122,7 +121,7 @@ const Profile = () => {
         onClose={handleClose}
         className="profile-dropdown"
       >
-        <MenuItem onClick={handleAvatarMenuOpen} >
+        <MenuItem onClick={handleAvatarMenuOpen} minWidth='500'>
           <ListItemIcon>
             <IconUser width={20} />
           </ListItemIcon>
@@ -188,7 +187,7 @@ const Profile = () => {
                     width: 64,
                     height: 64,
                     cursor: 'pointer',
-                    border: index === selectedAvatarIndex ? '2px solid blue' : 'none',
+                    border: index === selectedAvatarIndex ? '2px solid #5C84C3' : '2px solid #ddd',
                   }}
                   onClick={() => handleAvatarSelect(avatar.src, index)}
                 />
