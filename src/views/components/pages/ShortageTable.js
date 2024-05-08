@@ -43,34 +43,8 @@ const ShortageTable = () => {
     const [editedValues, setEditedValues] = useState({});
     const [open, setOpen] = useState(false);
     const [editedValue, setEditedValue] = useState('');
-
-    const formatNumber = (number) => new Intl.NumberFormat().format(number);
-    const handleEdit = (id) => {
-        console.log("Edit clicked for id:", id);
-        setEditableId(id);
-        setOpen(true);
-        // Initialize edited value with the current value, or an empty string if not set
-        setEditedValue(editedValues[id] || (shortagetble.find(item => item.id === id)?.Active?.[0]) || '');
-    };
-
-    const handleView = (id) => {
-        console.log("View clicked for id:", id);
-    };
-
-    const handleInputChange = (event) => {
-        setEditedValue(event.target.value);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
-
-    const handleSave = () => {
-        setEditedValues({ ...editedValues, [editableId]: editedValue });
-        setOpen(false);
-    };
-
-    const shortagetble = [
+    const [indexOfEditedValue, setIndexOfEditedValue] = useState(0);
+    const [shortagetble, setShortageTable] = useState([
         {
             id:1,
            Settlement: "Shortage Claim Finding",
@@ -131,7 +105,36 @@ const ShortageTable = () => {
          
          },
      
-    ];
+    ]);
+
+    const formatNumber = (number) => new Intl.NumberFormat().format(number);
+    const handleEdit = (id,index) => {
+        console.log("Edit clicked for id:", id);
+        setEditableId(id);
+        setOpen(true);
+        setEditedValue(shortagetble.find(item => item.id === id).Active[index]);
+        setIndexOfEditedValue(index);
+    };
+
+    const handleView = (id) => {
+        console.log("View clicked for id:", id);
+    };
+
+    const handleInputChange = (event) => {
+        setEditedValue(event.target.value);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleSave = () => {
+
+        // setShortageTable(shortagetble.map(item => item.id === editableId ? { ...item, Active: [editedValue] } : item));
+        let updatedTable = [...shortagetble];
+        updatedTable.find(item => item.id === editableId).Active[indexOfEditedValue] = editedValue;
+        setOpen(false);
+    };
 
     return (
         <DashboardCard>
@@ -158,36 +161,14 @@ const ShortageTable = () => {
                         <TableRow key={row.id}>
                             <TableCellStyled>{row.Settlement}</TableCellStyled>
                             <TableCellStyled style={{ color: row.color }}>
-                                {Array.isArray(row.Active) ? (
+                                {row.Active.map((value, index) => (
                                     <>
-                                        {row.Active.map((item, index) => (
-                                            <span key={index}>
-                                                {index > 0 && <br />}
-                                                {editableId === row.id ? (
-                                                    <Input 
-                                                        value={editedValue} 
-                                                        onChange={handleInputChange} 
-                                                    />
-                                                ) : (
-                                                    item
-                                                )}
-                                            </span>
-                                        ))}
+                                    {value}
+                                    <IconPencil key={index} size={16} style={{ cursor: 'pointer', marginRight: '8px' }} onClick={() => handleEdit(row.id,index)} />
+                                    <br />
                                     </>
-                                ) : editableId === row.id ? (
-                                    <Input 
-                                        value={editedValue} 
-                                        onChange={handleInputChange} 
-                                    />
-                                ) : (
-                                    row.Active
-                                )}
-                                {row.id  && (
-                                    <>
-                                        <IconButton onClick={() => handleEdit(row.id)}><IconPencil size="16" /></IconButton>
-                                        <IconButton onClick={() => handleView(row.id)}><IconEye size="16" /></IconButton>
-                                    </>
-                                )}
+                                ))}
+                                <IconEye size={16} style={{ cursor: 'pointer', marginRight: '8px' }} onClick={() => handleView(row.id)} />
                             </TableCellStyled>
                             <TableCellStyled> 
                                 <ButtonStyled><BoxStyled>Upload</BoxStyled></ButtonStyled>
@@ -200,6 +181,7 @@ const ShortageTable = () => {
                 <DialogTitle>Edit Value</DialogTitle>
                 <DialogContent>
                     <Input value={editedValue} onChange={handleInputChange} />
+                    
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
