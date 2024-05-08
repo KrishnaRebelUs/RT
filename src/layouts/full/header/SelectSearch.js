@@ -20,7 +20,7 @@ const names = [
 ];
 
 const SelectSearch = () => {
-  const [personName, setPersonName] = React.useState([names[0]]); // Initialize with first item
+  const [personName, setPersonName] = React.useState([names[0]]); 
 
   const handleChange = (event) => {
     const {
@@ -47,8 +47,8 @@ const SelectSearch = () => {
           MenuProps={MenuProps}
         >
           {names.map((name) => (
-            <MenuItem key={name} value={name}>
-              <ListItemText primary={name} />
+            <MenuItem key={name} value={name}  className='select-search'>
+              <ListItemText primary={name} className='search-list' />
             </MenuItem>
           ))}
         </Select>
