@@ -97,11 +97,11 @@ const FinancialScorecard = () => {
                          <Grid item xs={12}>
 							<Stack direction='row' spacing={2}>
                                 <Typography variant="h3">Yearly Comparison</Typography>
-								<FormGroup>
+								{/* <FormGroup>
 								<FormControlLabel
 									control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
 								/>
-								</FormGroup>
+								</FormGroup> */}
 							</Stack>
 						 </Grid>
 						</Grid>

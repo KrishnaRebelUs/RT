@@ -26,6 +26,20 @@ const PriceClaim = () => {
 			color: 'white',
 		  },
 	}));
+	const ButtonNewStyled = styled(Button)(({ theme }) => ({
+        backgroundColor: theme.palette.primary.contrast,
+        border: '1px solid',
+        borderColor: theme.palette.primary.contrast,
+        color: theme.palette.primary.contrastText,
+        fontSize: '10px',
+        padding: '2px 6px',
+        fontWeight: '600',
+        '&:hover': {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.primary.contrastText,
+            borderColor: theme.palette.primary.main
+        },
+    }));
 	const ClaimCard = styled(Box)(({ theme }) => ({
 		position: 'relative',
 		minHeight: '200px',
@@ -77,7 +91,7 @@ const PriceClaim = () => {
 										<Typography variant='h6'>Total Approved</Typography>
 									}
 									action={
-										<ButtonStyled component={Link} to="/shortage-log">View Details <IconChevronRight size="16" /></ButtonStyled>
+										<ButtonNewStyled component={Link} to="/shortage-log">View Details <IconChevronRight size="16" /></ButtonNewStyled>
 									}
 								>
 									<Typography variant='h4' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(4942234)}</Typography>

@@ -11,6 +11,7 @@ const Excesscoopbilling = Loadable(lazy(() => import('../views/excesscoopbilling
 const ManageDispute = Loadable(lazy(() => import('../views/excesscoopbilling/ManageDispute')));
 const ShortageLog = Loadable(lazy(() => import('../views/shortage/Shortagelog')));
 const Shortage = Loadable(lazy(() => import('../views/shortage/ShortageClaim')));
+const ShortageClaimFinding = Loadable(lazy(() => import('../views/shortage/ShortageClaimFinding')));
 const PriceClaim = Loadable(lazy(() => import('../views/priceclaim/PriceClaim')));
 const FinancialScorecard = Loadable(lazy(() => import('../views/financialscorecard/FinancialScorecard')));
 const MissedInvoicing = Loadable(lazy(() => import('../views/missedinvoicing/MissedInvoicing')));
@@ -30,6 +31,7 @@ const Router = [
       { path: '/manage-dispute', exact: true, element: <ManageDispute /> }, 
       { path: '/shortage-log', exact: true, element: <ShortageLog /> }, 
       { path: '/price-claim', exact: true, element: <PriceClaim /> }, 
+      { path: '/shortage-claim-finding', exact: true, element: <ShortageClaimFinding /> }, 
       { path: '/financial-scorecard', exact: true, element: <FinancialScorecard /> }, 
       { path: '/missed-invoicing', exact: true, element: <MissedInvoicing /> }, 
     ],
