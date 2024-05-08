@@ -35,6 +35,7 @@ const BoxStyled = styled(Box)(({ theme }) => ({
 const TableCellStyled = styled(TableCell)(({ theme }) => ({
     fontSize: '12px',
     fontWeight: '600',
+    padding: '7px 16px'
 }));
 
 const ShortageTable = () => {
@@ -162,16 +163,13 @@ const ShortageTable = () => {
                             <TableCellStyled>{row.Settlement}</TableCellStyled>
                             <TableCellStyled style={{ color: row.color }}>
                                 {row.Active.map((value, index) => (
-                                    <>
-                                    {value}
-                                    <IconPencil key={index} size={16} style={{ cursor: 'pointer', marginRight: '8px' }} onClick={() => handleEdit(row.id,index)} />
-                                    <br />
-                                    </>
+                                    <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
+                                        {value}
+                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
+                                        <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row.id)} />
+                                        <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>
+                                    </Box>
                                 ))}
-                                <IconEye size={16} style={{ cursor: 'pointer', marginRight: '8px' }} onClick={() => handleView(row.id)} />
-                            </TableCellStyled>
-                            <TableCellStyled> 
-                                <ButtonStyled><BoxStyled>Upload</BoxStyled></ButtonStyled>
                             </TableCellStyled>
                         </TableRow>
                     ))}
