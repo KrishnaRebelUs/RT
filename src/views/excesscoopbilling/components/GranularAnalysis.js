@@ -15,7 +15,8 @@ const TableHeadStyled = styled(TableHead)(({ theme }) => ({
 const TableTypography = styled(TableCell)(({ theme }) => ({
     color: 'white',
     fontWeight: '600',
-    fontSize: '12px'
+    fontSize: '12px',
+    whiteSpace: 'nowrap'
 }));
 const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',

@@ -86,7 +86,7 @@ const RecentTransactions = () => {
             }}
           >
             <TimelineItem>
-              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/14/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>14/11/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
                 <TimelineConnector />
@@ -96,7 +96,7 @@ const RecentTransactions = () => {
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/13/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>13/11/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="accent" variant="outlined" />
                 <TimelineConnector />
@@ -116,7 +116,7 @@ const RecentTransactions = () => {
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/10/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>10/11/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
               </TimelineSeparator>
@@ -125,7 +125,7 @@ const RecentTransactions = () => {
               </TimelineContent>
             </TimelineItem>
             <TimelineItem>
-              <TimelineOppositeContent  style={{padding: '6px 8px'}}>11/10/24</TimelineOppositeContent>
+              <TimelineOppositeContent  style={{padding: '6px 8px'}}>10/11/24</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="success" variant="outlined" />
               </TimelineSeparator>
