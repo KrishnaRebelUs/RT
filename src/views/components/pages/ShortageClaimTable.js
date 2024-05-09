@@ -168,7 +168,7 @@ const ShortageClaimTable = () => {
                     <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
                         <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Settlement</TableCell>
                         <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Active Cases($)</TableCell>
-                        {/* <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Archived</TableCell> */}
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Archived</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -185,13 +185,13 @@ const ShortageClaimTable = () => {
                                     </Box>
                                 ))}
                             </TableCellStyled>
-                           {/* <TableCellStyled style={{ color: row.color }}>
+                           <TableCellStyled style={{ color: row.color }}>
                                 {row.Archived.map((value, index) => (
                                     <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
                                         {value}
                                     </Box>
                                 ))}
-                           </TableCellStyled> */}
+                           </TableCellStyled>
                         </TableRowStyled>
                     ))}
                 </TableBody>
