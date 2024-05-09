@@ -43,6 +43,9 @@ const Flag = () => {
       case 'Germany':
         setSelectedAvatar(germany);
         break;
+        case 'Italian':
+          setSelectedAvatar(italy);
+          break;
       default:
         setSelectedAvatar(eng);
     }
