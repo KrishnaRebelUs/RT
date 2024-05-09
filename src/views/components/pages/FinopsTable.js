@@ -37,6 +37,53 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 
     }
 }));
+const CustomProgressBar = styled(Box)(({ theme }) => ({
+    height: '5px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+    position: 'relative'
+
+}));
+const ProgressLight = styled(Box)(({ theme }) => ({
+    width: '65%',
+    height: '100%',
+    borderRadius: '7px'
+}));
+const ProgressDark = styled(Box)(({ theme }) => ({
+    width: '35%',
+    height: '100%',
+    borderRadius: '7px'
+}));
+const ProgressText = styled(Box)(({ theme }) => ({
+    width: '100px',
+    height: '22px', 
+    textAlign: 'center', 
+    borderRadius: '7px', 
+    position: 'absolute',
+    left: '-5px',
+    bottom: '15px', 
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '20px',
+    fontWeight: '500'
+}));
+const ProgressLabel = styled(Box)(({ theme }) => ({
+    width: '42px',
+    height: '22px', 
+    textAlign: 'center', 
+    borderRadius: '7px', 
+    position: 'absolute',
+    right: '-20px',
+    bottom: '15px', 
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '12px',
+}));
 const BoxStyled = styled(Box)(({ theme }) => ({
    
     padding: '5px 12px',
@@ -209,18 +256,18 @@ const FinopsTable = () => {
                                     <TabStyled label="Pending" value="3" />
                                     <TabStyled label="All" value="4" />
                                 </TabList>
-                            <Grid container spacing={2}  justifyContent='end' alignItems="center">
-                                <Grid item xs={5} xl={4}style={{paddingTop:'0'}}>
-                                    <Stack direction='row' spacing={3} style={{columnGap:'13px', marginTop:'15px'}}>
-                                            <Box>
-                                                <Typography variant='h6' style={{color: theme.palette.success.main,}} className="win-rate-text"> Win Rate</Typography>
-                                            </Box>
-                                            <Box>
-                                                <Typography variant="body2" style={{backgroundColor: '#2AC670', color: "#fff", fontSize:'14px',lineHeight:'25px', width:"50px", height:'25px',textAlign:'center', marginLeft:'42px'}} className="win-rate-number">66%</Typography>
-                                            </Box>
-                                        </Stack>
+                            <Grid container spacing={2}  justifyContent='end' alignItems="end">
+                                <Grid item xs={4} xl={4}style={{paddingTop:'0'}}>
+                                    <Box style={{ width: 'calc(100% - `10px)' }} mx={'auto'}>
+                                        <CustomProgressBar width="66%">
+                                            <ProgressLight style={{ backgroundColor: theme.palette.success.light }}></ProgressLight>
+                                            <ProgressText style={{ color: theme.palette.success.main }}>Win Rate</ProgressText>
+                                            <ProgressDark style={{ backgroundColor: theme.palette.success.main }}></ProgressDark>
+                                            <ProgressLabel style={{ backgroundColor: theme.palette.success.main }}>66% <Box component="span" style={{ borderColor: theme.palette.success.main }}></Box></ProgressLabel>
+                                        </CustomProgressBar>
+                                    </Box>
                                 </Grid>
-                                <Grid>
+                                <Grid item style={{paddingTop:'0'}}>
                                     <Stack direction='row' spacing={2} style={{marginTop:'16px'}}>
                                             <ButtonStyled><BoxStyled>Import</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowLeft size="18" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
                                             <ButtonStyled><BoxStyled>Export</BoxStyled> <span className='btn-indicator'></span> <BoxStyled><IconFileArrowRight size="18" style={{margin:'auto', verticalAlign:'middle'}}/></BoxStyled></ButtonStyled>
