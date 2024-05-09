@@ -159,8 +159,8 @@ const ShortageTable = () => {
             <Table>
                 <TableHead>
                     <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Settlement</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active Case($)</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Settlement</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Active Case($)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -171,9 +171,9 @@ const ShortageTable = () => {
                                 {row.Active.map((value, index) => (
                                     <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
                                         {value}
-                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
+                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id, index)} />
                                         <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row)} />
-                                        <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>
+                                        {row.Settlement === "Shortage Claim Finding" && index === 0 && <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>}
                                     </Box>
                                 ))}
                             </TableCellStyled>

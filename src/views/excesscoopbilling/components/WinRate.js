@@ -1,15 +1,41 @@
 import React from 'react';
 
 import { useTheme } from '@mui/material/styles';
-import { Box, Typography,Grid,Stack,styled } from '@mui/material';
+import { Box, Typography,Grid,Stack,styled, LinearProgress } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
-import { display, height } from '@mui/system';
+import astraunaut from '../../../assets/images/profile/astronaut.png';
+import running from '../../../assets/images/profile/running.gif';
 
 
 const WinRate = () => {
     const theme = useTheme();
+    const [progress, setProgress] = React.useState(0);
+
+    React.useEffect(() => {
+      const timer = setInterval(() => {
+        setProgress((oldProgress) => {
+          if (oldProgress === 100) {
+            return 0;
+          }
+          const diff = Math.random() * 10;
+          return Math.min(oldProgress + diff, 100);
+        });
+      }, 500);
+  
+      return () => {
+        clearInterval(timer);
+      };
+    }, []);
 
     const CustomProgressBar = styled(Box)(({ theme }) => ({
+        height: '5px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+        position: 'relative'
+
+    }));
+    const linearProgressBar = styled(LinearProgress)(({ theme }) => ({
         height: '5px',
         display: 'flex',
         alignItems: 'center',
@@ -137,9 +163,27 @@ const WinRate = () => {
                     </Grid>
                 </Grid>
             </Box>
-            <Box>
-                
-            </Box>
+            {/* {No Data} */}
+            {/* <Box>
+                <Box style={{textAlign:'center'}} mb={2}>
+                    <img src={astraunaut} alt=''/>
+                    <Typography variant='h3'>No Data</Typography>
+                </Box>
+                <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
+                    <LinearProgress variant="determinate" value={5} />
+                </Box>
+            </Box> */}
+                 {/* {Approval Pending} */}
+            {/* <Box>
+                <Box style={{textAlign:'center'}} mb={2}>
+                    <img src={running} alt=''/>
+                    <Typography variant='h3'>Approval Pending</Typography>
+                </Box>
+                <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
+                    <LinearProgress variant="determinate" value={50} height='5px' />
+                </Box>
+             
+            </Box> */}
         </DashboardCard>
     );
 };
