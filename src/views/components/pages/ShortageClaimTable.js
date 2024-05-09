@@ -8,7 +8,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.palette.primary.contrast,
     color: theme.palette.primary.contrastText,
-    fontSize: '11px',
+    fontSize: '12px',
     padding: '0',
     fontWeight: '600',
     transition: 'all ease 0.3s',
@@ -26,13 +26,17 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 }));
 
 const BoxStyled = styled(Box)(({ theme }) => ({
-    padding: '3px 8px',
+    padding: '5px 12px',
     fontWeight: '600',
 }));
 
 const TableCellStyled = styled(TableCell)(({ theme }) => ({
     fontSize: '12px',
     fontWeight: '600',
+}));
+const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
+    borderBottom: '1px solid #eee',
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
 }));
 
 const ShortageClaimTable = () => {
@@ -162,14 +166,14 @@ const ShortageClaimTable = () => {
             <Table>
                 <TableHead>
                     <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Settlement</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Archived</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Settlement</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Active Cases($)</TableCell>
+                        {/* <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Archived</TableCell> */}
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {shortagetble.map((row) => (
-                        <TableRow key={row.id}>
+                    {shortagetble.map((row,index) => (
+                        <TableRowStyled key={row.id}  index={index} theme={theme}>
                             <TableCellStyled>{row.Settlement}</TableCellStyled>
                             <TableCellStyled style={{ color: row.color }}>
                                 {row.Active.map((value, index) => (
@@ -177,18 +181,18 @@ const ShortageClaimTable = () => {
                                         {value}
                                         <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
                                         <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row)} />
-                                        <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>
+                                        {row.Settlement === "Shortage Claim Finding" && index === 0 && <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>}
                                     </Box>
                                 ))}
                             </TableCellStyled>
-                           <TableCellStyled style={{ color: row.color }}>
+                           {/* <TableCellStyled style={{ color: row.color }}>
                                 {row.Archived.map((value, index) => (
                                     <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
                                         {value}
                                     </Box>
                                 ))}
-                           </TableCellStyled>
-                        </TableRow>
+                           </TableCellStyled> */}
+                        </TableRowStyled>
                     ))}
                 </TableBody>
             </Table>

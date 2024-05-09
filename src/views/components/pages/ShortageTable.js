@@ -26,7 +26,10 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
         marginLeft: '4px'
     }
 }));
-
+const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
+    borderBottom: '1px solid #eee',
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+}));
 const BoxStyled = styled(Box)(({ theme }) => ({
     padding: '3px 8px',
     fontWeight: '600',
@@ -159,25 +162,25 @@ const ShortageTable = () => {
             <Table>
                 <TableHead>
                     <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Settlement</TableCell>
-                        <TableCell style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>Active Case($)</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Settlement</TableCell>
+                        <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Active Cases($)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {shortagetble.map((row) => (
-                        <TableRow key={row.id}>
+                    {shortagetble.map((row,index) => (
+                        <TableRowStyled key={row.id} index={index} theme={theme}>
                             <TableCellStyled>{row.Settlement}</TableCellStyled>
                             <TableCellStyled style={{ color: row.color }}>
                                 {row.Active.map((value, index) => (
                                     <Box my={1} style={{ display: 'flex', alignItems: 'center' }}>
                                         {value}
-                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
+                                        <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id, index)} />
                                         <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row)} />
-                                        <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>
+                                        {row.Settlement === "Shortage Claim Finding" && index === 0 && <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>}
                                     </Box>
                                 ))}
                             </TableCellStyled>
-                        </TableRow>
+                        </TableRowStyled>
                     ))}
                 </TableBody>
             </Table>

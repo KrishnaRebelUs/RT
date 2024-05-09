@@ -5,6 +5,7 @@ import eng from '../../../assets/images/Flag/eng.svg';
 import french from '../../../assets/images/Flag/france.svg';
 import germany from '../../../assets/images/Flag/german.svg';
 import spain from '../../../assets/images/Flag/spain.svg';
+import italy from '../../../assets/images/Flag/italy.svg';
 
 const AvatarStyled = styled(Avatar)(({ theme }) => ({
   width: '20px',
@@ -81,13 +82,19 @@ const Flag = () => {
           <ListItemIcon>
             <AvatarStyled src={spain} alt="Spain" />
           </ListItemIcon>
-          <ListItemText primary="Spain" />
+          <ListItemText primary="Spanish" />
         </MenuItem>
         <MenuItem onClick={() => handleLanguageSelect('Germany')}>
           <ListItemIcon>
             <AvatarStyled src={germany} alt="Germany" />
           </ListItemIcon>
           <ListItemText primary="Germany" />
+        </MenuItem>
+        <MenuItem onClick={() => handleLanguageSelect('Italian')}>
+          <ListItemIcon>
+            <AvatarStyled src={italy} alt="Italian" />
+          </ListItemIcon>
+          <ListItemText primary="Italian" />
         </MenuItem>
       </Menu>
     </Box>
