@@ -82,7 +82,7 @@ const WinRate = () => {
                 <Typography variant='h4' mb={2}>Win Rate</Typography>
             }
         >
-            {/* <Box>
+            <Box>
                 <Grid container style={{borderBottom:'1px solid', borderColor: theme.palette.divider}} pb={3}>
                     <Grid item xs={12} mb={3}>
                         <Grid container alignItems="center">
@@ -162,9 +162,9 @@ const WinRate = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Box> */}
+            </Box>
             {/* {No Data} */}
-            <Box>
+            {/* <Box>
                 <Box style={{textAlign:'center'}} mb={2}>
                     <img src={astraunaut} alt=''/>
                     <Typography variant='h3'style={{color:theme.palette.error.main}}>No Data</Typography>
@@ -172,12 +172,12 @@ const WinRate = () => {
                 <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
                     <LinearProgress variant="determinate" value={5} />
                 </Box>
-            </Box>
+            </Box> */}
                  {/* {Approval Pending} */}
             {/* <Box>
                 <Box style={{textAlign:'center'}} mb={2}>
                     <img src={running} alt=''/>
-                    <Typography variant='h3'>Approval Pending</Typography>
+                    <Typography variant='h3'style={{color:theme.palette.success.main}}>Approval Pending</Typography>
                 </Box>
                 <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
                     <LinearProgress variant="determinate" value={50} height='5px' />
