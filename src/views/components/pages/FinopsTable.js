@@ -76,13 +76,21 @@ const ProgressLabel = styled(Box)(({ theme }) => ({
     textAlign: 'center', 
     borderRadius: '7px', 
     position: 'absolute',
-    right: '-20px',
+    right: '-17px',
     bottom: '15px', 
     color: '#fff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '12px',
+    'span': {
+        content:'""',
+        position:'absolute',
+        bottom:'-3px',
+        border: '3px solid',
+        transform:'rotate(45deg)',
+        right:'calc(50% - 3px)'
+    }
 }));
 const BoxStyled = styled(Box)(({ theme }) => ({
    
