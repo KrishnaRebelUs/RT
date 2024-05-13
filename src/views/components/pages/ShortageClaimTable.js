@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { styled, Typography, Box, useTheme, Grid, Button, Table, TableHead,Input, TableBody, TableRow, TableCell,Dialog, DialogTitle,DialogActions, DialogContent } from '@mui/material'; 
 import DashboardCard from '../../../components/shared/DashboardCard';
 import { IconFileArrowRight, IconFileArrowLeft,IconPencil,IconEye } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 const ButtonStyled = styled(Button)(({ theme }) => ({
     backgroundColor: theme.palette.primary.contrast,
@@ -38,7 +39,14 @@ const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
     backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
 }));
-
+const LinkStyled = styled(Link)(({ theme }) => ({
+    textDecoration: 'none',
+    color: theme.palette.primary.main,
+    '&:hover': {
+     textDecoration: 'underline',
+ },
+ }));
+ 
 const ShortageClaimTable = () => {
     const theme = useTheme();
     const [editableId, setEditableId] = useState(null);
@@ -47,6 +55,7 @@ const ShortageClaimTable = () => {
     const [viewDialogOpen, setViewDialogOpen] = useState(false);
     const [editedValue, setEditedValue] = useState('');
     const [selectedRow, setSelectedRow] = useState(null);
+    const [isUploadDialogOpen, setUploadDialogOpen] = useState(false);
 
     const formatNumber = (number) => new Intl.NumberFormat().format(number);
     const handleEdit = (id) => {
@@ -55,7 +64,12 @@ const ShortageClaimTable = () => {
         setEditedValue(editedValues[id] || (shortagetble.find(item => item.id === id)?.Active?.[0]) || '');
         setEditDialogOpen(true);
     };
-
+    const handleUploadClick = () => {
+        setUploadDialogOpen(true);
+    };
+    const handleCloseUploadDialog = () => {
+        setUploadDialogOpen(false);
+    };
     const handleView = (row) => {
         console.log("View clicked for row:", row);
         setSelectedRow(row);
@@ -181,7 +195,7 @@ const ShortageClaimTable = () => {
                                         {value}
                                         <IconPencil key={index} size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleEdit(row.id,index)} />
                                         <IconEye size={16} style={{ cursor: 'pointer', margin: '0 5px' }} onClick={() => handleView(row)} />
-                                        {row.Settlement === "Shortage Claim Finding" && index === 0 && <Box sx={{ display: 'inline-block', margin: '0 5px' }}>Upload</Box>}
+                                        {row.Settlement === "Shortage Claim Finding" && index === 0 && <LinkStyled sx={{ display: 'inline-block', margin: '0 5px' }} onClick={handleUploadClick}>Upload</LinkStyled>}
                                     </Box>
                                 ))}
                             </TableCellStyled>
@@ -228,6 +242,16 @@ const ShortageClaimTable = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleCloseView}>Close</Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog open={isUploadDialogOpen} onClose={handleCloseUploadDialog}>
+                <DialogTitle>Upload File</DialogTitle>
+                <DialogContent>
+                    <input type="file" />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseUploadDialog}>Cancel</Button>
+                    <Button onClick={handleCloseUploadDialog}>Upload</Button>
                 </DialogActions>
             </Dialog>
         </DashboardCard>

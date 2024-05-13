@@ -35,14 +35,6 @@ const WinRate = () => {
         position: 'relative'
 
     }));
-    const linearProgressBar = styled(LinearProgress)(({ theme }) => ({
-        height: '5px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '5px',
-        position: 'relative'
-
-    }));
     const ProgressLight = styled(Box)(({ theme }) => ({
         width: '65%',
         height: '100%',
@@ -164,7 +156,7 @@ const WinRate = () => {
                 </Grid>
             </Box>
             {/* {No Data} */}
-            {/* <Box>
+            <Box>
                 <Box style={{textAlign:'center'}} mb={2}>
                     <img src={astraunaut} alt=''/>
                     <Typography variant='h3'style={{color:theme.palette.error.main}}>No Data</Typography>
@@ -172,9 +164,9 @@ const WinRate = () => {
                 <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
                     <LinearProgress variant="determinate" value={5} />
                 </Box>
-            </Box> */}
+            </Box>
                  {/* {Approval Pending} */}
-            {/* <Box>
+            <Box>
                 <Box style={{textAlign:'center'}} mb={2}>
                     <img src={running} alt=''/>
                     <Typography variant='h3'style={{color:theme.palette.success.main}}>Approval Pending</Typography>
@@ -183,7 +175,7 @@ const WinRate = () => {
                     <LinearProgress variant="determinate" value={50} height='5px' />
                 </Box>
              
-            </Box> */}
+            </Box>
         </DashboardCard>
     );
 };

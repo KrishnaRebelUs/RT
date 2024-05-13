@@ -49,7 +49,8 @@ const Impactoverview = () => {
   }));
 
   return (
-    <DashboardCard action>
+    <DashboardCard 
+     action>
       <Grid container alignItems="center">
         <Grid item sm={8} py={2}>
           <Typography variant='h3' sx={{ color: theme.palette.primary.main }} marginBottom={3}>Impact Overview</Typography>
@@ -62,6 +63,7 @@ const Impactoverview = () => {
         </Grid>
       </Grid>
       <Box mt={4}></Box>
+      <Typography variant='h4' marginBottom={3}> Efforts to Audit</Typography>
       <NumberData data={data} />
 
 	  </DashboardCard>
