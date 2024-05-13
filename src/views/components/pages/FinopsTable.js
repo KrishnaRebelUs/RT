@@ -46,7 +46,7 @@ const CustomProgressBar = styled(Box)(({ theme }) => ({
 
 }));
 const ProgressLight = styled(Box)(({ theme }) => ({
-    width: '65%',
+    width: '100%',
     height: '100%',
     borderRadius: '7px'
 }));
@@ -265,7 +265,7 @@ const FinopsTable = () => {
                                     <TabStyled label="All" value="4" />
                                 </TabList>
                             <Grid container spacing={2}  justifyContent='end' alignItems="end">
-                                <Grid item xs={4} xl={4}style={{paddingTop:'0'}}>
+                                <Grid item xs={4}style={{paddingTop:'0'}}>
                                     <Box style={{ width: 'calc(100% - `10px)' }} mx={'auto'}>
                                         <CustomProgressBar width="66%">
                                             <ProgressLight style={{ backgroundColor: theme.palette.success.light }}></ProgressLight>
