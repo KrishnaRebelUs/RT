@@ -80,7 +80,7 @@ const WinRate = () => {
                 <Typography variant='h4' mb={2}>Win Rate</Typography>
             }
         >
-            {/* <Box>
+            <Box>
                 <Grid container style={{borderBottom:'1px solid', borderColor: theme.palette.divider}} pb={3}>
                     <Grid item xs={12} mb={3}>
                         <Grid container alignItems="center">
@@ -160,7 +160,7 @@ const WinRate = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Box> */}
+            </Box>
             {/* {No Data} */}
             {/* <Box mt={5}>
                     <Box mb={2} style={{position:'relative'}}>
@@ -181,7 +181,7 @@ const WinRate = () => {
                     </Box>
                 </Box> */}
                  {/* {Approval Pending} */}
-                    <Box mt={5}>
+                    {/* <Box mt={5}>
                         <Box mb={2} style={{position:'relative'}}>
                             <img src={running} alt='' style={{left:'35%',position:'absolute', bottom:'32px', width:'110px'}}/>
                             <Grid container alignItems='center' justifyContent='space-between'>
@@ -198,7 +198,7 @@ const WinRate = () => {
                             <Typography variant='h3'style={{color:theme.palette.success.main, marginBottom:'10px'}}>Approval Pending</Typography>
                             <LinearProgress variant="determinate" value={50} />
                         </Box>
-                    </Box>
+                    </Box> */}
         </DashboardCard>
     );
 };
