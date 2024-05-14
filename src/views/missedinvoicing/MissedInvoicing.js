@@ -1,5 +1,5 @@
 import React from "react";
-import {styled, Grid, Button, Typography,Box} from "@mui/material";
+import {styled, Grid, Button, Typography,Box,Stack, Divider} from "@mui/material";
 import { useTheme } from "@emotion/react";
 import PageContainer from "../../components/container/PageContainer";
 import Breadcrumb from "../components/pages/Breadcrumb";
@@ -10,7 +10,6 @@ import Disputed from "./components/Disputed";
 import RecoupedAmount from "./components/RecoupedAmount";
 import Export from "../components/pages/Export";
 import NumberData from "../components/pages/NumberData";
-import { Style } from "@mui/icons-material";
 
 
 const MissedInvoicing = () => {
@@ -115,7 +114,7 @@ const MissedInvoicing = () => {
 
     return (
         <PageContainer title="Missed Invoicing">
-			<Grid container spacing={3} mb={3}>
+			<Grid container spacing={3} mb={4}>
 				<Grid item xs={12}>
 					<Breadcrumb titles={['Missed Invoicing']} />
 				</Grid>
@@ -130,15 +129,15 @@ const MissedInvoicing = () => {
 					</Grid>
 				</Grid>
             </Grid>
-			<Grid container spacing={3} mb={3}>
+			<Grid container spacing={3} mb={4}>
 				<Grid item xs={3}>
 					<Box style={{ position: 'relative', height: '100%' }}>
 						<DashboardCard>
 							<Grid container spacing={3}>
 								<Grid item>
-									<Typography variant='h4' sx={{ color: theme.palette.primary.main }} marginBottom={3}>Shipped But Not Invoiced</Typography>
+									<Typography variant='h5' sx={{ color: theme.palette.primary.main }} marginBottom={3}>Shipped But Not Invoiced</Typography>
 									<Typography variant='h6' mb={1} sx={{ color: theme.palette.accent.main }} >Finding Amount($)</Typography>
-									<TypographyStyled variant='h2' sx={{ color: theme.palette.accent.main }}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+									<TypographyStyled variant='h3' sx={{ color: theme.palette.accent.main }}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
 								</Grid>
 
 							</Grid>
@@ -169,11 +168,32 @@ const MissedInvoicing = () => {
 			<Grid container spacing={3}>
 				<Grid item xs={6}>
 		     	<DashboardCard>
-                    <Box mb={3}>
-						 <Typography variant="h6" mb={1}>Scope for additional Invoice($):</Typography>
-						 <Typography variant="h6" mb={1}>PO Lined Scanned:</Typography>
-						 <Typography variant="h6" mb={1}>Total Invoice Lines Scope Identified:</Typography>
-						 <Typography variant="h6" mb={1}>PO Period Audited: 07/04/24 to 08/05/24</Typography>
+                    <Grid container spacing={2}>
+						<Grid item xs={12} mb={1}>
+					     	 <Typography variant="h3" mb={1} sx={{ color: theme.palette.primary.main }} >Scope for additional Invoice($)</Typography>
+							 <TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+						</Grid>
+						<Grid item xs={5}  mb={1}>
+						     <Typography variant="h6" mb={1} sx={{ color: theme.palette.accent.main }} >PO Lined Scanned</Typography>
+							 <TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+						</Grid>
+						<Grid item xs={7}  mb={1}>
+					     	 <Typography variant="h6" mb={1} sx={{ color: theme.palette.success.dark }} >Total Invoice Lines Scope Identified</Typography>
+							 <TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+					 	</Grid>
+						 <Grid item xs={12}>
+					    	  <Divider />
+						    </Grid>
+						 <Grid item xs={12} mb={2}>
+					     	 <Stack direction='row' spacing={3} justifyContent='space-between'>
+							   <Typography variant="h6" mb={1} sx={{color: theme.palette.success.extraDark}} >PO Period Audited</Typography>
+							   <TypographyStyled variant='h6' sx={{color: theme.palette.text.main}}>07/04/24 <span style={{marginRight:'5px', marginLeft:'5px'}}>to</span> 08/05/24</TypographyStyled>
+							 </Stack>
+						</Grid>
+						 
+					</Grid>
+					<Box  mb={2}>
+					    <Divider />
 					</Box>
 					<Box>
 						<Typography variant='h4' marginBottom={3}> Efforts to Audit</Typography>
@@ -183,11 +203,32 @@ const MissedInvoicing = () => {
 				</Grid>
 				<Grid item xs={6}>
 				    <DashboardCard>
-						<Box mb={3}>
-							<Typography variant="h6" mb={1}>Claim Submitted($):</Typography>
-							<Typography variant="h6" mb={1}>PO Lined Submitted:</Typography>
-							<Typography variant="h6" mb={1}>Invoice Lines Submitted:</Typography>
-							<Typography variant="h6" mb={1}>PO Period Submitted: 07/04/24 to 08/05/24</Typography>
+						<Grid container spacing={2}>
+							<Grid item xs={12} mb={1}>
+								<Typography variant="h3" mb={1} sx={{ color: theme.palette.primary.light }} >Claim Submitted($)</Typography>
+								<Typography variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
+							</Grid>
+							<Grid item xs={6} mb={1}>
+								<Typography variant="h6" mb={1} sx={{ color: theme.palette.accent.main }} >PO Lined Submitted</Typography>
+								<TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+							</Grid>
+							<Grid item xs={6} mb={1}>
+								<Typography variant="h6" mb={1} sx={{ color: theme.palette.success.dark }} >Invoice Lines Submitted</Typography>
+								<TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
+							</Grid>
+						 	<Grid item xs={12}>
+					    	  <Divider />
+						    </Grid>
+							<Grid item xs={12} mb={2}>
+								<Stack direction='row' spacing={3} justifyContent='space-between'>
+								<Typography variant="h4" mb={1} sx={{color: theme.palette.success.extraDark}} >PO Period Submitted</Typography>
+								<TypographyStyled variant='h6' sx={{color: theme.palette.text.main}}>07/04/24 <span style={{marginRight:'5px', marginLeft:'5px'}}>to</span> 08/05/24</TypographyStyled>
+								</Stack>
+							</Grid>
+							
+						</Grid>
+						<Box  mb={2}>
+					    	<Divider />
 						</Box>
 						<Box>
 							<Typography variant='h4' marginBottom={3}> Efforts to Submit Invoicing</Typography>

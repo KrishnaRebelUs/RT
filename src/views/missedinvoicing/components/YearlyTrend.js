@@ -56,7 +56,7 @@ const YearlyTrend = ( title ) => {
 		<ButtonStyled onClick={handleClick} >View Trends  <IconChevronRight  size="16" /></ButtonStyled>
 	}>
 		<TypographyStyled variant='h6' sx={{color:theme.palette.primary.main}}>2024</TypographyStyled>
-		<Typography variant='h2' marginBottom={2} sx={{ color: theme.palette.text.dark }}>${new Intl.NumberFormat().format(8989)}</Typography>
+		<Typography variant='h3' marginBottom={2} sx={{ color: theme.palette.text.dark }}>${new Intl.NumberFormat().format(8989)}</Typography>
 		<Grid container spacing={4}>
 			<Grid item>
 				<TypographyStyled variant='h6' mb={1} sx={{ color: theme.palette.accent.main }}>2022</TypographyStyled>

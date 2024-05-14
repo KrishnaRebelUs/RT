@@ -15,6 +15,15 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
     color: theme.palette.primary.main,
   },
 }));
+const MenuItemStyled = styled(MenuItem)(({ theme }) => ({
+  color: theme.palette.text.dark,
+  fontSize:'16px',
+  
+  '&:hover': {
+    backgroundColor: theme.palette.primary.extraLight,
+    color: theme.palette.primary.main,
+  },
+}));
 
 const Export = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -60,20 +69,8 @@ const Export = () => {
           horizontal: 'right',
         }}
       >
-        <MenuItem>
-          <Checkbox
-            checked={checkedOptions.includes('option1')}
-            onChange={() => handleCheckboxChange('option1')}
-          />
-          Current
-        </MenuItem>
-        <MenuItem>
-          <Checkbox
-            checked={checkedOptions.includes('option2')}
-            onChange={() => handleCheckboxChange('option2')}
-          />
-          Archive
-        </MenuItem>
+        <MenuItemStyled>Current</MenuItemStyled>
+        <MenuItemStyled>Archive</MenuItemStyled>
       </Menu>
     </Box>
   );
