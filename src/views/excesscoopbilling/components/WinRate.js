@@ -4,7 +4,11 @@ import { useTheme } from '@mui/material/styles';
 import { Box, Typography,Grid,Stack,styled, LinearProgress } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
 import astraunaut from '../../../assets/images/profile/astronaut.png';
+import track from '../../../assets/images/profile/track.jpeg';
 import running from '../../../assets/images/profile/running.gif';
+import { IconFlag3 } from '@tabler/icons-react';
+// import '../../../theme/Track.css';
+
 
 
 const WinRate = () => {
@@ -26,6 +30,8 @@ const WinRate = () => {
         clearInterval(timer);
       };
     }, []);
+
+
 
     const CustomProgressBar = styled(Box)(({ theme }) => ({
         height: '5px',
@@ -74,7 +80,7 @@ const WinRate = () => {
                 <Typography variant='h4' mb={2}>Win Rate</Typography>
             }
         >
-            <Box>
+            {/* <Box>
                 <Grid container style={{borderBottom:'1px solid', borderColor: theme.palette.divider}} pb={3}>
                     <Grid item xs={12} mb={3}>
                         <Grid container alignItems="center">
@@ -154,28 +160,45 @@ const WinRate = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Box>
+            </Box> */}
             {/* {No Data} */}
-            <Box>
-                <Box style={{textAlign:'center'}} mb={2}>
-                    <img src={astraunaut} alt=''/>
-                    <Typography variant='h3'style={{color:theme.palette.error.main}}>No Data</Typography>
-                </Box>
-                <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
-                    <LinearProgress variant="determinate" value={5} />
-                </Box>
-            </Box>
+            {/* <Box mt={5}>
+                    <Box mb={2} style={{position:'relative'}}>
+                        <img src={astraunaut} alt='' style={{marginLeft:'15px',position:'absolute', bottom:'32px', left:'15px'}}/>
+                        <Grid container alignItems='center' justifyContent='space-between'>
+                            <Grid item>
+                                <IconFlag3 />
+                            </Grid>
+                            <Grid item>
+                            <IconFlag3 />
+                            </Grid>
+                        </Grid>
+                        <img src={track} alt=''width={500}/>
+                    </Box>
+                    <Box width={500} style={{margin:'auto',textAlign:'center'}} >
+                        <Typography variant='h3'style={{color:theme.palette.error.main, marginBottom:'10px'}}>No Data</Typography>
+                        <LinearProgress variant="determinate" value={5} />
+                    </Box>
+                </Box> */}
                  {/* {Approval Pending} */}
-            <Box>
-                <Box style={{textAlign:'center'}} mb={2}>
-                    <img src={running} alt=''/>
-                    <Typography variant='h3'style={{color:theme.palette.success.main}}>Approval Pending</Typography>
-                </Box>
-                <Box sx={{ width: '60%' }} style={{margin:'auto'}} >
-                    <LinearProgress variant="determinate" value={50} height='5px' />
-                </Box>
-             
-            </Box>
+                    <Box mt={5}>
+                        <Box mb={2} style={{position:'relative'}}>
+                            <img src={running} alt='' style={{left:'35%',position:'absolute', bottom:'32px', width:'110px'}}/>
+                            <Grid container alignItems='center' justifyContent='space-between'>
+                                <Grid item>
+                                    <IconFlag3 />
+                                </Grid>
+                                <Grid item>
+                                <IconFlag3 />
+                                </Grid>
+                            </Grid>
+                            <img src={track} alt=''width={500}/>
+                        </Box>
+                        <Box width={500} style={{margin:'auto',textAlign:'center'}} >
+                            <Typography variant='h3'style={{color:theme.palette.success.main, marginBottom:'10px'}}>Approval Pending</Typography>
+                            <LinearProgress variant="determinate" value={50} />
+                        </Box>
+                    </Box>
         </DashboardCard>
     );
 };

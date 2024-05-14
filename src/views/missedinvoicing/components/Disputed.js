@@ -8,7 +8,8 @@ import { useTheme } from '@emotion/react';
 const Disputed = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.secondary.main,
-		fontSize: '16px',
+		fontSize: '14px',
+		lineHeight: '24px'
 	  }));
 	const ButtonStyled = styled(Button)(({ theme }) => ({
 		backgroundColor: theme.palette.primary.contrast,
@@ -29,7 +30,7 @@ const Disputed = () => {
     <DashboardCard title={
 		<Typography variant='h5' sx={{color: theme.palette.primary.light}}>Claim Submitted($)</Typography>
 	}>
-		<Typography variant='h2' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
+		<Typography variant='h3' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
 		<TypographyStyled variant='body2' marginTop={3} sx={{ color: theme.palette.text.dark }}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>
