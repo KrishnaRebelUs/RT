@@ -64,7 +64,7 @@ const ProgressLabel = styled(Box)(({ theme }) => ({
     textAlign: 'center', 
     borderRadius: '7px', 
     position: 'absolute',
-    right: '-17px',
+    right: '60px',
     bottom: '15px', 
     color: '#fff',
     display: 'flex',
@@ -257,8 +257,8 @@ const FinopsTable = () => {
                                 <Grid item xs={4}style={{paddingTop:'0'}}>
                                     <Box style={{ width: '100%'}} mx={'auto'}>
                                         <CustomProgressBar width="66%">
-                                            <ProgressDark style={{ backgroundColor: theme.palette.success.main }}></ProgressDark>
                                             <ProgressLabel style={{ backgroundColor: theme.palette.success.main }}>66% <Box component="span" style={{ borderColor: theme.palette.success.main }}></Box></ProgressLabel>
+                                            <ProgressDark style={{ backgroundColor: theme.palette.success.main }}></ProgressDark>
                                             <ProgressLight style={{ backgroundColor: theme.palette.success.light }}></ProgressLight>
                                            
                                         </CustomProgressBar>
