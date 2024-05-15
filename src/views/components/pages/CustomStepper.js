@@ -9,6 +9,7 @@ import SettledImg from "../../../assets/images/settled.jpg";
 
 export default function CustomStepper({ account }) {
     console.log("Account:", account);
+    const[stage, setStage] = useState(account.stage);
     const theme = useTheme();
     const [showConfetti, setShowConfetti] = useState(false);
     const [confettiDuration, setConfettiDuration] = useState(1000);
@@ -16,6 +17,15 @@ export default function CustomStepper({ account }) {
         position: 'relative',
         width: '100%'
     }));
+    function getStage(stepperStage){
+        
+        if(stepperStage <= parseInt(stage)){
+           return 'active';
+           console.log(typeof(stage))
+        }
+        console.log(stage);
+        
+    }
     const StepsWrap = styled(Box)(({ theme }) => ({
         position: 'relative',
         width: '420px',
@@ -128,28 +138,28 @@ export default function CustomStepper({ account }) {
         <Box>
             {/* <StepMain>
                 <StepsWrap>
-                    <Steps className="active">
+                    <Steps className={getStage(4)}>
                         <Circle className="circle">1</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Findings Shared – Awaiting Contract</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
-                    <Steps className="active" style={{ left: '0', right: '0', margin: 'auto' }}>
+                    <Steps className={getStage(4)} style={{ left: '0', right: '0', margin: 'auto' }}>
                         <Circle className="circle">2</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2"  fontSize='12px'>Disputes Raised – Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps className="active" style={{ right: '0' }}>
+                    <Steps className={getStage(4)} style={{ right: '0' }}>
                         <Circle className="circle">3</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2"  fontSize='12px'>Outstanding Balance Shared by Amazon – Open Bal. Confirmed</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
-                    <Steps className="active" style={{ right: '0', top: 'calc(50% - 20px)' }}>
+                    <Steps className={getStage(4)} style={{ right: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">4</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Offer Received – File not received</Typography>
@@ -192,9 +202,9 @@ export default function CustomStepper({ account }) {
                         </TooltipStep>
                     </Steps>
                     <Box>
-                        <LineWrapper style={{ left: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '-49px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
+                        <LineWrapper style={{ left: '0', top: '20px'}}><Line className={getStage(4)}></Line></LineWrapper>
+                        <LineWrapper style={{ right: '0', top: '20px'}}><Line className={getStage(4)}></Line></LineWrapper>
+                        <LineWrapper style={{ right: '-49px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className={getStage(4)}></Line></LineWrapper>
                         <LineWrapper style={{ left: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
                         <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line></Line></LineWrapper>
@@ -204,51 +214,52 @@ export default function CustomStepper({ account }) {
                 </StepsWrap>
                 {showConfetti && ( <Confetti   width={window.innerWidth} height={window.innerHeight} recycle={false} /> )}
             </StepMain> */}
+            {/* use if elese condition for checking step 8 or 9 for admin account and other account  */}
             <StepMain>
                 <StepsWrap>
-                    <Steps className="active">
+                    <Steps className={getStage(1)}>
                         <Circle className="circle">1</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Findings Shared – Awaiting Contract</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
-                    <Steps className="active" style={{ left: '0', right: '0', margin: 'auto' }}>
+                    <Steps className={getStage(2)} style={{ left: '0', right: '0', margin: 'auto' }}>
                         <Circle className="circle">2</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2"  fontSize='12px'>Disputes Raised – Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps className="active" style={{ right: '0' }}>
+                    <Steps className={getStage(3)} style={{ right: '0' }}>
                         <Circle className="circle">3</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2"  fontSize='12px'>Outstanding Balance Shared by Amazon – Open Bal. Confirmed</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps>
-                    <Steps className="active" style={{ right: '0', top: 'calc(50% - 20px)' }}>
+                    <Steps className={getStage(4)} style={{ right: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">4</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Settlement Offer Received from Amazon – Offer Shared with Custome</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps style={{ left: '0', right: '0', top: 'calc(50% - 20px)', margin: 'auto' }}>
+                    <Steps className={getStage(5)} style={{ left: '0', right: '0', top: 'calc(50% - 20px)', margin: 'auto' }}>
                         <Circle className="circle">5</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'>Counteroffer Presented to Amazon – Counteroffer Submitted</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps style={{ left: '0', top: 'calc(50% - 20px)' }}>
+                    <Steps className={getStage(6)} style={{ left: '0', top: 'calc(50% - 20px)' }}>
                         <Circle className="circle">6</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2" fontSize='12px'> Revised Settlement Offer from Amazon – Revised Offer Shared with Customer</Typography>
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>    
                     </Steps>
-                    <Steps style={{ bottom: '0' }}>
+                    <Steps className={getStage(7)} style={{ bottom: '0' }}>
                         <Circle className="circle">7</Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '64px' }}>
                             <Typography variant="body2"fontSize='12px'>Final Settlement Accepted – Settlement Accepted</Typography>
@@ -262,7 +273,7 @@ export default function CustomStepper({ account }) {
                             <Tooltipline className="tooltipLine"></Tooltipline>
                         </TooltipStep>
                     </Steps> */}
-                    <Steps style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
+                    <Steps className={getStage(8)} style={{ left: '0', right: '0', bottom: '0', margin: 'auto' }}>
                         <Circle style={{ zIndex: '999' }}><img width="50" src={SettledImg} alt='Settled' onClick={() => handleStepClick(9)}/></Circle>
                         <TooltipStep className="tooltipStep" style={{ bottom: '60px' }}>
                             <Typography variant="body2" fontSize='12px'>Amount credited to VC account – WINNNNNN</Typography>
@@ -270,13 +281,13 @@ export default function CustomStepper({ account }) {
                         </TooltipStep>
                     </Steps>
                     <Box>
-                        <LineWrapper style={{ left: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '0', top: '20px'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ right: '-49px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className="active"></Line></LineWrapper>
-                        <LineWrapper style={{ left: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
-                        <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line></Line></LineWrapper>
-                        <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line></Line></LineWrapper>
-                        <LineWrapper style={{ left: '0', bottom: '20px'}}><Line></Line></LineWrapper>
+                        <LineWrapper style={{ left: '0', top: '20px'}}><Line className={getStage(2)}></Line></LineWrapper>
+                        <LineWrapper style={{ right: '0', top: '20px'}}><Line className={getStage(3)}></Line></LineWrapper>
+                        <LineWrapper style={{ right: '-49px', top: '25%', transform: 'translate(48px) rotate(90deg)'}}><Line className={getStage(4)}></Line></LineWrapper>
+                        <LineWrapper style={{ left: '0', top: 'calc(50% - 2px)'}} ><Line className={getStage(6)}></Line></LineWrapper>
+                        <LineWrapper style={{ right: '0', top: 'calc(50% - 2px)'}}><Line className={getStage(5)}></Line></LineWrapper>
+                        <LineWrapper style={{ left: '-34px', top: '70%', transform: 'translate(-60px) rotate(90deg)'}}><Line className={getStage(7)}></Line></LineWrapper>
+                        <LineWrapper style={{ left: '0', bottom: '20px'}}><Line className={getStage(8)}></Line></LineWrapper>
                         {/* <LineWrapper style={{ right: '0', bottom: '20px'}}><Line></Line></LineWrapper> */}
                     </Box>
                 </StepsWrap>

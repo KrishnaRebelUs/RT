@@ -72,44 +72,46 @@ const MissedInvoicing = () => {
 	const TypographyStyled = styled(Typography)(({ theme }) => ({
 		color: theme.palette.primary.main,
 	}));
-	const ButtonStyledGreen = styled(Button)(({ theme }) => ({
-		color: theme.palette.primary.contrastText, 
-		backgroundColor: theme.palette.success.extraDark, 
+
+	const BaseButtonStyled = styled(Button)(({ theme }) => ({
+		color: theme.palette.primary.contrastText,
+		fontSize: '13px',
+		padding: '5px 12px',
+		fontWeight: '600',
 		border: '1px solid',
+		'&:hover': {
+		  opacity: '0.8',
+		},
+	  }));
+	  
+	const ButtonStyledGreen = styled(BaseButtonStyled)(({ theme }) => ({
+	backgroundColor: theme.palette.success.extraDark,
+	borderColor: theme.palette.success.extraDark,
+	'&:hover': {
+		backgroundColor: theme.palette.success.light,
+		color: theme.palette.success.extraDark,
 		borderColor: theme.palette.success.extraDark,
-		
-		'&:hover': {
-			backgroundColor: theme.palette.success.light,
-			color: theme.palette.success.extraDark,
-			borderColor: theme.palette.success.extraDark
-		  },
+	},
 	}));
-	const ButtonStyledAction = styled(Button)(({ theme }) => ({
-		color: theme.palette.primary.contrastText, 
-		backgroundColor:theme.palette.accent.main, 
-		border: '1px solid',
-		borderColor: theme.palette.accent.main,
-		fontSize: '13px',
-		padding: '5px 12px',
-		fontWeight: '600',
-		'&:hover': {
-			backgroundColor: theme.palette.accent.light,
-			color: theme.palette.accent.main,
-		  },
+	  
+	const ButtonStyledAction = styled(BaseButtonStyled)(({ theme }) => ({
+	backgroundColor: theme.palette.accent.main,
+	borderColor: theme.palette.accent.main,
+	'&:hover': {
+		backgroundColor: theme.palette.accent.light,
+		color: theme.palette.accent.main,
+	},
 	}));
-	const ButtonStyledSecondary = styled(Button)(({ theme }) => ({
-		color:theme.palette.primary.contrastText, 
-		backgroundColor: theme.palette.secondary.main, 
-		border: '1px solid',
-		borderColor: theme.palette.secondary.main,
-		fontSize: '13px',
-		padding: '5px 12px',
-		fontWeight: '600',
-		'&:hover': {
-			backgroundColor: theme.palette.secondary.light,
-			color: theme.palette.secondary.main,
-		  },
+	  
+	const ButtonStyledSecondary = styled(BaseButtonStyled)(({ theme }) => ({
+	backgroundColor: theme.palette.secondary.main,
+	borderColor: theme.palette.secondary.main,
+	'&:hover': {
+		backgroundColor: theme.palette.secondary.light,
+		color: theme.palette.secondary.main,
+	},
 	}));
+	  
 
 
     return (
@@ -170,7 +172,7 @@ const MissedInvoicing = () => {
 		     	<DashboardCard>
                     <Grid container spacing={2}>
 						<Grid item xs={12} mb={1}>
-					     	 <Typography variant="h3" mb={1} sx={{ color: theme.palette.primary.main }} >Scope for additional Invoice($)</Typography>
+					     	 <Typography variant="h3" mb={1} sx={{ color: theme.palette.primary.main }} >Scope for Additional Invoice($)</Typography>
 							 <TypographyStyled variant='h3' sx={{color: theme.palette.text.main}}>${new Intl.NumberFormat().format(98442)}</TypographyStyled>
 						</Grid>
 						<Grid item xs={5}  mb={1}>

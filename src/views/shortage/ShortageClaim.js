@@ -20,7 +20,7 @@ const ShortageClaim = () => {
     const [isUploadDialogOpen, setUploadDialogOpen] = useState(false);
     const account = {
         accountName: 'xyz',
-        stage: '5'
+        stage: '8'
     };
     const theme = useTheme();
     const data = [
