@@ -45,8 +45,8 @@ const baselightTheme = createTheme({
       contrastText: '#ffffff',
     },
     grey: {
-      100: '#F2F6FA',
-      200: '#EAEFF4',
+      main: '#DBDCDE',
+      light: '#EAEFF4',
       300: '#DFE5EF',
       400: '#7C8FAC',
       500: '#5A6A85',
