@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { styled, Typography, Box,Stack, useTheme, Table, TableHead, TableBody, TableRow, TableCell} from '@mui/material'; 
-import {IconExclamationMark } from '@tabler/icons-react';
-import { height } from '@mui/system';
+import { styled, Typography, Box,Stack, useTheme, Tooltip, Table, TableHead, TableBody, TableRow, TableCell,tooltipClasses} from '@mui/material'; 
+import {IconExclamationMark,IconChevronDown,IconChevronUp } from '@tabler/icons-react';
 
 
 
@@ -17,14 +16,34 @@ const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
 
 
 const TableCellStyled = styled(TableCell)(({ theme }) => ({
-    fontSize: '15px',
+    fontSize: '13px',
     fontWeight: '600',
 }));
-
+const LightTooltip = styled(({ className, ...props }) => (
+	<Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+	[`& .${tooltipClasses.tooltip}`]: {
+	  backgroundColor: theme.palette.primary.main,
+	  color: theme.palette.primary.contrastText,
+	  boxShadow: theme.shadows[1],
+	  fontSize: 11,
+	},
+	[`& .${tooltipClasses.arrow}`]: {
+		color: theme.palette.primary.main,
+	  },
+  }));
 
 const ComaprisionTable = () => {
     const theme = useTheme();    
     const formatNumber = (number) => new Intl.NumberFormat().format(number);
+	const [expandedRows, setExpandedRows] = useState({});
+	const toggleRow = (rowId) => {
+		setExpandedRows((prevExpandedRows) => ({
+		  ...prevExpandedRows,
+		  [rowId]: !prevExpandedRows[rowId],
+		}));
+	  };
+	  
     const ComaprisionTable = [
         {
            id:1,
@@ -94,9 +113,9 @@ const ComaprisionTable = () => {
 		 {
 			id:10,
 			Settlement: { value: "Gross Margin %" },
-			JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end', width:'120px', padding: '5px 7px' },
-			TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px' },
-			TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px' },
+			JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left', width:'120px', padding: '5px 7px' },
+			TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px' },
+			TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px' },
 		 },
 		 {
 			id:11,
@@ -108,9 +127,9 @@ const ComaprisionTable = () => {
 		 {
 			id:12,
 			Settlement: { value: "SG&A % ",value2: 'IconExclamation' },
-			JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end', width:'120px', padding: '5px 7px' },
-			TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px' },
-			TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px' },
+			JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left', width:'120px', padding: '5px 7px' },
+			TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px' },
+			TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px' },
 		 },
 		 {
 			id:13,
@@ -143,9 +162,9 @@ const ComaprisionTable = () => {
 	 {
 		id: 3,
 		Settlement: "AMS (Credit Card Spend)",
-		JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end', width:'120px', padding: '5px 7px' ,value2: '7.00%'},
-		TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px', value2: '', },
-	    TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'end',width:'120px', padding: '5px 7px', value2:'5.35%' },
+		JanToFeb: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left', width:'120px', padding: '5px 7px' ,value2: '7.00%'},
+		TwentyTwo: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px', value2: '', },
+	    TwentyOne: { value: '50', color: theme.palette.primary.main,backgroundColor: theme.palette.grey.main, borderRadius: '20px', textAlign: 'left',width:'120px', padding: '5px 7px', value2:'5.35%' },
 		
 	
 	 },
@@ -159,44 +178,48 @@ const ComaprisionTable = () => {
 	 },
 	 {
 		id: 5,
-		Settlement: "CoOp (Incl. Accruals, Promotions, PP, Straight Pays Etc) ",
-		JanToFeb: {value: '$2,363,710.60', color: theme.palette.primary.main, value2:'20.21%' },
-		TwentyTwo: {value: '$3,437,080.09', color: theme.palette.primary.main, value2:'%6.12%' },
-		TwentyOne: {value: '$2,967,239.53', color: theme.palette.primary.main, value2: '5.35%' },
-	
-	 },
-	 {
-		id: 6,
-		Settlement: "CoOp deduction",
-		JanToFeb: {value: '$818,206.81', color: theme.palette.primary.main, value2: '7.00%' },
-		TwentyTwo: {value: '$3,437,080.09', color: theme.palette.primary.main, value2: '6.12%' },
-		TwentyOne: {value: '$2,967,239.53', color: theme.palette.primary.main,  value2: '5.35%'  },
-	
-	 },
+		Settlement: "CoOp (Incl. Accruals, Promotions, PP, Straight Pays Etc)",
+		JanToFeb: { value: "$2,363,710.60", color: theme.palette.primary.main, value2: "20.21%" },
+		TwentyTwo: { value: "$3,437,080.09", color: theme.palette.primary.main, value2: "6.12%" },
+		TwentyOne: { value: "$2,967,239.53", color: theme.palette.primary.main, value2: "5.35%" },
+		SubRows: [
+			{
+				id: 6,
+				Settlement: "CoOp deduction",
+				JanToFeb: { value: "$818,206.81", color: theme.palette.primary.main, value2: "7.00%" },
+				TwentyTwo: { value: "$3,437,080.09", color: theme.palette.primary.main, value2: "6.12%" },
+				TwentyOne: { value: "$2,967,239.53", color: theme.palette.primary.main, value2: "5.35%" }
+			}
+		]
+	},
+
 	 {
 		id: 7,
 		Settlement: "Operational Chargeback Total",
 		JanToFeb: {value: '$818,206.81', color: theme.palette.primary.main, value2: '7.00%' },
 		TwentyTwo: {value: '$3,437,080.09', color: theme.palette.primary.main, value2: '6.12%' },
 		TwentyOne: {value: '$2,967,239.53', color: theme.palette.primary.main,  value2: '5.35%'  },
+		SubRows:[
+			{
+				id: 8,
+				Settlement: "OC - ASN Accuracy",
+				JanToFeb: {value: '$', color: theme.palette.primary.main,value2:'%' },
+				TwentyTwo: {value: '$89,607.99', color: theme.palette.primary.main, value2:'%'  },
+				TwentyOne: {value: '$44,164.93', color: theme.palette.primary.main, value2:'%'  },
+			
+			 },
+			 {
+				id: 9,
+				Settlement: "OC - ASN accuracy",
+				JanToFeb: {value: '$18,726.91', color: theme.palette.primary.main, value2:'100%' },
+				TwentyTwo: {value: '$', color: theme.palette.primary.main, value2:'%' },
+				TwentyOne: {value: '$', color: theme.palette.primary.main, value2:'%' },
+			
+			 },
+		]
 	
 	 },
-	 {
-		id: 8,
-		Settlement: "OC - ASN Accuracy",
-		JanToFeb: {value: '$', color: theme.palette.primary.main,value2:'%' },
-		TwentyTwo: {value: '$89,607.99', color: theme.palette.primary.main, value2:'%'  },
-		TwentyOne: {value: '$44,164.93', color: theme.palette.primary.main, value2:'%'  },
 	
-	 },
-	 {
-		id: 9,
-		Settlement: "OC - ASN accuracy",
-		JanToFeb: {value: '$18,726.91', color: theme.palette.primary.main, value2:'100%' },
-		TwentyTwo: {value: '$', color: theme.palette.primary.main, value2:'%' },
-		TwentyOne: {value: '$', color: theme.palette.primary.main, value2:'%' },
-	
-	 },
 	 {
 		id: 10,
 		Settlement: "Net Post Audit Deduction",
@@ -311,15 +334,16 @@ const ComaprisionTable = () => {
 		     JanToFeb: {value: '0%', color: theme.palette.primary.main,},
 		     TwentyTwo: { value: '-101.79%', color: theme.palette.error.main },
 			 TwentyOne: { value: '-101.79%', color: theme.palette.error.main },
-			 
-		  },
-		  { 
-			 id: 3,
-			 Settlement: "CoOp Refund",
-		     JanToFeb: {value: '$', color: theme.palette.primary.main,},
-		     TwentyTwo: { value: '$8,151.39', color: theme.palette.primary.main },
-			 TwentyOne: { value: '-92.29%', color: theme.palette.primary.main, value2:'$248,583.10' },
-		  },
+			 SubRows:[
+				{ 
+					id: 3,
+					Settlement: "CoOp Refund",
+					JanToFeb: {value: '$', color: theme.palette.primary.main,},
+					TwentyTwo: { value: '$8,151.39', color: theme.palette.primary.main },
+					TwentyOne: { value: '-92.29%', color: theme.palette.primary.main, value2:'$248,583.10' },
+				 },
+				]
+			 },
 		  { 
 			id: 4,
 			Settlement: "Return Refund",
@@ -340,101 +364,163 @@ const ComaprisionTable = () => {
 			<Table>
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}></TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Jan To Feb-2023</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>2022</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>2021</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}></TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>Jan To Feb-2023</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2022</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2021</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{ComaprisionTable.map((row, index) => (
-					<TableRowStyled key={row.id} index={index} theme={theme}>
-				    {(row.Settlement.value !== "SG&A %" || row.Settlement.value !== "SG&A ($)") && (
-                <TableCellStyled>
-                    <Stack direction='row' spacing={1} alignItems='center'>
-                        <Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'15px'}}>{row.Settlement.value}</Typography>
-                        {row.Settlement.value2 && (
-                            <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
-                                <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-                            </div>
-                        )}
-                    </Stack>
-                </TableCellStyled>
-            )}
-            {row.Settlement.value === "SG&A %" && row.Settlement.value === "SG&A ($)" && (
-                <TableCellStyled>
-                    <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                        <Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'15px'}}>{row.Settlement.value}</Typography>
-                        <Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'15px',}}>{row.Settlement.value2}</Typography>
-                    </Stack>
-                </TableCellStyled>
-            )}
-			 			<TableCellStyled><Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width, padding: row.JanToFeb.padding  }}>{row.JanToFeb.value}</Typography></TableCellStyled>
-						<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign,fontWeight:'500', fontSize:'14px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding   }}>{row.TwentyTwo.value}</Typography></TableCellStyled>
-						<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign,fontWeight:'500', fontSize:'14px', width: row.TwentyOne.width, padding: row.TwentyOne.padding    }}>{row.TwentyOne.value}</Typography></TableCellStyled>
+					<TableRowStyled style={{width:'350px'}} key={row.id} index={index} theme={theme}>
+						{(row.Settlement.value !== "SG&A %" || row.Settlement.value !== "SG&A ($)") && (
+					<TableCellStyled>
+						<Stack direction='row' spacing={1} alignItems='center'>
+							<Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'13px'}}>{row.Settlement.value}</Typography>
+							{row.Settlement.value2 && (
+								<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							    	<LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+								</Box>
+							)}
+						</Stack>
+					</TableCellStyled>
+						)}
+						{row.Settlement.value === "SG&A %" && row.Settlement.value === "SG&A ($)" && (
+							<TableCellStyled>
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+									<Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'13px'}}>{row.Settlement.value}</Typography>
+									<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{row.Settlement.value2}</Typography>
+								</Stack>
+							</TableCellStyled>
+						)}
+						<TableCellStyled><Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width, padding: row.JanToFeb.padding  }}>{row.JanToFeb.value}</Typography></TableCellStyled>
+						<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign,fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding   }}>{row.TwentyTwo.value}</Typography></TableCellStyled>
+						<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign,fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding    }}>{row.TwentyOne.value}</Typography></TableCellStyled>
 					</TableRowStyled>
 					))}
 				</TableBody>
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}></TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Jan To Feb-2023</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>2022</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>2021</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600',textAlign:'center' }}></TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>Jan To Feb-2023</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2022</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2021</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
 					{ComaprisionTwoTable.map((row, index) => (
-					<TableRowStyled key={row.id} index={index} theme={theme}>
-					
-					<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'15px'}}>{row.Settlement}</Typography></TableCellStyled>
-					<TableCellStyled>{row.Settlement === "Deduction" ? (
-                       <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
-                         {row.JanToFeb.value2 && (
-                         <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
-						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
-                          )}
-                        </Stack>
-                         ) : (
-                        <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'15px',}}>{row.JanToFeb.value2}</Typography>
-                        </Stack>
-                    )}</TableCellStyled>
-					<TableCellStyled>{row.Settlement === "Deduction" ? (
-                       <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.TwentyTwo.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyTwo.width,padding: row.TwentyTwo.padding}}>{row.TwentyTwo.value}</Typography>
-                         {row.JanToFeb.value2 && (
-                          <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
-						  <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					      </div>
-                          )}
-                        </Stack>
-                         ) : (
-                        <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.JanToFeb.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'15px',}}>{row.TwentyTwo.value2}</Typography>
-                        </Stack>
-                    )}</TableCellStyled>
-			     	<TableCellStyled>{row.Settlement === "Deduction" ? (
-                       <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
-                         {row.TwentyOne.value2 && (
-                         <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
-						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
-                          )}
-                        </Stack>
-                         ) : (
-                        <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'15px',}}>{row.TwentyOne.value2}</Typography>
-                        </Stack>
-                    )}</TableCellStyled>
-			    	</TableRowStyled>
-				
+						<>
+						   <TableRowStyled key={row.id} index={index} theme={theme} onClick={() => toggleRow(row.id)}>
+						     <TableCellStyled style={{width:'350px'}}>
+							 {row.SubRows && (
+							<Stack direction='row' alignItems='center'>
+								
+								<Typography variant='body2' style={{ fontWeight: '500', fontSize: '13px',color: theme.palette.primary.main }}>{row.Settlement}</Typography>
+								{expandedRows[row.id] ? <IconChevronUp size={16} style={{color: theme.palette.primary.main}} /> : <IconChevronDown  size={16} style={{color: theme.palette.primary.main}} />}
+							</Stack>
+							)}
+							{!row.SubRows && (
+							<Typography variant='body2' style={{ fontWeight: '500', fontSize: '13px',color: theme.palette.primary.main, display: 'flex' }}>{row.Settlement}</Typography>
+							)}
+							 </TableCellStyled>
+							<TableCellStyled>{row.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
+								{row.JanToFeb.value2 && (
+								<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+								   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							    </Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{row.JanToFeb.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+							<TableCellStyled>{row.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.TwentyTwo.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width,padding: row.TwentyTwo.padding}}>{row.TwentyTwo.value}</Typography>
+								{row.JanToFeb.value2 && (
+								<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+								   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							    </Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.JanToFeb.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{row.TwentyTwo.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+							<TableCellStyled>{row.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+								{row.TwentyOne.value2 && (
+						     	<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							     <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+					        	</Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{row.TwentyOne.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+						</TableRowStyled>
+						{expandedRows[row.id] && row.SubRows && row.SubRows.map((subRow,index) => (
+							<TableRowStyled key={subRow.id} index={index} theme={theme}>
+								<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'13px', color: theme.palette.primary}}>{subRow.Settlement}</Typography></TableCellStyled>
+							<TableCellStyled>{subRow.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: subRow.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: subRow.JanToFeb.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.JanToFeb.width,padding: row.JanToFeb.padding}}>{subRow.JanToFeb.value}</Typography>
+								{subRow.JanToFeb.value2 && (
+								<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+								   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							    </Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: subRow.JanToFeb.color, backgroundColor: subRow.JanToFeb.backgroundColor, borderRadius: subRow.JanToFeb.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.JanToFeb.width,padding: subRow.JanToFeb.padding}}>{subRow.JanToFeb.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.JanToFeb.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+							<TableCellStyled>{subRow.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: subRow.TwentyTwo.color, backgroundColor: subRow.TwentyTwo.backgroundColor, borderRadius: subRow.TwentyTwo.borderRadius, textAlign:subRow.TwentyTwo.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyTwo.width,padding: subRow.TwentyTwo.padding}}>{subRow.TwentyTwo.value}</Typography>
+								{subRow.JanToFeb.value2 && (
+								<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+								   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							    </Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: subRow.TwentyTwo.color, backgroundColor: subRow.TwentyTwo.backgroundColor, borderRadius: subRow.TwentyTwo.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyTwo.width, padding: subRow.TwentyTwo.padding }}>{subRow.JanToFeb.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.TwentyTwo.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+							<TableCellStyled>{row.Settlement === "Deduction" ? (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+								<Typography variant='body2' style={{ color: subRow.TwentyOne.color, backgroundColor: subRow.TwentyOne.backgroundColor, borderRadius: subRow.TwentyOne.borderRadius, textAlign: subRow.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyOne.width, padding: subRow.TwentyOne.padding }}>{subRow.TwentyOne.value}</Typography>
+								{subRow.TwentyOne.value2 && (
+						     	<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							     <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+					        	</Box>
+								)}
+								</Stack>
+								) : (
+								<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+								<Typography variant='body2' style={{ color: subRow.TwentyOne.color, backgroundColor: subRow.TwentyOne.backgroundColor, borderRadius: subRow.TwentyOne.borderRadius, textAlign: subRow.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyOne.width, padding: subRow.TwentyOne.padding }}>{subRow.TwentyOne.value}</Typography>
+								<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.TwentyOne.value2}</Typography>
+								</Stack>
+							)}</TableCellStyled>
+							</TableRowStyled>
+						  ))}
+						</>
+						  
 					))}
 				</TableBody>
 				<TableHead>
@@ -446,33 +532,33 @@ const ComaprisionTable = () => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-    {ComparisonNewTable.map((row, index) => (
-        <TableRowStyled key={row.id} index={index} theme={theme}>
-            {row.Settlement.value === "EBITDA%" ? (
-                <TableCellStyled>
-                    <Stack direction='row' spacing={1} alignItems='center'>
-                        <Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'15px'}}>{row.Settlement.value}</Typography>
-                        {row.Settlement.value2 && (
-                            <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
-                                <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-                            </div>
-                        )}
-                    </Stack>
-                </TableCellStyled>
-            ) : (
-                <TableCellStyled>
-                    <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                        <Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'15px'}}>{row.Settlement.value}</Typography>
-                        <Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'15px',}}>{row.Settlement.value2}</Typography>
-                    </Stack>
-                </TableCellStyled>
-            )}
-            
-            <TableCellStyled><Typography variant='body2' style={{ color: row.JanToFeb.color, fontWeight:'500', fontSize:'15px'}}>{row.JanToFeb.value}</Typography></TableCellStyled>
-            <TableCellStyled><Typography variant='body2' style={{ color: row.TwentyTwo.color, fontWeight:'500', fontSize:'14px'}}>{row.TwentyTwo.value}</Typography></TableCellStyled>
-            <TableCellStyled><Typography variant='body2' style={{ color: row.TwentyOne.color, fontWeight:'500', fontSize:'14px'}}>{row.TwentyOne.value}</Typography></TableCellStyled>
-        </TableRowStyled>
-    ))}
+					{ComparisonNewTable.map((row, index) => (
+						<TableRowStyled style={{width:'350px'}} key={row.id} index={index} theme={theme}>
+							{row.Settlement.value === "EBITDA%" ? (
+								<TableCellStyled>
+									<Stack direction='row' spacing={1} alignItems='center'>
+										<Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'13px'}}>{row.Settlement.value}</Typography>
+										{row.Settlement.value2 && (
+											<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+											  <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+										    </Box>
+										)}
+									</Stack>
+								</TableCellStyled>
+							) : (
+								<TableCellStyled>
+									<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+										<Typography variant='body2' style={{ color: row.Settlement.color, fontWeight:'500', fontSize:'13px'}}>{row.Settlement.value}</Typography>
+										<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{row.Settlement.value2}</Typography>
+									</Stack>
+								</TableCellStyled>
+							)}
+							
+							<TableCellStyled><Typography variant='body2' style={{ color: row.JanToFeb.color, fontWeight:'500', fontSize:'13px'}}>{row.JanToFeb.value}</Typography></TableCellStyled>
+							<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyTwo.color, fontWeight:'500', fontSize:'13px'}}>{row.TwentyTwo.value}</Typography></TableCellStyled>
+							<TableCellStyled><Typography variant='body2' style={{ color: row.TwentyOne.color, fontWeight:'500', fontSize:'13px'}}>{row.TwentyOne.value}</Typography></TableCellStyled>
+						</TableRowStyled>
+					))}
                 </TableBody>
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.grey.main}}>
@@ -484,52 +570,52 @@ const ComaprisionTable = () => {
 				</TableHead>
 				<TableBody>
 					{ComparisonTwoNewTable.map((row, index) => (
-					<TableRowStyled key={row.id} index={index} theme={theme}>
+					<TableRowStyled style={{width:'350px'}} key={row.id} index={index} theme={theme}>
 					
-					<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'15px',color: theme.palette.primary.main}}>{row.Settlement}</Typography></TableCellStyled>
+					<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'13px',color: theme.palette.primary.main}}>{row.Settlement}</Typography></TableCellStyled>
 					<TableCellStyled>{row.Settlement !== "Provision Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
                          {row.JanToFeb.value2 && (
-                         <div style={{ backgroundColor: theme.palette.primary.main, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                         <Box style={{ backgroundColor: theme.palette.primary.main, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
+					     </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.JanToFeb.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.JanToFeb.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 					<TableCellStyled>{row.Settlement !== "Provision Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
                          {row.JanToFeb.value2 && (
-                          <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                          <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						  <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					      </div>
+					      </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.JanToFeb.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.TwentyTwo.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.JanToFeb.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.TwentyTwo.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 			     	<TableCellStyled>{row.Settlement !== "Provision Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
                          {row.TwentyOne.value2 && (
-                         <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                         <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
+					     </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.TwentyOne.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.TwentyOne.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 			    	</TableRowStyled>
@@ -539,7 +625,7 @@ const ComaprisionTable = () => {
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.grey.main}}>
 						<TableCell><Typography variant='body2' style={{color:theme
-						.palette.primary.main,fontSize: '15px', fontWeight:'500', }} >Refunds & Reversals</Typography></TableCell>
+						.palette.primary.main,fontSize: '13px', fontWeight:'500', }} >Refunds & Reversals</Typography></TableCell>
 						<TableCell></TableCell>
 						<TableCell></TableCell>
 						<TableCell></TableCell>
@@ -547,60 +633,120 @@ const ComaprisionTable = () => {
 				</TableHead>
 				<TableBody>
 					{Comparisontable.map((row, index) => (
-					<TableRowStyled key={row.id} index={index} theme={theme}>
+					<>
+					   <TableRowStyled key={row.id} index={index} theme={theme} onClick={() => toggleRow(row.id)}>
 					
-					<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'15px'}}>{row.Settlement}</Typography></TableCellStyled>
+					<TableCellStyled style={{width:'350px'}}> 
+						{row.SubRows && (
+							<Stack direction='row' alignItems='center'>
+								<Typography variant='body2' style={{ fontWeight: '500', fontSize: '13px' }}>{row.Settlement}</Typography>
+								{expandedRows[row.id] ? <IconChevronUp size={16} style={{color: theme.palette.primary.main}} /> : <IconChevronDown  size={16} style={{color: theme.palette.primary.main}} />}
+							</Stack>
+							)}
+							{!row.SubRows && (
+							<Typography variant='body2' style={{ fontWeight: '500', fontSize: '13px' }}>{row.Settlement}</Typography>
+						)}
+			        </TableCellStyled>
 					<TableCellStyled>{row.Settlement === "Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,padding: row.JanToFeb.padding}}>{row.JanToFeb.value}</Typography>
                          {row.JanToFeb.value2 && (
-                         <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                         <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
+					     </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.JanToFeb.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: row.JanToFeb.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.JanToFeb.width,}}>{row.JanToFeb.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.JanToFeb.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 					<TableCellStyled>{row.Settlement === "Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.TwentyTwo.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyTwo.width,padding: row.TwentyTwo.padding}}>{row.TwentyTwo.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.TwentyTwo.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width,padding: row.TwentyTwo.padding}}>{row.TwentyTwo.value}</Typography>
                          {row.JanToFeb.value2 && (
-                          <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                          <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						  <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					      </div>
+					      </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.TwentyTwo.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.TwentyTwo.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.TwentyTwo.color, backgroundColor: row.TwentyTwo.backgroundColor, borderRadius: row.TwentyTwo.borderRadius, textAlign: row.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyTwo.width, padding: row.TwentyTwo.padding }}>{row.TwentyTwo.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.TwentyTwo.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 			     	<TableCellStyled>{row.Settlement === "Deduction" ? (
                        <Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
-                          <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+                          <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
                          {row.TwentyOne.value2 && (
-                         <div style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'15px', width:'15px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                         <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
 						 <IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} />
-					     </div>
+					     </Box>
                           )}
                         </Stack>
                          ) : (
                         <Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
-                         <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'15px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
-                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'15px',}}>{row.TwentyOne.value2}</Typography>
+                         <Typography variant='body2' style={{ color: row.TwentyOne.color, backgroundColor: row.TwentyOne.backgroundColor, borderRadius: row.TwentyOne.borderRadius, textAlign: row.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: row.TwentyOne.width, padding: row.TwentyOne.padding }}>{row.TwentyOne.value}</Typography>
+                         <Typography variant='body2' style={{color: theme.palette.primary.main,fontWeight:'500', fontSize:'13px',}}>{row.TwentyOne.value2}</Typography>
                         </Stack>
                     )}</TableCellStyled>
 			    	</TableRowStyled>
+					{expandedRows[row.id] && row.SubRows && row.SubRows.map((subRow,index) => (
+						<TableRowStyled key={subRow.id} index={index} theme={theme}>
+							<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'13px', color: theme.palette.primary}}>{subRow.Settlement}</Typography></TableCellStyled>
+						<TableCellStyled>{subRow.Settlement === "Deduction" ? (
+						<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+							<Typography variant='body2' style={{ color: subRow.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: subRow.JanToFeb.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.JanToFeb.width,padding: row.JanToFeb.padding}}>{subRow.JanToFeb.value}</Typography>
+							{subRow.JanToFeb.value2 && (
+							<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							</Box>
+							)}
+							</Stack>
+							) : (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+							<Typography variant='body2' style={{ color: subRow.JanToFeb.color, backgroundColor: subRow.JanToFeb.backgroundColor, borderRadius: subRow.JanToFeb.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.JanToFeb.width,padding: subRow.JanToFeb.padding}}>{subRow.JanToFeb.value}</Typography>
+							<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.JanToFeb.value2}</Typography>
+							</Stack>
+						)}</TableCellStyled>
+						<TableCellStyled>{subRow.Settlement === "Deduction" ? (
+						<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+							<Typography variant='body2' style={{ color: subRow.TwentyTwo.color, backgroundColor: subRow.TwentyTwo.backgroundColor, borderRadius: subRow.TwentyTwo.borderRadius, textAlign:subRow.TwentyTwo.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyTwo.width,padding: subRow.TwentyTwo.padding}}>{subRow.TwentyTwo.value}</Typography>
+							{subRow.JanToFeb.value2 && (
+							<Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							   <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							</Box>
+							)}
+							</Stack>
+							) : (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+							<Typography variant='body2' style={{ color: subRow.TwentyTwo.color, backgroundColor: subRow.TwentyTwo.backgroundColor, borderRadius: subRow.TwentyTwo.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyTwo.width, padding: subRow.TwentyTwo.padding }}>{subRow.JanToFeb.value}</Typography>
+							<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.TwentyTwo.value2}</Typography>
+							</Stack>
+						)}</TableCellStyled>
+						<TableCellStyled>{row.Settlement === "Deduction" ? (
+						<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
+							<Typography variant='body2' style={{ color: subRow.TwentyOne.color, backgroundColor: subRow.TwentyOne.backgroundColor, borderRadius: subRow.TwentyOne.borderRadius, textAlign: subRow.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyOne.width, padding: subRow.TwentyOne.padding }}>{subRow.TwentyOne.value}</Typography>
+							{subRow.TwentyOne.value2 && (
+							 <Box style={{ backgroundColor: theme.palette.success.extraDark, borderRadius: '50%', padding: '2px', height:'20px', width:'20px', display:'flex', alignItems:'center', justifyContent:'center' }}>
+							 <LightTooltip title="Add" arrow placement="top"><IconExclamationMark size={16} strokeWidth={1.5} style={{ color:'white' }} /></LightTooltip>
+							</Box>
+							)}
+							</Stack>
+							) : (
+							<Stack direction='row' spacing={4} alignItems='center' justifyContent='space-between'>
+							<Typography variant='body2' style={{ color: subRow.TwentyOne.color, backgroundColor: subRow.TwentyOne.backgroundColor, borderRadius: subRow.TwentyOne.borderRadius, textAlign: subRow.TwentyOne.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.TwentyOne.width, padding: subRow.TwentyOne.padding }}>{subRow.TwentyOne.value}</Typography>
+							<Typography variant='body2' style={{color: theme.palette.success.extraDark,fontWeight:'500', fontSize:'13px',}}>{subRow.TwentyOne.value2}</Typography>
+							</Stack>
+						)}</TableCellStyled>
+						</TableRowStyled>
+					  ))}
+					</>
 				
 					))}
 				</TableBody>
-
-
 			</Table>
 		</BoxStyled>
     );
