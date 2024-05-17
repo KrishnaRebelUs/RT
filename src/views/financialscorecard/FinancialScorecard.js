@@ -34,7 +34,7 @@ const FinancialScorecard = () => {
 		 height: '10px',
 		 width: '10px',
 		 borderRadius: '50px',
-		 backgroundColor: theme.palette.primary.main,
+		 backgroundColor: theme.palette.primary.light,
 		 marginRight: '5px',
 		 display:'inline-flex'
 	  }));
@@ -55,7 +55,7 @@ const FinancialScorecard = () => {
 							<Typography variant='h3'>Overview</Typography>
 						</Grid>
 						<Grid item sm={6} md={4}>
-							<DashboardCard title={<Typography variant='h6' sx={{ color: theme.palette.success.main }}>2.14% <IconArrowUpRight size='16' /></Typography>}>
+							<DashboardCard title={<Typography variant='h4' sx={{ color: theme.palette.success.extraDark }}>2.14% <IconArrowUpRight size='16' /></Typography>}>
 								<Typography variant='h4'>EBITDA % (YTD)</Typography>
 									<Stack direction='row' spacing={1} marginTop={2}>
 									<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStylegreen />Total User</TypographyStyled>
@@ -66,7 +66,7 @@ const FinancialScorecard = () => {
 							</DashboardCard>
 						</Grid>
 						<Grid item sm={6} md={4}>
-					         	<DashboardCard title={<Typography variant='h6' sx={{ color: theme.palette.success.main }}>$250,234 <IconArrowUpRight size='16' /></Typography>}>
+					         	<DashboardCard title={<Typography variant='h4' sx={{ color: theme.palette.success.extraDark  }}>$250,234 <IconArrowUpRight size='16' /></Typography>}>
 									<Typography variant='h4'>EBITDA ($) YTD</Typography>
 									<Stack direction='row' spacing={2} marginTop={2}>
 										<TypographyStyled variant="subtitle2"  sx={{ color: theme.palette.text.dark }} ><BoxStylegreen /> Past</TypographyStyled>
@@ -76,7 +76,7 @@ const FinancialScorecard = () => {
 								</DashboardCard>
 						</Grid>
 						<Grid item sm={6} md={4}>
-					        	<DashboardCard title={<Typography variant='h6' sx={{ color: theme.palette.success.main }}>$2,360,412 <IconArrowUpRight size='16' /></Typography>}>
+					        	<DashboardCard title={<Typography variant='h4' sx={{ color: theme.palette.success.extraDark  }}>$2,360,412 <IconArrowUpRight size='16' /></Typography>}>
 									<Typography variant='h4'>Provision Deduction YTD</Typography>
 								    <ColumnChart />
 								</DashboardCard>
