@@ -364,10 +364,10 @@ const ComaprisionTable = () => {
 			<Table>
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}></TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>Jan To Feb-2023</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2022</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2021</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', }}></TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>Jan To Feb-2023</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>2022</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600' }}>2021</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -401,10 +401,10 @@ const ComaprisionTable = () => {
 				</TableBody>
 				<TableHead>
 					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600',textAlign:'center' }}></TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>Jan To Feb-2023</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2022</TableCell>
-						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', textAlign:'center' }}>2021</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}></TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>Jan To Feb-2023</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>2022</TableCell>
+						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>2021</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -471,7 +471,7 @@ const ComaprisionTable = () => {
 						</TableRowStyled>
 						{expandedRows[row.id] && row.SubRows && row.SubRows.map((subRow,index) => (
 							<TableRowStyled key={subRow.id} index={index} theme={theme}>
-								<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'13px', color: theme.palette.primary}}>{subRow.Settlement}</Typography></TableCellStyled>
+								<TableCellStyled><Typography variant='body2'  style={{fontWeight:'500', fontSize:'13px', color: theme.palette.primary.main}}>{subRow.Settlement}</Typography></TableCellStyled>
 							<TableCellStyled>{subRow.Settlement === "Deduction" ? (
 							<Stack direction='row' spacing={4} alignItems='center' justifyContent= 'space-between'>
 								<Typography variant='body2' style={{ color: subRow.JanToFeb.color, backgroundColor: row.JanToFeb.backgroundColor, borderRadius: subRow.JanToFeb.borderRadius, textAlign: subRow.JanToFeb.textAlign, fontWeight:'500', fontSize:'13px', width: subRow.JanToFeb.width,padding: row.JanToFeb.padding}}>{subRow.JanToFeb.value}</Typography>
