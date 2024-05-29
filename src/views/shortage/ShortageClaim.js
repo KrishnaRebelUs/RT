@@ -26,7 +26,7 @@ const ShortageClaim = () => {
     const data = [
         { body: "Hour Saved", number: "18 h", icon: "IconClock", avatarBackgroundColor: theme.palette.success.extrDark, numberColor: theme.palette.success.extrDark },
         { body: "Resources Saved", number: "496", icon: "IconBriefcase", avatarBackgroundColor: theme.palette.accent.main, numberColor: theme.palette.success.extrDark },
-        { body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar", avatarBackgroundColor: theme.palette.primary.light, numberColor: theme.palette.success.extrDark }
+        { body: "Amount Saved", number: "$57,423", icon: "IconCurrencyDollar", avatarBackgroundColor: theme.palette.primary.extraLight, numberColor: theme.palette.success.extrDark }
     ];
 
     const ButtonStyled = styled(Button)(({ theme }) => ({

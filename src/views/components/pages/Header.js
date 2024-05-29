@@ -8,7 +8,7 @@ const Header = ({ title }) => {
     marginBottom: '2px',
     padding: '20px 25px',
     borderRadius: '8px',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.extraLight,
     paddingLeft: '10px',
   }));
   const TypographyStyled = styled(Typography)(({ theme }) => ({

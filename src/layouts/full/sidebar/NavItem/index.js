@@ -30,9 +30,9 @@ const NavItem = ({ item, level, pathDirect, onClick }) => {
     },
     '&.Mui-selected': {
       color: 'white',
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: theme.palette.primary.extraLight,
       '&:hover': {
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.primary.extraLight,
         color: 'white',
       },
     },

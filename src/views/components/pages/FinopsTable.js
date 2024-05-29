@@ -37,49 +37,55 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 
     }
 }));
-const CustomProgressBar = styled(Box)(({ theme }) => ({
+
+const CustomProgressBarContainer = styled(Box)(({ theme }) => ({
     height: '5px',
     display: 'flex',
     alignItems: 'center',
-    position: 'relative'
+    position: 'relative',
+    backgroundColor: theme.palette.success.light,
+    borderRadius: '7px',
+}));
 
-}));
-const ProgressLight = styled(Box)(({ theme }) => ({
-    width: '100%',
+const ProgressDark = styled(Box)(({ theme, value }) => ({
+    width: `${value}%`,
     height: '100%',
-    borderRadius: '7px'
+    backgroundColor: theme.palette.success.main,
+    borderRadius: '7px',
 }));
-const ProgressDark = styled(Box)(({ theme }) => ({
-    width: '100%',
-    height: '100%',
-    borderRadius: '7px'
-}));
-const ProgressText = styled(Box)(({ theme }) => ({
-    fontSize: '20px',
-    fontWeight: '500',
-}));
-const ProgressLabel = styled(Box)(({ theme }) => ({
+
+const ProgressLabel = styled(Box)(({ theme, value }) => ({
     width: '42px',
-    height: '22px', 
-    textAlign: 'center', 
-    borderRadius: '7px', 
+    height: '22px',
+    textAlign: 'center',
+    borderRadius: '7px',
     position: 'absolute',
-    right: '60px',
-    bottom: '15px', 
+    left: `calc(${value}% - 21px)`, 
+    bottom: '15px',
     color: '#fff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '12px',
-    'span': {
-        content:'""',
-        position:'absolute',
-        bottom:'-3px',
+    backgroundColor: theme.palette.success.main,
+    '& span': {
+        content: '""',
+        position: 'absolute',
+        bottom: '-3px',
         border: '3px solid',
-        transform:'rotate(45deg)',
-        right:'calc(50% - 3px)'
-    }
+        transform: 'rotate(45deg)',
+        right: 'calc(50% - 3px)',
+        borderColor: theme.palette.success.main,
+    },
 }));
+
+
+const ProgressText = styled(Box)(({ theme }) => ({
+    fontSize: '20px',
+    fontWeight: '500',
+    color: theme.palette.success.main,
+}));
+
 const BoxStyled = styled(Box)(({ theme }) => ({
    
     padding: '5px 12px',
@@ -100,6 +106,7 @@ const FinopsTable = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const winRate = 66;
 
     const columns = [
         {
@@ -255,14 +262,11 @@ const FinopsTable = () => {
                             <Grid container spacing={1}  justifyContent='end' alignItems="end">
                                 <Grid><ProgressText style={{ color: theme.palette.success.main }}>Win Rate</ProgressText></Grid>
                                 <Grid item xs={4}style={{paddingTop:'0'}}>
-                                    <Box style={{ width: '100%'}} mx={'auto'}>
-                                        <CustomProgressBar width="66%">
-                                            <ProgressLabel style={{ backgroundColor: theme.palette.success.main }}>66% <Box component="span" style={{ borderColor: theme.palette.success.main }}></Box></ProgressLabel>
-                                            <ProgressDark style={{ backgroundColor: theme.palette.success.main }}></ProgressDark>
-                                            <ProgressLight style={{ backgroundColor: theme.palette.success.light }}></ProgressLight>
-                                           
-                                        </CustomProgressBar>
-                                         
+                                    <Box style={{ width: 'calc(100% - 30px)' }} mx={'auto'}>
+                                        <CustomProgressBarContainer>
+                                            <ProgressDark value={winRate} />
+                                            <ProgressLabel  value={winRate} >{winRate}% <Box component="span"></Box></ProgressLabel>
+                                        </CustomProgressBarContainer>
                                     </Box>
                                 </Grid>
                                 <Grid item style={{paddingTop:'0'}}>
