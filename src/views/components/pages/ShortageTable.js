@@ -28,7 +28,7 @@ const ButtonStyled = styled(Button)(({ theme }) => ({
 }));
 const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.light
 }));
 const BoxStyled = styled(Box)(({ theme }) => ({
     padding: '3px 8px',
@@ -174,7 +174,7 @@ const ShortageTable = () => {
             </Grid>
             <Table>
                 <TableHead>
-                    <TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
+                    <TableRow style={{ backgroundColor: theme.palette.primary.extraLight, }}>
                         <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Settlement</TableCell>
                         <TableCell style={{ color: 'white', fontSize: '15px', fontWeight: '600' }}>Active Cases($)</TableCell>
                     </TableRow>

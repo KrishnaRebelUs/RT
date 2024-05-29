@@ -11,7 +11,7 @@ const BoxStyled = styled(Box)(({ theme}) => ({
 }));
 const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.light
 }));
 
 
@@ -363,7 +363,7 @@ const ComaprisionTable = () => {
         <BoxStyled>
 			<Table>
 				<TableHead>
-					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
+					<TableRow style={{ backgroundColor: theme.palette.primary.extraLight, }}>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600', }}></TableCell>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>Jan To Feb-2023</TableCell>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>2022</TableCell>
@@ -400,7 +400,7 @@ const ComaprisionTable = () => {
 					))}
 				</TableBody>
 				<TableHead>
-					<TableRow style={{ backgroundColor: theme.palette.primary.light, }}>
+					<TableRow style={{ backgroundColor: theme.palette.primary.extraLight, }}>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}></TableCell>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>Jan To Feb-2023</TableCell>
 						<TableCell style={{ color: 'white', fontSize: '13px', fontWeight: '600'}}>2022</TableCell>

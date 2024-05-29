@@ -35,7 +35,7 @@ const Impactoverview = () => {
       body: "Amount Saved", 
       number: "$57,423", 
       icon: "IconCurrencyDollar",
-      avatarBackgroundColor: theme.palette.primary.light, 
+      avatarBackgroundColor: theme.palette.primary.extraLight, 
       numberColor: theme.palette.success.extrDark,
       avatarWidth: '35px',
       avatarHeight: '35px',

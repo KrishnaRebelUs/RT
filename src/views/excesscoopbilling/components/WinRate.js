@@ -31,8 +31,8 @@ const WinRate = () => {
       };
     }, []);
 
-
-
+    
+    const hasData = true;
     const CustomProgressBar = styled(Box)(({ theme }) => ({
         height: '5px',
         display: 'flex',
@@ -73,98 +73,64 @@ const WinRate = () => {
             right:'calc(50% - 3px)'
         }
     }));
-    
+    const items = [
+        { name: 'Incorrect Freight', color: theme.palette.success, progress: 66, status: 'data' },
+        { name: 'Incorrect Code', color: theme.palette.accent, progress: 57, status: 'data' },
+        { name: 'Incorrect Agreement', color: theme.palette.primary, progress: 87, status: 'approval' },
+        { name: 'Duplicate Agreement', color: theme.palette.warning, progress: 60, status: 'noData' }
+    ];
+    const sortedItems = items.sort((a,b)=>{
+      const order ={data:1, approval: 2, noData: 3};
+      return order[a.status] - order[b.status];
+    })
     return (
         <DashboardCard 
             title={
                 <Typography variant='h4' mb={2}>Win Rate</Typography>
             }
         >
-            <Box>
-                <Grid container style={{borderBottom:'1px solid', borderColor: theme.palette.divider}} pb={3}>
-                    <Grid item xs={12} mb={3}>
-                        <Grid container alignItems="center">
-                            <Grid item sm={4}>
-                                <Typography variant='h6' sx={{fontWeight: 400, color: theme.palette.success.extraDark}}>Incorrect Freight</Typography>
+              {hasData?(
+                <Box>
+                    <Grid container style={{borderBottom:'1px solid', borderColor: theme.palette.divider}} pb={0}>
+                    {sortedItems.map((item, index) => (
+                        <Grid item xs={12} mb={3} key={index}>
+                            <Grid container alignItems="center">
+                                <Grid item sm={4}>
+                                    <Typography variant='h6' sx={{ fontWeight: 400, color: item.color.main }}>{item.name}</Typography>
+                                </Grid>
+                                <Grid item sm={8} px={1}>
+                                    <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
+                                        <CustomProgressBar width={`${item.progress}%`}>
+                                            <ProgressLight style={{ backgroundColor: item.color.light }}></ProgressLight>
+                                            <ProgressDark style={{ backgroundColor: item.color.main }}></ProgressDark>
+                                            <ProgressLabel style={{ backgroundColor: item.color.main }}>
+                                                {item.progress}% <Box component="span" style={{ borderColor: item.color.main }}></Box>
+                                            </ProgressLabel>
+                                        </CustomProgressBar>
+                                    </Box>
+                                </Grid>
                             </Grid>
-                            <Grid item sm={8} px={1}>
-                                <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
-                                    <CustomProgressBar width="66%">
-                                        <ProgressLight style={{ backgroundColor: theme.palette.success.light }}></ProgressLight>
-                                        <ProgressDark style={{ backgroundColor: theme.palette.success.main }}></ProgressDark>
-                                        <ProgressLabel style={{ backgroundColor: theme.palette.success.main }}>66% <Box component="span" style={{ borderColor: theme.palette.success.main }}></Box></ProgressLabel>
-                                    </CustomProgressBar>
-                                </Box>
+                        </Grid>
+                    ))}
+                    </Grid>
+                    <Grid container pt={2}>
+                        <Grid item xs={4}></Grid> 
+                        <Grid item xs={8}>
+                            <Grid container textAlign="center">
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }} >0%</Typography></Grid>
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>20%</Typography></Grid>
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>40%</Typography></Grid>
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>60%</Typography></Grid>
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>80%</Typography></Grid>
+                                <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>100%</Typography></Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} mb={3}>
-                        <Grid container alignItems="center">
-                            <Grid item sm={4}>
-                                <Typography variant='h6' sx={{fontWeight: 400, color: theme.palette.accent.main}}>Incorrect Code</Typography>
-                            </Grid>
-                            <Grid item sm={8}>
-                                <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
-                                    <CustomProgressBar width="57%">
-                                        <ProgressLight style={{ backgroundColor: theme.palette.accent.light }}></ProgressLight>
-                                        <ProgressDark style={{ backgroundColor: theme.palette.accent.main }}></ProgressDark>
-                                        <ProgressLabel style={{ backgroundColor: theme.palette.accent.main }}>57% <Box component="span" style={{ borderColor: theme.palette.accent.main }}></Box></ProgressLabel>
-                                    </CustomProgressBar>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} mb={3}>
-                        <Grid container alignItems="center">
-                            <Grid item sm={4}>
-                                <Typography variant='h6' sx={{fontWeight: 400, color: theme.palette.primary.main}}>Incorrect Agreement</Typography>
-                            </Grid>
-                            <Grid item sm={8}>
-                                <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
-                                    <CustomProgressBar width="87%">
-                                        <ProgressLight style={{ backgroundColor: theme.palette.primary.extraLight }}></ProgressLight>
-                                        <ProgressDark style={{ backgroundColor: theme.palette.primary.main }}></ProgressDark>
-                                        <ProgressLabel style={{ backgroundColor: theme.palette.primary.main }}>87% <Box component="span" style={{ borderColor: theme.palette.primary.main }}></Box></ProgressLabel>
-                                    </CustomProgressBar>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Grid container alignItems="center">
-                            <Grid item sm={4}>
-                                <Typography variant='h6' sx={{fontWeight: 400, color: theme.palette.warning.main}}>Duplicate Agreement</Typography>
-                            </Grid>
-                            <Grid item sm={8}>
-                                <Box style={{ width: 'calc(100% - 45px)' }} mx={'auto'}>
-                                    <CustomProgressBar width="60%">
-                                        <ProgressLight style={{ backgroundColor: theme.palette.warning.light }}></ProgressLight>
-                                        <ProgressDark style={{ backgroundColor: theme.palette.warning.main }}></ProgressDark>
-                                        <ProgressLabel style={{ backgroundColor: theme.palette.warning.main }}>60% <Box component="span" style={{ borderColor: theme.palette.warning.main }}></Box></ProgressLabel>
-                                    </CustomProgressBar>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid container pt={2}>
-                    <Grid item xs={4}></Grid> 
-                    <Grid item xs={8}>
-                        <Grid container textAlign="center">
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }} >0%</Typography></Grid>
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>20%</Typography></Grid>
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>40%</Typography></Grid>
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>60%</Typography></Grid>
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>80%</Typography></Grid>
-                            <Grid item xs={2}><Typography variant='body2' style={{ fontWeight: 600 }}>100%</Typography></Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Box>
-            {/* {No Data} */}
-            {/* <Box mt={5}>
+                </Box>
+              ):(
+                <Box mt={5}>
                     <Box mb={2} style={{position:'relative'}}>
-                        <img src={astraunaut} alt='' style={{marginLeft:'15px',position:'absolute', bottom:'32px', left:'15px'}}/>
+                        <img src={astraunaut} alt='' style={{position:'absolute', bottom:'8px', left:'0'}}/>
                         <Grid container alignItems='center' justifyContent='space-between'>
                             <Grid item>
                                 <IconFlag3 />
@@ -177,28 +143,28 @@ const WinRate = () => {
                     </Box>
                     <Box width={500} style={{margin:'auto',textAlign:'center'}} >
                         <Typography variant='h3'style={{color:theme.palette.error.main, marginBottom:'10px'}}>No Data</Typography>
-                        <LinearProgress variant="determinate" value={5} />
                     </Box>
-                </Box> */}
-                 {/* {Approval Pending} */}
-                    {/* <Box mt={5}>
-                        <Box mb={2} style={{position:'relative'}}>
-                            <img src={running} alt='' style={{left:'35%',position:'absolute', bottom:'32px', width:'110px'}}/>
-                            <Grid container alignItems='center' justifyContent='space-between'>
-                                <Grid item>
-                                    <IconFlag3 />
-                                </Grid>
-                                <Grid item>
+                </Box>
+              )}
+              {false?(
+                <Box mt={5}>
+                    <Box mb={2} style={{position:'relative'}}>
+                        <img src={running} alt='' style={{left:'35%',position:'absolute', bottom:'8px', height:'100px'}}/>
+                        <Grid container alignItems='center' justifyContent='space-between'>
+                            <Grid item>
                                 <IconFlag3 />
-                                </Grid>
                             </Grid>
-                            <img src={track} alt=''width={500}/>
-                        </Box>
-                        <Box width={500} style={{margin:'auto',textAlign:'center'}} >
-                            <Typography variant='h3'style={{color:theme.palette.success.main, marginBottom:'10px'}}>Approval Pending</Typography>
-                            <LinearProgress variant="determinate" value={50} />
-                        </Box>
-                    </Box> */}
+                            <Grid item>
+                            <IconFlag3 />
+                            </Grid>
+                        </Grid>
+                        <img src={track} alt=''width={500}/>
+                    </Box>
+                    <Box style={{margin:'auto',textAlign:'center'}} >
+                        <Typography variant='h3'style={{color:theme.palette.success.main, marginBottom:'10px'}}>Approval Pending</Typography>
+                    </Box>
+                </Box>
+              ):null}
         </DashboardCard>
     );
 };

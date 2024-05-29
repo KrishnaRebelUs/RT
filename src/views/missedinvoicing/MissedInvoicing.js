@@ -61,8 +61,8 @@ const MissedInvoicing = () => {
 		{ 
 			body: "Amount Saved To Audit", 
 			number: "496", 
-			icon: "IconCurrencyDolla", 
-			avatarBackgroundColor: theme.palette.primary.light, 
+			icon: "IconCurrencyDollar", 
+			avatarBackgroundColor: theme.palette.primary.extraLight, 
 			numberColor: theme.palette.success.extrDark,
 			avatarWidth: '35px',
 			avatarHeight: '35px',

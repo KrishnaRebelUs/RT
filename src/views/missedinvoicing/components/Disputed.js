@@ -28,9 +28,9 @@ const Disputed = () => {
 	  const theme = useTheme();
   return (
     <DashboardCard title={
-		<Typography variant='h4' sx={{color: theme.palette.primary.light}}>Claim Submitted($)</Typography>
+		<Typography variant='h4' sx={{color: theme.palette.primary.extraLight}}>Claim Submitted($)</Typography>
 	}>
-		<Typography variant='h3' sx={{ color: theme.palette.primary.light}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
+		<Typography variant='h3' sx={{ color: theme.palette.primary.extraLight}}>${new Intl.NumberFormat().format(4942234.43)}</Typography>
 		<TypographyStyled variant='body2' marginTop={3} sx={{ color: theme.palette.text.dark }}>View all raised disputes till date</TypographyStyled>	
 
 	</DashboardCard>

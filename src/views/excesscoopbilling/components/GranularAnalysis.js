@@ -10,7 +10,7 @@ import {
 import DashboardCard from '../../../components/shared/DashboardCard';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.light
+    backgroundColor: theme.palette.primary.extraLight
 }));
 const TableTypography = styled(TableCell)(({ theme }) => ({
     color: 'white',
@@ -20,7 +20,7 @@ const TableTypography = styled(TableCell)(({ theme }) => ({
 }));
 const TableRowStyled = styled(TableRow)(({ theme, index }) => ({
     borderBottom: '1px solid #eee',
-    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.extraLight
+    backgroundColor: index % 2 === 0 ? theme.palette.secondary.contrastText : theme.palette.primary.light
 }));
 
 const GranularAnalysis = () => {
