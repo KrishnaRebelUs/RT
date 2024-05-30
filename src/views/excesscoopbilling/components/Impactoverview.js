@@ -62,7 +62,7 @@ const Impactoverview = () => {
           <Typography variant='body1' style={{ textAlign: 'center', marginLeft: '25px', marginTop: '5px', fontWeight: '500'}} sx={{ color: theme.palette.accent.main }} >Rate</Typography>
         </Grid>
       </Grid>
-      <Box mt={4}></Box>
+      <Box mt={2}></Box>
       <Typography variant='h4' marginBottom={3}> Efforts to Audit</Typography>
       <NumberData data={data} />
 
