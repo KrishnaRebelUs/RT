@@ -309,7 +309,7 @@ const Dashboard = () => {
                      <Typography variant='h4'>${new Intl.NumberFormat().format(300200.20)}</Typography>
                   </Grid>
                 </Grid>
-                <Grid container justifyContent='space-between'  alignItems='center' mb={3}>
+                <Grid container justifyContent='space-between' spacing='' alignItems='center' mb={3}>
                   <Grid item>
                       <Stack direction='row'  alignItems='center' spacing={1}>
                         <AvatarStyled variant='square'><IconCheck /></AvatarStyled>
