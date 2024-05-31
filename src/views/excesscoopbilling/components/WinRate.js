@@ -32,7 +32,7 @@ const WinRate = () => {
     }, []);
 
     
-    const hasData = true;
+    const hasData = 66;
     const CustomProgressBar = styled(Box)(({ theme }) => ({
         height: '5px',
         display: 'flex',
@@ -75,7 +75,7 @@ const WinRate = () => {
     }));
     const items = [
         { name: 'Incorrect Freight', color: theme.palette.success, progress: 66, status: 'data' },
-        { name: 'Incorrect Code', color: theme.palette.accent, progress: 57, status: 'data' },
+        { name: 'Incorrect Code', color: theme.palette.accent, progress: 57, status: 'noData' },
         { name: 'Incorrect Agreement', color: theme.palette.primary, progress: 87, status: 'approval' },
         { name: 'Duplicate Agreement', color: theme.palette.warning, progress: 60, status: 'noData' }
     ];
