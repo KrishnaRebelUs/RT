@@ -8,6 +8,7 @@ const DonutChart = ({ series }) => {
   const primary = theme.palette.primary.main;
   const accentlight = theme.palette.accent.main;
   const successlight = theme.palette.secondary.main;
+  const secondarylight= theme.palette.success.main;
 
   const total = series.reduce((a, b) => a + b, 0);
 
@@ -16,7 +17,7 @@ const DonutChart = ({ series }) => {
       width: 180,
       type: 'donut',
     },
-    colors: [primary, accentlight, successlight],
+    colors: [primary, accentlight, successlight, secondarylight],
     dataLabels: {
       enabled: false,
     },
@@ -59,7 +60,7 @@ const DonutChart = ({ series }) => {
         }
       }
     },
-    labels: ['Disputed', 'Approved', 'Pending'],
+    labels: ['Findings', 'Outstanding Balance', 'Outstanding Balance','Final Settlement Offer'],
     legend: {
       show: false,
     },
