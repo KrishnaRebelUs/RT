@@ -1,5 +1,5 @@
 import {
- IconLayoutDashboard,IconChartHistogram, IconClock ,IconGraph,IconReceipt2,IconFileDollar
+ IconLayoutDashboard,IconChartHistogram, IconClock ,IconGraph,IconReceipt2,IconFileDollar,IconRecharging
 } from '@tabler/icons-react';
 
 import { uniqueId } from 'lodash';
@@ -41,6 +41,12 @@ const Menuitems = [
     title: 'Missed Invoicing',
     icon: IconFileDollar,
     href: '/missed-invoicing',
+  },
+  {
+    id: uniqueId(),
+    title: 'Ops Chargeback',
+    icon: IconRecharging,
+    href: '/ops-chargeback',
   },
  
  

@@ -157,7 +157,7 @@ const Dashboard = () => {
                  <Stack direction='row' spacing={2}>
                     <AvatarStyled variant='square'><IconSearch /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6' sx={{ color: theme.palette.accent.main }}>Findings ($)</Typography>
+                      <Typography variant='h6' sx={{ color: theme.palette.secondary.main }}>Findings ($)</Typography>
                       <Typography variant='h6'>${new Intl.NumberFormat().format(36456.20)}</Typography>
                     </Box>
                  </Stack>
@@ -166,7 +166,7 @@ const Dashboard = () => {
                  <Stack direction='row' spacing={2} mt={2}>
                     <AvatarStyled variant='square'><IconSectionSign /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6' sx={{ color: theme.palette.success.main }}>Outstanding Balance ($)</Typography>
+                      <Typography variant='h6' sx={{ color: theme.palette.accent.main }}>Outstanding Balance ($)</Typography>
                       <Typography variant='h6'>${new Intl.NumberFormat().format(36456.20)}</Typography>
                     </Box>
                  </Stack>
@@ -175,7 +175,7 @@ const Dashboard = () => {
                  <Stack direction='row' spacing={2} mt={2}>
                     <AvatarStyled variant='square'><IconCheck /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6'  sx={{ color: theme.palette.secondary.main }}>Counteroffer  ($)</Typography>
+                      <Typography variant='h6'  sx={{ color: theme.palette.success.main }}>Counteroffer  ($)</Typography>
                       <Typography variant='h6'>${new Intl.NumberFormat().format(36456.20)}</Typography>
                     </Box>
                  </Stack>
@@ -184,7 +184,7 @@ const Dashboard = () => {
                   <Stack direction='row' spacing={2}>
                     <AvatarStyled variant='square'><IconExclamationCircle /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6'  sx={{ color: theme.palette.accent.main }}>Final Settlement Offer($)</Typography>
+                      <Typography variant='h6'  sx={{ color: theme.palette.success.dark}}>Final Settlement Offer($)</Typography>
                       <Typography variant='h6'>${new Intl.NumberFormat().format(23100.00)}</Typography>
                     </Box>
                   </Stack>
@@ -311,7 +311,7 @@ const Dashboard = () => {
                   <Grid item>
                       <Stack direction='row'  alignItems='center' spacing={1}>
                         <AvatarStyled variant='square'><IconExclamationCircle /></AvatarStyled>
-                        <Typography variant='h5' sx={{ color: theme.palette.success.main }}>Pending</Typography>
+                        <Typography variant='h5' sx={{ color: theme.palette.error.dark }}>Pending</Typography>
                       </Stack>
                           
                   </Grid>
@@ -330,11 +330,11 @@ const Dashboard = () => {
             <DonutChart series={newSeries} />
             <Grid container mt={2} justifyContent='space-between'>
               <Grid item xs={12}>
-                 <Stack direction='row' spacing={2}>
+                 <Stack direction='row' spacing={2} mb={3}>
                     <AvatarStyled variant='square'><IconCheck /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6'>Approved</Typography>
-                      <Typography variant='subtitle1'>${new Intl.NumberFormat().format(125220.40)}</Typography>
+                      <Typography variant='h6' sx={{color: theme.palette.secondary.main}}>Approved</Typography>
+                      <Typography variant='h6'>${new Intl.NumberFormat().format(125220.40)}</Typography>
                     </Box>
                  </Stack>
               </Grid>
@@ -342,8 +342,8 @@ const Dashboard = () => {
                   <Stack direction='row' spacing={2}>
                     <AvatarStyled variant='square'><IconExclamationCircle /></AvatarStyled>
                     <Box>
-                      <Typography variant='h6'>Pending</Typography>
-                      <Typography variant='subtitle1'>${new Intl.NumberFormat().format(175000.00)}</Typography>
+                      <Typography variant='h6'  sx={{color: theme.palette.error.dark}}>Pending</Typography>
+                      <Typography variant='h6'>${new Intl.NumberFormat().format(175000.00)}</Typography>
                     </Box>
                   </Stack>
               </Grid>
