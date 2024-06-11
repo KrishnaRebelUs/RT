@@ -63,7 +63,7 @@ const InfraTable = () => {
     ];
     return (
         <DashboardCard>
-            <Grid container spacing={2}  mb={3}>
+            <Grid container spacing={2}  mb={3} alignItems='center'>
                 <Grid item xs={12} lg={6}>
 					<Typography variant='h3'>Infraction Type</Typography>
 				</Grid>
