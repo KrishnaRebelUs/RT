@@ -1,7 +1,7 @@
 import React from 'react';
 import {IconCalendarStats} from '@tabler/icons-react';
 import '../../../theme/FormStyle.css';
-import { Box, Select, Checkbox, FormControl, Input, MenuItem, ListItemText } from '@mui/material';
+import { Box, Select,  Input, MenuItem, ListItemText } from '@mui/material';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -28,7 +28,7 @@ const names = [
   'December',
 ];
 
-const SelectSearch = () => {
+const SelectMonth = () => {
   const [personName, setPersonName] = React.useState([names[0]]); 
 
   const handleChange = (event) => {
@@ -66,4 +66,4 @@ const SelectSearch = () => {
   )
 }
 
-export default SelectSearch;
+export default SelectMonth;

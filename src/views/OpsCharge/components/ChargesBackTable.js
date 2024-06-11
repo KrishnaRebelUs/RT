@@ -5,9 +5,11 @@ import {
     TableBody,
     TableCell,
     TableHead,
-    TableRow, styled, useTheme
+    TableRow, styled, useTheme, Grid
 } from '@mui/material';
 import DashboardCard from '../../../components/shared/DashboardCard';
+import SelectYear from '../../../layouts/full/header/SelectYear';
+import SelectMonth from '../../../layouts/full/header/SelectMonth';
 
 const TableHeadStyled = styled(TableHead)(({ theme }) => ({
     backgroundColor: theme.palette.primary.extraLight
@@ -65,6 +67,18 @@ const ChargesBackTable = () => {
     ];
     return (
         <DashboardCard>
+            <Grid container spacing={2}  mb={3} alignItems='center'>
+               <Grid item xs={12} lg={6}>
+					<Typography variant='h3'>Chargeback Split</Typography>
+				</Grid>
+                <Grid item xs={12} lg={3}>
+                    <SelectMonth />
+                </Grid>
+                <Grid item xs={12} lg={3}>
+                    <SelectYear />
+                </Grid>
+
+			</Grid>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "wrap" }}>
                     <TableHeadStyled theme={theme}>
