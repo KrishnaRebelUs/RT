@@ -58,18 +58,18 @@ const OpsChargeBack = () => {
 	<PageContainer title=' Opertaional Chargebacks'>
 			<Grid container spacing={3} mb={4}>
 				<Grid item xs={12}>
-					<Breadcrumb titles={['Operational Chargebacks']} />
+					<Breadcrumb titles={['Operational Chargeback']} />
 				</Grid>
 				<Grid item xs={12}>
-					<Header title='Operational Chargebacks' />
+					<Header title='Operational Chargeback' />
 				</Grid>
 			
             </Grid>
 			<Grid container spacing={2} mb={4}>
 				<Grid item sm={6} md={3}>
 					<ClaimCard>
-						<DashboardCard title={<Typography variant='h6'>Total Disputed</Typography>}>
-							<Typography variant='h4' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8847.91)}</Typography>
+						<DashboardCard title={<Typography variant='h4'>Total Disputed</Typography>}>
+							<Typography variant='h2' sx={{ color: theme.palette.primary.main }}>${new Intl.NumberFormat().format(8847.91)}</Typography>
 							<IconExclamationCircle size='70' style={{ position: 'absolute', right: '25px', bottom: '30px', color: theme.palette.primary.main }} />
 						</DashboardCard>
 					</ClaimCard>
@@ -77,8 +77,8 @@ const OpsChargeBack = () => {
 				
 				<Grid item sm={6} md={3}>
 					<ClaimCard>
-						<DashboardCard title={<Typography variant='h6'>Total Denied</Typography>}>
-							<Typography variant='h4' sx={{ color: theme.palette.error.main }}>${new Intl.NumberFormat().format(4712.67)}</Typography>
+						<DashboardCard title={<Typography variant='h4'>Total Denied</Typography>}>
+							<Typography variant='h2' sx={{ color: theme.palette.error.main }}>${new Intl.NumberFormat().format(4712.67)}</Typography>
 							<IconThumbDown size='70' style={{ position: 'absolute', right: '25px', bottom: '30px', color: theme.palette.error.main }} />
 						</DashboardCard>
 					</ClaimCard>
@@ -87,10 +87,10 @@ const OpsChargeBack = () => {
 					<ClaimCard>
 						<DashboardCard
 							title={
-								<Typography variant='h6'>Total Approved</Typography>
+								<Typography variant='h4'>Total Approved</Typography>
 							}
 						>
-							<Typography variant='h4' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(2520.49)}</Typography>
+							<Typography variant='h2' sx={{ color: theme.palette.success.dark }}>${new Intl.NumberFormat().format(2520.49)}</Typography>
 							<IconThumbUp size='70' style={{ position: 'absolute', right: '25px', bottom: '30px', color: theme.palette.success.main }} />
 						</DashboardCard>
 					</ClaimCard>
@@ -104,39 +104,11 @@ const OpsChargeBack = () => {
 				</Grid>
 			</Grid>
 			<Grid container spacing={2} justifyContent='space-between' mb={4}>
-				<Grid item xs={12} lg={6}>
-					<Typography variant='h3'>Chargeback Split</Typography>
-				</Grid>
-				<Grid item xs={12} lg={6}>
-					<Grid container spacing={2}>
-						<Grid item xs={12} lg={6}>
-							<SelectMonth />
-						</Grid>
-						<Grid item xs={12} lg={6}>
-							<SelectYear />
-						</Grid>
-
-					</Grid>
-				</Grid>
 				<Grid item xs={12} mt={1}>
 					<ChargesBackTable />
 				</Grid>
 			</Grid>
 			<Grid container spacing={2} justifyContent='space-between' mb={4}>
-				<Grid item xs={12} lg={6}>
-					<Typography variant='h3'>Infraction Type</Typography>
-				</Grid>
-				<Grid item xs={12} lg={6}>
-					<Grid container spacing={2}>
-						<Grid item xs={12} lg={6}>
-							<SelectMonth />
-						</Grid>
-						<Grid item xs={12} lg={6}>
-							<SelectQtr />
-						</Grid>
-
-					</Grid>
-				</Grid>
 				<Grid item xs={12} mt={1}>
 					<InfraTable />
 				</Grid>

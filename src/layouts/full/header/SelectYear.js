@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconCalendarStats } from '@tabler/icons-react';
 import '../../../theme/FormStyle.css';
-import { Box, Select, Checkbox, FormControl, Input, MenuItem, ListItemText } from '@mui/material';
+import { Box, Select,Input, MenuItem, ListItemText } from '@mui/material';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -21,7 +21,7 @@ const names = [
   '2024',
 ];
 
-const SelectSearch = () => {
+const SelectYear = () => {
   const [personName, setPersonName] = React.useState([names[0]]); 
 
   const handleChange = (event) => {
@@ -34,7 +34,7 @@ const SelectSearch = () => {
   };
 
   return (
-    <Box className="select-currency">
+    <Box className="accountStyle">
       <Box className="accountStyle_icon"><IconCalendarStats /></Box>
       <Box>
 
@@ -59,4 +59,4 @@ const SelectSearch = () => {
   )
 }
 
-export default SelectSearch;
+export default SelectYear;

@@ -6,11 +6,13 @@ import user  from '../../assets/images/profile/user-1.jpg';
 import { useTheme } from '@emotion/react';
 import DonutChart from '../components/pages/DonutChart';
 import { IconTimeDuration5,IconPercentage,IconCurrencyDollar,IconSectionSign, IconTrendingDown3,IconCircleDashed,IconCheck,IconExclamationCircle, IconSearch,IconGridDots,IconOctagon } from '@tabler/icons-react';
-import ComparisionChart from '../components/pages/ComparisionChart';
+import Header from '../components/pages/Header';
+import Breadcrumb from '../components/pages/Breadcrumb';
 import NumberData  from '../components/pages/NumberData';
 import WinrateChart from '../components/pages/WinrateChart';
 import WinLineChart from '../components/pages/WinLineChart';
 import WinGraphChart from '../components/pages/WinGraphChart';
+
 
 
 const AvatarStyled = styled(Avatar)(({ theme }) => ({
@@ -57,6 +59,12 @@ const Dashboard = () => {
   return (
    <PageContainer title='Dashboard Page'>
         <Grid container spacing={2} mb={3}>
+              <Grid item xs={12} mb={1}>
+                <Breadcrumb/>
+            </Grid>
+            <Grid item xs={12} mb={3}>
+              <Header title='Dashboard'/>
+            </Grid>
              <Grid item lg={5} xs={12}>
                 <DashboardCard>
                    <Grid container justifyContent='space-between' >
@@ -289,34 +297,34 @@ const Dashboard = () => {
                   <Grid item>
                       <Stack direction='row'  alignItems='center' spacing={1}>
                           <AvatarStyled variant='square'><IconCircleDashed /></AvatarStyled>
-                          <Typography variant='h5' sx={{ color: theme.palette.accent.main }}>Disputed</Typography>
+                          <Typography variant='h6' sx={{ color: theme.palette.accent.main }}>Disputed</Typography>
                       </Stack>
                   </Grid>
                   <Grid item>
-                     <Typography variant='h4'>${new Intl.NumberFormat().format(300200.20)}</Typography>
+                     <Typography variant='h6'>${new Intl.NumberFormat().format(300200.20)}</Typography>
                   </Grid>
                 </Grid>
                 <Grid container justifyContent='space-between'  alignItems='center' mb={3}>
                   <Grid item>
                       <Stack direction='row'  alignItems='center' spacing={1}>
                         <AvatarStyled variant='square'><IconCheck /></AvatarStyled>
-                        <Typography variant='h5' sx={{ color: theme.palette.secondary.main }}>Approved</Typography>
+                        <Typography variant='h6' sx={{ color: theme.palette.secondary.main }}>Approved</Typography>
                       </Stack>
                   </Grid>
                   <Grid item>
-                     <Typography variant='h4'>${new Intl.NumberFormat().format(125220.40)}</Typography>
+                     <Typography variant='h6'>${new Intl.NumberFormat().format(125220.40)}</Typography>
                   </Grid>
                 </Grid>
                 <Grid container justifyContent='space-between'>
                   <Grid item>
                       <Stack direction='row'  alignItems='center' spacing={1}>
                         <AvatarStyled variant='square'><IconExclamationCircle /></AvatarStyled>
-                        <Typography variant='h5' sx={{ color: theme.palette.error.dark }}>Pending</Typography>
+                        <Typography variant='h6' sx={{ color: theme.palette.error.dark }}>Pending</Typography>
                       </Stack>
                           
                   </Grid>
                   <Grid item>
-                       <Typography variant='h4'>${new Intl.NumberFormat().format(175000.00)}</Typography>
+                       <Typography variant='h6'>${new Intl.NumberFormat().format(175000.00)}</Typography>
                   </Grid>
                 </Grid>
             </DashboardCard>
