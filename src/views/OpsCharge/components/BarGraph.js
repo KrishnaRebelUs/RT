@@ -1,4 +1,3 @@
-import { JoinFullRounded } from '@mui/icons-material';
 import React from 'react';
 import Chart from 'react-apexcharts';
 
@@ -7,7 +6,7 @@ const BarGraph = () => {
     chart: {
       type: 'bar',
       height: 350,
-	  stacked: true,
+      stacked: true,
       toolbar: {
         show: false
       },
@@ -15,70 +14,53 @@ const BarGraph = () => {
         enabled: true
       },
     },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        borderRadius: 7,
+        columnWidth: '30%', 
+      },
+    },
     stroke: {
+      show: true,
       width: 1,
       colors: ['#fff']
-    
-    },
-	plotOptions: {
-		bar: {
-		  vertical: true,
-		  borderRadius: 7,
-		  barWidth: '',
-		  barHeight: 150,  
-		},
-		
-	  },
-	  stroke: {
-		show: true,
-		lineCap: "butt",
-		colors: ["transparent"],
-   
-	},
-	options: {
-        legend: {
-          position: 'bottom',
-        },
-	},
-	dataLabels: {
-         enabled: false
     },
     xaxis: {
-		categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May','June','July'],
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+      labels: {
+        rotate: -45
+      }
     },
-	legend: {
-		show: false
+    dataLabels: {
+      enabled: false
     },
     fill: {
       opacity: 1
     },
-    colors:['#f93131','#00A15D'],
-    yaxis: {
-      labels: {
-        show: false
-      }
-    },
+    colors: ['#f93131', '#00A15D'],
+    yaxis: {},
     legend: {
       position: 'top',
       horizontalAlign: 'left',
-	  show:false
+      show: false
     }
   };
 
   const series = [
-{
-		name: 'Bar Data',
-		data: [65,59,80,81,56,55,40],
-	  }, 
-	   {
-		  name: 'Line Data',
-		  data: [28,48,40,19,86,27,90],
-	  },
+    {
+      name: 'Bar Data',
+      data: [-65, -59, -80, -81, -56, -55],
+    },
+    {
+      name: 'Line Data',
+      data: [28, 48, 40, 19, 86, 27],
+    },
   ];
 
   return (
     <div id="chart">
-      <Chart options={options} series={series} type="bar"  height={180} />
+      <Chart options={options} series={series} type="bar" height={150} />
     </div>
   );
 };
